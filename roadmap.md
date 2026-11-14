@@ -64,6 +64,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere |
 | D43 | Declutter | Simple: 3 controls + 3 toggles, rest under "More options"; budget hidden until fares; compact cards; quiz top 5, folded answers/weights |
 | D44 | Name | **Your Kind of Cruise** (was Cruise Cabin Finder): the name should say results follow your preferences |
+| D45 | Simpler Simple | No sliders in Simple (chips only); self-labelled menus; toggles drawn as chips |
 
 ---
 
@@ -372,7 +373,7 @@ All three modes read and write the **same state** (inputs, filters, weights) and
 | Controls | Cabin type, guests, 3 toggles; the rest under "More options" | Every filter, weights, sort | One question per screen |
 | Results | Cards, 12 at a time, quick sorts | Table/cards, full breakdown, 8 sorts | Top 5 matches + "Show 5 more", priority chips, sort, "See all" |
 
-**Simple mode controls** (D43): visible: cabin (Inside / Ocean view / Balcony / Suite) · guests · toggles adults only, tips included, free Wi-Fi · budget (Any / $200 / $400 / $800, shown only once fares exist). Under "More options": trip length · included dining · shareholder ticker · drinks package · less motion (≥120k GT) · priority chips and weight sliders. If filters set elsewhere can't be shown in Simple, a one-line note shows how many and offers "Clear".
+**Simple mode controls** (D43): visible: cabin (Inside / Ocean view / Balcony / Suite) · guests · toggles adults only, tips included, free Wi-Fi · budget (Any / $200 / $400 / $800, shown only once fares exist). Under "More options": trip length · included dining · shareholder ticker · drinks package · less motion (≥120k GT) · priority chips (no sliders, D45). Menus carry their own wording ("4 guests", "Any dining") instead of labels. If filters set elsewhere can't be shown in Simple, a one-line note shows how many and offers "Clear".
 
 Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony = `balcony`, `junior_suite`, `perk_class`; Suite = `suite`, `top_suite`.
 

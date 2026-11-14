@@ -4,7 +4,7 @@ import { createEngine } from './js/engine.js';
 import { MODES, readUrl, store, urlFor } from './js/state.js';
 import { detailHtml } from './js/views/common.js';
 import { initDetailed, onDetailedShow, renderDetailed } from './js/views/detailed.js';
-import { initSimple, onSimpleShow, renderSimple, syncWeights } from './js/views/simple.js';
+import { initSimple, onSimpleShow, renderSimple } from './js/views/simple.js';
 import { initWizard, onWizardShow, renderWizard } from './js/views/wizard.js';
 
 const VIEWS = {
@@ -60,7 +60,6 @@ function bindShell() {
     const k = e.target.dataset?.weight;
     if (!k) return;
     store.set({ w: { ...store.state.w, [k]: Number(e.target.value) } });
-    if (store.mode === 'simple') syncWeights();
   });
   // Fill a result's detail panel the first time it opens.
   document.addEventListener('toggle', (e) => {

@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
-import { METRICS, fresh, store, toggleIn } from '../state.js';
-import { cardHtml, priorityChips, sortSelect, togglePriority, weightSliders } from './common.js';
+import { fresh, store, toggleIn } from '../state.js';
+import { cardHtml, priorityChips, sortSelect, togglePriority } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -14,7 +14,7 @@ export const CABIN_GROUPS = [
   ['suite', 'Suite', ['suite', 'top_suite']],
 ];
 // Same steps as the wizard's budget question, so a quiz answer always shows here.
-const BUDGETS = [['', 'Any'], ['200', 'Up to $200'], ['400', 'Up to $400'], ['800', 'Up to $800']];
+const BUDGETS = [['', 'Any budget'], ['200', 'Up to $200/night'], ['400', 'Up to $400/night'], ['800', 'Up to $800/night']];
 const CALM_GT = 120000;
 
 const groupOn = (types, g) => g[2].every((t) => types.includes(t));
@@ -33,8 +33,9 @@ function hiddenFilters(s, priced) {
 
 function controls() {
   const s = store.state;
-  const sel = (id, options, value, label) => html`<label class="field"><span>${label}</span>
-    <select id="${id}">${options.map(([v, l]) => html`<option value="${v}" ${String(value) === v ? html`selected` : ''}>${l}</option>`)}</select></label>`;
+  // Each menu's options name themselves ("2 guests", "Any dining"), so there is no visible label.
+  const sel = (id, options, value, label) => html`<select class="pick" id="${id}" aria-label="${label}">
+    ${options.map(([v, l]) => html`<option value="${v}" ${String(value) === v ? html`selected` : ''}>${l}</option>`)}</select>`;
   const toggle = (id, label, on) => html`<label class="toggle"><input type="checkbox" id="${id}" ${on ? html`checked` : ''}><span>${label}</span></label>`;
   const tickers = [...new Set(engine.data.shareholder_benefits.map((b) => b.ticker))].sort();
   const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
@@ -56,15 +57,14 @@ function controls() {
       <div class="more-body">
       <div class="simple-row">
         ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
-        ${sel('s-dining', [['any', 'Any'], ['some_specialty', 'Some specialty'], ['all', 'All restaurants']], s.dining, 'Dining included')}
-        ${sel('s-ticker', [['', 'None'], ...tickers.map((t) => [t, t])], s.tickers[0] ?? '', 'Shareholder of')}
+        ${sel('s-dining', [['any', 'Any dining'], ['some_specialty', 'Some specialty dining included'], ['all', 'All restaurants included']], s.dining, 'Included dining')}
+        ${sel('s-ticker', [['', 'No cruise shares'], ...tickers.map((t) => [t, `I own ${t} shares`])], s.tickers[0] ?? '', 'Shareholder of')}
       </div>
       <div class="toggles">
         ${toggle('s-drinks', 'Add a drinks package', s.drinks === 'alcohol')}
         ${toggle('s-calm', 'Less motion (120k+ GT)', s.minGt === CALM_GT)}
       </div>
       <div class="chips" id="s-rank">${priorityChips(s.w)}</div>
-      ${weightSliders(s.w, 's')}
       </div>
     </details>
   </div>`;
@@ -97,7 +97,7 @@ function bind() {
     if (rank) {
       const k = rank.dataset.rank;
       store.set({ w: togglePriority(store.state.w, k) });
-      syncWeights();
+      mount($('s-rank'), priorityChips(store.state.w));
       return;
     }
     const chip = e.target.closest('[data-g]');
@@ -123,17 +123,6 @@ function bind() {
 }
 
 let lastItems = [];
-
-// Keep chips and sliders in step after any weight change.
-export function syncWeights() {
-  const w = store.state.w;
-  const rank = $('s-rank');
-  if (rank) mount(rank, priorityChips(w));
-  for (const [k] of METRICS) {
-    const input = $(`s-w-${k}`);
-    if (input) { input.value = String(w[k]); $(`s-wo-${k}`).textContent = String(w[k]); }
-  }
-}
 
 export function renderSimple(items) {
   lastItems = items;

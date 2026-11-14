@@ -245,18 +245,13 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
 
 /* Simple */
 .simple-bar { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 12px; margin-bottom: 18px; }
-.simple-bar > .simple-row { align-items: center; }
-.simple-bar > .simple-row .field { grid-auto-flow: column; align-items: center; gap: 8px; }
-.simple-row { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: end; }
-.simple-bar .field { display: grid; gap: 4px; min-width: 0; }
-.simple-bar .field > span {
-  font: 600 0.6875rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
-}
+.simple-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .simple-bar select { font: inherit; color: var(--ink); background: var(--surface-2); border: 1px solid var(--rule); border-radius: var(--radius); padding: 6px 8px; min-height: 38px; max-width: 100%; }
-.toggles { display: flex; flex-wrap: wrap; gap: 8px; }
-.toggle { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; min-height: 38px; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; font-size: var(--step--1); background: var(--surface-2); }
-.toggle input { accent-color: var(--sea); margin: 0; }
-.toggle:has(input:checked) { border-color: var(--sea); background: var(--sea-soft); font-weight: 600; }
+/* Toggles are checkboxes drawn as chips: the pill's fill shows on/off, so the box itself is hidden (still focusable). */
+.toggles { display: flex; flex-wrap: wrap; gap: 6px; }
+.toggle { position: relative; display: inline-flex; align-items: center; padding: 7px 10px; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; font: 500 var(--step--1)/1 var(--font-body); background: var(--surface-2); }
+.toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.toggle:has(input:checked) { border-color: var(--sea); background: var(--sea); color: var(--surface); }
 .toggle:has(input:focus-visible) { outline: 2px solid var(--sea); outline-offset: 2px; }
 .mode-panel .results-head { margin-bottom: 12px; }
 .mode-panel .sortbox select { margin-left: 6px; }
@@ -322,7 +317,7 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
 .results .rank-summary { margin: -4px 0 10px; }
 
 /* Simple: secondary filters folded away */
-.more-options { border-top: 1px solid var(--rule); padding-top: 10px; }
+.more-options { margin-top: -2px; }
 .more-options > summary { cursor: pointer; font-size: var(--step--1); font-weight: 600; color: var(--sea); width: max-content; }
 .more-body { display: grid; gap: 14px; padding-top: 14px; }
 
