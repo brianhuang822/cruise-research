@@ -53,6 +53,11 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D31 | Loyalty status perks | v2 (user holds no status that changes priority) |
 | D32 | CI | **None.** Quality gate runs locally before each commit (no Actions minutes) |
 | D33 | CruisePlum automation | **No scraping or Cloudflare workarounds**; manual export, permissioned feed, or user-run copy helper only |
+| D34 | Shore excursions | **Not modeled**; dropped from backlog |
+| D35 | Attractions | **Free, common only**: water slides, mini golf, kids' splash area |
+| D36 | Accessibility, solo | **Stay cut** (reconfirmed) |
+| D37 | Automation | **No CI, no scheduled refresh**, even when public; `fetch_cdc.py` run manually |
+| D38 | Pre-export order | M3 sizes/max guests → attractions → fare-independent M5 → compare |
 
 ---
 
@@ -130,7 +135,6 @@ Ships: ocean ships in service as of the data snapshot. Expedition ships (e.g. Si
 
 ### 3.4 Backlog (v2+)
 
-- Shore excursions included (`none` / credit / per port) — matters for Regent/Oceania all-in comparisons
 - Taxes & port fees per sailing
 - Formal nights per 7 nights (dress code)
 - Cap shareholder credit at estimated eligible onboard spend (§5.2)

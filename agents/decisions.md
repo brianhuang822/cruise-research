@@ -73,6 +73,16 @@ Every decision made with the owner, in the order it was made, with the reason. E
 | D32 | **No CI.** The quality gate (build `--check`, tests, ruff, aislop) runs locally before each commit | Owner: not monetized, and no Actions minutes left for this project. The workflow added in e3ee22b was removed |
 | D33 | **No automated CruisePlum scraping**, including BeautifulSoup or browser-automation workarounds | CruisePlum serves a Cloudflare managed challenge (`cf-mitigated: challenge`) and disallows `/data/` in robots.txt. A plain HTTP client gets the challenge page; getting past it means circumventing an access control, and the site is public. Manual export, a permissioned feed, or a user-run copy helper are the options |
 
+## 2026-11-14 · Second brainstorm
+
+| # | Decision | Why / notes |
+|---|---|---|
+| D34 | **Shore excursions are not modeled** (no field, no pricing); removed from the v2 backlog | Owner: people pick excursions to fit their own budget |
+| D35 | **Attractions: only common, free-to-use ones**: water slides, mini golf, kids' splash area (alongside pickleball, sports court, running track). No paid attractions (go-karts, coasters, escape rooms) and no casino | Owner: "just free ones is enough" |
+| D36 | **Accessibility and solo travel stay cut**, reconfirmed despite D27 | Owner decision after pushback |
+| D37 | **No CI and no automated CDC refresh, even after the repo goes public.** CDC data is refreshed by running `scripts/fetch_cdc.py` with each data update. Supersedes the automation half of D29; the stale badge stays | Owner |
+| D38 | **Work order before the export:** M3 cabin sizes + `max_guests` → D35 attractions → fare-independent M5 features (must/nice, presets, CDC outbreak history, stale badge, methodology page, report-an-error link) → shortlist/compare. Fares and regions load when the export arrives | Owner accepted defaults |
+
 ## Still open
 
 - CruisePlum export format: whether it includes taxes/fees, sail dates, region, departure port (owner will export and report).
