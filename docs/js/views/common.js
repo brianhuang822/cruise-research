@@ -38,6 +38,26 @@ export const QUICK_SORTS = [['score', 'Best match'], ['price', 'Lowest price'], 
 export const priorityOn = (w, k) => w[k] >= 3;
 export const togglePriority = (w, k) => ({ ...w, [k]: priorityOn(w, k) ? 1 : 4 });
 
+// One-tap weight presets (D28, D46). A preset sets every weight; the active one is read back from the weights,
+// so links and the sliders stay the source of truth. "Spa & wellness" and "Active" wait on amenity coverage (M3).
+const DEFAULT_W = Object.fromEntries(METRICS.map(([k, , d]) => [k, d]));
+export const PRESETS = [
+  ['value', 'Value', { price: 5, gt: 0, newness: 0, space: 0, sqft: 2, dining: 0, cdc: 1 }],
+  ['foodie', 'Foodie', { price: 2, gt: 0, newness: 0, space: 0, sqft: 0, dining: 5, cdc: 2 }],
+  ['smooth', 'Smooth seas', { price: 2, gt: 5, newness: 0, space: 1, sqft: 0, dining: 0, cdc: 0 }],
+];
+const presetWeights = (k) => PRESETS.find(([id]) => id === k)[2];
+export const activePreset = (w) => PRESETS.find(([, , pw]) => METRICS.every(([k]) => w[k] === pw[k]))?.[0] ?? null;
+// Tapping the active preset again goes back to the default weights.
+export const applyPreset = (w, k) => ({ ...(activePreset(w) === k ? DEFAULT_W : presetWeights(k)) });
+
+// "Value" ranks mostly on price, so it is hidden until fares are loaded.
+export function presetChips(w, priced) {
+  const on = activePreset(w);
+  return html`<span class="rank-label">Rank for</span>
+    ${PRESETS.filter(([k]) => priced || k !== 'value').map(([k, l]) => html`<button type="button" class="chip" data-preset="${k}" aria-pressed="${on === k}">${l}</button>`)}`;
+}
+
 export function priorityChips(w) {
   return html`<span class="rank-label">Prioritize</span>
     ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${priorityOn(w, k)}">${l}</button>`)}`;
@@ -111,6 +131,7 @@ function tierBlock(row) {
   return html`<div>
     <h3>Included with this tier</h3>
     <dl>
+      <dt>Line's name</dt><dd>${row.name}</dd>
       <dt>Gratuities</dt><dd>${grat}</dd>
       <dt>Drinks</dt><dd>${enumText(row.drinks_included)}</dd>
       <dt>Wi-Fi</dt><dd>${yn(row.wifi_included)}</dd>
@@ -177,8 +198,10 @@ export function scoreCell(it) {
 }
 
 // Card used by Simple and Wizard modes.
-// Drop the parenthetical category list from long tier names on cards; the detail panel keeps the full name.
-const shortName = (name) => name.replace(/\s*\(.*\)\s*$/, '');
+// Cards use one label for the basic cabin types, which lines spell differently ("Oceanview", "Verandah"),
+// and drop the parenthetical category list from other tier names. The detail panel keeps the line's own name.
+const PLAIN_TYPES = { interior: 'Inside', oceanview: 'Ocean view', balcony: 'Balcony' };
+const cardTitle = (row) => PLAIN_TYPES[row.tier_type] ?? row.name.replace(/\s*\(.*\)\s*$/, '');
 
 export function cardHtml(it) {
   const { row, ship, line, priced } = it;
@@ -193,7 +216,7 @@ export function cardHtml(it) {
     <summary>
       <div class="card-top">
         <div class="card-head">
-          <h3 class="card-title">${shortName(row.name)}</h3>
+          <h3 class="card-title">${cardTitle(row)}</h3>
           <p class="ship-name">${ship.name} · ${line.name}</p>
         </div>
         <div class="card-price">${priceCell(priced)}</div>

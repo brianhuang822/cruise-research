@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { cardHtml, priorityChips, sortSelect, togglePriority } from './common.js';
+import { applyPreset, cardHtml, presetChips, sortSelect } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -18,6 +18,7 @@ const BUDGETS = [['', 'Any budget'], ['200', 'Up to $200/night'], ['400', 'Up to
 const CALM_GT = 120000;
 
 const groupOn = (types, g) => g[2].every((t) => types.includes(t));
+const hasFares = () => engine.data.rows.some((r) => r.fare_pppn_median != null);
 
 // Filters set in Detailed mode that this bar can't show.
 function hiddenFilters(s, priced) {
@@ -38,7 +39,7 @@ function controls() {
     ${options.map(([v, l]) => html`<option value="${v}" ${String(value) === v ? html`selected` : ''}>${l}</option>`)}</select>`;
   const toggle = (id, label, on) => html`<label class="toggle"><input type="checkbox" id="${id}" ${on ? html`checked` : ''}><span>${label}</span></label>`;
   const tickers = [...new Set(engine.data.shareholder_benefits.map((b) => b.ticker))].sort();
-  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
+  const priced = hasFares();
   return html`<div class="simple-bar">
     <div class="simple-row">
       <div class="chips" id="s-cabins" role="group" aria-label="Cabin type">
@@ -64,7 +65,7 @@ function controls() {
         ${toggle('s-drinks', 'Add a drinks package', s.drinks === 'alcohol')}
         ${toggle('s-calm', 'Less motion (120k+ GT)', s.minGt === CALM_GT)}
       </div>
-      <div class="chips" id="s-rank">${priorityChips(s.w)}</div>
+      <div class="chips" id="s-presets">${presetChips(s.w, priced)}</div>
       </div>
     </details>
   </div>`;
@@ -93,11 +94,11 @@ function bind() {
     }
   };
   root.onclick = (e) => {
-    const rank = e.target.closest('[data-rank]');
-    if (rank) {
-      const k = rank.dataset.rank;
-      store.set({ w: togglePriority(store.state.w, k) });
-      mount($('s-rank'), priorityChips(store.state.w));
+    const preset = e.target.closest('[data-preset]');
+    if (preset) {
+      shown = PAGE;
+      store.set({ w: applyPreset(store.state.w, preset.dataset.preset), sort: 'score' });
+      mount($('s-presets'), presetChips(store.state.w, hasFares()));
       return;
     }
     const chip = e.target.closest('[data-g]');
@@ -127,7 +128,7 @@ let lastItems = [];
 export function renderSimple(items) {
   lastItems = items;
   const s = store.state;
-  const hidden = hiddenFilters(s, engine.data.rows.some((r) => r.fare_pppn_median != null));
+  const hidden = hiddenFilters(s, hasFares());
   mount($('s-results'), html`
     <div class="results-head">
       <p class="tally">${items.length.toLocaleString('en-US')} cabins</p>

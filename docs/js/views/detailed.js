@@ -2,7 +2,7 @@
 import { $, html, mount } from '../dom.js';
 import { activeFilterCount } from '../engine.js';
 import { AMENITIES, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
-import { chipList, perkChips, priceCell, rankSummary, scoreCell, typeLabel, weightSliders } from './common.js';
+import { applyPreset, chipList, perkChips, presetChips, priceCell, rankSummary, scoreCell, typeLabel, weightSliders } from './common.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -86,9 +86,10 @@ export function renderDetailed(items) {
   const total = engine.data.rows.length;
   mount($('tally'), html`${items.length.toLocaleString('en-US')} cabin options<span>of ${total.toLocaleString('en-US')}</span>`);
   $('d-rank-summary').textContent = s.sort === 'score' ? rankSummary(s.w) : '';
+  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
+  mount($('d-presets'), presetChips(s.w, priced));
   const fc = activeFilterCount(s);
   $('filter-count').textContent = fc ? `${fc} active` : '';
-  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
   $('notice').hidden = priced;
   $('price-hint').textContent = priced ? 'All-in per person per night for your trip settings.' : 'Works once fares are added.';
   if (!items.length) {
@@ -132,6 +133,13 @@ export function initDetailed(eng, rerender) {
   $('f-guests').onchange = (e) => store.set({ guests: num(e) });
   for (const id of ['u-include', 'u-exclude']) $(id).onchange = (e) => store.set({ unknowns: e.target.value });
   $('sort').onchange = (e) => store.set({ sort: e.target.value });
+  $('d-presets').onclick = (e) => {
+    const b = e.target.closest('[data-preset]');
+    if (!b) return;
+    store.set({ w: applyPreset(store.state.w, b.dataset.preset), sort: 'score' });
+    $('sort').value = 'score';
+    mount($('weights'), weightSliders(store.state.w, 'd'));
+  };
   $('reset').onclick = () => {
     const s = store.state;
     store.replace({ ...fresh(), nights: s.nights, tickers: s.tickers, drinks: s.drinks, wifi: s.wifi, dinners: s.dinners, w: s.w, sort: s.sort });
