@@ -41,3 +41,11 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Princess:** Reserve Collection suites include laundry; mini-suites don't ([Princess](https://www.princess.com/staterooms/reserve-collection)).
 - **Loyalty:** RCG status match across Royal Caribbean, Celebrity and Silversea since 2024-06-05; Celebrity expanded Captain's Club on 2026-06-11 (v2 topic, D31).
 - **Celebrity has no self-service laundry** ([TPG](https://thepointsguy.com/cruise/cruise-ship-laundry)).
+
+## M2 data findings (2026-11-14)
+
+- **Official fleet sources:** Carnival Corporation publishes [Ships in our Fleet (2026-05-31)](https://www.carnivalcorp.com/wp-content/uploads/2026/06/Ships-in-our-Fleet-as-of-May-31-2026.pdf) with capacity for Carnival, Princess, HAL, Cunard and Seabourn. NCLH's [FY2024 10-K](https://nclhltd.com/investors/sec-filings/annual-reports/content/0001558370-25-001743/0001558370-25-001743.pdf) lists every NCL/Oceania/Regent ship with **primary operating regions**, an official interim source for region tags (D25) until the CruisePlum export arrives. It has no per-ship berths.
+- **Fleet changes:** Seabourn Sojourn left in June 2026; Oceania Regatta left in 2026; Norwegian Sky left in 2026; Regent Navigator may leave in October 2026 (one source); Explora III entered service in July 2026 (not loaded: capacity unconfirmed); Viking Mira entered service in June 2026; Disney Adventure (Singapore) in March 2026.
+- **Price and policy changes found:** MSC gratuities $17/$23 for bookings from 2026-05-11. Carnival moves drink and Wi-Fi packages to per-sailing pricing from 2026-12-01. NCL renamed More at Sea back to Free at Sea (drinks service charge $28.50/day). Princess Plus $70 / Premier $105 ($75/$110 on Sun and Star). Celebrity gratuities up $1.50 on 2026-07-29.
+- **Wikipedia capacity caveats:** Disney's "capacity" column is maximum occupancy (capacity is derived from cabin count × 2 instead); Oceania's R-class figure is a class maximum (the official deck plan gives 684 double occupancy).
+- **Wikipedia's REST API rate-limits** after a few requests; `pandas.read_html` on the REST HTML works well when it responds.

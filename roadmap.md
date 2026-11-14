@@ -1,6 +1,6 @@
 # Cruise Cabin Finder — Spec & Roadmap
 
-Status: **M1 done 2026-11-14 → M2 in progress** (work is committed to `main` as it lands) · Drafted 2026-11-14
+Status: **M2 done 2026-11-14 (19 lines, 207 ships, 97 tiers, 1,066 rows) → M3 amenity gaps + cabin sizes next** (work is committed to `main` as it lands) · Drafted 2026-11-14
 
 A public static site that compares **ship × cabin tier** combinations by hard, quantifiable characteristics and an **all-in price per person per night**. Itinerary search is out of scope: once a user picks a ship + tier, they follow a link to the line's own ship page to find sailings.
 
@@ -442,8 +442,8 @@ Measured on 2026-11-14: Wikidata has 640 active cruise-ship items, with GT on 76
 |---|---|---|
 | **M0 Spec** ✅ | This document | Signed off 2026-11-14 |
 | **M1 Vertical slice** ✅ | Pipeline, three modes, Celebrity end-to-end | Done 2026-11-14 |
-| **M2 Line policies + tiers** | `lines.csv`, `tiers.csv` (incl. `max_guests`), `bundles.csv` for all 19 lines | Every tier has `tier_type`, gratuity, inclusions; coverage ≥ 90% |
-| **M3 Ships + amenities** | `ship_classes.csv`, `ships.csv` for all lines; CDC scores matched | All in-scope ships with GT/pax/year; amenity coverage ≥ 80% |
+| **M2 Line policies + tiers** ✅ | `lines.csv`, `tiers.csv`, `bundles.csv` for all 19 lines | Done 2026-11-14: gratuity 99%, drinks 99%, Wi-Fi 97%, dining 100% known; `max_guests` and cabin sizes deferred to M3 |
+| **M3 Ships + amenities** | Fill amenity gaps (pickleball 17%, track 37%, thermal 35%, kids 54%), cabin sizes (24%), `max_guests` (6%); Explora III once capacity is sourced | All ships have GT/pax/year (done: 207/207); amenity coverage ≥ 80% |
 | **M4 Fares + regions** | User's CruisePlum export → `import_prices.py` (fares) + ship region/home-port tags | ≥ 70% of rows priced; regions on ≥ 90% of ships |
 | **M5 Features** | Must/Nice controls, presets, sleeps-N filter, CDC outbreak history, shortlist + compare, "what changed" feed, methodology + coverage page, report-an-error link, stale badge, monthly CDC refresh Action | Each feature covered by an e2e check |
 | **M6 QA + launch** | 10% random audit against sources, link check, Lighthouse ≥ 90, repo public, Pages live | Audit error rate < 5%; site public |
