@@ -70,9 +70,9 @@ export function priceCell(p) {
     return html`<span class="price">${fmt$(p.all_in)}</span><small>${how}</small>`;
   }
   if (p.extras != null) return html`<span class="pending">Fare pending</span><small>+${fmt$(p.extras)}/night extras</small>`;
-  const gaps = [...new Set(p.missing.filter((m) => m !== 'fare').map((m) => MISSING_LABELS[m] ?? m.replace(/_/g, ' ')))];
+  const gaps = [...new Set(p.missing.filter((m) => m !== 'fare').map((m) => MISSING_LABELS[m] ?? m.replace(/_/g, ' ')))].join(' & ');
   const head = p.missing.includes('fare') ? 'Fare pending' : 'Price unknown';
-  return html`<span class="pending unk">${head}</span>${gaps.length ? html`<small>${gaps.join(' & ')} cost unknown</small>` : ''}`;
+  return html`<span class="pending unk">${head}</span>${gaps ? html`<small>${gaps[0].toUpperCase() + gaps.slice(1)} cost unknown</small>` : ''}`;
 }
 
 // Plain names for the pricing inputs priceCell can report as missing.

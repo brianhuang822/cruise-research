@@ -4,7 +4,7 @@ Instructions for any coding agent (Claude Code, Codex, Cursor, …) working in t
 
 ## What this is
 
-**Cruise Cabin Finder**: a public, static site that compares cruise **ship × cabin tier** combinations by **all-in price per person per night**, cabin-tier perks, ship size and amenities. Three modes (Simple, Detailed, Help me choose) share one engine. Hosted on GitHub Pages from `docs/`.
+**Your Kind of Cruise** (formerly Cruise Cabin Finder): a public, static site that compares cruise **ship × cabin tier** combinations by **all-in price per person per night**, cabin-tier perks, ship size and amenities. Three modes (Simple, Detailed, Help me choose) share one engine. Hosted on GitHub Pages from `docs/`.
 
 ## Read next
 

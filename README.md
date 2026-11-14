@@ -1,4 +1,4 @@
-# Cruise Cabin Finder
+# Your Kind of Cruise
 
 Static site that compares cruise **ship × cabin tier** combinations by all-in price per person per night, suite perks, ship size and amenities. Three modes share one engine: **Simple**, **Detailed** and **Help me choose** (a decision-tree quiz).
 

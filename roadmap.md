@@ -1,4 +1,4 @@
-# Cruise Cabin Finder — Spec & Roadmap
+# Your Kind of Cruise — Spec & Roadmap
 
 Status: **M2 done 2026-11-14 (19 lines, 207 ships, 97 tiers, 1,066 rows) → M3 amenity gaps + cabin sizes next** (work is committed to `main` as it lands) · Drafted 2026-11-14
 
@@ -63,6 +63,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D41 | Food question | Buffet + main dining room vs specialty included |
 | D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere |
 | D43 | Declutter | Simple: 3 controls + 3 toggles, rest under "More options"; budget hidden until fares; compact cards; quiz top 5, folded answers/weights |
+| D44 | Name | **Your Kind of Cruise** (was Cruise Cabin Finder): the name should say results follow your preferences |
 
 ---
 

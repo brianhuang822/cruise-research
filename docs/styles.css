@@ -224,6 +224,7 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
 .masthead h1 { margin: 0; }
 .masthead-inner { align-items: center; flex-wrap: nowrap; }
 .masthead-inner .btn-ghost { flex-shrink: 0; }
+@media (max-width: 479px) { .masthead h1 { font-size: var(--step-2); } }
 .modebar { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; justify-content: space-between; margin-top: 12px; }
 .tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--rule); min-width: 0; overflow-x: auto; }
 .tabs [role="tab"] {

@@ -92,6 +92,7 @@ Every decision made with the owner, in the order it was made, with the reason. E
 | D41 | **Food question is about where you eat without paying extra**: buffet + main dining room / plus a few paid specialty dinners / some specialty included / all included | Owner: frame it as buffet vs main dining room |
 | D42 | **Wi-Fi question asks whether it must be free**; new **"Wi-Fi included"** filter in all modes (tier `wifi_included`; bundles don't count as free) | Owner |
 | D43 | **Less on screen in Simple and Help me choose.** Simple shows cabin type, guests and three toggles (adults only, tips included, free Wi-Fi); trip length, dining, shareholder, drinks, less motion and weights sit under "More options". The budget menu appears only once fares exist, with the quiz's steps ($200/$400/$800). Cards: short tier name, one facts line, at most 3 perks. Quiz: progress bar without "Question X of N", short help text, top 5 with "Show 5 more", answers and weights folded. Header is title, tabs and Copy link; the data date moved to the footer. Detailed is unchanged | Owner: "UI feels crowded … Simple should be simpler" |
+| D44 | **Site name: "Your Kind of Cruise"** (was "Cruise Cabin Finder"). Checked for clashes on 2026-11-14; rejected names already in use: Cruise Compass (Royal Caribbean's daily planner), Cruise Matchmaker (World of Cruising), Cruise Match (GetCruiseInfo quiz), SailMatch (Tern), Cabinmate Match (Carnival/ShipRocked roommate program), CabinFit (airline carry-on app) | Owner: the name should lean into finding people's preferences |
 
 ## Still open
 
