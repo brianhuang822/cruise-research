@@ -57,3 +57,10 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Corrections from official sources:** jogging tracks on Carnival Conquest and Vista class and NCL Breakaway class (were 0); none on Carnival Elation and Paradise (was 1); Conquest-class ships have the Twister slide (only Glory has the full WaterWorks park).
 - **Thermal suites mostly cost extra:** 69 of 81 ships with a known suite charge for it. Included for everyone on Viking; included by cabin tier on Celebrity AquaClass/suites and Carnival Cloud 9 Spa cabins.
 - **Still open:** promenade and covered-pool "no" values; Disney, Azamara, Silversea, Crystal, Ritz-Carlton and Virgin amenities; MSC older classes; Princess Grand/Coral covered pools and promenades.
+
+### Second pass (2026-11-14)
+
+- **Coverage now:** running track 77% (160 ships), sports court 54%, pickleball 53%, covered pool 44%, promenade deck 24%; slides, splash, adults-only pool and thermal unchanged from the first pass.
+- **Official fleet lists found:** Celebrity's pickleball page (Apex, Ascent, Beyond, Xcel, Eclipse, Equinox and the four Millennium-class ships; "not available on Celebrity Edge, Reflection, Silhouette, Solstice"); MSC's sport pages (jogging track on all ships except World Europa; basketball court on all except Opera, Lirica and Preziosa); Carnival's help centre; planDisney answers for Disney's Deck 4 promenades.
+- **Correction:** Celebrity Edge and Celebrity Solstice had pickleball recorded as yes; Celebrity's own list says no.
+- **Why promenade stays low:** lines with walk-around decks advertise them (Holland America, Cunard, Princess Grand/Coral, Viking, Crystal, Disney Magic/Dream classes, NCL Prima's Ocean Boulevard), but mega-ship lines never state that they lack one, and D51 doesn't accept silence as "no". Confirmed-first ordering (D52) keeps the filter useful anyway.
