@@ -2,7 +2,7 @@
 import { $, html, mount } from '../dom.js';
 import { activeFilterCount } from '../engine.js';
 import { AMENITIES, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
-import { applyPreset, chipList, perkChips, presetChips, priceCell, rankSummary, scoreCell, typeLabel, weightSliders } from './common.js';
+import { applyPreset, chipList, perkChips, presetChips, priceCell, rankSummary, scoreCell, staleBadge, typeLabel, weightSliders } from './common.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -10,7 +10,7 @@ let engine;
 
 function chipGroup(el, options, key) {
   const s = store.state;
-  mount(el, options.map(([v, label]) => html`<button type="button" class="chip" data-v="${v}" aria-pressed="${s[key].includes(v)}">${label}</button>`));
+  mount(el, options.map(([v, label]) => html`<button type="button" class="chip" data-v="${v}" aria-pressed="${String(s[key].includes(v))}">${label}</button>`));
   el.onclick = (e) => {
     const b = e.target.closest('.chip');
     if (!b) return;
@@ -20,10 +20,27 @@ function chipGroup(el, options, key) {
   };
 }
 
-function checkList(el, options, key) {
-  const s = store.state;
-  mount(el, options.map(([v, label]) => html`<label class="check"><input type="checkbox" id="${key}-${v}" data-v="${v}" ${s[key].includes(v) ? html`checked` : ''}> ${label}</label>`));
-  el.onchange = (e) => store.set({ [key]: toggleIn(store.state[key], e.target.dataset.v, e.target.checked) });
+// Must / Nice (D26, D55): Must filters, Nice raises the score. An item is in at most one of the two lists.
+function pickList(el, options, key) {
+  const draw = () => {
+    const s = store.state;
+    mount(el, options.map(([v, label]) => html`<div class="pick" id="${key}-${v}"><span>${label}</span><span class="pick-btns">
+      <button type="button" class="chip mini" data-v="${v}" data-level="must" aria-pressed="${String(s[key].includes(v))}" aria-label="Must have: ${label}">Must</button>
+      <button type="button" class="chip mini" data-v="${v}" data-level="nice" aria-pressed="${String(s.nice.includes(v))}" aria-label="Nice to have: ${label}">Nice</button>
+    </span></div>`));
+  };
+  draw();
+  el.onclick = (e) => {
+    const b = e.target.closest('[data-level]');
+    if (!b) return;
+    const { v, level } = b.dataset;
+    const s = store.state;
+    const must = level === 'must' ? !s[key].includes(v) : false;
+    const nice = level === 'nice' ? !s.nice.includes(v) : false;
+    store.set({ [key]: toggleIn(s[key], v, must), nice: toggleIn(s.nice, v, nice) });
+    draw();
+    mount($('weights'), weightSliders(store.state.w, 'd', store.state.nice.length > 0));
+  };
 }
 
 function tickerBoxes() {
@@ -59,9 +76,9 @@ function syncControls() {
   chipGroup($('f-segments'), SEGMENTS.filter(([k]) => data.lines.some((l) => l.segment === k)), 'segments');
   chipGroup($('f-lines'), data.lines.map((l) => [l.line_id, l.name]), 'lines');
   chipGroup($('f-types'), TIER_TYPES.filter(([k]) => data.rows.some((r) => r.tier_type === k)), 'types');
-  checkList($('f-perks'), PERKS, 'perks');
-  checkList($('f-amen'), AMENITIES, 'amen');
-  mount($('weights'), weightSliders(s.w, 'd'));
+  pickList($('f-perks'), PERKS, 'perks');
+  pickList($('f-amen'), AMENITIES, 'amen');
+  mount($('weights'), weightSliders(s.w, 'd', s.nice.length > 0));
 }
 
 function rowHtml(it) {
@@ -70,7 +87,7 @@ function rowHtml(it) {
   return html`<details class="row" data-id="${row.row_id}">
     <summary>
       <div class="c-name"><div class="tier-name"><span class="type-badge">${typeLabel(row.tier_type)}</span>${row.name}</div>
-        <div class="ship-name">${ship.name} · ${line.name}${it.partial ? html` · <span class="unk">missing data for a filter</span>` : ''}</div></div>
+        <div class="ship-name">${ship.name} · ${line.name}${it.partial ? html` · <span class="unk">missing data for a filter</span>` : ''}</div>${staleBadge(it)}</div>
       <div class="c-price"><span class="label-m">All-in / pp / night</span>${priceCell(priced)}</div>
       <div class="c-score"><span class="label-m">Score</span><span class="score">${scoreCell(it)}</span></div>
       <div class="c-gt"><span class="label-m">GT</span><span class="num">${(ship.gt / 1000).toFixed(0)}k</span></div>
@@ -138,7 +155,7 @@ export function initDetailed(eng, rerender) {
     if (!b) return;
     store.set({ w: applyPreset(store.state.w, b.dataset.preset), sort: 'score' });
     $('sort').value = 'score';
-    mount($('weights'), weightSliders(store.state.w, 'd'));
+    mount($('weights'), weightSliders(store.state.w, 'd', store.state.nice.length > 0));
   };
   $('reset').onclick = () => {
     const s = store.state;

@@ -73,6 +73,9 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D51 | Amenity sourcing | Class-level pass from official pages; a "no" needs a source; new `promenade_deck`, `covered_pool` |
 | D52 | Confirmed first | Rows matching on known data rank above rows passing on unknowns |
 | D53 | Quiz amenities | Adults-only pool, covered pool, promenade, track, pickleball, free thermal spa, laundry; kids question for families |
+| D54 | Amenity research | Paused; strict sourcing kept; promenade and covered pool stay confirmed-first |
+| D55 | Must / Nice | Detailed perks and amenities: Must filters, Nice adds a nice-to-haves score measure |
+| D56 | Stale badge | "May be out of date" when the oldest check date is over 183 days old |
 
 ---
 

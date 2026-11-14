@@ -1,6 +1,8 @@
 // Filter, price and score every ship × tier row for a given state. Shared by all modes.
 import { allIn } from '../pricing.js';
-import { DINING_RANK, METRICS } from './state.js';
+import { DINING_RANK, METRICS, PERKS } from './state.js';
+
+const PERK_KEYS = new Set(PERKS.map(([k]) => k));
 
 export function createEngine(data) {
   const LINES = Object.fromEntries(data.lines.map((l) => [l.line_id, l]));
@@ -47,6 +49,13 @@ export function evalFilters(state, row, line, ship, priced) {
   return true;
 }
 
+// Nice to have (D55): how many of the picked perks and amenities this row is confirmed to have.
+// Unknown counts as not confirmed, never as "no"; the row is still shown.
+function niceCount(state, row, ship) {
+  if (!state.nice.length) return null;
+  return state.nice.filter((k) => (PERK_KEYS.has(k) ? perkCheck(row, k) : amenityCheck(row, ship, k)) === true).length;
+}
+
 function metricValue(key, row, ship, priced) {
   const values = {
     price: priced.all_in, gt: ship.gt, newness: ship.newest_year, space: ship.space_ratio,
@@ -73,8 +82,8 @@ function percentiles(items, key) {
   return out;
 }
 
-function score(items, weights) {
-  const active = METRICS.filter(([k]) => weights[k] > 0).map(([k]) => k);
+function score(items, weights, hasNice) {
+  const active = METRICS.filter(([k]) => weights[k] > 0 && (k !== 'nice' || hasNice)).map(([k]) => k);
   const tables = Object.fromEntries(active.map((k) => [k, percentiles(items, k)]));
   for (const it of items) {
     let num = 0;
@@ -132,10 +141,10 @@ function compute(data, LINES, SHIPS, state) {
     const priced = allIn(row, line, data.bundles, data.shareholder_benefits, inputs);
     const pass = evalFilters(state, row, line, ship, priced);
     if (!pass) continue;
-    const m = Object.fromEntries(METRICS.map(([k]) => [k, metricValue(k, row, ship, priced)]));
+    const m = Object.fromEntries(METRICS.map(([k]) => [k, k === 'nice' ? niceCount(state, row, ship) : metricValue(k, row, ship, priced)]));
     items.push({ row, line, ship, priced, partial: pass === 'unknown', m });
   }
-  score(items, state.w);
+  score(items, state.w, state.nice.length > 0);
   return sortItems(items, state.sort);
 }
 
@@ -153,7 +162,7 @@ export function lineTypes(data) {
 }
 
 export function activeFilterCount(state) {
-  const lists = state.segments.length + state.lines.length + state.types.length + state.perks.length + state.amen.length;
+  const lists = state.segments.length + state.lines.length + state.types.length + state.perks.length + state.amen.length + state.nice.length;
   const flags = [state.maxPrice != null, state.minGt > 0, state.dining !== 'any', state.privRest, state.grat, state.wifiFree, state.adults, state.guests > 2];
   return lists + flags.filter(Boolean).length;
 }

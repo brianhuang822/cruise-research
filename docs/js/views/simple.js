@@ -28,7 +28,7 @@ function hiddenFilters(s, priced) {
   const budgetShown = !priced || s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
   return (
     // A line or segment list is one filter however many it names.
-    Math.sign(s.segments.length) + Math.sign(s.lines.length) + s.perks.length + s.amen.length + strayTypes +
+    Math.sign(s.segments.length) + Math.sign(s.lines.length) + s.perks.length + s.amen.length + s.nice.length + strayTypes +
     [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude', s.dining === 'some_specialty'].filter(Boolean).length
   );
 }
@@ -44,7 +44,7 @@ function controls() {
   return html`<div class="simple-bar">
     <div class="simple-row">
       <div class="chips" id="s-cabins" role="group" aria-label="Cabin type">
-        ${CABIN_GROUPS.map((g) => html`<button type="button" class="chip" data-g="${g[0]}" aria-pressed="${groupOn(s.types, g)}">${g[1]}</button>`)}
+        ${CABIN_GROUPS.map((g) => html`<button type="button" class="chip" data-g="${g[0]}" aria-pressed="${String(groupOn(s.types, g))}">${g[1]}</button>`)}
       </div>
       ${sel('s-guests', [['2', '2 guests'], ['3', '3 guests'], ['4', '4 guests'], ['5', '5 guests'], ['6', '6+ guests']], s.guests, 'Guests')}
       ${priced ? sel('s-budget', BUDGETS, s.maxPrice ?? '', 'Budget per night') : ''}
@@ -115,7 +115,7 @@ function bind() {
       const s = store.state;
       const d = fresh();
       const grouped = CABIN_GROUPS.filter((gr) => groupOn(s.types, gr)).flatMap((gr) => gr[2]);
-      store.set({ segments: d.segments, lines: d.lines, perks: d.perks, amen: d.amen, privRest: false, unknowns: 'include',
+      store.set({ segments: d.segments, lines: d.lines, perks: d.perks, amen: d.amen, nice: d.nice, privRest: false, unknowns: 'include',
         types: s.types.filter((t) => grouped.includes(t)), minGt: s.minGt === CALM_GT ? CALM_GT : 0,
         maxPrice: BUDGETS.some(([v]) => Number(v) === s.maxPrice) ? s.maxPrice : null });
       onSimpleShow();
@@ -136,7 +136,7 @@ export function renderSimple(items) {
       <p class="tally">${tallyText(ships.length, items.length)}</p>
       ${sortSelect('s-sort', s.sort)}
     </div>
-    ${hidden ? html`<p class="notice">+${hidden} more filter${hidden === 1 ? '' : 's'} on. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
+    ${hidden ? html`<p class="notice">+${hidden} more setting${hidden === 1 ? '' : 's'} from other modes. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
     ${items.length
       ? html`<div class="cards">${ships.slice(0, shown).map(cardHtml)}</div>
         ${ships.length > shown ? html`<button type="button" class="btn-more" id="s-more">Show ${Math.min(PAGE, ships.length - shown)} more ships</button>` : ''}`

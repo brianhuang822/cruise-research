@@ -40,27 +40,28 @@ export const togglePriority = (w, k) => ({ ...w, [k]: priorityOn(w, k) ? 1 : 4 }
 
 // One-tap weight presets (D28, D46). A preset sets every weight; the active one is read back from the weights,
 // so links and the sliders stay the source of truth. "Spa & wellness" and "Active" wait on amenity coverage (M3).
-const DEFAULT_W = Object.fromEntries(METRICS.map(([k, , d]) => [k, d]));
+const BASE_METRICS = METRICS.filter(([k]) => k !== 'nice');
+const DEFAULT_W = Object.fromEntries(BASE_METRICS.map(([k, , d]) => [k, d]));
 export const PRESETS = [
   ['value', 'Value', { price: 5, gt: 0, newness: 0, space: 0, sqft: 2, dining: 0, cdc: 1 }],
   ['foodie', 'Foodie', { price: 2, gt: 0, newness: 0, space: 0, sqft: 0, dining: 5, cdc: 2 }],
   ['smooth', 'Smooth seas', { price: 2, gt: 5, newness: 0, space: 1, sqft: 0, dining: 0, cdc: 0 }],
 ];
 const presetWeights = (k) => PRESETS.find(([id]) => id === k)[2];
-export const activePreset = (w) => PRESETS.find(([, , pw]) => METRICS.every(([k]) => w[k] === pw[k]))?.[0] ?? null;
-// Tapping the active preset again goes back to the default weights.
-export const applyPreset = (w, k) => ({ ...(activePreset(w) === k ? DEFAULT_W : presetWeights(k)) });
+export const activePreset = (w) => PRESETS.find(([, , pw]) => BASE_METRICS.every(([k]) => w[k] === pw[k]))?.[0] ?? null;
+// Tapping the active preset again goes back to the default weights. Presets leave the nice-to-have weight alone.
+export const applyPreset = (w, k) => ({ ...w, ...(activePreset(w) === k ? DEFAULT_W : presetWeights(k)) });
 
 // "Value" ranks mostly on price, so it is hidden until fares are loaded.
 export function presetChips(w, priced) {
   const on = activePreset(w);
   return html`<span class="rank-label">Rank for</span>
-    ${PRESETS.filter(([k]) => priced || k !== 'value').map(([k, l]) => html`<button type="button" class="chip" data-preset="${k}" aria-pressed="${on === k}">${l}</button>`)}`;
+    ${PRESETS.filter(([k]) => priced || k !== 'value').map(([k, l]) => html`<button type="button" class="chip" data-preset="${k}" aria-pressed="${String(on === k)}">${l}</button>`)}`;
 }
 
 export function priorityChips(w) {
   return html`<span class="rank-label">Prioritize</span>
-    ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${priorityOn(w, k)}">${l}</button>`)}`;
+    ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${String(priorityOn(w, k))}">${l}</button>`)}`;
 }
 
 export function sortSelect(id, current) {
@@ -70,13 +71,14 @@ export function sortSelect(id, current) {
 }
 
 // Weight sliders, shared by every mode. app.js commits a change on release (the 'change' event).
-export function weightSliders(w, prefix) {
-  return html`<div class="weights-grid">${METRICS.map(([k, label]) => html`<label for="${prefix}-w-${k}"><span>${label}</span>
+// The nice-to-have slider only appears once something is marked Nice.
+export function weightSliders(w, prefix, showNice = false) {
+  return html`<div class="weights-grid">${METRICS.filter(([k]) => showNice || k !== 'nice').map(([k, label]) => html`<label for="${prefix}-w-${k}"><span>${label}</span>
     <output id="${prefix}-wo-${k}">${w[k]}</output>
     <input type="range" id="${prefix}-w-${k}" data-weight="${k}" min="0" max="5" step="1" value="${w[k]}"></label>`)}</div>`;
 }
 
-const SHORT = { price: 'price', gt: 'ship size', newness: 'newness', space: 'space per guest', sqft: 'cabin size', dining: 'restaurants', cdc: 'cleanliness' };
+const SHORT = { price: 'price', gt: 'ship size', newness: 'newness', space: 'space per guest', sqft: 'cabin size', dining: 'restaurants', cdc: 'cleanliness', nice: 'nice-to-haves' };
 export function rankSummary(w) {
   const on = METRICS.filter(([k]) => w[k] > 0).sort((a, b) => w[b[0]] - w[a[0]]);
   return on.length ? `Ranked by ${on.map(([k]) => `${SHORT[k]} ×${w[k]}`).join(', ')}` : 'No ranking weights set; results are in default order';
@@ -233,6 +235,17 @@ export function scoreCell(it) {
   return html`${s}<span class="bar"><i style="width:${s}%"></i></span>`;
 }
 
+// Stale badge (D56): the oldest of the tier, ship and line check dates is more than six months old.
+const STALE_DAYS = 183;
+export function staleDate(it, now = Date.now()) {
+  const oldest = [it.row.last_verified, it.ship.last_verified, it.line.last_verified].filter(Boolean).sort()[0];
+  return oldest && (now - Date.parse(oldest)) / 864e5 > STALE_DAYS ? oldest : null;
+}
+export const staleBadge = (it) => {
+  const d = staleDate(it);
+  return d ? html`<span class="stale" title="Some details were last checked ${d}. Confirm with the cruise line.">May be out of date</span>` : '';
+};
+
 // Card used by Simple and Wizard modes.
 // Cards use one label for the basic cabin types, which lines spell differently ("Oceanview", "Verandah"),
 // and drop the parenthetical category list from other tier names. The detail panel keeps the line's own name.
@@ -248,6 +261,7 @@ export function cardHtml({ it, more }) {
         <div class="card-head">
           <h3 class="card-title">${cardTitle(row)}</h3>
           <p class="ship-name">${ship.name} · ${line.name}</p>
+          ${staleBadge(it)}
         </div>
         <div class="card-price">${priceCell(priced)}</div>
       </div>

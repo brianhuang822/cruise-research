@@ -115,7 +115,7 @@ function questionView(q, index, total) {
     <h2 class="quiz-title">${q.title}</h2>
     ${q.help ? html`<p class="quiz-help">${q.help}</p>` : ''}
     <div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
-      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${picked(v)}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
+      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${String(picked(v))}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
     </div>
     <div class="quiz-nav">
       <button type="button" class="link" id="q-back" ${index === 0 ? html`disabled` : ''}>Back</button>
