@@ -49,3 +49,11 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Price and policy changes found:** MSC gratuities $17/$23 for bookings from 2026-05-11. Carnival moves drink and Wi-Fi packages to per-sailing pricing from 2026-12-01. NCL renamed More at Sea back to Free at Sea (drinks service charge $28.50/day). Princess Plus $70 / Premier $105 ($75/$110 on Sun and Star). Celebrity gratuities up $1.50 on 2026-07-29.
 - **Wikipedia capacity caveats:** Disney's "capacity" column is maximum occupancy (capacity is derived from cabin count × 2 instead); Oceania's R-class figure is a class maximum (the official deck plan gives 684 double occupancy).
 - **Wikipedia's REST API rate-limits** after a few requests; `pandas.read_html` on the REST HTML works well when it responds.
+
+## Amenity pass (2026-11-14, D51)
+
+- **Coverage before → after (of 207 ships):** water slides 24% → 63%, pickleball 17% → 46%, running track 37% → 58%, splash area 24% → 50%, covered pool 0 → 36%, promenade deck 0 → 13%, thermal suite 35% → 45%.
+- **Best sources:** Royal Caribbean's per-ship "free things to do" guides; Carnival's help centre and `/onboard/*` pages (fleet lists for pickleball and jogging tracks); NCL ship-guide PDFs; Holland America's pools page and thermal-suite FAQ; Viking deck-plan PDFs; domain-restricted search of each official site. Cruise Critic blocks fetches; Carnival's help centre renders client-side (use search).
+- **Corrections from official sources:** jogging tracks on Carnival Conquest and Vista class and NCL Breakaway class (were 0); none on Carnival Elation and Paradise (was 1); Conquest-class ships have the Twister slide (only Glory has the full WaterWorks park).
+- **Thermal suites mostly cost extra:** 69 of 81 ships with a known suite charge for it. Included for everyone on Viking; included by cabin tier on Celebrity AquaClass/suites and Carnival Cloud 9 Spa cabins.
+- **Still open:** promenade and covered-pool "no" values; Disney, Azamara, Silversea, Crystal, Ritz-Carlton and Virgin amenities; MSC older classes; Princess Grand/Coral covered pools and promenades.

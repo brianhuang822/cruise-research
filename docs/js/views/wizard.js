@@ -71,9 +71,13 @@ export const QUESTIONS = [
       s.wifi = a !== 'no';
       s.wifiFree = a === 'free';
     } },
-  { id: 'activities', title: 'Anything you want on the ship?', help: 'Pick any.', multi: true,
-    options: [['pickleball', 'Pickleball'], ['running_track', 'Running track'], ['thermal_suite', 'Thermal spa'],
-      ['sports_court', 'Basketball court'], ['self_laundry', 'Self-service laundry']],
+  { id: 'activities', title: 'Anything you want on the ship?', help: 'Pick any. Ships confirmed to have them are listed first.', multi: true,
+    options: [['adults_only_pool', 'Adults-only pool'], ['covered_pool', 'Covered or indoor pool'],
+      ['promenade_deck', 'Walk-around promenade deck'], ['running_track', 'Running track'], ['pickleball', 'Pickleball'],
+      ['thermal_free', 'Free thermal spa'], ['self_laundry', 'Self-service laundry']],
+    apply: (a, s) => { s.amen = add(s.amen, a); } },
+  { id: 'kids', title: 'Anything for the kids?', help: 'Pick any.', multi: true, show: (ans) => ans.who === 'family',
+    options: [['water_slides', 'Water slides'], ['splash_area', 'Splash area for little ones'], ['teen_club', 'Teen club']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
   { id: 'priorities', title: 'What matters most to you?', help: 'Pick up to three.', multi: true,
     options: PRIORITIES,

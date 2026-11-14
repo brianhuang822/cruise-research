@@ -167,6 +167,7 @@ function shipBlock(ship, line) {
       <dt>Kids · teen club</dt><dd>${yn(ship.kids_club)} · ${yn(ship.teen_club)}</dd>
       <dt>Water slides · splash area</dt><dd>${yn(ship.water_slides)} · ${yn(ship.splash_area)}</dd>
       <dt>Mini golf</dt><dd>${yn(ship.mini_golf)}</dd>
+      <dt>Promenade deck · covered pool</dt><dd>${yn(ship.promenade_deck)} · ${yn(ship.covered_pool)}</dd>
     </dl>
     <a class="sailings" href="${ship.official_url}" target="_blank" rel="noopener">Find sailings on ${line.name} →</a>
   </div>`;

@@ -70,6 +70,9 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D48 | One card per ship | Simple + quiz group by ship (best cabin leads, "+N more" inside); ties go to the cheaper cabin; Detailed stays per cabin |
 | D49 | Food question | Three answers: buffet + MDR / plus paid specialty dinners / specialty included (no tier is `some_specialty`) |
 | D50 | Line-type question | Quiz: Mainstream / Premium / Premium with every restaurant included / Luxury (pick any), grouped from segment + entry-cabin dining; replaces the food question |
+| D51 | Amenity sourcing | Class-level pass from official pages; a "no" needs a source; new `promenade_deck`, `covered_pool` |
+| D52 | Confirmed first | Rows matching on known data rank above rows passing on unknowns |
+| D53 | Quiz amenities | Adults-only pool, covered pool, promenade, track, pickleball, free thermal spa, laundry; kids question for families |
 
 ---
 
@@ -461,7 +464,7 @@ Measured on 2026-11-14: Wikidata has 640 active cruise-ship items, with GT on 76
 | **M0 Spec** ✅ | This document | Signed off 2026-11-14 |
 | **M1 Vertical slice** ✅ | Pipeline, three modes, Celebrity end-to-end | Done 2026-11-14 |
 | **M2 Line policies + tiers** ✅ | `lines.csv`, `tiers.csv`, `bundles.csv` for all 19 lines | Done 2026-11-14: gratuity 99%, drinks 99%, Wi-Fi 97%, dining 100% known; `max_guests` and cabin sizes deferred to M3 |
-| **M3 Ships + amenities** (in progress) | Done 2026-11-14: cabin sizes 77% of rows, `max_guests` 50%, guests-per-cabin filter, D35 attractions (slides 45 ships, splash 49, mini golf 31). Left: pickleball/track/thermal/pools gaps, Explora III | All ships have GT/pax/year (done: 207/207); amenity coverage ≥ 80% |
+| **M3 Ships + amenities** (in progress) | Done 2026-11-14: cabin sizes 77% of rows, `max_guests` 50%, guests-per-cabin filter, D35 attractions (slides 45 ships, splash 49, mini golf 31). 2026-11-14 amenity pass (D51): slides 63% of ships, pickleball 46%, track 58%, splash 50%, covered pool 36%, promenade 13%. Left: promenade, covered pool, pickleball, thermal and luxury-line gaps to 80%; Explora III | All ships have GT/pax/year (done: 207/207); amenity coverage ≥ 80% |
 | **M4 Fares + regions** | User's CruisePlum export → `import_prices.py` (fares) + ship region/home-port tags | ≥ 70% of rows priced; regions on ≥ 90% of ships |
 | **M5 Features** | Must/Nice controls, presets, sleeps-N filter, CDC outbreak history, shortlist + compare, "what changed" feed, methodology + coverage page, report-an-error link, stale badge, monthly CDC refresh Action | Each feature covered by an e2e check |
 | **M6 QA + launch** | 10% random audit against sources, link check, Lighthouse ≥ 90, repo public, Pages live | Audit error rate < 5%; site public |

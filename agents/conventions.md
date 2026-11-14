@@ -6,6 +6,7 @@
 - **Unknown ≠ No.** Booleans are `1` / `0` / blank. Enums are a listed value or blank. Blank always means unknown.
 - **Every fact row has `source_urls` (`;`-separated) and `last_verified` (YYYY-MM-DD).** Put conflicts and judgement calls in `notes`.
 - **Source priority:** 1) the line's official pages; 2) parent-company investor-relations pages; 3) CDC Vessel Sanitation Program; 4) Wikipedia/Wikidata (specs only); 5) trade press (Cruise Critic news, Travel Market Report) for change dates; 6) blogs and forums as leads only, never the sole source for a perk.
+- **Amenity "no" values** need a source that says so, or an official list the ship is missing from; absence from one marketing page is not enough (D51). `adults_only_pool` counts only pools any adult can use free.
 - **Where data lives:** line-wide policy in `lines.csv`; perks and inclusions per cabin tier in `tiers.csv`; ship-specific exceptions to a tier in `tier_overrides.csv` (e.g. no Retreat Sundeck on Celebrity Solstice); amenities on `ship_classes.csv`, with a non-blank value in `ships.csv` overriding the class.
 - **Tier boundaries:** split a line's cabins into tiers wherever perks change, not by marketing names. Name the tier with the line's own words.
 - **Definitions used so far:**

@@ -20,6 +20,8 @@ function perkCheck(row, p) {
 
 function amenityCheck(row, ship, a) {
   if (a === 'self_laundry') return known(ship.self_laundry, (v) => v !== 'none');
+  // Free thermal spa: included for every guest on the ship, or with this cabin tier (e.g. Celebrity AquaClass).
+  if (a === 'thermal_free') return row.thermal_suite_included === true ? true : known(ship.thermal_suite, (v) => v === 'included');
   if (a === 'thermal_suite') return row.thermal_suite_included === true ? true : known(ship.thermal_suite, (v) => v !== 'none');
   return tri(ship[a]);
 }
@@ -103,10 +105,13 @@ function tieBreak(a, b) {
   return a.row.row_id < b.row.row_id ? -1 : 1;
 }
 
+// Confirmed matches come first (D52): a row that passes every filter on known data ranks above one that passes
+// only because a filtered amenity is unknown, whatever the sort.
 export function sortItems(items, key) {
   const val = (it) => (key === 'score' ? it.score : it.m[key]);
   const asc = SORT_ASC.has(key);
   return items.sort((a, b) => {
+    if (a.partial !== b.partial) return a.partial ? 1 : -1;
     const va = val(a);
     const vb = val(b);
     if (va == null || vb == null || va === vb) {

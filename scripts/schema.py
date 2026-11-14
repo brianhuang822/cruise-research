@@ -36,6 +36,8 @@ AMENITY_COLUMNS = {
     "water_slides": ("bool", None),
     "mini_golf": ("bool", None),
     "splash_area": ("bool", None),
+    "promenade_deck": ("bool", None),  # outdoor deck you can walk all the way around
+    "covered_pool": ("bool", None),  # a pool under a fixed or retractable roof
 }
 
 SOURCE_COLUMNS = {

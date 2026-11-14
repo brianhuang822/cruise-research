@@ -17,6 +17,7 @@ export const AMENITIES = [
   ['pickleball', 'Pickleball'], ['sports_court', 'Sports / basketball court'], ['running_track', 'Running track'],
   ['self_laundry', 'Self-service laundry'], ['thermal_suite', 'Thermal suite'], ['adults_only_pool', 'Adults-only pool'],
   ['kids_club', 'Kids club'], ['water_slides', 'Water slides'], ['mini_golf', 'Mini golf'], ['splash_area', 'Kids splash area'],
+  ['thermal_free', 'Free thermal spa'], ['promenade_deck', 'Walk-around promenade deck'], ['covered_pool', 'Covered or indoor pool'],
 ];
 export const METRICS = [
   ['price', 'All-in price (lower is better)', 3],
