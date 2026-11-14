@@ -326,3 +326,9 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
 .finetune .hint { margin-top: 4px; }
 .quiz-results .finetune { margin: 4px 0 16px; }
 .results .rank-summary { margin: -4px 0 10px; }
+
+/* Wizard re-ranking controls */
+.rerank { display: grid; gap: 10px; padding: 14px; margin: 4px 0 16px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); }
+.rerank-row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.rerank-row .rank-summary { margin: 0; flex: 1 1 240px; }
+.rerank .finetune > summary { margin-top: 2px; }

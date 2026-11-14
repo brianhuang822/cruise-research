@@ -31,6 +31,24 @@ export function perkChips(row, ship) {
   return chips.filter(([on]) => on === true).map(([, label]) => label);
 }
 
+// Priority chips: one tap raises a measure's weight to 4, another drops it back to 1.
+export const PRIORITIES = [['price', 'Low price'], ['gt', 'Big ship'], ['newness', 'New ship'], ['sqft', 'Big cabin'],
+  ['dining', 'Restaurants'], ['cdc', 'Cleanliness'], ['space', 'Space per guest']];
+export const QUICK_SORTS = [['score', 'Best match'], ['price', 'Lowest price'], ['gt', 'Biggest ship'], ['newness', 'Newest ship'], ['sqft', 'Biggest cabin']];
+export const priorityOn = (w, k) => w[k] >= 3;
+export const togglePriority = (w, k) => ({ ...w, [k]: priorityOn(w, k) ? 1 : 4 });
+
+export function priorityChips(w) {
+  return html`<span class="rank-label">What matters most?</span>
+    ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${priorityOn(w, k)}">${l}</button>`)}`;
+}
+
+export function sortSelect(id, current) {
+  const options = QUICK_SORTS.some(([v]) => v === current) ? QUICK_SORTS : [...QUICK_SORTS, [current, 'Custom (from Detailed)']];
+  return html`<label class="sortbox" for="${id}">Sort
+    <select id="${id}">${options.map(([v, l]) => html`<option value="${v}" ${current === v ? html`selected` : ''}>${l}</option>`)}</select></label>`;
+}
+
 // Weight sliders, shared by every mode. app.js commits a change on release (the 'change' event).
 export function weightSliders(w, prefix) {
   return html`<div class="weights-grid">${METRICS.map(([k, label]) => html`<label for="${prefix}-w-${k}"><span>${label}</span>

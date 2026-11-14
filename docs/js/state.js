@@ -1,6 +1,7 @@
 // Shared state for all three modes, plus URL encoding so any view can be linked.
 
-export const MODES = ['simple', 'detailed', 'wizard'];
+export const MODES = ['wizard', 'simple', 'detailed'];
+export const DEFAULT_MODE = 'wizard';
 
 export const TIER_TYPES = [
   ['interior', 'Interior'], ['oceanview', 'Ocean view'], ['balcony', 'Balcony'], ['junior_suite', 'Junior suite'],
@@ -31,7 +32,7 @@ export const DINING_RANK = { main_only: 0, some_specialty: 1, all: 2 };
 export const DEFAULTS = Object.freeze({
   nights: 7, tickers: [], drinks: 'none', wifi: false, dinners: 0,
   segments: [], lines: [], types: [], maxPrice: null, minGt: 0, dining: 'any', privRest: false,
-  grat: false, adults: false, guests: 2, perks: [], amen: [], unknowns: 'include', sort: 'score',
+  grat: false, wifiFree: false, adults: false, guests: 2, perks: [], amen: [], unknowns: 'include', sort: 'score',
   w: Object.freeze(Object.fromEntries(METRICS.map(([k, , d]) => [k, d]))),
 });
 
@@ -40,7 +41,7 @@ export const fresh = () => structuredClone({ ...DEFAULTS, w: { ...DEFAULTS.w } }
 // One mutable store; views call store.set(...) and every subscriber re-renders.
 export const store = {
   state: fresh(),
-  mode: 'simple',
+  mode: DEFAULT_MODE,
   listeners: new Set(),
   set(patch) {
     Object.assign(this.state, patch);
@@ -51,7 +52,7 @@ export const store = {
     this.emit();
   },
   setMode(mode) {
-    this.mode = MODES.includes(mode) ? mode : 'simple';
+    this.mode = MODES.includes(mode) ? mode : DEFAULT_MODE;
     this.emit();
   },
   emit() {
@@ -63,7 +64,7 @@ export const store = {
 const LIST_KEYS = ['tickers', 'segments', 'lines', 'types', 'perks', 'amen'];
 const STRING_KEYS = ['drinks', 'dining', 'unknowns', 'sort'];
 const NUMBER_KEYS = ['nights', 'dinners', 'minGt', 'guests'];
-const BOOL_KEYS = ['wifi', 'privRest', 'grat', 'adults'];
+const BOOL_KEYS = ['wifi', 'privRest', 'grat', 'wifiFree', 'adults'];
 
 export function readUrl() {
   let q;
@@ -79,12 +80,12 @@ export function readUrl() {
     METRICS.forEach(([k], i) => { if (Number.isFinite(vals[i])) s.w[k] = Math.max(0, Math.min(5, vals[i])); });
   }
   store.state = s;
-  store.mode = MODES.includes(q.get('mode')) ? q.get('mode') : 'simple';
+  store.mode = MODES.includes(q.get('mode')) ? q.get('mode') : DEFAULT_MODE;
 }
 
 export function urlFor(state, mode) {
   const q = new URLSearchParams();
-  if (mode !== 'simple') q.set('mode', mode);
+  if (mode !== DEFAULT_MODE) q.set('mode', mode);
   for (const [k, v] of Object.entries(state)) {
     const d = DEFAULTS[k];
     if (k === 'w') {

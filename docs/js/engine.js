@@ -35,6 +35,7 @@ export function evalFilters(state, row, line, ship, priced) {
   if (state.dining !== 'any') checks.push(known(row.included_dining, (v) => DINING_RANK[v] >= DINING_RANK[state.dining]));
   if (state.privRest) checks.push(tri(row.private_restaurant));
   if (state.grat) checks.push(known(row.gratuity_pppd, (v) => v === 0));
+  if (state.wifiFree) checks.push(tri(row.wifi_included));
   if (state.adults) checks.push(known(line.min_age, (v) => v >= 18));
   if (state.guests > 2) checks.push(known(row.max_guests, (v) => v >= state.guests));
   for (const p of state.perks) checks.push(perkCheck(row, p));
@@ -125,6 +126,6 @@ function compute(data, LINES, SHIPS, state) {
 
 export function activeFilterCount(state) {
   const lists = state.segments.length + state.lines.length + state.types.length + state.perks.length + state.amen.length;
-  const flags = [state.maxPrice != null, state.minGt > 0, state.dining !== 'any', state.privRest, state.grat, state.adults, state.guests > 2];
+  const flags = [state.maxPrice != null, state.minGt > 0, state.dining !== 'any', state.privRest, state.grat, state.wifiFree, state.adults, state.guests > 2];
   return lists + flags.filter(Boolean).length;
 }

@@ -83,6 +83,15 @@ Every decision made with the owner, in the order it was made, with the reason. E
 | D37 | **No CI and no automated CDC refresh, even after the repo goes public.** CDC data is refreshed by running `scripts/fetch_cdc.py` with each data update. Supersedes the automation half of D29; the stale badge stays | Owner |
 | D38 | **Work order before the export:** M3 cabin sizes + `max_guests` → D35 attractions → fare-independent M5 features (must/nice, presets, CDC outbreak history, stale badge, methodology page, report-an-error link) → shortlist/compare. Fares and regions load when the export arrives | Owner accepted defaults |
 
+## 2026-11-14 · Quiz first
+
+| # | Decision | Why / notes |
+|---|---|---|
+| D39 | **"Help me choose" is the landing mode and first tab** (order: Help me choose, Simple, Detailed). Supersedes the "Simple (default)" part of D22 | Owner |
+| D40 | **Quiz results re-rank live**: priority chips, a sort menu and fine-tune weights on the results; the quiz also asks "What matters most?" (up to three) | Owner: "a way to sort based on change of weighted preferences" |
+| D41 | **Food question is about where you eat without paying extra**: buffet + main dining room / plus a few paid specialty dinners / some specialty included / all included | Owner: frame it as buffet vs main dining room |
+| D42 | **Wi-Fi question asks whether it must be free**; new **"Wi-Fi included"** filter in all modes (tier `wifi_included`; bundles don't count as free) | Owner |
+
 ## Still open
 
 - CruisePlum export format: whether it includes taxes/fees, sail dates, region, departure port (owner will export and report).

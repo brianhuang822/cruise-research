@@ -45,6 +45,7 @@ function syncControls() {
   $('f-dining').value = s.dining;
   $('f-privrest').checked = s.privRest;
   $('f-grat').checked = s.grat;
+  $('f-wififree').checked = s.wifiFree;
   $('f-adults').checked = s.adults;
   $('f-guests').value = String(s.guests);
   $('u-include').checked = s.unknowns === 'include';
@@ -126,6 +127,7 @@ export function initDetailed(eng, rerender) {
   $('f-dining').onchange = (e) => store.set({ dining: e.target.value });
   $('f-privrest').onchange = (e) => store.set({ privRest: e.target.checked });
   $('f-grat').onchange = (e) => store.set({ grat: e.target.checked });
+  $('f-wififree').onchange = (e) => store.set({ wifiFree: e.target.checked });
   $('f-adults').onchange = (e) => store.set({ adults: e.target.checked });
   $('f-guests').onchange = (e) => store.set({ guests: num(e) });
   for (const id of ['u-include', 'u-exclude']) $(id).onchange = (e) => store.set({ unknowns: e.target.value });

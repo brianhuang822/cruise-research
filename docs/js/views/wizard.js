@@ -1,7 +1,7 @@
 // "Help me choose": a short decision tree. Each answer maps onto the same state the other modes use.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { cardHtml, rankSummary, weightSliders } from './common.js';
+import { PRIORITIES, cardHtml, priorityChips, rankSummary, sortSelect, togglePriority, weightSliders } from './common.js';
 
 const ALL = 'all';
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
@@ -48,9 +48,11 @@ export const QUESTIONS = [
         else s.perks = add(s.perks, [p]);
       }
     } },
-  { id: 'food', title: 'How much does food matter?', options: [
-      ['main', 'The main dining room is fine'], ['few', "I'll pay for a couple of specialty dinners"],
-      ['some', 'Some specialty dining should be included'], ['all', 'Every restaurant should be included']],
+  { id: 'food', title: 'Where do you want to eat without paying extra?',
+    help: 'Every cruise includes a buffet and a main dining room with table service. Specialty restaurants usually cost extra.',
+    options: [
+      ['main', 'The buffet and main dining room are enough'], ['few', "Mostly those, plus a couple of specialty dinners I'll pay for"],
+      ['some', 'Some specialty restaurants included in the fare'], ['all', 'Every restaurant included in the fare']],
     apply: (a, s) => {
       if (a === 'few') s.dinners = 2;
       if (a === 'some') s.dining = 'some_specialty';
@@ -60,12 +62,19 @@ export const QUESTIONS = [
   { id: 'drinks', title: 'What do you usually drink?', options: [
       ['none', 'Water, coffee, tea'], ['soft', 'Soda and juice'], ['alcohol', 'Cocktails, beer or wine']],
     apply: (a, s) => { s.drinks = a; } },
-  { id: 'wifi', title: 'Do you need Wi-Fi on board?', options: [['yes', 'Yes'], ['no', 'No']],
-    apply: (a, s) => { s.wifi = a === 'yes'; } },
+  { id: 'wifi', title: 'Do you need Wi-Fi, and should it be free?', options: [
+      ['free', 'Yes, it must be included in the fare'], ['pay', "Yes, but I don't mind paying"], ['no', "I don't need it"]],
+    apply: (a, s) => {
+      s.wifi = a !== 'no';
+      s.wifiFree = a === 'free';
+    } },
   { id: 'activities', title: 'Anything you want on the ship?', help: 'Pick any, or skip.', multi: true,
     options: [['pickleball', 'Pickleball'], ['running_track', 'Running track'], ['thermal_suite', 'Thermal spa'],
       ['sports_court', 'Basketball court'], ['self_laundry', 'Self-service laundry']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
+  { id: 'priorities', title: 'What matters most to you?', help: 'Pick up to three. You can change these on the results page.', multi: true,
+    options: PRIORITIES,
+    apply: (a, s) => { for (const k of a) s.w[k] = Math.max(s.w[k], 4); } },
   { id: 'shares', title: 'Do you own 100 or more shares of a cruise company?', help: 'Shareholders get onboard credit on that company’s lines.',
     multi: true, options: [['CCL', 'Carnival Corp (CCL)'], ['RCL', 'Royal Caribbean Group (RCL)'], ['NCLH', 'Norwegian Cruise Line Holdings (NCLH)']],
     apply: (a, s) => { s.tickers = [...a]; } },
@@ -109,19 +118,28 @@ function questionView(q, index, total) {
   </div>`;
 }
 
+const TOP = 10;
+
 function resultsView(items) {
   const qs = visible();
-  const top = items.slice(0, 5);
+  const s = store.state;
+  const top = items.slice(0, TOP);
   return html`<div class="quiz-results">
     <div class="results-head">
       <h2 class="quiz-title">Your top ${top.length} match${top.length === 1 ? '' : 'es'}</h2>
       <p class="tally">${items.length} cabin options fit your answers</p>
     </div>
-    <p class="rank-summary">${rankSummary(store.state.w)} (set by your answers).</p>
-    <details class="finetune" id="q-finetune" ${weightsOpen ? html`open` : ''}>
-      <summary>Adjust what matters</summary>
-      ${weightSliders(store.state.w, 'q')}
-    </details>
+    <div class="rerank">
+      <div class="chips">${priorityChips(s.w)}</div>
+      <div class="rerank-row">
+        ${sortSelect('q-sort', s.sort)}
+        <p class="rank-summary">${s.sort === 'score' ? rankSummary(s.w) : 'Sorted by your choice above; switch back to Best match to use your priorities.'}</p>
+      </div>
+      <details class="finetune" id="q-finetune" ${weightsOpen ? html`open` : ''}>
+        <summary>Fine-tune weights</summary>
+        ${weightSliders(s.w, 'q')}
+      </details>
+    </div>
     ${top.length ? html`<div class="cards">${top.map((it) => cardHtml(it))}</div>`
       : html`<p class="empty">Nothing fits every answer. Change an answer below, often the budget or a suite perk.</p>`}
     <div class="quiz-actions">
@@ -171,6 +189,11 @@ export function initWizard(goTo) {
       }
       return;
     }
+    const rank = e.target.closest('[data-rank]');
+    if (rank) {
+      store.set({ w: togglePriority(store.state.w, rank.dataset.rank), sort: 'score' });
+      return;
+    }
     const id = e.target.id;
     if (id === 'q-next') { answers[q.id] = answers[q.id] || []; advance(); }
     else if (id === 'q-skip') { delete answers[q.id]; advance(); }
@@ -178,6 +201,9 @@ export function initWizard(goTo) {
     else if (id === 'q-restart') { answers = {}; step = 0; commit(); }
     else if (e.target.dataset.edit) { step = Number(e.target.dataset.edit); renderWizard(lastItems); }
     else if (e.target.dataset.goto) goTo(e.target.dataset.goto);
+  };
+  $('mode-wizard').onchange = (e) => {
+    if (e.target.id === 'q-sort') store.set({ sort: e.target.value });
   };
 }
 

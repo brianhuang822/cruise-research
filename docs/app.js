@@ -97,6 +97,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  mount($('mode-simple'), html`<p class="empty">Couldn't load the cabin data (${err.message}). Reload the page. If it still fails, data.json is missing from this deployment.</p>`);
-  $('mode-simple').hidden = false;
+  mount($('mode-wizard'), html`<p class="empty">Couldn't load the cabin data (${err.message}). Reload the page. If it still fails, data.json is missing from this deployment.</p>`);
+  $('mode-wizard').hidden = false;
 });

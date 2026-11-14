@@ -58,6 +58,10 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D36 | Accessibility, solo | **Stay cut** (reconfirmed) |
 | D37 | Automation | **No CI, no scheduled refresh**, even when public; `fetch_cdc.py` run manually |
 | D38 | Pre-export order | M3 sizes/max guests → attractions → fare-independent M5 → compare |
+| D39 | Landing mode | **Help me choose** first and default (supersedes D22's Simple default) |
+| D40 | Quiz results | Live re-rank: priority chips, sort, fine-tune weights; "What matters most?" question |
+| D41 | Food question | Buffet + main dining room vs specialty included |
+| D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere |
 
 ---
 
@@ -360,7 +364,7 @@ Any numeric column, ascending/descending: all-in price, GT, space ratio, year bu
 
 All three modes read and write the **same state** (inputs, filters, weights) and use the same filter/score/price engine, so the same answers always give the same results. The active mode is in the URL (`mode=simple|detailed|wizard`). Switching modes keeps state.
 
-| | Simple (default) | Detailed | Help me choose (wizard) |
+| | Simple | Detailed | Help me choose (wizard, default) |
 |---|---|---|---|
 | For | Most visitors | Power users, analysts | First-time cruisers, undecided |
 | Controls | ~8 popular filters in one bar | Every filter, weights, sort | One question per screen |

@@ -22,20 +22,21 @@
   </div>
   <div class="wrap modebar">
     <div class="tabs" id="mode-tabs" role="tablist" aria-label="View">
-      <button type="button" role="tab" id="tab-simple" data-mode="simple" aria-selected="true" aria-controls="mode-simple">Simple</button>
+      <button type="button" role="tab" id="tab-wizard" data-mode="wizard" aria-selected="true" aria-controls="mode-wizard">Help me choose</button>
+      <button type="button" role="tab" id="tab-simple" data-mode="simple" aria-selected="false" aria-controls="mode-simple" tabindex="-1">Simple</button>
       <button type="button" role="tab" id="tab-detailed" data-mode="detailed" aria-selected="false" aria-controls="mode-detailed" tabindex="-1">Detailed</button>
-      <button type="button" role="tab" id="tab-wizard" data-mode="wizard" aria-selected="false" aria-controls="mode-wizard" tabindex="-1">Help me choose</button>
     </div>
     <button type="button" class="btn-ghost" id="copy-link">Copy link</button>
   </div>
 </header>
 
-<section class="wrap mode-panel" id="mode-simple" role="tabpanel" aria-labelledby="tab-simple">
+<section class="wrap mode-panel" id="mode-wizard" role="tabpanel" aria-labelledby="tab-wizard"></section>
+
+<section class="wrap mode-panel" id="mode-simple" role="tabpanel" aria-labelledby="tab-simple" hidden>
   <div id="s-controls"></div>
   <div id="s-results" aria-live="polite"></div>
 </section>
 
-<section class="wrap mode-panel" id="mode-wizard" role="tabpanel" aria-labelledby="tab-wizard" hidden></section>
 
 <div id="mode-detailed" role="tabpanel" aria-labelledby="tab-detailed" hidden>
 
@@ -109,6 +110,7 @@
       <fieldset class="group">
         <legend>Fare</legend>
         <label class="check"><input type="checkbox" id="f-grat"> Gratuities included</label>
+        <label class="check"><input type="checkbox" id="f-wififree"> Wi-Fi included</label>
         <label class="check"><input type="checkbox" id="f-adults"> Adults-only ship (18+)</label>
         <label class="range-label" for="f-guests">Guests in one cabin</label>
         <select id="f-guests"><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 or more</option></select>
