@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { METRICS, fresh, store, toggleIn } from '../state.js';
-import { cardHtml, priorityChips, rankSummary, sortSelect, togglePriority, weightSliders } from './common.js';
+import { cardHtml, priorityChips, sortSelect, togglePriority, weightSliders } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -13,16 +13,18 @@ export const CABIN_GROUPS = [
   ['balcony', 'Balcony', ['balcony', 'junior_suite', 'perk_class']],
   ['suite', 'Suite', ['suite', 'top_suite']],
 ];
-const BUDGETS = [['', 'Any budget'], ['150', 'Up to $150'], ['250', 'Up to $250'], ['400', 'Up to $400'], ['600', 'Up to $600'], ['1000', 'Up to $1,000']];
+// Same steps as the wizard's budget question, so a quiz answer always shows here.
+const BUDGETS = [['', 'Any'], ['200', 'Up to $200'], ['400', 'Up to $400'], ['800', 'Up to $800']];
 const CALM_GT = 120000;
 
 const groupOn = (types, g) => g[2].every((t) => types.includes(t));
 
 // Filters set in Detailed mode that this bar can't show.
-function hiddenFilters(s) {
+function hiddenFilters(s, priced) {
   const grouped = CABIN_GROUPS.filter((g) => groupOn(s.types, g)).flatMap((g) => g[2]);
   const strayTypes = s.types.filter((t) => !grouped.includes(t)).length;
-  const budgetShown = s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
+  // Without fares a budget filters nothing, so it isn't worth flagging.
+  const budgetShown = !priced || s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
   return (
     s.segments.length + s.lines.length + s.perks.length + s.amen.length + strayTypes +
     [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude'].filter(Boolean).length
@@ -35,34 +37,36 @@ function controls() {
     <select id="${id}">${options.map(([v, l]) => html`<option value="${v}" ${String(value) === v ? html`selected` : ''}>${l}</option>`)}</select></label>`;
   const toggle = (id, label, on) => html`<label class="toggle"><input type="checkbox" id="${id}" ${on ? html`checked` : ''}><span>${label}</span></label>`;
   const tickers = [...new Set(engine.data.shareholder_benefits.map((b) => b.ticker))].sort();
+  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
   return html`<div class="simple-bar">
     <div class="simple-row">
-      ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
-      ${sel('s-guests', [['2', '2 guests'], ['3', '3 guests'], ['4', '4 guests'], ['5', '5 guests'], ['6', '6 or more']], s.guests, 'Guests in one cabin')}
-      ${sel('s-budget', BUDGETS, s.maxPrice ?? '', 'All-in per person per night')}
-      ${sel('s-dining', [['any', 'Any'], ['some_specialty', 'Some specialty included'], ['all', 'All restaurants included']], s.dining, 'Included dining')}
-      ${sel('s-ticker', [['', 'None'], ...tickers.map((t) => [t, t])], s.tickers[0] ?? '', 'Shareholder of')}
-    </div>
-    <div class="simple-row">
-      <div class="field"><span>Cabin</span><div class="chips" id="s-cabins">
+      <div class="chips" id="s-cabins" role="group" aria-label="Cabin type">
         ${CABIN_GROUPS.map((g) => html`<button type="button" class="chip" data-g="${g[0]}" aria-pressed="${groupOn(s.types, g)}">${g[1]}</button>`)}
-      </div></div>
+      </div>
+      ${sel('s-guests', [['2', '2 guests'], ['3', '3 guests'], ['4', '4 guests'], ['5', '5 guests'], ['6', '6+ guests']], s.guests, 'Guests')}
+      ${priced ? sel('s-budget', BUDGETS, s.maxPrice ?? '', 'Budget per night') : ''}
+    </div>
+    <div class="toggles">
+      ${toggle('s-adults', 'Adults only', s.adults)}
+      ${toggle('s-grat', 'Tips included', s.grat)}
+      ${toggle('s-wififree', 'Free Wi-Fi', s.wifiFree)}
+    </div>
+    <details class="more-options" id="s-more-options">
+      <summary>More options</summary>
+      <div class="more-body">
+      <div class="simple-row">
+        ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
+        ${sel('s-dining', [['any', 'Any'], ['some_specialty', 'Some specialty'], ['all', 'All restaurants']], s.dining, 'Dining included')}
+        ${sel('s-ticker', [['', 'None'], ...tickers.map((t) => [t, t])], s.tickers[0] ?? '', 'Shareholder of')}
+      </div>
       <div class="toggles">
-        ${toggle('s-grat', 'Gratuities included', s.grat)}
-        ${toggle('s-wififree', 'Wi-Fi included', s.wifiFree)}
-        ${toggle('s-adults', 'Adults-only ship', s.adults)}
         ${toggle('s-drinks', 'Add a drinks package', s.drinks === 'alcohol')}
         ${toggle('s-calm', 'Less motion (120k+ GT)', s.minGt === CALM_GT)}
       </div>
-    </div>
-    <div class="simple-row rank-row">
       <div class="chips" id="s-rank">${priorityChips(s.w)}</div>
-      <details class="finetune" id="s-finetune">
-        <summary>Fine-tune</summary>
-        ${weightSliders(s.w, 's')}
-        <p class="hint">0 ignores a measure, 5 makes it count most. Each measure is ranked against the cabins shown.</p>
-      </details>
-    </div>
+      ${weightSliders(s.w, 's')}
+      </div>
+    </details>
   </div>`;
 }
 
@@ -134,16 +138,13 @@ export function syncWeights() {
 export function renderSimple(items) {
   lastItems = items;
   const s = store.state;
-  const hidden = hiddenFilters(s);
-  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
+  const hidden = hiddenFilters(s, engine.data.rows.some((r) => r.fare_pppn_median != null));
   mount($('s-results'), html`
     <div class="results-head">
-      <div><p class="tally">${items.length.toLocaleString('en-US')} cabin options</p>
-        ${s.sort === 'score' ? html`<p class="rank-summary">${rankSummary(s.w)}</p>` : ''}</div>
+      <p class="tally">${items.length.toLocaleString('en-US')} cabins</p>
       ${sortSelect('s-sort', s.sort)}
     </div>
-    ${hidden ? html`<p class="notice">${hidden} more filter${hidden === 1 ? ' is' : 's are'} on from Detailed mode. <button type="button" class="link" id="s-clear-hidden">Clear them</button></p>` : ''}
-    ${priced ? '' : html`<p class="notice">Fares aren't loaded yet, so prices show the extra cost per night (gratuities plus any drinks package) and the budget filter has no effect.</p>`}
+    ${hidden ? html`<p class="notice">+${hidden} more filter${hidden === 1 ? '' : 's'} on. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
     ${items.length
       ? html`<div class="cards">${items.slice(0, shown).map((it) => cardHtml(it))}</div>
         ${items.length > shown ? html`<button type="button" class="btn-more" id="s-more">Show ${Math.min(PAGE, items.length - shown)} more</button>` : ''}`

@@ -62,6 +62,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D40 | Quiz results | Live re-rank: priority chips, sort, fine-tune weights; "What matters most?" question |
 | D41 | Food question | Buffet + main dining room vs specialty included |
 | D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere |
+| D43 | Declutter | Simple: 3 controls + 3 toggles, rest under "More options"; budget hidden until fares; compact cards; quiz top 5, folded answers/weights |
 
 ---
 
@@ -367,10 +368,10 @@ All three modes read and write the **same state** (inputs, filters, weights) and
 | | Simple | Detailed | Help me choose (wizard, default) |
 |---|---|---|---|
 | For | Most visitors | Power users, analysts | First-time cruisers, undecided |
-| Controls | ~8 popular filters in one bar | Every filter, weights, sort | One question per screen |
-| Results | Cards, 12 at a time, 4 sort options | Table/cards, full breakdown, 8 sorts | Top 5 matches + "refine in Simple/Detailed" |
+| Controls | Cabin type, guests, 3 toggles; the rest under "More options" | Every filter, weights, sort | One question per screen |
+| Results | Cards, 12 at a time, quick sorts | Table/cards, full breakdown, 8 sorts | Top 5 matches + "Show 5 more", priority chips, sort, "See all" |
 
-**Simple mode controls** (most-cited decision factors from §Research): trip length · max all-in $/night (Any / $150 / $250 / $400 / $600 / $1,000) · cabin (Inside / Ocean view / Balcony / Suite) · included dining (Any / Some specialty / All) · toggles: gratuities included, adults-only ship, drinks package, fewer motion (≥120k GT) · shareholder ticker. If filters set in Detailed mode are hidden in Simple, a banner shows how many and offers "Clear".
+**Simple mode controls** (D43): visible: cabin (Inside / Ocean view / Balcony / Suite) · guests · toggles adults only, tips included, free Wi-Fi · budget (Any / $200 / $400 / $800, shown only once fares exist). Under "More options": trip length · included dining · shareholder ticker · drinks package · less motion (≥120k GT) · priority chips and weight sliders. If filters set elsewhere can't be shown in Simple, a one-line note shows how many and offers "Clear".
 
 Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony = `balcony`, `junior_suite`, `perk_class`; Suite = `suite`, `top_suite`.
 

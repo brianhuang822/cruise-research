@@ -39,7 +39,7 @@ export const priorityOn = (w, k) => w[k] >= 3;
 export const togglePriority = (w, k) => ({ ...w, [k]: priorityOn(w, k) ? 1 : 4 });
 
 export function priorityChips(w) {
-  return html`<span class="rank-label">What matters most?</span>
+  return html`<span class="rank-label">Prioritize</span>
     ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${priorityOn(w, k)}">${l}</button>`)}`;
 }
 
@@ -69,9 +69,17 @@ export function priceCell(p) {
     const how = `${p.method !== 'a_la_carte' ? 'via bundle' : 'fare + extras'}${p.obc ? ' − shareholder credit' : ''}`;
     return html`<span class="price">${fmt$(p.all_in)}</span><small>${how}</small>`;
   }
-  if (p.extras != null) return html`<span class="pending">Fare pending</span><small>+${fmt$2(p.extras)}/night in extras</small>`;
-  return html`<span class="pending unk">Unknown</span><small>missing: ${p.missing.join(', ')}</small>`;
+  if (p.extras != null) return html`<span class="pending">Fare pending</span><small>+${fmt$(p.extras)}/night extras</small>`;
+  const gaps = [...new Set(p.missing.filter((m) => m !== 'fare').map((m) => MISSING_LABELS[m] ?? m.replace(/_/g, ' ')))];
+  const head = p.missing.includes('fare') ? 'Fare pending' : 'Price unknown';
+  return html`<span class="pending unk">${head}</span>${gaps.length ? html`<small>${gaps.join(' & ')} cost unknown</small>` : ''}`;
 }
+
+// Plain names for the pricing inputs priceCell can report as missing.
+const MISSING_LABELS = {
+  gratuity: 'tips', drinks_included: 'drinks', drink_pkg_pppd: 'drinks', soft_pkg_pppd: 'drinks',
+  wifi_included: 'Wi-Fi', wifi_pppd: 'Wi-Fi', specialty_meals_included: 'dinners', specialty_meal_price: 'dinners',
+};
 
 const PART_LABELS = { gratuity: 'Gratuities', drinks: 'Drinks', wifi: 'Wi-Fi', specialty: 'Specialty dinners', bundle: 'Bundle' };
 
@@ -168,28 +176,29 @@ export function scoreCell(it) {
 }
 
 // Card used by Simple and Wizard modes.
-export function cardHtml(it, extra = '') {
+// Drop the parenthetical category list from long tier names on cards; the detail panel keeps the full name.
+const shortName = (name) => name.replace(/\s*\(.*\)\s*$/, '');
+
+export function cardHtml(it) {
   const { row, ship, line, priced } = it;
-  const chips = perkChips(row, ship).slice(0, 5);
+  const chips = perkChips(row, ship).slice(0, 3);
+  const facts = [
+    it.score == null ? null : `Match ${Math.round(it.score)}`,
+    `${(ship.gt / 1000).toFixed(0)}k GT`,
+    `Built ${ship.year_built}`,
+    row.sqft_min == null ? null : `${row.sqft_min}+ sq ft`,
+  ].filter(Boolean).join(' · ');
   return html`<details class="card" data-id="${row.row_id}">
     <summary>
       <div class="card-top">
-        <div>
-          <span class="type-badge">${typeLabel(row.tier_type)}</span>
-          <h3 class="card-title">${row.name}</h3>
+        <div class="card-head">
+          <h3 class="card-title">${shortName(row.name)}</h3>
           <p class="ship-name">${ship.name} · ${line.name}</p>
         </div>
         <div class="card-price">${priceCell(priced)}</div>
       </div>
-      <dl class="card-facts">
-        <div><dt>Match</dt><dd class="score">${scoreCell(it)}</dd></div>
-        <div><dt>Ship size</dt><dd>${(ship.gt / 1000).toFixed(0)}k GT</dd></div>
-        <div><dt>Built</dt><dd>${ship.year_built}</dd></div>
-        <div><dt>Cabin</dt><dd>${row.sqft_min == null ? '—' : `${row.sqft_min}+ sq ft`}</dd></div>
-      </dl>
+      <p class="card-facts">${facts}</p>
       ${chips.length ? chipList(chips) : ''}
-      ${extra}
-      <span class="card-more">Details</span>
     </summary>
   </details>`;
 }

@@ -86,8 +86,7 @@ async function main() {
   engine = createEngine(data);
   readUrl();
   const n = data.lines.length;
-  $('stamp').textContent = `Data updated ${data.last_updated} · ${n} line${n === 1 ? '' : 's'} · ${data.ships.length} ships · ${data.rows.length} cabin options`;
-  $('foot-updated').textContent = `Last updated ${data.last_updated}. CDC sanitation scores fetched ${data.snapshots.cdc_vsp ?? 'n/a'}. ${Object.keys(data.sources).length} sources cited.`;
+  $('foot-updated').textContent = `Updated ${data.last_updated} · ${n} lines · ${data.ships.length} ships · ${data.rows.length.toLocaleString('en-US')} cabin options · CDC scores fetched ${data.snapshots.cdc_vsp ?? 'n/a'}`;
   initSimple(engine);
   initDetailed(engine, render);
   initWizard(goTo);

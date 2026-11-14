@@ -14,11 +14,8 @@
 <body>
 <header class="masthead">
   <div class="wrap masthead-inner">
-    <div>
-      <h1>Cruise Cabin Finder</h1>
-      <p class="lede">Compare cruise cabins by all-in price per person per night, suite perks, ship size and onboard amenities.</p>
-    </div>
-    <p class="stamp" id="stamp">Loading data…</p>
+    <h1>Cruise Cabin Finder</h1>
+    <button type="button" class="btn-ghost" id="copy-link">Copy link</button>
   </div>
   <div class="wrap modebar">
     <div class="tabs" id="mode-tabs" role="tablist" aria-label="View">
@@ -26,7 +23,6 @@
       <button type="button" role="tab" id="tab-simple" data-mode="simple" aria-selected="false" aria-controls="mode-simple" tabindex="-1">Simple</button>
       <button type="button" role="tab" id="tab-detailed" data-mode="detailed" aria-selected="false" aria-controls="mode-detailed" tabindex="-1">Detailed</button>
     </div>
-    <button type="button" class="btn-ghost" id="copy-link">Copy link</button>
   </div>
 </header>
 
@@ -173,8 +169,7 @@
 
 <footer class="wrap foot">
   <p id="foot-updated"></p>
-  <p>Cruise lines change gratuities and inclusions often. Each cabin lists its sources and the date they were checked. Confirm details with the cruise line before you book. Fares are median prices for each ship and cabin tier and are not quotes for a specific sailing.</p>
-  <p>To rebuild the data, run <code>python3 scripts/build.py</code>. It reads the curated CSV files plus dated snapshots from the CDC Vessel Sanitation Program and Wikidata, and writes <code>data/dataset.json</code>.</p>
+  <p>Fares are medians per ship and cabin tier, not quotes. Inclusions change often, so confirm with the cruise line before you book. Each cabin lists its sources.</p>
 </footer>
 
 <script type="module" src="app.js"></script>
