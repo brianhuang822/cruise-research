@@ -11,6 +11,9 @@ export const QUESTIONS = [
   { id: 'who', title: "Who's going?", options: [
       ['adults', 'Two or more adults'], ['family', 'A family with kids'], ['solo', 'Just me']],
     apply: (a, s) => { if (a === 'family') s.amen = add(s.amen, ['kids_club']); } },
+  { id: 'cabin_size', title: 'How many people will share one cabin?', help: 'Prices on this site still assume two guests per cabin.',
+    show: (ans) => ans.who === 'family', options: [['3', 'Three'], ['4', 'Four'], ['5', 'Five'], ['6', 'Six or more']],
+    apply: (a, s) => { s.guests = Number(a); } },
   { id: 'adults_only', title: 'Would you rather be on a ship with no kids at all?', help: 'Some lines only take guests 18 and over.',
     show: (ans) => ans.who !== 'family', options: [['yes', 'Yes, adults only'], ['no', "Doesn't matter"]],
     apply: (a, s) => { s.adults = a === 'yes'; } },

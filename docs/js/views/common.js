@@ -94,6 +94,7 @@ function tierBlock(row) {
       <dt>Lounge · sundeck</dt><dd>${yn(row.private_lounge)} · ${yn(row.private_sundeck_pool)}</dd>
       <dt>Priority boarding</dt><dd>${yn(row.priority_boarding)}</dd>
       <dt>Thermal suite</dt><dd>${yn(row.thermal_suite_included)}</dd>
+      <dt>Sleeps up to</dt><dd>${row.max_guests ?? unknown()}</dd>
     </dl>
   </div>`;
 }

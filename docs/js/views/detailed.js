@@ -46,6 +46,7 @@ function syncControls() {
   $('f-privrest').checked = s.privRest;
   $('f-grat').checked = s.grat;
   $('f-adults').checked = s.adults;
+  $('f-guests').value = String(s.guests);
   $('u-include').checked = s.unknowns === 'include';
   $('u-exclude').checked = s.unknowns === 'exclude';
   $('sort').value = s.sort;
@@ -126,6 +127,7 @@ export function initDetailed(eng, rerender) {
   $('f-privrest').onchange = (e) => store.set({ privRest: e.target.checked });
   $('f-grat').onchange = (e) => store.set({ grat: e.target.checked });
   $('f-adults').onchange = (e) => store.set({ adults: e.target.checked });
+  $('f-guests').onchange = (e) => store.set({ guests: num(e) });
   for (const id of ['u-include', 'u-exclude']) $(id).onchange = (e) => store.set({ unknowns: e.target.value });
   $('sort').onchange = (e) => store.set({ sort: e.target.value });
   $('reset').onclick = () => {

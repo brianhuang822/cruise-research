@@ -31,7 +31,7 @@ export const DINING_RANK = { main_only: 0, some_specialty: 1, all: 2 };
 export const DEFAULTS = Object.freeze({
   nights: 7, tickers: [], drinks: 'none', wifi: false, dinners: 0,
   segments: [], lines: [], types: [], maxPrice: null, minGt: 0, dining: 'any', privRest: false,
-  grat: false, adults: false, perks: [], amen: [], unknowns: 'include', sort: 'score',
+  grat: false, adults: false, guests: 2, perks: [], amen: [], unknowns: 'include', sort: 'score',
   w: Object.freeze(Object.fromEntries(METRICS.map(([k, , d]) => [k, d]))),
 });
 
@@ -62,7 +62,7 @@ export const store = {
 
 const LIST_KEYS = ['tickers', 'segments', 'lines', 'types', 'perks', 'amen'];
 const STRING_KEYS = ['drinks', 'dining', 'unknowns', 'sort'];
-const NUMBER_KEYS = ['nights', 'dinners', 'minGt'];
+const NUMBER_KEYS = ['nights', 'dinners', 'minGt', 'guests'];
 const BOOL_KEYS = ['wifi', 'privRest', 'grat', 'adults'];
 
 export function readUrl() {

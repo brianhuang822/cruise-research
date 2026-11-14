@@ -49,6 +49,7 @@ function controls() {
   return html`<div class="simple-bar">
     <div class="simple-row">
       ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
+      ${sel('s-guests', [['2', '2 guests'], ['3', '3 guests'], ['4', '4 guests'], ['5', '5 guests'], ['6', '6 or more']], s.guests, 'Guests in one cabin')}
       ${sel('s-budget', BUDGETS, s.maxPrice ?? '', 'All-in per person per night')}
       ${sel('s-dining', [['any', 'Any'], ['some_specialty', 'Some specialty included'], ['all', 'All restaurants included']], s.dining, 'Included dining')}
       ${sel('s-ticker', [['', 'None'], ...tickers.map((t) => [t, t])], s.tickers[0] ?? '', 'Shareholder of')}
@@ -81,6 +82,7 @@ function bind() {
     const t = e.target;
     const actions = {
       's-nights': () => store.set({ nights: Number(t.value) }),
+      's-guests': () => store.set({ guests: Number(t.value) }),
       's-budget': () => store.set({ maxPrice: t.value ? Number(t.value) : null }),
       's-dining': () => store.set({ dining: t.value }),
       's-ticker': () => store.set({ tickers: t.value ? [t.value] : [] }),
