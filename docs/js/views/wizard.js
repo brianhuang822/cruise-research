@@ -49,15 +49,14 @@ export const QUESTIONS = [
       }
     } },
   { id: 'food', title: 'Where do you want to eat without paying extra?',
-    help: 'Every cruise includes the buffet and main dining room. Specialty restaurants usually cost extra.',
+    help: 'Every line, Carnival included, serves a buffet and a waiter-served main dining room at no charge. Oceania, Viking, Virgin and luxury lines also include their specialty restaurants.',
     options: [
-      ['main', 'Buffet and main dining room are enough'], ['few', "Those, plus a couple of paid specialty dinners"],
-      ['some', 'Some specialty restaurants included'], ['all', 'Every restaurant included']],
+      ['main', 'Buffet and main dining room are enough'], ['few', 'Those, plus a couple of paid specialty dinners'],
+      ['all', 'Specialty restaurants included in the fare']],
     apply: (a, s) => {
       if (a === 'few') s.dinners = 2;
-      if (a === 'some') s.dining = 'some_specialty';
       if (a === 'all') s.dining = 'all';
-      s.w.dining = { main: 1, few: 2, some: 2, all: 3 }[a];
+      s.w.dining = { main: 1, few: 2, all: 3 }[a];
     } },
   { id: 'drinks', title: 'What do you usually drink?', options: [
       ['none', 'Water, coffee, tea'], ['soft', 'Soda and juice'], ['alcohol', 'Cocktails, beer or wine']],

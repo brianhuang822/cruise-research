@@ -68,6 +68,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D46 | Presets | Value, Foodie, Smooth seas replace Simple's priority chips and sit in Detailed; Spa & wellness and Active wait for ~80% amenity coverage |
 | D47 | Card labels | Inside / Ocean view / Balcony on cards; line's own tier name in the detail panel |
 | D48 | One card per ship | Simple + quiz group by ship (best cabin leads, "+N more" inside); ties go to the cheaper cabin; Detailed stays per cabin |
+| D49 | Food question | Three answers: buffet + MDR / plus paid specialty dinners / specialty included (no tier is `some_specialty`) |
 
 ---
 
@@ -391,7 +392,7 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 5 | Do you get seasick? | always | min GT + size weight |
 | 6 | What kind of cabin? | always | cabin types |
 | 7 | Which suite perks matter? (multi) | Q6 = suite | perk filters |
-| 8 | How important is food? | always | included-dining filter or specialty dinners + dining weight |
+| 8 | Where do you want to eat without paying extra? (buffet + main dining room / plus paid specialty dinners / specialty included, D49) | always | included-dining filter or specialty dinners + dining weight |
 | 9 | What do you drink? | always | drinks input |
 | 10 | Need Wi-Fi? | always | Wi-Fi input |
 | 11 | Activities you want on board? (multi) | always | amenity filters |

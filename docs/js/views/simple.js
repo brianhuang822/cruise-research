@@ -28,7 +28,7 @@ function hiddenFilters(s, priced) {
   const budgetShown = !priced || s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
   return (
     s.segments.length + s.lines.length + s.perks.length + s.amen.length + strayTypes +
-    [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude'].filter(Boolean).length
+    [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude', s.dining === 'some_specialty'].filter(Boolean).length
   );
 }
 
@@ -58,7 +58,7 @@ function controls() {
       <div class="more-body">
       <div class="simple-row">
         ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
-        ${sel('s-dining', [['any', 'Any dining'], ['some_specialty', 'Some specialty dining included'], ['all', 'All restaurants included']], s.dining, 'Included dining')}
+        ${sel('s-dining', [['any', 'Any dining'], ['all', 'Specialty dining included']], s.dining, 'Included dining')}
         ${sel('s-ticker', [['', 'No cruise shares'], ...tickers.map((t) => [t, `I own ${t} shares`])], s.tickers[0] ?? '', 'Shareholder of')}
       </div>
       <div class="toggles">
