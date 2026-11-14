@@ -1,0 +1,1033 @@
+{
+ "fetched_on": "2026-11-14",
+ "license": "US public domain (CDC)",
+ "records": [
+  {
+   "cdc_date": "2026-06-02",
+   "cdc_score": 95,
+   "ship_name": "Adventure of the Seas"
+  },
+  {
+   "cdc_date": "2026-04-29",
+   "cdc_score": 98,
+   "ship_name": "Allure of the Seas"
+  },
+  {
+   "cdc_date": "2026-02-10",
+   "cdc_score": 89,
+   "ship_name": "Amadea"
+  },
+  {
+   "cdc_date": "2026-09-17",
+   "cdc_score": 98,
+   "ship_name": "Anthem of the Seas"
+  },
+  {
+   "cdc_date": "2026-03-20",
+   "cdc_score": 96,
+   "ship_name": "Arcadia"
+  },
+  {
+   "cdc_date": "2025-09-18",
+   "cdc_score": 98,
+   "ship_name": "Aurora"
+  },
+  {
+   "cdc_date": "2025-12-03",
+   "cdc_score": 96,
+   "ship_name": "Azamara Onward"
+  },
+  {
+   "cdc_date": "2026-05-26",
+   "cdc_score": 99,
+   "ship_name": "Azamara Pursuit"
+  },
+  {
+   "cdc_date": "2026-03-26",
+   "cdc_score": 96,
+   "ship_name": "Azamara Quest"
+  },
+  {
+   "cdc_date": "2026-04-12",
+   "cdc_score": 92,
+   "ship_name": "Brilliance of the Seas"
+  },
+  {
+   "cdc_date": "2026-04-06",
+   "cdc_score": 97,
+   "ship_name": "Brilliant Lady"
+  },
+  {
+   "cdc_date": "2026-02-09",
+   "cdc_score": 93,
+   "ship_name": "Caribbean Princess"
+  },
+  {
+   "cdc_date": "2026-05-14",
+   "cdc_score": 86,
+   "ship_name": "Carnival Breeze"
+  },
+  {
+   "cdc_date": "2026-03-15",
+   "cdc_score": 100,
+   "ship_name": "Carnival Celebration"
+  },
+  {
+   "cdc_date": "2026-06-12",
+   "cdc_score": 99,
+   "ship_name": "Carnival Conquest"
+  },
+  {
+   "cdc_date": "2026-07-05",
+   "cdc_score": 98,
+   "ship_name": "Carnival Dream"
+  },
+  {
+   "cdc_date": "2026-05-07",
+   "cdc_score": 98,
+   "ship_name": "Carnival Elation"
+  },
+  {
+   "cdc_date": "2026-01-12",
+   "cdc_score": 98,
+   "ship_name": "Carnival Firenze"
+  },
+  {
+   "cdc_date": "2026-06-29",
+   "cdc_score": 92,
+   "ship_name": "Carnival Freedom"
+  },
+  {
+   "cdc_date": "2026-09-04",
+   "cdc_score": 98,
+   "ship_name": "Carnival Glory"
+  },
+  {
+   "cdc_date": "2026-08-15",
+   "cdc_score": 96,
+   "ship_name": "Carnival Horizon"
+  },
+  {
+   "cdc_date": "2026-03-07",
+   "cdc_score": 100,
+   "ship_name": "Carnival Jubilee"
+  },
+  {
+   "cdc_date": "2026-03-06",
+   "cdc_score": 100,
+   "ship_name": "Carnival Legend"
+  },
+  {
+   "cdc_date": "2026-06-21",
+   "cdc_score": 97,
+   "ship_name": "Carnival Liberty"
+  },
+  {
+   "cdc_date": "2026-09-20",
+   "cdc_score": 100,
+   "ship_name": "Carnival Luminosa"
+  },
+  {
+   "cdc_date": "2026-06-07",
+   "cdc_score": 96,
+   "ship_name": "Carnival Magic"
+  },
+  {
+   "cdc_date": "2026-01-25",
+   "cdc_score": 98,
+   "ship_name": "Carnival Miracle"
+  },
+  {
+   "cdc_date": "2026-08-23",
+   "cdc_score": 97,
+   "ship_name": "Carnival Panorama"
+  },
+  {
+   "cdc_date": "2026-07-30",
+   "cdc_score": 99,
+   "ship_name": "Carnival Paradise"
+  },
+  {
+   "cdc_date": "2026-08-30",
+   "cdc_score": 98,
+   "ship_name": "Carnival Pride"
+  },
+  {
+   "cdc_date": "2026-07-09",
+   "cdc_score": 96,
+   "ship_name": "Carnival Radiance"
+  },
+  {
+   "cdc_date": "2026-08-15",
+   "cdc_score": 100,
+   "ship_name": "Carnival Spirit"
+  },
+  {
+   "cdc_date": "2026-02-12",
+   "cdc_score": 100,
+   "ship_name": "Carnival Sunrise"
+  },
+  {
+   "cdc_date": "2026-08-16",
+   "cdc_score": 99,
+   "ship_name": "Carnival Sunshine"
+  },
+  {
+   "cdc_date": "2026-02-16",
+   "cdc_score": 99,
+   "ship_name": "Carnival Valor"
+  },
+  {
+   "cdc_date": "2026-06-18",
+   "cdc_score": 95,
+   "ship_name": "Carnival Venezia"
+  },
+  {
+   "cdc_date": "2026-04-12",
+   "cdc_score": 98,
+   "ship_name": "Carnival Vista"
+  },
+  {
+   "cdc_date": "2026-04-19",
+   "cdc_score": 100,
+   "ship_name": "Celebrity Apex"
+  },
+  {
+   "cdc_date": "2026-02-04",
+   "cdc_score": 98,
+   "ship_name": "Celebrity Ascent"
+  },
+  {
+   "cdc_date": "2026-08-09",
+   "cdc_score": 95,
+   "ship_name": "Celebrity Beyond"
+  },
+  {
+   "cdc_date": "2026-02-17",
+   "cdc_score": 99,
+   "ship_name": "Celebrity Constellation"
+  },
+  {
+   "cdc_date": "2026-03-22",
+   "cdc_score": 94,
+   "ship_name": "Celebrity Eclipse"
+  },
+  {
+   "cdc_date": "2026-09-14",
+   "cdc_score": 100,
+   "ship_name": "Celebrity Edge"
+  },
+  {
+   "cdc_date": "2025-01-07",
+   "cdc_score": 92,
+   "ship_name": "Celebrity Equinox"
+  },
+  {
+   "cdc_date": "2026-08-22",
+   "cdc_score": 100,
+   "ship_name": "Celebrity Reflection"
+  },
+  {
+   "cdc_date": "2026-02-07",
+   "cdc_score": 100,
+   "ship_name": "Celebrity Silhouette"
+  },
+  {
+   "cdc_date": "2026-06-10",
+   "cdc_score": 95,
+   "ship_name": "Celebrity Solstice"
+  },
+  {
+   "cdc_date": "2026-02-10",
+   "cdc_score": 97,
+   "ship_name": "Celebrity Summit"
+  },
+  {
+   "cdc_date": "2026-04-22",
+   "cdc_score": 100,
+   "ship_name": "Celebrity Xcel"
+  },
+  {
+   "cdc_date": "2026-06-19",
+   "cdc_score": 98,
+   "ship_name": "Coral Princess"
+  },
+  {
+   "cdc_date": "2026-07-30",
+   "cdc_score": 99,
+   "ship_name": "Crown Princess"
+  },
+  {
+   "cdc_date": "2025-11-11",
+   "cdc_score": 99,
+   "ship_name": "Crystal Serenity"
+  },
+  {
+   "cdc_date": "2026-07-30",
+   "cdc_score": 96,
+   "ship_name": "Crystal Symphony"
+  },
+  {
+   "cdc_date": "2026-05-26",
+   "cdc_score": 96,
+   "ship_name": "Discovery Princess"
+  },
+  {
+   "cdc_date": "2026-06-06",
+   "cdc_score": 100,
+   "ship_name": "Disney Destiny"
+  },
+  {
+   "cdc_date": "2026-05-02",
+   "cdc_score": 100,
+   "ship_name": "Disney Dream"
+  },
+  {
+   "cdc_date": "2026-06-24",
+   "cdc_score": 100,
+   "ship_name": "Disney Fantasy"
+  },
+  {
+   "cdc_date": "2026-04-19",
+   "cdc_score": 100,
+   "ship_name": "Disney Magic"
+  },
+  {
+   "cdc_date": "2026-09-26",
+   "cdc_score": 97,
+   "ship_name": "Disney Treasure"
+  },
+  {
+   "cdc_date": "2026-03-09",
+   "cdc_score": 99,
+   "ship_name": "Disney Wish"
+  },
+  {
+   "cdc_date": "2026-09-11",
+   "cdc_score": 98,
+   "ship_name": "Disney Wonder"
+  },
+  {
+   "cdc_date": "2025-12-20",
+   "cdc_score": 89,
+   "ship_name": "Emerald Azzurra"
+  },
+  {
+   "cdc_date": "2026-10-16",
+   "cdc_score": 78,
+   "ship_name": "Emerald Princess"
+  },
+  {
+   "cdc_date": "2026-01-06",
+   "cdc_score": 93,
+   "ship_name": "Enchanted Princess"
+  },
+  {
+   "cdc_date": "2026-09-05",
+   "cdc_score": 100,
+   "ship_name": "Enchantment of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-13",
+   "cdc_score": 99,
+   "ship_name": "Eurodam"
+  },
+  {
+   "cdc_date": "2025-10-09",
+   "cdc_score": 92,
+   "ship_name": "Europa"
+  },
+  {
+   "cdc_date": "2026-02-04",
+   "cdc_score": 98,
+   "ship_name": "Europa 2"
+  },
+  {
+   "cdc_date": "2025-12-06",
+   "cdc_score": 99,
+   "ship_name": "Evrima"
+  },
+  {
+   "cdc_date": "2025-11-12",
+   "cdc_score": 100,
+   "ship_name": "Explora I"
+  },
+  {
+   "cdc_date": "2026-02-24",
+   "cdc_score": 97,
+   "ship_name": "Explora II"
+  },
+  {
+   "cdc_date": "2026-04-13",
+   "cdc_score": 100,
+   "ship_name": "Explorer of the Seas"
+  },
+  {
+   "cdc_date": "2026-08-08",
+   "cdc_score": 94,
+   "ship_name": "Freedom of the Seas"
+  },
+  {
+   "cdc_date": "2026-04-16",
+   "cdc_score": 95,
+   "ship_name": "Grand Princess"
+  },
+  {
+   "cdc_date": "2026-01-24",
+   "cdc_score": 100,
+   "ship_name": "Grandeur of the Seas"
+  },
+  {
+   "cdc_date": "2026-08-25",
+   "cdc_score": 98,
+   "ship_name": "Harmony of the Seas"
+  },
+  {
+   "cdc_date": "2026-09-05",
+   "cdc_score": 100,
+   "ship_name": "Icon of the Seas"
+  },
+  {
+   "cdc_date": "2026-03-31",
+   "cdc_score": 94,
+   "ship_name": "Ilma"
+  },
+  {
+   "cdc_date": "2026-07-21",
+   "cdc_score": 99,
+   "ship_name": "Independence of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-11",
+   "cdc_score": 93,
+   "ship_name": "Island Princess"
+  },
+  {
+   "cdc_date": "2026-06-05",
+   "cdc_score": 99,
+   "ship_name": "Jewel of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-23",
+   "cdc_score": 100,
+   "ship_name": "Koningsdam"
+  },
+  {
+   "cdc_date": "2026-03-30",
+   "cdc_score": 86,
+   "ship_name": "Kydon"
+  },
+  {
+   "cdc_date": "2026-10-17",
+   "cdc_score": 83,
+   "ship_name": "Le Lyrial"
+  },
+  {
+   "cdc_date": "2025-12-12",
+   "cdc_score": 97,
+   "ship_name": "Liberty of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-22",
+   "cdc_score": 99,
+   "ship_name": "Luminara"
+  },
+  {
+   "cdc_date": "2026-03-26",
+   "cdc_score": 99,
+   "ship_name": "Majestic Princess"
+  },
+  {
+   "cdc_date": "2026-04-11",
+   "cdc_score": 98,
+   "ship_name": "Mardi Gras"
+  },
+  {
+   "cdc_date": "2024-12-03",
+   "cdc_score": 94,
+   "ship_name": "Marella Discovery"
+  },
+  {
+   "cdc_date": "2026-08-23",
+   "cdc_score": 91,
+   "ship_name": "Margaritaville at Sea Islander"
+  },
+  {
+   "cdc_date": "2026-02-23",
+   "cdc_score": 100,
+   "ship_name": "Margaritaville at Sea Paradise"
+  },
+  {
+   "cdc_date": "2026-06-22",
+   "cdc_score": 100,
+   "ship_name": "Mariner of the Seas"
+  },
+  {
+   "cdc_date": "2025-10-18",
+   "cdc_score": 95,
+   "ship_name": "Mein Schiff 1"
+  },
+  {
+   "cdc_date": "2025-11-06",
+   "cdc_score": 99,
+   "ship_name": "MSC Divina"
+  },
+  {
+   "cdc_date": "2025-12-06",
+   "cdc_score": 99,
+   "ship_name": "MSC Grandiosa"
+  },
+  {
+   "cdc_date": "2026-03-10",
+   "cdc_score": 89,
+   "ship_name": "MSC Meraviglia"
+  },
+  {
+   "cdc_date": "2026-04-23",
+   "cdc_score": 97,
+   "ship_name": "MSC Poesia"
+  },
+  {
+   "cdc_date": "2026-08-30",
+   "cdc_score": 100,
+   "ship_name": "MSC Seascape"
+  },
+  {
+   "cdc_date": "2026-06-25",
+   "cdc_score": 94,
+   "ship_name": "MSC Seashore"
+  },
+  {
+   "cdc_date": "2026-08-17",
+   "cdc_score": 96,
+   "ship_name": "MSC Seaside"
+  },
+  {
+   "cdc_date": "2026-06-30",
+   "cdc_score": 95,
+   "ship_name": "MSC World America"
+  },
+  {
+   "cdc_date": "2025-05-25",
+   "cdc_score": 95,
+   "ship_name": "National Geographic Quest"
+  },
+  {
+   "cdc_date": "2025-08-26",
+   "cdc_score": 93,
+   "ship_name": "National Geographic Sea Bird"
+  },
+  {
+   "cdc_date": "2026-06-21",
+   "cdc_score": 86,
+   "ship_name": "National Geographic Sea Lion"
+  },
+  {
+   "cdc_date": "2025-05-24",
+   "cdc_score": 100,
+   "ship_name": "National Geographic Venture"
+  },
+  {
+   "cdc_date": "2026-07-10",
+   "cdc_score": 96,
+   "ship_name": "Navigator of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-10",
+   "cdc_score": 99,
+   "ship_name": "Nieuw Amsterdam"
+  },
+  {
+   "cdc_date": "2026-01-07",
+   "cdc_score": 97,
+   "ship_name": "Nieuw Statendam"
+  },
+  {
+   "cdc_date": "2026-08-16",
+   "cdc_score": 95,
+   "ship_name": "Noordam"
+  },
+  {
+   "cdc_date": "2026-03-25",
+   "cdc_score": 100,
+   "ship_name": "Norwegian Aqua"
+  },
+  {
+   "cdc_date": "2026-08-22",
+   "cdc_score": 98,
+   "ship_name": "Norwegian Bliss"
+  },
+  {
+   "cdc_date": "2026-04-26",
+   "cdc_score": 99,
+   "ship_name": "Norwegian Breakaway"
+  },
+  {
+   "cdc_date": "2026-03-29",
+   "cdc_score": 84,
+   "ship_name": "Norwegian Dawn"
+  },
+  {
+   "cdc_date": "2026-09-15",
+   "cdc_score": 95,
+   "ship_name": "Norwegian Encore"
+  },
+  {
+   "cdc_date": "2026-03-29",
+   "cdc_score": 93,
+   "ship_name": "Norwegian Epic"
+  },
+  {
+   "cdc_date": "2026-08-24",
+   "cdc_score": 88,
+   "ship_name": "Norwegian Escape"
+  },
+  {
+   "cdc_date": "2026-03-23",
+   "cdc_score": 94,
+   "ship_name": "Norwegian Gem"
+  },
+  {
+   "cdc_date": "2026-05-08",
+   "cdc_score": 92,
+   "ship_name": "Norwegian Getaway"
+  },
+  {
+   "cdc_date": "2026-04-17",
+   "cdc_score": 95,
+   "ship_name": "Norwegian Jade"
+  },
+  {
+   "cdc_date": "2026-07-16",
+   "cdc_score": 96,
+   "ship_name": "Norwegian Jewel"
+  },
+  {
+   "cdc_date": "2026-07-12",
+   "cdc_score": 100,
+   "ship_name": "Norwegian Joy"
+  },
+  {
+   "cdc_date": "2026-08-29",
+   "cdc_score": 100,
+   "ship_name": "Norwegian Luna"
+  },
+  {
+   "cdc_date": "2026-04-03",
+   "cdc_score": 98,
+   "ship_name": "Norwegian Pearl"
+  },
+  {
+   "cdc_date": "2026-06-03",
+   "cdc_score": 99,
+   "ship_name": "Norwegian Prima"
+  },
+  {
+   "cdc_date": "2025-12-05",
+   "cdc_score": 99,
+   "ship_name": "Norwegian Star"
+  },
+  {
+   "cdc_date": "2025-06-18",
+   "cdc_score": 95,
+   "ship_name": "Norwegian Sun"
+  },
+  {
+   "cdc_date": "2026-04-14",
+   "cdc_score": 100,
+   "ship_name": "Norwegian Viva"
+  },
+  {
+   "cdc_date": "2026-06-30",
+   "cdc_score": 89,
+   "ship_name": "Oasis of the Seas"
+  },
+  {
+   "cdc_date": "2026-03-23",
+   "cdc_score": 100,
+   "ship_name": "Oceania Allura"
+  },
+  {
+   "cdc_date": "2026-05-04",
+   "cdc_score": 97,
+   "ship_name": "Oceania Insignia"
+  },
+  {
+   "cdc_date": "2026-04-07",
+   "cdc_score": 98,
+   "ship_name": "Oceania Marina"
+  },
+  {
+   "cdc_date": "2026-03-27",
+   "cdc_score": 97,
+   "ship_name": "Oceania Nautica"
+  },
+  {
+   "cdc_date": "2025-11-02",
+   "cdc_score": 99,
+   "ship_name": "Oceania Regatta"
+  },
+  {
+   "cdc_date": "2026-09-25",
+   "cdc_score": 94,
+   "ship_name": "Oceania Riviera"
+  },
+  {
+   "cdc_date": "2024-12-04",
+   "cdc_score": 98,
+   "ship_name": "Oceania Sirena"
+  },
+  {
+   "cdc_date": "2026-07-06",
+   "cdc_score": 100,
+   "ship_name": "Oceania Vista"
+  },
+  {
+   "cdc_date": "2026-03-01",
+   "cdc_score": 97,
+   "ship_name": "Odyssey of the Seas"
+  },
+  {
+   "cdc_date": "2025-11-17",
+   "cdc_score": 99,
+   "ship_name": "Oosterdam"
+  },
+  {
+   "cdc_date": "2026-05-24",
+   "cdc_score": 97,
+   "ship_name": "Ovation of the Seas"
+  },
+  {
+   "cdc_date": "2025-10-17",
+   "cdc_score": 98,
+   "ship_name": "Pacific World"
+  },
+  {
+   "cdc_date": "2025-07-30",
+   "cdc_score": 94,
+   "ship_name": "Pearl Mist"
+  },
+  {
+   "cdc_date": "2026-09-22",
+   "cdc_score": 97,
+   "ship_name": "Quantum of the Seas"
+  },
+  {
+   "cdc_date": "2026-04-05",
+   "cdc_score": 95,
+   "ship_name": "Queen Anne"
+  },
+  {
+   "cdc_date": "2026-09-10",
+   "cdc_score": 94,
+   "ship_name": "Queen Elizabeth"
+  },
+  {
+   "cdc_date": "2026-06-17",
+   "cdc_score": 88,
+   "ship_name": "Queen Mary 2"
+  },
+  {
+   "cdc_date": "2025-03-14",
+   "cdc_score": 96,
+   "ship_name": "Queen Victoria"
+  },
+  {
+   "cdc_date": "2026-03-23",
+   "cdc_score": 97,
+   "ship_name": "Radiance of the Seas"
+  },
+  {
+   "cdc_date": "2026-05-12",
+   "cdc_score": 100,
+   "ship_name": "Regal Princess"
+  },
+  {
+   "cdc_date": "2026-03-31",
+   "cdc_score": 100,
+   "ship_name": "Resilient Lady"
+  },
+  {
+   "cdc_date": "2026-07-25",
+   "cdc_score": 99,
+   "ship_name": "Rhapsody of the Seas"
+  },
+  {
+   "cdc_date": "2026-07-29",
+   "cdc_score": 94,
+   "ship_name": "Roald Amundsen"
+  },
+  {
+   "cdc_date": "2026-03-16",
+   "cdc_score": 99,
+   "ship_name": "Rotterdam"
+  },
+  {
+   "cdc_date": "2026-06-09",
+   "cdc_score": 96,
+   "ship_name": "Royal Princess"
+  },
+  {
+   "cdc_date": "2026-07-12",
+   "cdc_score": 98,
+   "ship_name": "Ruby Princess"
+  },
+  {
+   "cdc_date": "2025-11-16",
+   "cdc_score": 94,
+   "ship_name": "Sapphire Princess"
+  },
+  {
+   "cdc_date": "2026-04-15",
+   "cdc_score": 99,
+   "ship_name": "Scarlet Lady"
+  },
+  {
+   "cdc_date": "2025-03-26",
+   "cdc_score": 97,
+   "ship_name": "Sea Cloud Spirit"
+  },
+  {
+   "cdc_date": "2026-07-27",
+   "cdc_score": 96,
+   "ship_name": "Seabourn Encore"
+  },
+  {
+   "cdc_date": "2025-12-14",
+   "cdc_score": 92,
+   "ship_name": "Seabourn Ovation"
+  },
+  {
+   "cdc_date": "2026-04-07",
+   "cdc_score": 99,
+   "ship_name": "Seabourn Quest"
+  },
+  {
+   "cdc_date": "2026-08-29",
+   "cdc_score": 93,
+   "ship_name": "Seabourn Venture"
+  },
+  {
+   "cdc_date": "2025-12-13",
+   "cdc_score": 94,
+   "ship_name": "Seadream I"
+  },
+  {
+   "cdc_date": "2025-12-21",
+   "cdc_score": 98,
+   "ship_name": "Seadream II"
+  },
+  {
+   "cdc_date": "2026-05-15",
+   "cdc_score": 95,
+   "ship_name": "Serenade of the Seas"
+  },
+  {
+   "cdc_date": "2026-09-12",
+   "cdc_score": 99,
+   "ship_name": "Seven Seas Explorer"
+  },
+  {
+   "cdc_date": "2026-04-07",
+   "cdc_score": 100,
+   "ship_name": "Seven Seas Grandeur"
+  },
+  {
+   "cdc_date": "2026-02-05",
+   "cdc_score": 93,
+   "ship_name": "Seven Seas Mariner"
+  },
+  {
+   "cdc_date": "2026-03-13",
+   "cdc_score": 100,
+   "ship_name": "Seven Seas Splendor"
+  },
+  {
+   "cdc_date": "2026-01-05",
+   "cdc_score": 94,
+   "ship_name": "Silver Dawn"
+  },
+  {
+   "cdc_date": "2026-05-23",
+   "cdc_score": 99,
+   "ship_name": "Silver Moon"
+  },
+  {
+   "cdc_date": "2026-05-05",
+   "cdc_score": 97,
+   "ship_name": "Silver Nova"
+  },
+  {
+   "cdc_date": "2025-12-05",
+   "cdc_score": 100,
+   "ship_name": "Silver Ray"
+  },
+  {
+   "cdc_date": "2025-11-10",
+   "cdc_score": 91,
+   "ship_name": "Silver Shadow"
+  },
+  {
+   "cdc_date": "2026-02-12",
+   "cdc_score": 94,
+   "ship_name": "Silver Spirit"
+  },
+  {
+   "cdc_date": "2026-06-20",
+   "cdc_score": 97,
+   "ship_name": "Silver Whisper"
+  },
+  {
+   "cdc_date": "2025-12-08",
+   "cdc_score": 97,
+   "ship_name": "Sky Princess"
+  },
+  {
+   "cdc_date": "2025-02-11",
+   "cdc_score": 96,
+   "ship_name": "Spirit of Discovery"
+  },
+  {
+   "cdc_date": "2025-06-05",
+   "cdc_score": 86,
+   "ship_name": "Stad Amsterdam"
+  },
+  {
+   "cdc_date": "2026-05-13",
+   "cdc_score": 100,
+   "ship_name": "Star of the Seas"
+  },
+  {
+   "cdc_date": "2025-09-26",
+   "cdc_score": 95,
+   "ship_name": "Star Pride"
+  },
+  {
+   "cdc_date": "2026-07-21",
+   "cdc_score": 99,
+   "ship_name": "Star Princess"
+  },
+  {
+   "cdc_date": "2026-08-28",
+   "cdc_score": 94,
+   "ship_name": "Star Seeker"
+  },
+  {
+   "cdc_date": "2026-02-15",
+   "cdc_score": 89,
+   "ship_name": "Sun Princess"
+  },
+  {
+   "cdc_date": "2026-08-29",
+   "cdc_score": 99,
+   "ship_name": "Symphony of the Seas"
+  },
+  {
+   "cdc_date": "2026-08-12",
+   "cdc_score": 99,
+   "ship_name": "The World"
+  },
+  {
+   "cdc_date": "2026-09-25",
+   "cdc_score": 98,
+   "ship_name": "Utopia of the Seas"
+  },
+  {
+   "cdc_date": "2026-03-28",
+   "cdc_score": 100,
+   "ship_name": "Valiant Lady"
+  },
+  {
+   "cdc_date": "2025-07-29",
+   "cdc_score": 86,
+   "ship_name": "Victory I"
+  },
+  {
+   "cdc_date": "2026-07-14",
+   "cdc_score": 99,
+   "ship_name": "Victory II"
+  },
+  {
+   "cdc_date": "2025-12-30",
+   "cdc_score": 93,
+   "ship_name": "Viking Mars"
+  },
+  {
+   "cdc_date": "2025-04-22",
+   "cdc_score": 100,
+   "ship_name": "Viking Neptune"
+  },
+  {
+   "cdc_date": "2025-10-13",
+   "cdc_score": 98,
+   "ship_name": "Viking Octantis"
+  },
+  {
+   "cdc_date": "2026-07-28",
+   "cdc_score": 100,
+   "ship_name": "Viking Orion"
+  },
+  {
+   "cdc_date": "2026-05-21",
+   "cdc_score": 100,
+   "ship_name": "Viking Polaris"
+  },
+  {
+   "cdc_date": "2026-01-19",
+   "cdc_score": 96,
+   "ship_name": "Viking Sea"
+  },
+  {
+   "cdc_date": "2026-01-12",
+   "cdc_score": 94,
+   "ship_name": "Viking Sky"
+  },
+  {
+   "cdc_date": "2026-06-18",
+   "cdc_score": 97,
+   "ship_name": "Viking Venus"
+  },
+  {
+   "cdc_date": "2025-07-09",
+   "cdc_score": 81,
+   "ship_name": "Villa Vie Odyssey"
+  },
+  {
+   "cdc_date": "2026-08-15",
+   "cdc_score": 97,
+   "ship_name": "Vision of the Seas"
+  },
+  {
+   "cdc_date": "2025-07-12",
+   "cdc_score": 95,
+   "ship_name": "Volendam"
+  },
+  {
+   "cdc_date": "2026-05-11",
+   "cdc_score": 95,
+   "ship_name": "Voyager of the Seas"
+  },
+  {
+   "cdc_date": "2026-05-06",
+   "cdc_score": 97,
+   "ship_name": "Westerdam"
+  },
+  {
+   "cdc_date": "2026-09-04",
+   "cdc_score": 99,
+   "ship_name": "Wonder Of The Seas"
+  },
+  {
+   "cdc_date": "2026-08-14",
+   "cdc_score": 96,
+   "ship_name": "Zaandam"
+  },
+  {
+   "cdc_date": "2026-07-17",
+   "cdc_score": 90,
+   "ship_name": "Zuiderdam"
+  }
+ ],
+ "sha256_raw": "9654db82905f91f92acf2f161125c3c14db2b542b0dad790ba92c40e40913a70",
+ "source": "https://wwwn.cdc.gov/inspectionquerytool/InspectionGreenSheetRpt.aspx"
+}

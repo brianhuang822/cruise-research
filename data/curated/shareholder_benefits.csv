@@ -1,0 +1,10 @@
+ticker,min_nights,max_nights,obc_usd,valid_through,source_urls,last_verified,notes
+CCL,1,6,50,2026-12-31,https://www.carnivalcorp.com/investors/shareholder-information/shareholder-benefit/,2026-11-14,"Per stateroom, ≥100 shares. Official tiers are in days; treated as nights. Not usable for casino or gratuities. Reviewed annually."
+CCL,7,13,100,2026-12-31,https://www.carnivalcorp.com/investors/shareholder-information/shareholder-benefit/,2026-11-14,"Per stateroom, ≥100 shares. Official tiers are in days; treated as nights. Not usable for casino or gratuities. Reviewed annually."
+CCL,14,999,250,2026-12-31,https://www.carnivalcorp.com/investors/shareholder-information/shareholder-benefit/,2026-11-14,"Per stateroom, ≥100 shares. Official tiers are in days; treated as nights. Not usable for casino or gratuities. Reviewed annually."
+RCL,1,5,50,,https://rclinvestor.com/faqs/shareholder-benefit,2026-11-14,"Per stateroom, ≥100 shares, bookings on/after 2023-06-01. Not for service charges or pre-purchased items. $1,000 on world cruises (not modeled)."
+RCL,6,13,100,,https://rclinvestor.com/faqs/shareholder-benefit,2026-11-14,"Per stateroom, ≥100 shares, bookings on/after 2023-06-01. Not for service charges or pre-purchased items. $1,000 on world cruises (not modeled)."
+RCL,14,999,250,,https://rclinvestor.com/faqs/shareholder-benefit,2026-11-14,"Per stateroom, ≥100 shares, bookings on/after 2023-06-01. Not for service charges or pre-purchased items. $1,000 on world cruises (not modeled)."
+NCLH,1,6,50,,https://www.nclhltd.com/investors/shareholder-benefits,2026-11-14,"Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items."
+NCLH,7,14,100,,https://www.nclhltd.com/investors/shareholder-benefits,2026-11-14,"Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items."
+NCLH,15,999,250,,https://www.nclhltd.com/investors/shareholder-benefits,2026-11-14,"Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items."
