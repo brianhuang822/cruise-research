@@ -30,6 +30,19 @@ export function perkChips(row, ship) {
   return chips.filter(([on]) => on === true).map(([, label]) => label);
 }
 
+// Weight sliders, shared by every mode. app.js commits a change on release (the 'change' event).
+export function weightSliders(w, prefix) {
+  return html`<div class="weights-grid">${METRICS.map(([k, label]) => html`<label for="${prefix}-w-${k}"><span>${label}</span>
+    <output id="${prefix}-wo-${k}">${w[k]}</output>
+    <input type="range" id="${prefix}-w-${k}" data-weight="${k}" min="0" max="5" step="1" value="${w[k]}"></label>`)}</div>`;
+}
+
+const SHORT = { price: 'price', gt: 'ship size', newness: 'newness', space: 'space per guest', sqft: 'cabin size', dining: 'restaurants', cdc: 'cleanliness' };
+export function rankSummary(w) {
+  const on = METRICS.filter(([k]) => w[k] > 0).sort((a, b) => w[b[0]] - w[a[0]]);
+  return on.length ? `Ranked by ${on.map(([k]) => `${SHORT[k]} ×${w[k]}`).join(', ')}` : 'No ranking weights set; results are in default order';
+}
+
 export const chipList = (labels) => html`<div class="perks">${labels.map((p) => html`<span class="perk">${p}</span>`)}</div>`;
 
 export function priceCell(p) {

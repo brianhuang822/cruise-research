@@ -4,7 +4,7 @@ import { createEngine } from './js/engine.js';
 import { MODES, readUrl, store, urlFor } from './js/state.js';
 import { detailHtml } from './js/views/common.js';
 import { initDetailed, onDetailedShow, renderDetailed } from './js/views/detailed.js';
-import { initSimple, onSimpleShow, renderSimple } from './js/views/simple.js';
+import { initSimple, onSimpleShow, renderSimple, syncWeights } from './js/views/simple.js';
 import { initWizard, onWizardShow, renderWizard } from './js/views/wizard.js';
 
 const VIEWS = {
@@ -50,6 +50,18 @@ function bindShell() {
     goTo(next);
     $(`tab-${next}`).focus();
   };
+  // Weight sliders in any mode: show the number while dragging, apply it on release.
+  document.addEventListener('input', (e) => {
+    const k = e.target.dataset?.weight;
+    const out = k && e.target.parentElement.querySelector('output');
+    if (out) out.textContent = e.target.value;
+  });
+  document.addEventListener('change', (e) => {
+    const k = e.target.dataset?.weight;
+    if (!k) return;
+    store.set({ w: { ...store.state.w, [k]: Number(e.target.value) } });
+    if (store.mode === 'simple') syncWeights();
+  });
   // Fill a result's detail panel the first time it opens.
   document.addEventListener('toggle', (e) => {
     const el = e.target;

@@ -148,9 +148,10 @@
       </div>
     </div>
 
-    <details class="weights" id="weights-panel">
-      <summary>Score weights <span class="hint-inline">0 = ignore · 5 = matters most</span></summary>
-      <div class="weights-grid" id="weights"></div>
+    <p class="rank-summary" id="d-rank-summary"></p>
+    <details class="weights" id="weights-panel" open>
+      <summary>What matters most <span class="hint-inline">0 = ignore · 5 = counts most</span></summary>
+      <div id="weights"></div>
       <p class="hint">Each measure is ranked against the cabins currently shown, then weighted. A cabin missing a measure is scored on the measures it has.</p>
     </details>
 

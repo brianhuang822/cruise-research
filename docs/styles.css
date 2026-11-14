@@ -315,3 +315,14 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
   .answers > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .quiz { padding: 18px; }
 }
+
+/* Ranking controls */
+.rank-row { align-items: center; padding-top: 12px; border-top: 1px solid var(--rule); }
+.rank-label { font: 600 0.6875rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); align-self: center; margin-right: 4px; }
+.rank-summary { margin: 4px 0 0; font-size: var(--step--1); color: var(--ink-2); }
+.finetune { flex-basis: 100%; }
+.finetune > summary { cursor: pointer; font-size: var(--step--1); font-weight: 600; color: var(--sea); width: max-content; }
+.finetune .weights-grid { padding: 12px 0 4px; }
+.finetune .hint { margin-top: 4px; }
+.quiz-results .finetune { margin: 4px 0 16px; }
+.results .rank-summary { margin: -4px 0 10px; }

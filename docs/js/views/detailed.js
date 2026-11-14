@@ -1,8 +1,8 @@
 // Detailed mode: every filter, score weights, all sorts. Controls are static markup in index.html.
 import { $, html, mount } from '../dom.js';
 import { activeFilterCount } from '../engine.js';
-import { AMENITIES, METRICS, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
-import { chipList, perkChips, priceCell, scoreCell, typeLabel } from './common.js';
+import { AMENITIES, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
+import { chipList, perkChips, priceCell, rankSummary, scoreCell, typeLabel, weightSliders } from './common.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -59,8 +59,7 @@ function syncControls() {
   chipGroup($('f-types'), TIER_TYPES.filter(([k]) => data.rows.some((r) => r.tier_type === k)), 'types');
   checkList($('f-perks'), PERKS, 'perks');
   checkList($('f-amen'), AMENITIES, 'amen');
-  mount($('weights'), METRICS.map(([k, label]) => html`<label for="w-${k}"><span>${label}</span><output id="wo-${k}">${s.w[k]}</output>
-    <input type="range" id="w-${k}" data-k="${k}" min="0" max="5" step="1" value="${s.w[k]}"></label>`));
+  mount($('weights'), weightSliders(s.w, 'd'));
 }
 
 function rowHtml(it) {
@@ -84,6 +83,7 @@ export function renderDetailed(items) {
   const s = store.state;
   const total = engine.data.rows.length;
   mount($('tally'), html`${items.length.toLocaleString('en-US')} cabin options<span>of ${total.toLocaleString('en-US')}</span>`);
+  $('d-rank-summary').textContent = s.sort === 'score' ? rankSummary(s.w) : '';
   const fc = activeFilterCount(s);
   $('filter-count').textContent = fc ? `${fc} active` : '';
   const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
@@ -128,12 +128,6 @@ export function initDetailed(eng, rerender) {
   $('f-adults').onchange = (e) => store.set({ adults: e.target.checked });
   for (const id of ['u-include', 'u-exclude']) $(id).onchange = (e) => store.set({ unknowns: e.target.value });
   $('sort').onchange = (e) => store.set({ sort: e.target.value });
-  $('weights').oninput = (e) => {
-    const k = e.target.dataset.k;
-    if (!k) return;
-    $('wo-' + k).textContent = e.target.value;
-    store.set({ w: { ...store.state.w, [k]: num(e) } });
-  };
   $('reset').onclick = () => {
     const s = store.state;
     store.replace({ ...fresh(), nights: s.nights, tickers: s.tickers, drinks: s.drinks, wifi: s.wifi, dinners: s.dinners, w: s.w, sort: s.sort });

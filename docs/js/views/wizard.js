@@ -1,7 +1,7 @@
 // "Help me choose": a short decision tree. Each answer maps onto the same state the other modes use.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { cardHtml } from './common.js';
+import { cardHtml, rankSummary, weightSliders } from './common.js';
 
 const ALL = 'all';
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
@@ -114,6 +114,11 @@ function resultsView(items) {
       <h2 class="quiz-title">Your top ${top.length} match${top.length === 1 ? '' : 'es'}</h2>
       <p class="tally">${items.length} cabin options fit your answers</p>
     </div>
+    <p class="rank-summary">${rankSummary(store.state.w)} (set by your answers).</p>
+    <details class="finetune" id="q-finetune" ${weightsOpen ? html`open` : ''}>
+      <summary>Adjust what matters</summary>
+      ${weightSliders(store.state.w, 'q')}
+    </details>
     ${top.length ? html`<div class="cards">${top.map((it) => cardHtml(it))}</div>`
       : html`<p class="empty">Nothing fits every answer. Change an answer below, often the budget or a suite perk.</p>`}
     <div class="quiz-actions">
@@ -128,9 +133,12 @@ function resultsView(items) {
 }
 
 let lastItems = [];
+let weightsOpen = false;
 
 export function renderWizard(items) {
   lastItems = items;
+  const panel = $('q-finetune');
+  if (panel) weightsOpen = panel.open;
   const qs = visible();
   mount($('mode-wizard'), step < qs.length ? questionView(qs[step], step, qs.length) : resultsView(items));
 }

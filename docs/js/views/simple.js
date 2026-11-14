@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
-import { fresh, store, toggleIn } from '../state.js';
-import { cardHtml } from './common.js';
+import { METRICS, fresh, store, toggleIn } from '../state.js';
+import { cardHtml, rankSummary, weightSliders } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -16,6 +16,16 @@ export const CABIN_GROUPS = [
 const BUDGETS = [['', 'Any budget'], ['150', 'Up to $150'], ['250', 'Up to $250'], ['400', 'Up to $400'], ['600', 'Up to $600'], ['1000', 'Up to $1,000']];
 const SORTS = [['score', 'Best match'], ['price', 'Lowest price'], ['gt', 'Biggest ship'], ['newness', 'Newest ship']];
 const CALM_GT = 120000;
+const PRIORITIES = [['price', 'Low price'], ['gt', 'Big ship'], ['newness', 'New ship'], ['sqft', 'Big cabin'],
+  ['dining', 'Restaurants'], ['cdc', 'Cleanliness'], ['space', 'Space per guest']];
+const ON = 4;
+const OFF = 1;
+const isOn = (w, k) => w[k] >= 3;
+
+function priorities(w) {
+  return html`<span class="rank-label">What matters most?</span>
+    ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${isOn(w, k)}">${l}</button>`)}`;
+}
 
 const groupOn = (types, g) => g[2].every((t) => types.includes(t));
 
@@ -54,6 +64,14 @@ function controls() {
         ${toggle('s-calm', 'Less motion (120k+ GT)', s.minGt === CALM_GT)}
       </div>
     </div>
+    <div class="simple-row rank-row">
+      <div class="chips" id="s-rank">${priorities(s.w)}</div>
+      <details class="finetune" id="s-finetune">
+        <summary>Fine-tune</summary>
+        ${weightSliders(s.w, 's')}
+        <p class="hint">0 ignores a measure, 5 makes it count most. Each measure is ranked against the cabins shown.</p>
+      </details>
+    </div>
   </div>`;
 }
 
@@ -78,6 +96,13 @@ function bind() {
     }
   };
   root.onclick = (e) => {
+    const rank = e.target.closest('[data-rank]');
+    if (rank) {
+      const k = rank.dataset.rank;
+      store.set({ w: { ...store.state.w, [k]: isOn(store.state.w, k) ? OFF : ON } });
+      syncWeights();
+      return;
+    }
     const chip = e.target.closest('[data-g]');
     if (chip) {
       const g = CABIN_GROUPS.find(([k]) => k === chip.dataset.g);
@@ -102,6 +127,17 @@ function bind() {
 
 let lastItems = [];
 
+// Keep chips and sliders in step after any weight change.
+export function syncWeights() {
+  const w = store.state.w;
+  const rank = $('s-rank');
+  if (rank) mount(rank, priorities(w));
+  for (const [k] of METRICS) {
+    const input = $(`s-w-${k}`);
+    if (input) { input.value = String(w[k]); $(`s-wo-${k}`).textContent = String(w[k]); }
+  }
+}
+
 export function renderSimple(items) {
   lastItems = items;
   const s = store.state;
@@ -109,7 +145,8 @@ export function renderSimple(items) {
   const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
   mount($('s-results'), html`
     <div class="results-head">
-      <p class="tally">${items.length.toLocaleString('en-US')} cabin options</p>
+      <div><p class="tally">${items.length.toLocaleString('en-US')} cabin options</p>
+        ${s.sort === 'score' ? html`<p class="rank-summary">${rankSummary(s.w)}</p>` : ''}</div>
       <label class="sortbox" for="s-sort">Sort
         <select id="s-sort">${(SORTS.some(([v]) => v === s.sort) ? SORTS : [...SORTS, [s.sort, 'Custom (from Detailed)']]).map(([v, l]) => html`<option value="${v}" ${s.sort === v ? html`selected` : ''}>${l}</option>`)}</select></label>
     </div>
