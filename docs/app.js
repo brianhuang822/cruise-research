@@ -93,7 +93,7 @@ async function main() {
   $('foot-updated').textContent = `Updated ${data.last_updated} · ${n} lines · ${data.ships.length} ships · ${data.rows.length.toLocaleString('en-US')} cabin options · CDC scores fetched ${data.snapshots.cdc_vsp ?? 'n/a'}`;
   initSimple(engine);
   initDetailed(engine, render);
-  initWizard(goTo);
+  initWizard(goTo, data);
   bindShell();
   store.listeners.add(render);
   render();

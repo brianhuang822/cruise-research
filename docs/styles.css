@@ -311,6 +311,7 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
   border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; cursor: pointer; min-height: 52px;
 }
 .quiz-option:hover { border-color: var(--sea); }
+.quiz-option small { display: block; margin-top: 3px; font: 400 var(--step--1)/1.4 var(--font-body); color: var(--ink-2); }
 .quiz-option[aria-checked="true"] { border-color: var(--sea); background: var(--sea-soft); font-weight: 600; box-shadow: inset 3px 0 0 var(--sea); }
 .quiz-nav { display: flex; gap: 20px; align-items: center; margin-top: 20px; font-size: var(--step--1); }
 .quiz-nav .link { color: var(--ink-2); }

@@ -27,7 +27,8 @@ function hiddenFilters(s, priced) {
   // Without fares a budget filters nothing, so it isn't worth flagging.
   const budgetShown = !priced || s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
   return (
-    s.segments.length + s.lines.length + s.perks.length + s.amen.length + strayTypes +
+    // A line or segment list is one filter however many it names.
+    Math.sign(s.segments.length) + Math.sign(s.lines.length) + s.perks.length + s.amen.length + strayTypes +
     [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude', s.dining === 'some_specialty'].filter(Boolean).length
   );
 }

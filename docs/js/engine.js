@@ -134,6 +134,19 @@ function compute(data, LINES, SHIPS, state) {
   return sortItems(items, state.sort);
 }
 
+// Line types for the quiz (D50): the curated segment, except that a non-luxury line whose cheapest cabin
+// already includes specialty restaurants (Oceania, Viking, Virgin) is its own type.
+export function lineTypes(data) {
+  const cheapest = {};
+  for (const t of data.tiers) {
+    if (!cheapest[t.line_id] || t.rank < cheapest[t.line_id].rank) cheapest[t.line_id] = t;
+  }
+  const typeOf = (l) => (l.segment !== 'luxury' && cheapest[l.line_id]?.included_dining === 'all' ? 'specialty_included' : l.segment);
+  const out = {};
+  for (const l of data.lines) (out[typeOf(l)] ||= []).push(l.line_id);
+  return out;
+}
+
 export function activeFilterCount(state) {
   const lists = state.segments.length + state.lines.length + state.types.length + state.perks.length + state.amen.length;
   const flags = [state.maxPrice != null, state.minGt > 0, state.dining !== 'any', state.privRest, state.grat, state.wifiFree, state.adults, state.guests > 2];

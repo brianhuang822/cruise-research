@@ -1,9 +1,12 @@
 // "Help me choose": a short decision tree. Each answer maps onto the same state the other modes use.
 import { $, html, mount } from '../dom.js';
+import { lineTypes } from '../engine.js';
 import { fresh, store, toggleIn } from '../state.js';
 import { PRIORITIES, byShip, cardHtml, priorityChips, sortSelect, tallyText, togglePriority, weightSliders } from './common.js';
 
 const ALL = 'all';
+// Filled from the data in initWizard: line ids for each line type (see lineTypes).
+let LINE_TYPES = {};
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
 
 // show(answers) decides whether a question is asked; apply(answer, state) writes its effect.
@@ -48,15 +51,16 @@ export const QUESTIONS = [
         else s.perks = add(s.perks, [p]);
       }
     } },
-  { id: 'food', title: 'Where do you want to eat without paying extra?',
-    help: 'Every line, Carnival included, serves a buffet and a waiter-served main dining room at no charge. Oceania, Viking, Virgin and luxury lines also include their specialty restaurants.',
+  { id: 'line_type', title: 'What kind of cruise line?', multi: true,
+    help: 'Pick any. Every line includes a buffet and a main dining room with waiters.',
     options: [
-      ['main', 'Buffet and main dining room are enough'], ['few', 'Those, plus a couple of paid specialty dinners'],
-      ['all', 'Specialty restaurants included in the fare']],
+      ['mainstream', 'Mainstream', 'Carnival, Royal Caribbean, NCL, MSC, Disney. Big ships with the most to do; specialty restaurants extra.'],
+      ['premium', 'Premium', 'Celebrity, Princess, Holland America, Cunard, Azamara. A step up in food and service; specialty restaurants extra.'],
+      ['specialty_included', 'Premium, every restaurant included', 'Oceania, Viking, Virgin Voyages. Specialty restaurants and Wi-Fi in the fare.'],
+      ['luxury', 'Luxury, nearly everything included', 'Regent, Seabourn, Silversea, Crystal, Explora, Ritz-Carlton. Smaller ships; dining, drinks, tips and Wi-Fi included.']],
     apply: (a, s) => {
-      if (a === 'few') s.dinners = 2;
-      if (a === 'all') s.dining = 'all';
-      s.w.dining = { main: 1, few: 2, all: 3 }[a];
+      const ids = a.flatMap((k) => LINE_TYPES[k] ?? []);
+      if (ids.length) s.lines = ids;
     } },
   { id: 'drinks', title: 'What do you usually drink?', options: [
       ['none', 'Water, coffee, tea'], ['soft', 'Soda and juice'], ['alcohol', 'Cocktails, beer or wine']],
@@ -107,7 +111,7 @@ function questionView(q, index, total) {
     <h2 class="quiz-title">${q.title}</h2>
     ${q.help ? html`<p class="quiz-help">${q.help}</p>` : ''}
     <div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
-      ${q.options.map(([v, l]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${picked(v)}">${l}</button>`)}
+      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${picked(v)}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
     </div>
     <div class="quiz-nav">
       <button type="button" class="link" id="q-back" ${index === 0 ? html`disabled` : ''}>Back</button>
@@ -176,7 +180,8 @@ function advance() {
   $('mode-wizard').scrollIntoView({ block: 'start' });
 }
 
-export function initWizard(goTo) {
+export function initWizard(goTo, data) {
+  LINE_TYPES = lineTypes(data);
   $('mode-wizard').onclick = (e) => {
     const qs = visible();
     const q = qs[step];
