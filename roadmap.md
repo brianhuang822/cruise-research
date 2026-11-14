@@ -51,6 +51,8 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D29 | Freshness | **Monthly automated CDC refresh** (scores + outbreaks) via GitHub Action; "may be stale" badge on rows not verified in 6 months |
 | D30 | Work order | **Data breadth first** (M2/M3, all 19 lines) → fares + regions (M4) → features (M5) → launch (M6) |
 | D31 | Loyalty status perks | v2 (user holds no status that changes priority) |
+| D32 | CI | **None.** Quality gate runs locally before each commit (no Actions minutes) |
+| D33 | CruisePlum automation | **No scraping or Cloudflare workarounds**; manual export, permissioned feed, or user-run copy helper only |
 
 ---
 

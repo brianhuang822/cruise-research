@@ -66,6 +66,13 @@ Every decision made with the owner, in the order it was made, with the reason. E
 | — | **Commit to `main` as work lands** | Owner's instruction. The session branch is kept in sync |
 | — | **Record all decisions in `agents/` + `AGENTS.md`** | Owner: "so we don't forget" |
 
+## 2026-11-14 · Pre-export work
+
+| # | Decision | Why / notes |
+|---|---|---|
+| D32 | **No CI.** The quality gate (build `--check`, tests, ruff, aislop) runs locally before each commit | Owner: not monetized, and no Actions minutes left for this project. The workflow added in e3ee22b was removed |
+| D33 | **No automated CruisePlum scraping**, including BeautifulSoup or browser-automation workarounds | CruisePlum serves a Cloudflare managed challenge (`cf-mitigated: challenge`) and disallows `/data/` in robots.txt. A plain HTTP client gets the challenge page; getting past it means circumventing an access control, and the site is public. Manual export, a permissioned feed, or a user-run copy helper are the options |
+
 ## Still open
 
 - CruisePlum export format: whether it includes taxes/fees, sail dates, region, departure port (owner will export and report).

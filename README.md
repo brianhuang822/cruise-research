@@ -37,7 +37,7 @@ python3 -m http.server -d docs 8000 # preview at http://localhost:8000
 Columns are matched by name: ship, sail/departure date, nights, cabin category and price are required; cruise line, region/destination and
 departure port are optional. Use `--per-cabin` if prices are for two guests, and `--fare-basis <bundle_id>` if the prices include a bundle.
 
-Quality gate: `ruff check scripts tests`, `ruff format --check scripts tests`, and `npx aislop@0.19.1 scan`. CI (`.github/workflows/checks.yml`) runs all of these plus the build check and tests on every push to `main`.
+Quality gate: `ruff check scripts tests`, `ruff format --check scripts tests`, and `npx aislop@0.19.1 scan`. Run them locally before each commit (no CI by design, D32).
 
 ## Analysing the data in Python
 
