@@ -1,6 +1,6 @@
 # Cruise Cabin Finder — Spec & Roadmap
 
-Status: **M0 signed off 2026-11-14 → M1 in progress** · Drafted 2026-11-14
+Status: **M1 done 2026-11-14 → M2 in progress** (work is committed to `main` as it lands) · Drafted 2026-11-14
 
 A public static site that compares **ship × cabin tier** combinations by hard, quantifiable characteristics and an **all-in price per person per night**. Itinerary search is out of scope: once a user picks a ship + tier, they follow a link to the line's own ship page to find sailings.
 
@@ -43,6 +43,14 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D21 | Data sourcing | **Deterministic pipeline**: scripted fetchers write dated snapshots; hand-curated CSVs hold sourced facts; `build.py` produces byte-identical `dataset.json` / `dataset.csv` (`--check` in CI) |
 | D22 | Modes | **Three modes on one engine**: Simple (default), Detailed, Help me choose (wizard). See §7.1 |
 | D23 | Code quality gate | `aislop scan` (pinned version) + `ruff` on every change |
+| D24 | Audience & business model | **Public hobby site.** No affiliate links or monetization (keeps the ranking neutral). **No analytics** |
+| D25 | Regions & home ports | **Added back (reverses part of the #31 cut)** as ship-level tags (regions, US home ports, months), **derived from the user's CruisePlum export** by script, not hand-curated |
+| D26 | Perk & amenity checkboxes | **Must have / Nice to have** two-state control: must = filter, nice = adds to score |
+| D27 | Families | **In scope** ("anyone can use it"): `max_guests` per tier → "sleeps N" filter; wizard family path uses it |
+| D28 | Presets | One-click weight presets: **Foodie, Smooth seas, Value, Spa & wellness, Active** |
+| D29 | Freshness | **Monthly automated CDC refresh** (scores + outbreaks) via GitHub Action; "may be stale" badge on rows not verified in 6 months |
+| D30 | Work order | **Data breadth first** (M2/M3, all 19 lines) → fares + regions (M4) → features (M5) → launch (M6) |
+| D31 | Loyalty status perks | v2 (user holds no status that changes priority) |
 
 ---
 
@@ -93,6 +101,7 @@ Ships: ocean ships in service as of the data snapshot. Expedition ships (e.g. Si
 | Ship | Year built, last major refit | Ship | Display/sort/score |
 | Ship | CDC VSP latest score + date | Ship | Display/sort/score |
 | Cabin | Typical cabin size (sq ft, interior incl. balcony noted separately) | Tier (ship override) | Display/sort/score |
+| Cabin | Max guests per cabin (`max_guests`, the most any cabin in the tier sleeps) | Tier (ship override) | Filter "sleeps N" (D27) |
 | Cabin | Suite enclave: private lounge, private sundeck/pool | Tier | Filter |
 | Cabin | Laundry perk: `none` / `pressing` / `limited` / `unlimited` | Tier | Filter |
 | Cabin | Butler, concierge, priority boarding | Tier | Filter |
@@ -432,19 +441,18 @@ Measured on 2026-11-14: Wikidata has 640 active cruise-ship items, with GT on 76
 | Milestone | Deliverable | Done when |
 |---|---|---|
 | **M0 Spec** ✅ | This document | Signed off 2026-11-14 |
-| **M1 Vertical slice** | Schema + `build.py` + full UI with **one line end-to-end (Celebrity)**: tiers incl. Retreat laundry, RCL shareholder credit, bundles, ships, amenities | Every filter, sort, score, URL-state round-trip and the unknown toggle work on desktop and on a 390px phone |
-| **M2 Line policies + tiers** | `lines.csv`, `tiers.csv`, `bundles.csv` for all 19 lines | 100% of tiers have `tier_type`, gratuity, inclusions; coverage report ≥ 90% |
-| **M3 Ships + amenities** | `ship_classes.csv`, `ships.csv`, CDC scores | All in-scope ships with GT/pax/year; amenity coverage ≥ 80% |
-| **M4 Prices** | Choose price source; `import_prices.py` + first load | ≥ 70% of rows have a fare median; `as_of` shown |
-| **M5 QA + launch** | 10% random audit against sources, link check, Lighthouse ≥ 90, Pages live | Audit error rate < 5%; site public |
-
----
+| **M1 Vertical slice** ✅ | Pipeline, three modes, Celebrity end-to-end | Done 2026-11-14 |
+| **M2 Line policies + tiers** | `lines.csv`, `tiers.csv` (incl. `max_guests`), `bundles.csv` for all 19 lines | Every tier has `tier_type`, gratuity, inclusions; coverage ≥ 90% |
+| **M3 Ships + amenities** | `ship_classes.csv`, `ships.csv` for all lines; CDC scores matched | All in-scope ships with GT/pax/year; amenity coverage ≥ 80% |
+| **M4 Fares + regions** | User's CruisePlum export → `import_prices.py` (fares) + ship region/home-port tags | ≥ 70% of rows priced; regions on ≥ 90% of ships |
+| **M5 Features** | Must/Nice controls, presets, sleeps-N filter, CDC outbreak history, shortlist + compare, "what changed" feed, methodology + coverage page, report-an-error link, stale badge, monthly CDC refresh Action | Each feature covered by an e2e check |
+| **M6 QA + launch** | 10% random audit against sources, link check, Lighthouse ≥ 90, repo public, Pages live | Audit error rate < 5%; site public |
 
 ## 11. Open questions
 
 Resolved 2026-11-14 → see D14–D20. Remaining:
 
-1. **Price source (M4):** CruisePlum manual export, manual sampling from line websites, or another source. Decide after M3.
+1. **CruisePlum export format (M4):** user will export and share. Needed columns: ship, sail date, nights, cabin category, price, and ideally taxes/fees flag, itinerary region and departure port (regions come from this file, D25).
 2. **Silversea shareholder coverage:** confirm with RCG Investor Relations; until then `unknown`.
 
 ## 12. Risks

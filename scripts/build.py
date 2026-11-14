@@ -19,7 +19,7 @@ TIER_ROW_FIELDS = [k for k in TABLES["tiers"]["columns"] if k not in ("ships", "
 COVERAGE_ROW_FIELDS = [
     "gratuity_pppd", "drinks_included", "wifi_included", "specialty_meals_included", "included_dining",
     "private_restaurant", "private_lounge", "private_sundeck_pool", "laundry_perk", "butler", "concierge",
-    "priority_boarding", "thermal_suite_included", "sqft_min", "fare_pppn_median",
+    "priority_boarding", "thermal_suite_included", "sqft_min", "max_guests", "fare_pppn_median",
 ]  # fmt: skip
 COVERAGE_SHIP_FIELDS = [*AMENITY_COLUMNS, "cdc_score", "last_refit"]
 
