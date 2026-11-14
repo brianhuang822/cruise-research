@@ -26,6 +26,7 @@ export function perkChips(row, ship) {
     [row.private_sundeck_pool, 'Sundeck'],
     [row.thermal_suite_included, 'Thermal suite'],
     [ship.pickleball, 'Pickleball'],
+    [ship.water_slides, 'Water slides'],
   ];
   return chips.filter(([on]) => on === true).map(([, label]) => label);
 }
@@ -116,6 +117,8 @@ function shipBlock(ship, line) {
       <dt>Thermal suite</dt><dd>${enumText(ship.thermal_suite)}</dd>
       <dt>Adults-only pool · pools</dt><dd>${yn(ship.adults_only_pool)} · ${ship.pools ?? '—'}</dd>
       <dt>Kids · teen club</dt><dd>${yn(ship.kids_club)} · ${yn(ship.teen_club)}</dd>
+      <dt>Water slides · splash area</dt><dd>${yn(ship.water_slides)} · ${yn(ship.splash_area)}</dd>
+      <dt>Mini golf</dt><dd>${yn(ship.mini_golf)}</dd>
     </dl>
     <a class="sailings" href="${ship.official_url}" target="_blank" rel="noopener">Find sailings on ${line.name} →</a>
   </div>`;

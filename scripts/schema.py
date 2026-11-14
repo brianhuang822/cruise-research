@@ -33,6 +33,9 @@ AMENITY_COLUMNS = {
     "pools": ("int", None),
     "kids_club": ("bool", None),
     "teen_club": ("bool", None),
+    "water_slides": ("bool", None),
+    "mini_golf": ("bool", None),
+    "splash_area": ("bool", None),
 }
 
 SOURCE_COLUMNS = {
