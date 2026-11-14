@@ -8,6 +8,7 @@ Same inputs always produce byte-identical outputs (sorted keys, stable row order
 no wall-clock timestamps: last_updated = newest date found in the inputs).
 """
 
+import re
 import sys
 
 from curated import ROOT, Errors, load_snapshot, load_table, parse_value
@@ -63,6 +64,28 @@ def check_references(t, errors, warnings):
     for ln in lines.values():
         if ln["shareholder_benefit"] == "yes" and ln["ticker"] not in with_benefit:
             errors.add(ln["_where"], f"benefit=yes but no shareholder_benefits rows for {ln['ticker']}")
+
+
+def check_import_tables(t, errors):
+    tiers, ships = by_key(t["tiers"], "tier_id"), by_key(t["ships"], "ship_id")
+    for r in t["category_map"]:
+        if r["tier_id"] not in tiers or tiers[r["tier_id"]]["line_id"] != r["line_id"]:
+            errors.add(r["_where"], f"{r['tier_id']} is not a tier of {r['line_id']}")
+        try:
+            re.compile(r["pattern"])
+        except re.error as e:
+            errors.add(r["_where"], f"bad regex: {e}")
+    for d in t["ship_deployments"]:
+        if d["ship_id"] not in ships:
+            errors.add(d["_where"], f"unknown ship_id {d['ship_id']}")
+
+
+def add_deployment(rec, dep):
+    for field in ("regions", "homeports", "months"):
+        value = dep.get(field)
+        rec[field] = value.split(";") if value else None
+    rec["deployment_as_of"] = dep.get("as_of")
+    return rec
 
 
 def collect_overrides(t, errors):
@@ -203,6 +226,7 @@ def build():
     errors, warnings = Errors(), []
     t = {name: load_table(name, errors) for name in TABLES}
     check_references(t, errors, warnings)
+    check_import_tables(t, errors)
     overrides = collect_overrides(t, errors)
     prices = collect_prices(t, errors)
     cdc, wd = load_snapshot("cdc_vsp"), load_snapshot("wikidata_ships")
@@ -212,7 +236,11 @@ def build():
         return None, errors, warnings
 
     ships = sorted(t["ships"], key=lambda s: (s["line_id"], s["name"]))
-    out_ships = [resolve_ship(s, classes.get(s["class_id"], {}), cdc, src) for s in ships]
+    deployments = by_key(t["ship_deployments"], "ship_id")
+    out_ships = [
+        add_deployment(resolve_ship(s, classes.get(s["class_id"], {}), cdc, src), deployments.get(s["ship_id"], {}))
+        for s in ships
+    ]
     if wd:
         warnings += [w for s in ships if s["wikidata_qid"] for w in wikidata_warnings(s, wd)]
     out_rows = resolve_rows(t, overrides, prices, src, {s["ship_id"]: s["name"] for s in ships})

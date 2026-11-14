@@ -178,3 +178,46 @@ class BuildTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ImportTests(unittest.TestCase):
+    def setUp(self):
+        import tempfile
+
+        import import_prices
+
+        self.mod = import_prices
+        self.tmp = Path(tempfile.mkdtemp())
+        fixture = ROOT / "tests" / "fixtures" / "sample_export.csv"
+        opts = import_prices.parse_args([str(fixture), "--as-of", "2026-12-01"])
+        self.prices, self.deploy, self.misses = import_prices.run(opts, out_dir=self.tmp)
+        self.by_key = {(p["ship_id"], p["tier_id"]): p for p in self.prices}
+
+    def test_median_of_lowest_per_sailing(self):
+        # Inside: 700/7=100, min(840,770)/7=110, 1500/10=150 -> median 110
+        p = self.by_key[("celebrity-edge", "celebrity-inside")]
+        self.assertEqual((p["fare_pppn_median"], p["n_sailings"]), ("110.00", 3))
+
+    def test_perk_tiers_and_disambiguation(self):
+        self.assertIn(("celebrity-edge", "celebrity-retreat-royal"), self.by_key)
+        self.assertIn(("celebrity-edge", "celebrity-retreat"), self.by_key)
+        self.assertIn(("celebrity-edge", "celebrity-concierge"), self.by_key)
+        self.assertIn(("carnival-vista", "carnival-havana"), self.by_key)
+        self.assertIn(("oceania-vista", "oceania-concierge"), self.by_key)
+
+    def test_misses_reported_and_window_applied(self):
+        self.assertIn("Ship Of Dreams", self.misses["ship"])
+        self.assertIn("celebrity: Mystery Room", self.misses["category"])
+        self.assertEqual(self.misses["outside_window"], 1)
+
+    def test_deployments_and_outputs_build_cleanly(self):
+        dep = {d["ship_id"]: d for d in self.deploy}["celebrity-edge"]
+        self.assertEqual(dep["regions"], "Caribbean;Eastern Caribbean")
+        self.assertEqual(dep["homeports"], "Fort Lauderdale, FL")
+        self.assertTrue((self.tmp / "prices.csv").read_text().startswith("ship_id,tier_id,fare_pppn_median"))
+
+    def test_deterministic(self):
+        first = (self.tmp / "prices.csv").read_text()
+        opts = self.mod.parse_args([str(ROOT / "tests" / "fixtures" / "sample_export.csv"), "--as-of", "2026-12-01"])
+        self.mod.run(opts, out_dir=self.tmp)
+        self.assertEqual(first, (self.tmp / "prices.csv").read_text())

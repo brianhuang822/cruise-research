@@ -1,0 +1,99 @@
+line_id,priority,pattern,tier_id,notes
+celebrity,1,royal suite|penthouse|edge villa|iconic,celebrity-retreat-royal,seed; refine against the first real export
+celebrity,2,retreat|sky suite|celebrity suite|signature suite|aqua sky,celebrity-retreat,seed; refine against the first real export
+celebrity,3,aqua ?class,celebrity-aquaclass,seed; refine against the first real export
+celebrity,4,concierge,celebrity-concierge,seed; refine against the first real export
+celebrity,10,balcony|verandah?,celebrity-veranda,seed; refine against the first real export
+celebrity,11,ocean ?view|outside|window|porthole,celebrity-oceanview,seed; refine against the first real export
+celebrity,12,\b(inside|interior)\b,celebrity-inside,seed; refine against the first real export
+royal-caribbean,1,star class|royal loft|owner'?s loft|grand loft|ultimate|villa suite,rci-star-class,seed; refine against the first real export
+royal-caribbean,2,sky class|grand suite|owner'?s suite|sky loft|crown loft|sky junior|sunset junior|panoramic suite,rci-sky-class,seed; refine against the first real export
+royal-caribbean,3,sea class|junior suite,rci-sea-class,seed; refine against the first real export
+royal-caribbean,10,balcony|verandah?,rci-balcony,seed; refine against the first real export
+royal-caribbean,11,ocean ?view|outside|window|porthole,rci-oceanview,seed; refine against the first real export
+royal-caribbean,12,\b(inside|interior)\b,rci-interior,seed; refine against the first real export
+carnival,1,excel,carnival-excel-suite,seed; refine against the first real export
+carnival,2,havana,carnival-havana,seed; refine against the first real export
+carnival,3,family harbor,carnival-family-harbor,seed; refine against the first real export
+carnival,4,cloud ?9|spa,carnival-cloud9,seed; refine against the first real export
+carnival,5,suite,carnival-suite,seed; refine against the first real export
+carnival,10,balcony|verandah?,carnival-balcony,seed; refine against the first real export
+carnival,11,ocean ?view|outside|window|porthole,carnival-oceanview,seed; refine against the first real export
+carnival,12,\b(inside|interior)\b,carnival-interior,seed; refine against the first real export
+princess,1,sanctuary,princess-sanctuary,seed; refine against the first real export
+princess,2,reserve.*suite,princess-reserve-suite,seed; refine against the first real export
+princess,3,reserve,princess-reserve-mini,seed; refine against the first real export
+princess,4,mini[- ]?suite|club class,princess-mini-suite,seed; refine against the first real export
+princess,5,suite,princess-reserve-suite,seed; refine against the first real export
+princess,10,balcony|verandah?,princess-balcony,seed; refine against the first real export
+princess,11,ocean ?view|outside|window|porthole,princess-oceanview,seed; refine against the first real export
+princess,12,\b(inside|interior)\b,princess-interior,seed; refine against the first real export
+holland-america,1,pinnacle suite,hal-pinnacle-suite,seed; refine against the first real export
+holland-america,2,neptune,hal-neptune,seed; refine against the first real export
+holland-america,3,suite,hal-vista-signature-suite,seed; refine against the first real export
+holland-america,10,balcony|verandah?,hal-verandah,seed; refine against the first real export
+holland-america,11,ocean ?view|outside|window|porthole,hal-oceanview,seed; refine against the first real export
+holland-america,12,\b(inside|interior)\b,hal-interior,seed; refine against the first real export
+cunard,1,queens grill,cunard-queens-grill,seed; refine against the first real export
+cunard,2,princess grill,cunard-princess-grill,seed; refine against the first real export
+cunard,3,britannia club,cunard-britannia-club,seed; refine against the first real export
+cunard,10,balcony|verandah?,cunard-britannia-balcony,seed; refine against the first real export
+cunard,11,ocean ?view|outside|window|porthole,cunard-britannia-oceanview,seed; refine against the first real export
+cunard,12,\b(inside|interior)\b,cunard-britannia-inside,seed; refine against the first real export
+seabourn,1,owner|signature|wintergarden,seabourn-owners,seed; refine against the first real export
+seabourn,2,penthouse spa,seabourn-penthouse-spa,seed; refine against the first real export
+seabourn,3,penthouse,seabourn-penthouse,seed; refine against the first real export
+seabourn,10,veranda|ocean view|suite,seabourn-veranda,seed; refine against the first real export
+norwegian,1,haven.*(owner|villa)|owner|garden villa,ncl-haven-owners,seed; refine against the first real export
+norwegian,2,haven,ncl-haven,seed; refine against the first real export
+norwegian,3,club balcony,ncl-club-balcony,seed; refine against the first real export
+norwegian,4,suite|penthouse,ncl-suite,seed; refine against the first real export
+norwegian,10,balcony|verandah?,ncl-balcony,seed; refine against the first real export
+norwegian,11,ocean ?view|outside|window|porthole,ncl-oceanview,seed; refine against the first real export
+norwegian,12,\b(inside|interior)\b|studio,ncl-inside,seed; refine against the first real export
+oceania,1,owner|vista suite|oceania suite,oceania-top-suites,seed; refine against the first real export
+oceania,2,penthouse,oceania-penthouse,seed; refine against the first real export
+oceania,3,concierge,oceania-concierge,seed; refine against the first real export
+oceania,10,balcony|verandah?,oceania-veranda,seed; refine against the first real export
+oceania,11,ocean ?view|outside|window|porthole,oceania-oceanview,seed; refine against the first real export
+oceania,12,\b(inside|interior)\b,oceania-inside,seed; refine against the first real export
+regent,1,regent suite|master|grand suite|seven seas suite|signature suite|skyview,regent-top-suites,seed; refine against the first real export
+regent,2,penthouse,regent-penthouse,seed; refine against the first real export
+regent,3,concierge,regent-concierge,seed; refine against the first real export
+regent,10,veranda|suite,regent-veranda,seed; refine against the first real export
+viking,1,owner,viking-owners,seed; refine against the first real export
+viking,2,explorer,viking-explorer,seed; refine against the first real export
+viking,3,penthouse junior,viking-penthouse-junior,seed; refine against the first real export
+viking,4,penthouse veranda,viking-penthouse-veranda,seed; refine against the first real export
+viking,10,veranda,viking-veranda,seed; refine against the first real export
+virgin,1,mega,virgin-mega-rockstar,seed; refine against the first real export
+virgin,2,rock ?star,virgin-rockstar,seed; refine against the first real export
+virgin,10,terrace,virgin-sea-terrace,seed; refine against the first real export
+virgin,11,sea view|ocean ?view,virgin-sea-view,seed; refine against the first real export
+virgin,12,insider|inside|interior,virgin-insider,seed; refine against the first real export
+disney,1,concierge.*(suite|bedroom|royal)|royal suite,disney-concierge-suite,seed; refine against the first real export
+disney,2,concierge,disney-concierge,seed; refine against the first real export
+disney,10,balcony|verandah?,disney-verandah,seed; refine against the first real export
+disney,11,ocean ?view|outside|window|porthole,disney-oceanview,seed; refine against the first real export
+disney,12,\b(inside|interior)\b,disney-inside,seed; refine against the first real export
+msc,1,yacht club,msc-yacht-club,seed; refine against the first real export
+msc,10,balcony|verandah?,msc-balcony,seed; refine against the first real export
+msc,11,ocean ?view|outside|window|porthole,msc-oceanview,seed; refine against the first real export
+msc,12,\b(inside|interior)\b,msc-interior,seed; refine against the first real export
+explora,1,residence,explora-residence,seed; refine against the first real export
+explora,2,penthouse,explora-penthouse,seed; refine against the first real export
+explora,10,terrace|suite,explora-terrace,seed; refine against the first real export
+silversea,1,owner|grand suite,silversea-top,seed; refine against the first real export
+silversea,2,medallion|silver suite|royal suite,silversea-suite,seed; refine against the first real export
+silversea,10,veranda|vista|classic|suite,silversea-veranda,seed; refine against the first real export
+azamara,1,owner|world|ocean suite,azamara-top-suite,seed; refine against the first real export
+azamara,2,suite,azamara-suite,seed; refine against the first real export
+azamara,10,balcony|verandah?,azamara-veranda,seed; refine against the first real export
+azamara,11,ocean ?view|outside|window|porthole,azamara-oceanview,seed; refine against the first real export
+azamara,12,\b(inside|interior)\b,azamara-interior,seed; refine against the first real export
+ritz-carlton,1,owner|grand|view suite|loft,ritz-top,seed; refine against the first real export
+ritz-carlton,2,signature,ritz-signature,seed; refine against the first real export
+ritz-carlton,10,terrace|suite,ritz-terrace,seed; refine against the first real export
+crystal,1,penthouse,crystal-penthouse,seed; refine against the first real export
+crystal,2,balcony|verandah?,crystal-veranda,seed; refine against the first real export
+crystal,3,ocean ?view|outside|window|porthole|deluxe,crystal-oceanview,seed; refine against the first real export

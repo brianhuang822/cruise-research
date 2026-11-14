@@ -26,7 +26,18 @@ python3 -m unittest discover -s tests
 python3 -m http.server -d docs 8000 # preview at http://localhost:8000
 ```
 
-Quality gate: `ruff check scripts tests`, `ruff format --check scripts tests`, and `npx aislop@0.19.1 scan`.
+## Loading a fare export
+
+1. Save the raw export (CSV, one row per sailing x cabin category) in `data/raw/` (gitignored).
+2. Dry run: `python3 scripts/import_prices.py data/raw/export.csv --as-of YYYY-MM-DD --dry-run`
+   It reports unmatched ships and cabin categories it couldn't map to a tier.
+3. Fix gaps by adding rules to `data/curated/category_map.csv` (case-insensitive regex, lowest priority number wins).
+4. Run without `--dry-run` to write `data/curated/prices.csv` and `data/curated/ship_deployments.csv`, then `python3 scripts/build.py`.
+
+Columns are matched by name: ship, sail/departure date, nights, cabin category and price are required; cruise line, region/destination and
+departure port are optional. Use `--per-cabin` if prices are for two guests, and `--fare-basis <bundle_id>` if the prices include a bundle.
+
+Quality gate: `ruff check scripts tests`, `ruff format --check scripts tests`, and `npx aislop@0.19.1 scan`. CI (`.github/workflows/checks.yml`) runs all of these plus the build check and tests on every push to `main`.
 
 ## Analysing the data in Python
 

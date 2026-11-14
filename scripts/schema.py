@@ -152,6 +152,28 @@ TABLES = {
             **SOURCE_COLUMNS,
         },
     },
+    "category_map": {
+        "key": None,
+        "columns": {
+            "line_id": ("slug", REQUIRED),
+            "priority": ("int", REQUIRED),
+            "pattern": ("text", REQUIRED),  # case-insensitive regex matched against the export's cabin category
+            "tier_id": ("slug", REQUIRED),
+            "notes": ("text", None),
+        },
+    },
+    "ship_deployments": {
+        "key": "ship_id",
+        "columns": {
+            "ship_id": ("slug", REQUIRED),
+            "regions": ("text", None),  # ';'-separated, from the price export
+            "homeports": ("text", None),  # ';'-separated departure ports
+            "months": ("text", None),  # ';'-separated YYYY-MM with sailings
+            "n_sailings": ("int", REQUIRED),
+            "as_of": ("date", REQUIRED),
+            "source": ("text", REQUIRED),
+        },
+    },
     "prices": {
         "key": None,
         "columns": {
@@ -181,6 +203,7 @@ RANGES = {
     "specialty_restaurants": (0, 40),
     "min_nights": (1, 999),
     "max_nights": (1, 999),
+    "priority": (1, 99),
 }
 
 # Tier fields that tier_overrides may change, with their types.

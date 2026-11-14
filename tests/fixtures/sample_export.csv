@@ -1,0 +1,15 @@
+Cruise Line,Ship Name,Departure Date,Nights,Cabin Category,Price Per Person,Destination,Departure Port
+Celebrity Cruises,Celebrity Edge,2027-01-10,7,Inside,"$700",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-01-10,7,Veranda,"$1,050",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-01-10,7,Concierge Class,"$1,260",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-01-10,7,Sky Suite,"$2,800",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-01-10,7,Royal Suite,"$5,600",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-02-14,7,Inside,"$840",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-02-14,7,Interior Guarantee,"$770",Caribbean,"Fort Lauderdale, FL"
+Celebrity Cruises,Celebrity Edge,2027-03-21,10,Inside,"$1,500",Eastern Caribbean,"Fort Lauderdale, FL"
+Carnival Cruise Line,Vista,2027-01-09,6,Interior,"$420",Western Caribbean,"Galveston, TX"
+Carnival Cruise Line,Vista,2027-01-09,6,Havana Balcony,"$900",Western Caribbean,"Galveston, TX"
+Oceania Cruises,Vista,2027-04-02,10,Concierge Level Veranda,"$4,200",Mediterranean,Barcelona
+Royal Caribbean,Ship Of Dreams,2027-01-01,7,Inside,"$500",Bahamas,Miami
+Celebrity Cruises,Celebrity Edge,2028-06-01,7,Inside,"$700",Alaska,Seattle
+Celebrity Cruises,Celebrity Edge,2027-05-01,7,Mystery Room,"$600",Caribbean,"Fort Lauderdale, FL"
