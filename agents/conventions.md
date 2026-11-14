@@ -9,7 +9,7 @@
 - **Where data lives:** line-wide policy in `lines.csv`; perks and inclusions per cabin tier in `tiers.csv`; ship-specific exceptions to a tier in `tier_overrides.csv` (e.g. no Retreat Sundeck on Celebrity Solstice); amenities on `ship_classes.csv`, with a non-blank value in `ships.csv` overriding the class.
 - **Tier boundaries:** split a line's cabins into tiers wherever perks change, not by marketing names. Name the tier with the line's own words.
 - **Definitions used so far:**
-  - `specialty_restaurants` = extra-charge restaurants open to all guests, excluding bars and suite/class-only venues.
+  - `specialty_restaurants` = sit-down restaurants beyond the main dining room and buffet that are open to all guests, whether included or extra-charge, excluding bars, cafés, ice-cream/snack counters, dinner-theater shows and suite/class-only venues.
   - `sqft_min`/`sqft_max` = interior cabin area; balconies are mentioned in `notes`.
   - `max_guests` = the most guests any cabin in the tier can sleep.
   - Shareholder credit tiers stated in "days" are treated as nights.
