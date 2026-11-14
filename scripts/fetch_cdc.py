@@ -4,6 +4,7 @@
 Writes data/snapshots/cdc_vsp.json. CDC data is US public domain.
 Re-run to refresh; review the git diff before committing.
 """
+
 import datetime
 import hashlib
 import html
@@ -19,7 +20,7 @@ UA = "cruise-cabin-finder-data/1.0 (static research site)"
 
 # Markup differs by user agent (modern <td style> vs legacy <font> tags), so match the
 # ship link, then read date + score from the tag-stripped text up to the end of that row.
-LINK = re.compile(r"<a[^>]*InspectionDetailReport\.aspx[^>]*>(.*?)</a>(.*?)</tr>", re.S | re.I)
+LINK = re.compile(r"<a[^>]*InspectionDetailReport\.aspx[^>]*>(.*?)</a>(.*?)</tr>", re.DOTALL | re.IGNORECASE)
 TAGS = re.compile(r"<[^>]+>")
 CELLS = re.compile(r"(\d{2})/(\d{2})/(\d{4})\s+(\d{1,3})\b")
 
@@ -46,7 +47,7 @@ def main() -> int:
     snapshot = {
         "source": URL,
         "license": "US public domain (CDC)",
-        "fetched_on": datetime.date.today().isoformat(),
+        "fetched_on": datetime.datetime.now(datetime.UTC).date().isoformat(),
         "sha256_raw": hashlib.sha256(raw).hexdigest(),
         "records": records,
     }

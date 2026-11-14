@@ -6,6 +6,7 @@ Used only to cross-check curated specs (build.py prints warnings on mismatches).
 It never overrides a curated value: Wikidata often mixes double-occupancy, maximum
 occupancy and crew counts under the same capacity property.
 """
+
 import csv
 import datetime
 import json
@@ -61,11 +62,11 @@ def main() -> int:
         return 1
     result = {}
     for i in range(0, len(qids), 50):
-        result.update(query(qids[i:i + 50]))
+        result.update(query(qids[i : i + 50]))
     snapshot = {
         "source": ENDPOINT,
         "license": "CC0 (Wikidata)",
-        "fetched_on": datetime.date.today().isoformat(),
+        "fetched_on": datetime.datetime.now(datetime.UTC).date().isoformat(),
         "properties": PROPS,
         "ships": {q: {k: sorted(v) for k, v in props.items()} for q, props in sorted(result.items())},
     }

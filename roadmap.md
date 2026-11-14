@@ -40,6 +40,9 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D18 | Default trip length | **7 nights** |
 | D19 | CCL credit after 2026 | Shown as **"expected, unconfirmed"** for sailings after Dec 31 2026 |
 | D20 | Hosting | **Default GitHub Pages URL** |
+| D21 | Data sourcing | **Deterministic pipeline**: scripted fetchers write dated snapshots; hand-curated CSVs hold sourced facts; `build.py` produces byte-identical `dataset.json` / `dataset.csv` (`--check` in CI) |
+| D22 | Modes | **Three modes on one engine**: Simple (default), Detailed, Help me choose (wizard). See §7.1 |
+| D23 | Code quality gate | `aislop scan` (pinned version) + `ruff` on every change |
 
 ---
 
@@ -338,6 +341,39 @@ Any numeric column, ascending/descending: all-in price, GT, space ratio, year bu
 
 ---
 
+### 7.1 Modes
+
+All three modes read and write the **same state** (inputs, filters, weights) and use the same filter/score/price engine, so the same answers always give the same results. The active mode is in the URL (`mode=simple|detailed|wizard`). Switching modes keeps state.
+
+| | Simple (default) | Detailed | Help me choose (wizard) |
+|---|---|---|---|
+| For | Most visitors | Power users, analysts | First-time cruisers, undecided |
+| Controls | ~8 popular filters in one bar | Every filter, weights, sort | One question per screen |
+| Results | Cards, 12 at a time, 4 sort options | Table/cards, full breakdown, 8 sorts | Top 5 matches + "refine in Simple/Detailed" |
+
+**Simple mode controls** (most-cited decision factors from §Research): trip length · max all-in $/night (Any / $150 / $250 / $400 / $600 / $1,000) · cabin (Inside / Ocean view / Balcony / Suite) · included dining (Any / Some specialty / All) · toggles: gratuities included, adults-only ship, drinks package, fewer motion (≥120k GT) · shareholder ticker. If filters set in Detailed mode are hidden in Simple, a banner shows how many and offers "Clear".
+
+Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony = `balcony`, `junior_suite`, `perk_class`; Suite = `suite`, `top_suite`.
+
+**Wizard decision tree** (questions skip based on earlier answers):
+
+| # | Question | Shown when | Sets |
+|---|---|---|---|
+| 1 | Who's traveling? (adults / family with kids / solo or friends) | always | family → `kids_club` amenity |
+| 2 | Prefer a ship with no kids at all? | Q1 ≠ family | adults-only filter |
+| 3 | How many nights? | always | trip length |
+| 4 | Budget per person per night, all-in? | always | max price + price weight |
+| 5 | Do you get seasick? | always | min GT + size weight |
+| 6 | What kind of cabin? | always | cabin types |
+| 7 | Which suite perks matter? (multi) | Q6 = suite | perk filters |
+| 8 | How important is food? | always | included-dining filter or specialty dinners + dining weight |
+| 9 | What do you drink? | always | drinks input |
+| 10 | Need Wi-Fi? | always | Wi-Fi input |
+| 11 | Activities you want on board? (multi) | always | amenity filters |
+| 12 | Own 100+ shares of a cruise company? (multi) | always | tickers |
+
+Results: top 5 by score, with "why it matched" chips, an edit-answers link per question, and buttons to continue in Simple or Detailed.
+
 ## 8. Architecture
 
 ```
@@ -350,10 +386,17 @@ scripts/
   build.py            # validate CSVs → derive fields → docs/data.json (+ last_updated)
   import_prices.py    # raw price export → data/prices.csv (median per ship×tier)
 docs/                 # GitHub Pages root (static)
-  index.html  app.js  styles.css  data.json  sources.html
+  index.html  styles.css  data.json  pricing.js
+  app.js              # bootstrap + mode switch
+  js/dom.js           # auto-escaping html`` template, single DOM sink
+  js/state.js         # defaults, URL encode/decode, constants
+  js/engine.js        # filters, percentile score, compute (shared by all modes)
+  js/views/*.js       # simple, detailed, wizard
 ```
 
 - No framework, no runtime dependencies; Python 3 standard library only for scripts.
+- Fetchers (`fetch_cdc.py`, `fetch_wikidata.py`) write dated snapshots to `data/snapshots/` (committed). Curated facts live in `data/curated/*.csv`. `build.py` is a pure function of those inputs.
+- `pricing.js` is the single pricing engine for the site; `scripts/pricing.py` mirrors it for analysis, and `tests/test_pipeline.py` checks both agree on 432 input combinations.
 - `build.py` fails on validation errors: unknown enum values, out-of-range numbers (GT 1,000–260,000; year 1985–2027; $ ≥ 0), broken foreign keys, missing `source_urls`/`last_verified`, or a tier with no `tier_type`.
 - `build.py` prints a coverage report (% known per field per line), so gaps are visible before publishing.
 - Hosting: GitHub Pages from `/docs` (enable in repo Settings → Pages).

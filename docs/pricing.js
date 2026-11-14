@@ -74,11 +74,11 @@ export function obcFor(line, inputs, benefits) {
   if (!line.ticker || !inputs.tickers || !inputs.tickers.includes(line.ticker)) {
     return { pppn: 0, status: 'none', note: null };
   }
-  if (line.shareholder_benefit === 'unknown') return { pppn: 0, status: 'unknown', note: 'Shareholder benefit coverage unconfirmed for this line' };
+  if (line.shareholder_benefit === 'unknown') return { pppn: 0, status: 'unknown', note: 'Shareholder credit not confirmed for this line' };
   if (line.shareholder_benefit !== 'yes') return { pppn: 0, status: 'none', note: null };
   const tier = benefits.find((b) => b.ticker === line.ticker && inputs.nights >= b.min_nights && inputs.nights <= b.max_nights);
   if (!tier) return { pppn: 0, status: 'none', note: null };
-  const note = tier.valid_through ? `Confirmed for sailings through ${tier.valid_through}; expected but unconfirmed after` : null;
+  const note = tier.valid_through ? `Confirmed for sailings through ${tier.valid_through}. Expected after that, but not confirmed.` : null;
   return {
     pppn: tier.obc_usd / GUESTS / inputs.nights,
     status: tier.valid_through ? 'expected_after_valid_through' : 'applied',

@@ -183,6 +183,7 @@ RANGES = {
 
 # Tier fields that tier_overrides may change, with their types.
 OVERRIDABLE_TIER_FIELDS = {
-    k: v for k, v in TABLES["tiers"]["columns"].items()
+    k: v
+    for k, v in TABLES["tiers"]["columns"].items()
     if k not in ("tier_id", "line_id", "name", "tier_type", "rank", "ships", "source_urls", "last_verified", "notes")
 }

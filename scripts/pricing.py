@@ -17,6 +17,7 @@ GUESTS = 2
 def _r2(x: float) -> float:
     # match JS Math.round(x*100)/100 (round half up for positives)
     import math
+
     return math.floor(x * 100 + 0.5) / 100
 
 
@@ -101,15 +102,18 @@ def obc_for(line, inputs, benefits):
     if not line.get("ticker") or line["ticker"] not in tickers:
         return {"pppn": 0, "status": "none", "note": None}
     if line.get("shareholder_benefit") == "unknown":
-        return {"pppn": 0, "status": "unknown", "note": "Shareholder benefit coverage unconfirmed for this line"}
+        return {"pppn": 0, "status": "unknown", "note": "Shareholder credit not confirmed for this line"}
     if line.get("shareholder_benefit") != "yes":
         return {"pppn": 0, "status": "none", "note": None}
     n = inputs["nights"]
     tier = next((b for b in benefits if b["ticker"] == line["ticker"] and b["min_nights"] <= n <= b["max_nights"]), None)
     if tier is None:
         return {"pppn": 0, "status": "none", "note": None}
-    note = (f"Confirmed for sailings through {tier['valid_through']}; expected but unconfirmed after"
-            if tier.get("valid_through") else None)
+    note = (
+        f"Confirmed for sailings through {tier['valid_through']}. Expected after that, but not confirmed."
+        if tier.get("valid_through")
+        else None
+    )
     return {
         "pppn": tier["obc_usd"] / GUESTS / n,
         "status": "expected_after_valid_through" if tier.get("valid_through") else "applied",
@@ -138,7 +142,7 @@ def all_in(row, line, bundles, benefits, inputs):
             "wifi": True if (base["wifi"] is True or b.get("covers_wifi") is True) else base["wifi"],
             "meals": _meals_covered(base["meals"], b.get("covers_specialty_meals")),
         }
-        t, p, m = _extras_cost(inputs, cover, line)
+        t, p, _missing = _extras_cost(inputs, cover, line)
         if t is None:
             continue
         t += b["price_pppd"]

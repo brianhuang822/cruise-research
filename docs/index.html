@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cruise Cabin Finder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Compare cruise cabins by all-in price per person per night, suite perks, ship size and onboard amenities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <h1>Cruise Cabin Finder</h1>
+      <p class="lede">Compare cruise cabins by all-in price per person per night, suite perks, ship size and onboard amenities.</p>
+    </div>
+    <p class="stamp" id="stamp">Loading data…</p>
+  </div>
+  <div class="wrap modebar">
+    <div class="tabs" id="mode-tabs" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="tab-simple" data-mode="simple" aria-selected="true" aria-controls="mode-simple">Simple</button>
+      <button type="button" role="tab" id="tab-detailed" data-mode="detailed" aria-selected="false" aria-controls="mode-detailed" tabindex="-1">Detailed</button>
+      <button type="button" role="tab" id="tab-wizard" data-mode="wizard" aria-selected="false" aria-controls="mode-wizard" tabindex="-1">Help me choose</button>
+    </div>
+    <button type="button" class="btn-ghost" id="copy-link">Copy link</button>
+  </div>
+</header>
+
+<section class="wrap mode-panel" id="mode-simple" role="tabpanel" aria-labelledby="tab-simple">
+  <div id="s-controls"></div>
+  <div id="s-results" aria-live="polite"></div>
+</section>
+
+<section class="wrap mode-panel" id="mode-wizard" role="tabpanel" aria-labelledby="tab-wizard" hidden></section>
+
+<div id="mode-detailed" role="tabpanel" aria-labelledby="tab-detailed" hidden>
+
+<section class="tripbar" aria-label="Your trip">
+  <div class="wrap tripbar-inner">
+    <label class="field">
+      <span>Trip length</span>
+      <select id="nights">
+        <option value="4">3–5 nights</option>
+        <option value="6">6 nights</option>
+        <option value="7" selected>7 nights</option>
+        <option value="10">10 nights</option>
+        <option value="14">14+ nights</option>
+      </select>
+    </label>
+    <fieldset class="field">
+      <legend>I own ≥100 shares of</legend>
+      <div class="checks" id="tickers"></div>
+    </fieldset>
+    <label class="field">
+      <span>Drinks</span>
+      <select id="drinks">
+        <option value="none">None</option>
+        <option value="soft">Soft drinks</option>
+        <option value="alcohol">Alcohol package</option>
+      </select>
+    </label>
+    <label class="field check-field">
+      <input type="checkbox" id="wifi">
+      <span>Wi-Fi</span>
+    </label>
+    <label class="field">
+      <span>Specialty dinners</span>
+      <input type="number" id="dinners" min="0" max="14" step="1" value="0" inputmode="numeric">
+    </label>
+  </div>
+</section>
+
+<main class="wrap layout">
+  <details class="filters" id="filters-panel" open>
+    <summary><span>Filters</span> <span class="count" id="filter-count"></span></summary>
+    <div class="filters-body">
+      <fieldset class="group">
+        <legend>Cruise line</legend>
+        <div class="chips" id="f-segments"></div>
+        <div class="chips" id="f-lines"></div>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Cabin type</legend>
+        <div class="chips" id="f-types"></div>
+      </fieldset>
+      <div class="group">
+        <label class="range-label" for="f-maxprice">Max all-in <output id="o-maxprice">any</output></label>
+        <input type="range" id="f-maxprice" min="0" max="2000" step="25" value="2000">
+        <p class="hint" id="price-hint"></p>
+      </div>
+      <div class="group">
+        <label class="range-label" for="f-mingt">Min ship size <output id="o-mingt">any</output></label>
+        <input type="range" id="f-mingt" min="0" max="250000" step="5000" value="0">
+        <p class="hint">Measured in gross tonnage (GT). Larger ships usually roll less in a swell. The route and a low, midship cabin also help.</p>
+      </div>
+      <div class="group">
+        <label class="range-label" for="f-dining">Included dining</label>
+        <select id="f-dining">
+          <option value="any">Any</option>
+          <option value="some_specialty">Some specialty included or better</option>
+          <option value="all">All restaurants included</option>
+        </select>
+        <label class="check"><input type="checkbox" id="f-privrest"> Restaurant reserved for your cabin class</label>
+      </div>
+      <fieldset class="group">
+        <legend>Fare</legend>
+        <label class="check"><input type="checkbox" id="f-grat"> Gratuities included</label>
+        <label class="check"><input type="checkbox" id="f-adults"> Adults-only ship (18+)</label>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Cabin perks</legend>
+        <div id="f-perks"></div>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Ship amenities</legend>
+        <div id="f-amen"></div>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Rows with unknown data</legend>
+        <div class="seg" role="radiogroup" aria-label="Unknown values">
+          <label><input type="radio" name="unknowns" id="u-include" value="include" checked> Show</label>
+          <label><input type="radio" name="unknowns" id="u-exclude" value="exclude"> Hide</label>
+        </div>
+      </fieldset>
+      <button type="button" class="btn-ghost" id="reset">Reset filters</button>
+    </div>
+  </details>
+
+  <section class="results" aria-live="polite">
+    <div class="results-head">
+      <p class="tally" id="tally"></p>
+      <div class="sortbox">
+        <label for="sort">Sort</label>
+        <select id="sort">
+          <option value="score">Score (your weights)</option>
+          <option value="price">All-in price, low → high</option>
+          <option value="gt">Ship size, large → small</option>
+          <option value="newness">Newest / refit first</option>
+          <option value="space">Space ratio, high → low</option>
+          <option value="sqft">Cabin size, large → small</option>
+          <option value="dining">Specialty restaurants, most first</option>
+          <option value="cdc">CDC sanitation score, high → low</option>
+        </select>
+      </div>
+    </div>
+
+    <details class="weights" id="weights-panel">
+      <summary>Score weights <span class="hint-inline">0 = ignore · 5 = matters most</span></summary>
+      <div class="weights-grid" id="weights"></div>
+      <p class="hint">Each measure is ranked against the cabins currently shown, then weighted. A cabin missing a measure is scored on the measures it has.</p>
+    </details>
+
+    <p class="notice" id="notice" hidden>Fares aren't loaded yet. Until they are, each cabin shows its extra cost per night, which is gratuities plus any drinks, Wi-Fi and dinners you picked. The price filter and price weight start working once fares are added.</p>
+
+    <div class="table-head" aria-hidden="true">
+      <span>Cabin tier · ship</span><span>All-in / pp / night</span><span>Score</span><span>Size (GT)</span><span>Built</span><span>Cabin sq ft</span><span>Perks</span>
+    </div>
+    <div id="rows"></div>
+    <button type="button" class="btn-more" id="more" hidden>Show more</button>
+  </section>
+</main>
+</div>
+
+<footer class="wrap foot">
+  <p id="foot-updated"></p>
+  <p>Cruise lines change gratuities and inclusions often. Each cabin lists its sources and the date they were checked. Confirm details with the cruise line before you book. Fares are median prices for each ship and cabin tier and are not quotes for a specific sailing.</p>
+  <p>To rebuild the data, run <code>python3 scripts/build.py</code>. It reads the curated CSV files plus dated snapshots from the CDC Vessel Sanitation Program and Wikidata, and writes <code>data/dataset.json</code>.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
