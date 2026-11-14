@@ -67,6 +67,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D45 | Simpler Simple | No sliders in Simple (chips only); self-labelled menus; toggles drawn as chips |
 | D46 | Presets | Value, Foodie, Smooth seas replace Simple's priority chips and sit in Detailed; Spa & wellness and Active wait for ~80% amenity coverage |
 | D47 | Card labels | Inside / Ocean view / Balcony on cards; line's own tier name in the detail panel |
+| D48 | One card per ship | Simple + quiz group by ship (best cabin leads, "+N more" inside); ties go to the cheaper cabin; Detailed stays per cabin |
 
 ---
 
@@ -373,7 +374,7 @@ All three modes read and write the **same state** (inputs, filters, weights) and
 |---|---|---|---|
 | For | Most visitors | Power users, analysts | First-time cruisers, undecided |
 | Controls | Cabin type, guests, 3 toggles; the rest under "More options" | Every filter, weights, sort | One question per screen |
-| Results | Cards, 12 at a time, quick sorts | Table/cards, full breakdown, 8 sorts | Top 5 matches + "Show 5 more", priority chips, sort, "See all" |
+| Results | One card per ship (D48), 12 ships at a time, quick sorts | Table/cards per cabin, full breakdown, 8 sorts | Top 5 ships + "Show 5 more", priority chips, sort, "See all" |
 
 **Simple mode controls** (D43): visible: cabin (Inside / Ocean view / Balcony / Suite) · guests · toggles adults only, tips included, free Wi-Fi · budget (Any / $200 / $400 / $800, shown only once fares exist). Under "More options": trip length · included dining · shareholder ticker · drinks package · less motion (≥120k GT) · "Rank for" presets (D46; no sliders, D45). Menus carry their own wording ("4 guests", "Any dining") instead of labels. If filters set elsewhere can't be shown in Simple, a one-line note shows how many and offers "Clear".
 

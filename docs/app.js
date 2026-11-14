@@ -2,7 +2,7 @@
 import { $, append, html, mount } from './js/dom.js';
 import { createEngine } from './js/engine.js';
 import { MODES, readUrl, store, urlFor } from './js/state.js';
-import { detailHtml } from './js/views/common.js';
+import { detailHtml, otherCabinsHtml } from './js/views/common.js';
 import { initDetailed, onDetailedShow, renderDetailed } from './js/views/detailed.js';
 import { initSimple, onSimpleShow, renderSimple } from './js/views/simple.js';
 import { initWizard, onWizardShow, renderWizard } from './js/views/wizard.js';
@@ -66,7 +66,12 @@ function bindShell() {
     const el = e.target;
     if (!(el instanceof HTMLDetailsElement) || !el.dataset.id || !el.open || el.querySelector('.detail')) return;
     const it = items.find((x) => x.row.row_id === el.dataset.id);
-    if (it) append(el, detailHtml(it, engine, store.state.w));
+    if (!it) return;
+    const isCabin = el.classList.contains('cabin');
+    append(el, detailHtml(it, engine, store.state.w, !isCabin));
+    // A ship's card also lists that ship's other matching cabins.
+    const others = el.classList.contains('card') ? items.filter((x) => x.ship.ship_id === it.ship.ship_id && x !== it) : [];
+    if (others.length) append(el, otherCabinsHtml(others));
   }, true);
   $('copy-link').onclick = async (e) => {
     const btn = e.currentTarget;

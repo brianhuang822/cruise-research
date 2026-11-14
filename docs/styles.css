@@ -276,6 +276,27 @@ input[type="range"] { width: 100%; accent-color: var(--sea); }
 .card-price small { display: block; font: 400 0.75rem/1.3 var(--font-body); color: var(--ink-2); }
 .card-facts { margin: 0; font: 500 var(--step--1)/1.4 var(--font-body); font-variant-numeric: tabular-nums; color: var(--ink-2); }
 .card .perks { margin: 0; }
+.card-more { margin: 0; font-size: var(--step--1); font-weight: 600; color: var(--sea); }
+.card[open] .card-more { display: none; }
+
+/* Other cabins on the same ship, inside an open card */
+.others { padding: 0 14px 14px; }
+.others h3 { font: 600 0.6875rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 4px 0 6px; }
+.cabin { border-top: 1px solid var(--rule); }
+.cabin:last-child { border-bottom: 1px solid var(--rule); }
+.cabin > summary {
+  list-style: none; cursor: pointer; padding: 10px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: start;
+}
+.cabin > summary::-webkit-details-marker { display: none; }
+.cabin-name { font-weight: 600; }
+.cabin-price { grid-row: span 2; text-align: right; }
+.cabin-price small { display: block; font-size: 0.75rem; color: var(--ink-2); }
+.cabin-facts { font-size: var(--step--1); color: var(--ink-2); }
+.cabin[open] > summary .cabin-name { color: var(--sea); }
+.cabin .detail { padding: 0 0 12px; border-top: 0; }
+.sources-fold { margin-top: 12px; }
+.sources-fold > summary { cursor: pointer; font: 600 0.6875rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.sources-fold .sources { margin-top: 8px; }
 
 /* Wizard */
 .quiz, .quiz-results { max-width: 760px; margin-inline: auto; }

@@ -93,6 +93,16 @@ function score(items, weights) {
 
 const SORT_ASC = new Set(['price']);
 
+// Ties go to the cheaper cabin: all-in price when both are known, else the line's tier order (rank 1 = cheapest).
+// This also picks which cabin leads a ship's card when every cabin on the ship scores the same.
+function tieBreak(a, b) {
+  const pa = a.priced.all_in;
+  const pb = b.priced.all_in;
+  if (pa != null && pb != null && pa !== pb) return pa - pb;
+  if (a.row.rank !== b.row.rank) return (a.row.rank ?? 99) - (b.row.rank ?? 99);
+  return a.row.row_id < b.row.row_id ? -1 : 1;
+}
+
 export function sortItems(items, key) {
   const val = (it) => (key === 'score' ? it.score : it.m[key]);
   const asc = SORT_ASC.has(key);
@@ -102,7 +112,7 @@ export function sortItems(items, key) {
     if (va == null || vb == null || va === vb) {
       if (va == null && vb != null) return 1;
       if (vb == null && va != null) return -1;
-      return a.row.row_id < b.row.row_id ? -1 : 1;
+      return tieBreak(a, b);
     }
     return asc ? va - vb : vb - va;
   });

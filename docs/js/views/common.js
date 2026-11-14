@@ -182,13 +182,48 @@ function aboutBlock(it, engine, weights) {
       <dl>${scored.map(([k, label]) => html`<dt>${label}</dt><dd>${it.parts[k] == null ? unknown('no data') : `${Math.round(it.parts[k])}th pct`}</dd>`)}</dl>` : ''}
     ${tier?.notes ? html`<h3 class="gap">Notes</h3><p>${tier.notes}</p>` : ''}
     ${row.overridden.length ? html`<p class="hint">Different on this ship: ${row.overridden.join(', ').replace(/_/g, ' ')}.</p>` : ''}
-    <h3 class="gap">Sources · checked ${row.last_verified}</h3>
-    <ul class="sources">${urls.map((u) => html`<li><a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\/(www\.)?/, '').slice(0, 80)}</a></li>`)}</ul>
+    <details class="sources-fold"><summary>Sources (${urls.length}) · checked ${row.last_verified}</summary>
+      <ul class="sources">${urls.map((u) => html`<li><a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\/(www\.)?/, '').slice(0, 80)}</a></li>`)}</ul>
+    </details>
   </div>`;
 }
 
-export function detailHtml(it, engine, weights) {
-  return html`<div class="detail">${priceBlock(it, engine.data)}${tierBlock(it.row)}${shipBlock(it.ship, it.line)}${aboutBlock(it, engine, weights)}</div>`;
+// withShip is false for the extra cabins listed inside a ship's card, which already shows the ship once.
+export function detailHtml(it, engine, weights, withShip = true) {
+  return html`<div class="detail">${priceBlock(it, engine.data)}${tierBlock(it.row)}${withShip ? shipBlock(it.ship, it.line) : ''}${aboutBlock(it, engine, weights)}</div>`;
+}
+
+// One card per ship (D48). Items arrive sorted, so the first cabin seen for a ship is its best match.
+export const tallyText = (ships, cabins) =>
+  ships === cabins ? `${ships.toLocaleString('en-US')} ships` : `${ships.toLocaleString('en-US')} ships · ${cabins.toLocaleString('en-US')} cabins`;
+
+export function byShip(items) {
+  const groups = new Map();
+  for (const it of items) {
+    const g = groups.get(it.ship.ship_id);
+    if (g) g.more += 1;
+    else groups.set(it.ship.ship_id, { it, more: 0 });
+  }
+  return [...groups.values()];
+}
+
+const factsLine = (it) => [
+  it.score == null ? null : `Match ${Math.round(it.score)}`,
+  `${(it.ship.gt / 1000).toFixed(0)}k GT`,
+  `Built ${it.ship.year_built}`,
+  it.row.sqft_min == null ? null : `${it.row.sqft_min}+ sq ft`,
+].filter(Boolean).join(' · ');
+
+// The other cabins on a card's ship, in the current sort order; each opens to its own breakdown.
+export function otherCabinsHtml(list) {
+  return html`<div class="others">
+    <h3>Other cabins on this ship</h3>
+    ${list.map((it) => html`<details class="cabin" data-id="${it.row.row_id}"><summary>
+      <span class="cabin-name">${cardTitle(it.row)}</span>
+      <span class="cabin-price">${priceCell(it.priced)}</span>
+      <span class="cabin-facts">${[it.score == null ? null : `Match ${Math.round(it.score)}`, it.row.sqft_min == null ? null : `${it.row.sqft_min}+ sq ft`].filter(Boolean).join(' · ')}</span>
+    </summary></details>`)}
+  </div>`;
 }
 
 export function scoreCell(it) {
@@ -203,15 +238,9 @@ export function scoreCell(it) {
 const PLAIN_TYPES = { interior: 'Inside', oceanview: 'Ocean view', balcony: 'Balcony' };
 const cardTitle = (row) => PLAIN_TYPES[row.tier_type] ?? row.name.replace(/\s*\(.*\)\s*$/, '');
 
-export function cardHtml(it) {
+export function cardHtml({ it, more }) {
   const { row, ship, line, priced } = it;
   const chips = perkChips(row, ship).slice(0, 3);
-  const facts = [
-    it.score == null ? null : `Match ${Math.round(it.score)}`,
-    `${(ship.gt / 1000).toFixed(0)}k GT`,
-    `Built ${ship.year_built}`,
-    row.sqft_min == null ? null : `${row.sqft_min}+ sq ft`,
-  ].filter(Boolean).join(' · ');
   return html`<details class="card" data-id="${row.row_id}">
     <summary>
       <div class="card-top">
@@ -221,8 +250,9 @@ export function cardHtml(it) {
         </div>
         <div class="card-price">${priceCell(priced)}</div>
       </div>
-      <p class="card-facts">${facts}</p>
+      <p class="card-facts">${factsLine(it)}</p>
       ${chips.length ? chipList(chips) : ''}
+      ${more ? html`<p class="card-more">+${more} more cabin${more === 1 ? '' : 's'} on this ship</p>` : ''}
     </summary>
   </details>`;
 }

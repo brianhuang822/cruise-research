@@ -1,7 +1,7 @@
 // "Help me choose": a short decision tree. Each answer maps onto the same state the other modes use.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { PRIORITIES, cardHtml, priorityChips, sortSelect, togglePriority, weightSliders } from './common.js';
+import { PRIORITIES, byShip, cardHtml, priorityChips, sortSelect, tallyText, togglePriority, weightSliders } from './common.js';
 
 const ALL = 'all';
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
@@ -124,21 +124,22 @@ let shown = TOP;
 function resultsView(items) {
   const qs = visible();
   const s = store.state;
-  const top = items.slice(0, shown);
+  const ships = byShip(items);
+  const top = ships.slice(0, shown);
   return html`<div class="quiz-results">
     <div class="results-head">
       <h2 class="quiz-title">Your matches</h2>
-      <p class="tally">${items.length.toLocaleString('en-US')} fit</p>
+      <p class="tally">${tallyText(ships.length, items.length)}</p>
     </div>
     <div class="rerank">
       <div class="chips">${priorityChips(s.w)}</div>
       ${sortSelect('q-sort', s.sort)}
     </div>
-    ${top.length ? html`<div class="cards">${top.map((it) => cardHtml(it))}</div>
-        ${items.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more</button>` : ''}`
+    ${top.length ? html`<div class="cards">${top.map(cardHtml)}</div>
+        ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}`
       : html`<p class="empty">Nothing fits every answer. Try changing the budget or a suite perk.</p>`}
     <div class="quiz-actions">
-      <button type="button" class="btn-primary" data-goto="simple">See all ${items.length.toLocaleString('en-US')}</button>
+      <button type="button" class="btn-primary" data-goto="simple">See all ${ships.length} ships</button>
       <button type="button" class="link" id="q-restart">Start over</button>
     </div>
     <details class="fold" id="q-answers" ${open.answers ? html`open` : ''}>

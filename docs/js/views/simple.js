@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { applyPreset, cardHtml, presetChips, sortSelect } from './common.js';
+import { applyPreset, byShip, cardHtml, presetChips, sortSelect, tallyText } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -129,15 +129,16 @@ export function renderSimple(items) {
   lastItems = items;
   const s = store.state;
   const hidden = hiddenFilters(s, hasFares());
+  const ships = byShip(items);
   mount($('s-results'), html`
     <div class="results-head">
-      <p class="tally">${items.length.toLocaleString('en-US')} cabins</p>
+      <p class="tally">${tallyText(ships.length, items.length)}</p>
       ${sortSelect('s-sort', s.sort)}
     </div>
     ${hidden ? html`<p class="notice">+${hidden} more filter${hidden === 1 ? '' : 's'} on. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
     ${items.length
-      ? html`<div class="cards">${items.slice(0, shown).map((it) => cardHtml(it))}</div>
-        ${items.length > shown ? html`<button type="button" class="btn-more" id="s-more">Show ${Math.min(PAGE, items.length - shown)} more</button>` : ''}`
+      ? html`<div class="cards">${ships.slice(0, shown).map(cardHtml)}</div>
+        ${ships.length > shown ? html`<button type="button" class="btn-more" id="s-more">Show ${Math.min(PAGE, ships.length - shown)} more ships</button>` : ''}`
       : html`<p class="empty">No cabins match. Try a bigger budget or fewer toggles.</p>`}`);
 }
 
