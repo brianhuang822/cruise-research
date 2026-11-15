@@ -21,14 +21,13 @@ export function compassSliders(compass, prefix) {
   })}</div>`;
 }
 
-// Closest and farthest lines, read off the same ranked ship list as the cards and the map, so they always agree
-// (confirmed matches rank first, D52). Each line shows the match of its first ship in that list.
-function lineSummary(leads) {
+// Farthest lines, read off the same ranked ship list as the cards and the map, so they always agree
+// (confirmed matches rank first, D52). The closest lines are on the result card (D63).
+function farthestLines(leads) {
   const firstSeen = new Map();
   for (const it of leads) if (!firstSeen.has(it.line.name)) firstSeen.set(it.line.name, it.fit);
   const lines = [...firstSeen];
-  const fmt = (list) => list.map(([n, f]) => `${n} (${f ?? '—'})`).join(', ');
-  return { closest: fmt(lines.slice(0, 3)), farthest: lines.length > 4 ? fmt(lines.slice(-2).reverse()) : '' };
+  return lines.length > 4 ? lines.slice(-2).reverse().map(([n, f]) => `${n} (${f ?? '—'})`).join(', ') : '';
 }
 
 // You vs the top match on each axis the visitor set.
@@ -101,9 +100,9 @@ function mapTable(leads) {
 
 export function compassPanel(items, compass) {
   const leads = byShip(items).map((g) => g.it);
-  const { closest, farthest } = lineSummary(leads);
+  const farthest = farthestLines(leads);
   return html`<section class="compass-panel" aria-label="Your cruise compass">
-    <p class="compass-lines"><strong>Closest lines:</strong> ${closest || '—'}${farthest ? html` · <strong>Farthest:</strong> ${farthest}` : ''}</p>
+    ${farthest ? html`<p class="compass-lines"><strong>Farthest from you:</strong> ${farthest}</p>` : ''}
     ${axisBars(compass, leads[0])}
     <p class="legend"><span><i class="key you"></i>You</span><span><i class="key top"></i>Top match</span></p>
     ${compassMap(leads, compass)}

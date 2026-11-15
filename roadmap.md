@@ -80,6 +80,9 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D58 | Regions now | Curated regions/home ports for 64 ships from line announcements; region filter in all modes; sailing links; no per-sailing data |
 | D59 | Cruise compass | 7 two-ended axes, quiz sliders, fit = closeness; ranks Best match when set; results map + per-axis bars |
 | D60 | Publishing | GitHub Pages, deploy from branch `main` /docs; no Actions; `.nojekyll` |
+| D61 | Line sweep | 19 → 24 lines (Windstar, Margaritaville, Paul Gauguin, SeaDream, Four Seasons); expedition, river/coastal and non-US lines stay out |
+| D62 | Quiz pick cues | Round markers + "Pick one" vs tick boxes + "Pick all that apply"; river/coastal/expedition stay out |
+| D63 | Quiz result card | "Your kind of cruise": best line, playful type name from your leanings, chips, runner-ups; Copy and Share link to the quiz |
 
 ---
 

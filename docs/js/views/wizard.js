@@ -4,10 +4,12 @@ import { lineTypes } from '../engine.js';
 import { fresh, store, toggleIn } from '../state.js';
 import { byShip, shipCards, sortSelect, tallyText } from './common.js';
 import { bindMapTooltip, compassPanel, compassSliders, isSet } from './compass.js';
+import { onPersonaClick, personaCard } from './persona.js';
 
 const ALL = 'all';
 // Filled from the data in initWizard: line ids for each line type (see lineTypes).
 let LINE_TYPES = {};
+let TYPE_OF = {};
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
 
 // show(answers) decides whether a question is asked; apply(answer, state) writes its effect.
@@ -21,7 +23,7 @@ export const QUESTIONS = [
   { id: 'adults_only', title: 'Would you rather be on a ship with no kids at all?',
     show: (ans) => ans.who !== 'family', options: [['yes', 'Yes, adults only'], ['no', "Doesn't matter"]],
     apply: (a, s) => { s.adults = a === 'yes'; } },
-  { id: 'regions', title: 'Where would you like to go?', help: 'Pick any, or skip for anywhere. Ships confirmed to sail there come first.', multi: true,
+  { id: 'regions', title: 'Where would you like to go?', help: 'Skip for anywhere. Ships confirmed to sail there come first.', multi: true,
     options: [['Caribbean', 'Caribbean & Bahamas'], ['Alaska', 'Alaska'], ['Mediterranean', 'Mediterranean'], ['Northern Europe', 'Northern Europe'],
       ['Asia', 'Asia'], ['Australia & Pacific', 'Australia & South Pacific'], ['Mexico & Pacific Coast', 'Mexico & Pacific Coast'], ['Bermuda & Canada', 'Bermuda & Canada']],
     apply: (a, s) => { s.regions = [...a]; } },
@@ -46,7 +48,7 @@ export const QUESTIONS = [
       const map = { interior: ['interior'], oceanview: ['oceanview'], balcony: ['balcony', 'junior_suite', 'perk_class'], suite: ['suite', 'top_suite'] };
       if (map[a]) s.types = map[a];
     } },
-  { id: 'suite_perks', title: 'Which suite perks matter?', help: 'Pick any.', multi: true,
+  { id: 'suite_perks', title: 'Which suite perks matter?', multi: true,
     show: (ans) => ans.cabin === 'suite',
     options: [['laundry', 'Free laundry'], ['butler', 'A butler'], ['private_restaurant', 'A suites-only restaurant'],
       ['private_lounge', 'A private lounge'], ['priority_boarding', 'Priority boarding']],
@@ -57,7 +59,7 @@ export const QUESTIONS = [
       }
     } },
   { id: 'line_type', title: 'What kind of cruise line?', multi: true,
-    help: 'Pick any. Every line includes a buffet and a main dining room with waiters.',
+    help: 'Every line includes a buffet and a main dining room with waiters.',
     options: [
       ['mainstream', 'Mainstream', 'Carnival, Royal Caribbean, NCL, MSC, Disney. Big ships with the most to do; specialty restaurants extra.'],
       ['premium', 'Premium', 'Celebrity, Princess, Holland America, Cunard, Azamara. A step up in food and service; specialty restaurants extra.'],
@@ -76,12 +78,12 @@ export const QUESTIONS = [
       s.wifi = a !== 'no';
       s.wifiFree = a === 'free';
     } },
-  { id: 'activities', title: 'Anything you want on the ship?', help: 'Pick any. Ships confirmed to have them are listed first.', multi: true,
+  { id: 'activities', title: 'Anything you want on the ship?', help: 'Ships confirmed to have them are listed first.', multi: true,
     options: [['adults_only_pool', 'Adults-only pool'], ['covered_pool', 'Covered or indoor pool'],
       ['promenade_deck', 'Walk-around promenade deck'], ['running_track', 'Running track'], ['pickleball', 'Pickleball'],
       ['thermal_free', 'Free thermal spa'], ['self_laundry', 'Self-service laundry']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
-  { id: 'kids', title: 'Anything for the kids?', help: 'Pick any.', multi: true, show: (ans) => ans.who === 'family',
+  { id: 'kids', title: 'Anything for the kids?', multi: true, show: (ans) => ans.who === 'family',
     options: [['water_slides', 'Water slides'], ['splash_area', 'Splash area for little ones'], ['teen_club', 'Teen club']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
   // Cruise compass (D59): one screen of two-ended sliders; "Any" means that axis doesn't matter.
@@ -107,7 +109,7 @@ export function stateFromAnswers(ans) {
 }
 
 function label(q, a) {
-  if (q.type === 'compass') return `${Object.keys(a).length} of 7 set`;
+  if (q.type === 'compass') return a ? `${Object.keys(a).length} of 7 set` : 'Skipped';
   if (Array.isArray(a)) return a.length ? a.map((v) => q.options.find(([k]) => k === v)?.[1]).join(', ') : 'None';
   return q.options.find(([k]) => k === a)?.[1] ?? 'Skipped';
 }
@@ -118,8 +120,9 @@ function questionView(q, index, total) {
   const pct = Math.round((index / total) * 100);
   const body = q.type === 'compass'
     ? compassSliders(current || {}, 'qc')
-    : html`<div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
-      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${String(picked(v))}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
+    : html`<p class="quiz-kind">${q.multi ? 'Pick all that apply' : 'Pick one'}</p>
+    <div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
+      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${String(picked(v))}"><span>${l}</span>${sub ? html`<small>${sub}</small>` : ''}</button>`)}
     </div>`;
   return html`<div class="quiz">
     <div class="quiz-bar" role="progressbar" aria-label="Question ${index + 1} of ${total}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><i style="width:${pct}%"></i></div>
@@ -143,6 +146,7 @@ function resultsView(items) {
   const ships = byShip(items);
   const top = ships.slice(0, shown);
   return html`<div class="quiz-results">
+    ${personaCard(items, s.compass, answers, typeLabel)}
     <div class="results-head">
       <h2 class="quiz-title">Your matches</h2>
       <p class="tally">${tallyText(ships.length, items.length)}</p>
@@ -194,9 +198,14 @@ function advance() {
   $('mode-wizard').scrollIntoView({ block: 'start' });
 }
 
+// The quiz's own name for a line's type (D50), e.g. "Premium, every restaurant included".
+const typeLabel = (lineId) => QUESTIONS.find((q) => q.id === 'line_type').options.find(([k]) => k === TYPE_OF[lineId])?.[1] ?? '';
+
 export function initWizard(goTo, data) {
   LINE_TYPES = lineTypes(data);
+  TYPE_OF = Object.fromEntries(Object.entries(LINE_TYPES).flatMap(([type, ids]) => ids.map((id) => [id, type])));
   $('mode-wizard').onclick = (e) => {
+    if (onPersonaClick(e)) return;
     const qs = visible();
     const q = qs[step];
     const opt = e.target.closest('.quiz-option');

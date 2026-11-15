@@ -322,7 +322,20 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 }
 .quiz-option:hover { border-color: var(--sea); }
 .quiz-option small { display: block; margin-top: 3px; font: 400 var(--step--1)/1.4 var(--font-body); color: var(--ink-2); }
-.quiz-option[aria-checked="true"] { border-color: var(--sea); background: var(--sea-soft); font-weight: 600; box-shadow: inset 3px 0 0 var(--sea); }
+.quiz-option[aria-checked="true"] { border-color: var(--sea); background: var(--sea-soft); font-weight: 600; }
+/* Pick one = round marker, pick any = square marker with a tick (D62). */
+.quiz-option { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: start; }
+.quiz-option > * { grid-column: 2; }
+.quiz-option::before {
+  content: ""; grid-column: 1; grid-row: 1 / span 2; box-sizing: border-box; width: 18px; height: 18px; margin-top: 1px;
+  border: 2px solid var(--ink-2); border-radius: 50%; display: grid; place-items: center; font: 700 12px/1 system-ui, sans-serif; color: var(--surface);
+}
+.quiz-option[role="checkbox"]::before { border-radius: 4px; }
+.quiz-option[aria-checked="true"]::before { border-color: var(--sea); background: var(--sea); }
+.quiz-option[role="radio"][aria-checked="true"]::before { box-shadow: inset 0 0 0 3px var(--sea-soft); }
+.quiz-option[role="checkbox"][aria-checked="true"]::before { content: "✓"; }
+.quiz-kind { margin: 14px 0 0; font: 600 0.6875rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.quiz-kind + .quiz-options { margin-top: 8px; }
 .quiz-nav { display: flex; gap: 20px; align-items: center; margin-top: 20px; font-size: var(--step--1); }
 .quiz-nav .link { color: var(--ink-2); }
 .quiz-nav .btn-primary { margin-left: auto; }
@@ -394,3 +407,25 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 .map-table th, .map-table td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--rule); }
 .map-table th { color: var(--ink-2); font-weight: 600; }
 .cards-divider { grid-column: 1 / -1; margin: 6px 0 0; padding-top: 10px; border-top: 1px dashed var(--rule); font-size: var(--step--1); color: var(--ink-2); }
+
+/* Quiz result card (D63): reads like a personality-test result and is meant to be shared. */
+.persona {
+  margin: 0 0 20px; padding: 24px; border-radius: 12px; color: var(--surface);
+  background: linear-gradient(135deg, var(--sea), color-mix(in srgb, var(--sea) 65%, var(--ink)));
+}
+.persona :where(p) { margin: 0; }
+.persona-kicker { font: 600 0.75rem/1.2 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+.persona-line { margin: 6px 0 2px; font: 700 var(--step-3)/1.05 var(--font-display); text-wrap: balance; }
+.persona-type { font: 600 var(--step-1)/1.3 var(--font-display); letter-spacing: 0.01em; }
+.persona-traits { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; }
+.persona-traits li { padding: 4px 10px; border-radius: 999px; font: 500 var(--step--1)/1.2 var(--font-body);
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent); }
+.persona-facts, .persona-also { margin-top: 12px; font-size: var(--step--1); line-height: 1.45; opacity: 0.92; }
+.persona-also { margin-top: 2px; }
+.persona-actions { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-top: 18px; }
+.btn-invert { font: 600 var(--step--1)/1 var(--font-body); padding: 10px 18px; min-height: 40px; border-radius: var(--radius);
+  border: 1px solid var(--surface); background: var(--surface); color: var(--sea); cursor: pointer; }
+.btn-invert:hover { filter: brightness(0.95); }
+.btn-invert:focus-visible { outline: 2px solid var(--surface); outline-offset: 2px; }
+.persona-status { font-size: var(--step--1); overflow-wrap: anywhere; user-select: all; }
+@media (max-width: 599px) { .persona { padding: 18px; } }
