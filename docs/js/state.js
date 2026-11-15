@@ -35,6 +35,7 @@ export const DEFAULTS = Object.freeze({
   nights: 7, tickers: [], drinks: 'none', wifi: false, dinners: 0,
   segments: [], lines: [], types: [], regions: [], maxPrice: null, minGt: 0, dining: 'any', privRest: false,
   grat: false, wifiFree: false, adults: false, guests: 2, perks: [], amen: [], nice: [], unknowns: 'include', sort: 'score',
+  compass: Object.freeze({}),  // D59: axis key -> 0-100, only for axes the visitor set
   w: Object.freeze(Object.fromEntries(METRICS.map(([k, , d]) => [k, d]))),
 });
 
@@ -77,6 +78,12 @@ export function readUrl() {
   for (const k of NUMBER_KEYS) if (q.has(k)) s[k] = Number(q.get(k)) || 0;
   for (const k of BOOL_KEYS) if (q.has(k)) s[k] = q.get(k) === '1';
   if (q.has('maxPrice')) s.maxPrice = Number(q.get('maxPrice')) || null;
+  if (q.has('compass')) {
+    for (const pair of q.get('compass').split(',')) {
+      const [k, v] = pair.split('.');
+      if (k && Number.isFinite(Number(v))) s.compass[k] = Math.max(0, Math.min(100, Number(v)));
+    }
+  }
   if (q.has('w')) {
     const vals = q.get('w').split(',').map(Number);
     METRICS.forEach(([k], i) => { if (Number.isFinite(vals[i])) s.w[k] = Math.max(0, Math.min(5, vals[i])); });
@@ -90,7 +97,10 @@ export function urlFor(state, mode) {
   if (mode !== DEFAULT_MODE) q.set('mode', mode);
   for (const [k, v] of Object.entries(state)) {
     const d = DEFAULTS[k];
-    if (k === 'w') {
+    if (k === 'compass') {
+      const enc = Object.entries(v).map(([a, n]) => `${a}.${n}`).join(',');
+      if (enc) q.set('compass', enc);
+    } else if (k === 'w') {
       const enc = METRICS.map(([m]) => state.w[m]).join(',');
       if (enc !== METRICS.map(([m]) => d[m]).join(',')) q.set('w', enc);
     } else if (Array.isArray(v)) {

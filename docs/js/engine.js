@@ -1,5 +1,6 @@
 // Filter, price and score every ship × tier row for a given state. Shared by all modes.
 import { allIn } from '../pricing.js';
+import { applyCompass, placeOnAxes } from './axes.js';
 import { DINING_RANK, METRICS, PERKS } from './state.js';
 
 const PERK_KEYS = new Set(PERKS.map(([k]) => k));
@@ -136,17 +137,22 @@ export function sortItems(items, key) {
 
 function compute(data, LINES, SHIPS, state) {
   const inputs = { nights: state.nights, tickers: state.tickers, drinks: state.drinks, wifi: state.wifi, dinners: state.dinners };
-  const items = [];
-  for (const row of data.rows) {
+  // Price and place every cabin first, so compass positions don't depend on the filters.
+  const all = data.rows.map((row) => {
     const line = LINES[row.line_id];
-    const ship = SHIPS[row.ship_id];
-    const priced = allIn(row, line, data.bundles, data.shareholder_benefits, inputs);
-    const pass = evalFilters(state, row, line, ship, priced);
+    return { row, line, ship: SHIPS[row.ship_id], priced: allIn(row, line, data.bundles, data.shareholder_benefits, inputs) };
+  });
+  placeOnAxes(all);
+  const items = [];
+  for (const it of all) {
+    const pass = evalFilters(state, it.row, it.line, it.ship, it.priced);
     if (!pass) continue;
-    const m = Object.fromEntries(METRICS.map(([k]) => [k, k === 'nice' ? niceCount(state, row, ship) : metricValue(k, row, ship, priced)]));
-    items.push({ row, line, ship, priced, partial: pass === 'unknown', m });
+    it.partial = pass === 'unknown';
+    it.m = Object.fromEntries(METRICS.map(([k]) => [k, k === 'nice' ? niceCount(state, it.row, it.ship) : metricValue(k, it.row, it.ship, it.priced)]));
+    items.push(it);
   }
   score(items, state.w, state.nice.length > 0);
+  applyCompass(items, state.compass);
   return sortItems(items, state.sort);
 }
 

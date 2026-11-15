@@ -78,6 +78,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D56 | Stale badge | "May be out of date" when the oldest check date is over 183 days old |
 | D57 | Fare estimates | Line × cabin-type estimates (tracker for 8 lines, lead-in fares for 11) until the export; shown with ~; budget and Value use them |
 | D58 | Regions now | Curated regions/home ports for 64 ships from line announcements; region filter in all modes; sailing links; no per-sailing data |
+| D59 | Cruise compass | 7 two-ended axes, quiz sliders, fit = closeness; ranks Best match when set; results map + per-axis bars |
 
 ---
 

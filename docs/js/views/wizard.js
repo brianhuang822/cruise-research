@@ -2,7 +2,8 @@
 import { $, html, mount } from '../dom.js';
 import { lineTypes } from '../engine.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { PRIORITIES, byShip, cardHtml, priorityChips, sortSelect, tallyText, togglePriority, weightSliders } from './common.js';
+import { byShip, cardHtml, sortSelect, tallyText } from './common.js';
+import { bindMapTooltip, compassPanel, compassSliders, isSet } from './compass.js';
 
 const ALL = 'all';
 // Filled from the data in initWizard: line ids for each line type (see lineTypes).
@@ -83,9 +84,9 @@ export const QUESTIONS = [
   { id: 'kids', title: 'Anything for the kids?', help: 'Pick any.', multi: true, show: (ans) => ans.who === 'family',
     options: [['water_slides', 'Water slides'], ['splash_area', 'Splash area for little ones'], ['teen_club', 'Teen club']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
-  { id: 'priorities', title: 'What matters most to you?', help: 'Pick up to three.', multi: true,
-    options: PRIORITIES,
-    apply: (a, s) => { for (const k of a) s.w[k] = Math.max(s.w[k], 4); } },
+  // Cruise compass (D59): one screen of two-ended sliders; "Any" means that axis doesn't matter.
+  { id: 'compass', type: 'compass', title: 'Where do you sit?', help: 'Slide toward what you prefer. Leave "Any" on where you don\'t mind.',
+    apply: (a, s) => { s.compass = { ...a }; } },
   { id: 'shares', title: 'Do you own 100 or more shares of a cruise company?', help: 'Shareholders get onboard credit.',
     multi: true, options: [['CCL', 'Carnival Corp (CCL)'], ['RCL', 'Royal Caribbean Group (RCL)'], ['NCLH', 'Norwegian Cruise Line Holdings (NCLH)']],
     apply: (a, s) => { s.tickers = [...a]; } },
@@ -106,6 +107,7 @@ export function stateFromAnswers(ans) {
 }
 
 function label(q, a) {
+  if (q.type === 'compass') return `${Object.keys(a).length} of 7 set`;
   if (Array.isArray(a)) return a.length ? a.map((v) => q.options.find(([k]) => k === v)?.[1]).join(', ') : 'None';
   return q.options.find(([k]) => k === a)?.[1] ?? 'Skipped';
 }
@@ -114,17 +116,20 @@ function questionView(q, index, total) {
   const current = answers[q.id];
   const picked = (v) => (q.multi ? (current || []).includes(v) : current === v);
   const pct = Math.round((index / total) * 100);
+  const body = q.type === 'compass'
+    ? compassSliders(current || {}, 'qc')
+    : html`<div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
+      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${String(picked(v))}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
+    </div>`;
   return html`<div class="quiz">
     <div class="quiz-bar" role="progressbar" aria-label="Question ${index + 1} of ${total}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><i style="width:${pct}%"></i></div>
     <h2 class="quiz-title">${q.title}</h2>
     ${q.help ? html`<p class="quiz-help">${q.help}</p>` : ''}
-    <div class="quiz-options" role="${q.multi ? 'group' : 'radiogroup'}" aria-label="${q.title}">
-      ${q.options.map(([v, l, sub]) => html`<button type="button" class="quiz-option" data-v="${v}" role="${q.multi ? 'checkbox' : 'radio'}" aria-checked="${String(picked(v))}">${l}${sub ? html`<small>${sub}</small>` : ''}</button>`)}
-    </div>
+    ${body}
     <div class="quiz-nav">
       <button type="button" class="link" id="q-back" ${index === 0 ? html`disabled` : ''}>Back</button>
       <button type="button" class="link" id="q-skip">Skip</button>
-      ${q.multi ? html`<button type="button" class="btn-primary" id="q-next">${index + 1 === total ? 'See my matches' : 'Next'}</button>` : ''}
+      ${q.multi || q.type === 'compass' ? html`<button type="button" class="btn-primary" id="q-next">${index + 1 === total ? 'See my matches' : 'Next'}</button>` : ''}
     </div>
   </div>`;
 }
@@ -143,9 +148,10 @@ function resultsView(items) {
       <p class="tally">${tallyText(ships.length, items.length)}</p>
     </div>
     <div class="rerank">
-      <div class="chips">${priorityChips(s.w)}</div>
+      <p class="rank-summary">${isSet(s.compass) ? 'Ranked by your compass.' : 'Set your compass below to rank by fit.'}</p>
       ${sortSelect('q-sort', s.sort)}
     </div>
+    ${isSet(s.compass) && items.length ? compassPanel(items, s.compass) : ''}
     ${top.length ? html`<div class="cards">${top.map(cardHtml)}</div>
         ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}`
       : html`<p class="empty">Nothing fits every answer. Try changing the budget or a suite perk.</p>`}
@@ -159,8 +165,8 @@ function resultsView(items) {
         <button type="button" class="link" data-edit="${i}">Change</button></dd></div>`)}</dl>
     </details>
     <details class="fold" id="q-finetune" ${open.weights ? html`open` : ''}>
-      <summary>Adjust weights</summary>
-      ${weightSliders(s.w, 'q')}
+      <summary>Adjust your compass</summary>
+      ${compassSliders(s.compass, 'rc')}
     </details>
   </div>`;
 }
@@ -204,13 +210,10 @@ export function initWizard(goTo, data) {
       }
       return;
     }
-    const rank = e.target.closest('[data-rank]');
-    if (rank) {
-      store.set({ w: togglePriority(store.state.w, rank.dataset.rank), sort: 'score' });
-      return;
-    }
+    const any = e.target.closest('[data-any]');
+    if (any) { toggleAny(any, q); return; }
     const id = e.target.id;
-    if (id === 'q-next') { answers[q.id] = answers[q.id] || []; advance(); }
+    if (id === 'q-next') { answers[q.id] = answers[q.id] || (q.type === 'compass' ? {} : []); advance(); }
     else if (id === 'q-skip') { delete answers[q.id]; advance(); }
     else if (id === 'q-back') { step = Math.max(0, step - 1); renderWizard(lastItems); }
     else if (id === 'q-restart') { answers = {}; step = 0; commit(); }
@@ -220,7 +223,38 @@ export function initWizard(goTo, data) {
   };
   $('mode-wizard').onchange = (e) => {
     if (e.target.id === 'q-sort') store.set({ sort: e.target.value });
+    // Results page: commit a compass slider on release and re-rank.
+    const k = e.target.dataset.axis;
+    if (k && !visible()[step]) store.set({ compass: { ...store.state.compass, [k]: Number(e.target.value) }, sort: 'score' });
   };
+  // While dragging: in the quiz record the value; anywhere, a moved slider is no longer "Any".
+  $('mode-wizard').oninput = (e) => {
+    const k = e.target.dataset.axis;
+    if (!k) return;
+    e.target.parentElement.querySelector('[data-any]').setAttribute('aria-pressed', 'false');
+    const q = visible()[step];
+    if (q?.type === 'compass') answers.compass = { ...answers.compass, [k]: Number(e.target.value) };
+  };
+  bindMapTooltip($('mode-wizard'));
+}
+
+// "Any" on: drop that axis. "Any" off: use the slider's current value.
+function toggleAny(btn, q) {
+  const k = btn.dataset.any;
+  const nowAny = btn.getAttribute('aria-pressed') !== 'true';
+  const value = Number(btn.parentElement.querySelector('[data-axis]').value);
+  const next = (c) => {
+    const out = { ...c };
+    if (nowAny) delete out[k];
+    else out[k] = value;
+    return out;
+  };
+  if (q?.type === 'compass') {
+    answers.compass = next(answers.compass || {});
+    btn.setAttribute('aria-pressed', String(nowAny));
+  } else {
+    store.set({ compass: next(store.state.compass), sort: 'score' });
+  }
 }
 
 export function onWizardShow() {

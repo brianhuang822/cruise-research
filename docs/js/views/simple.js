@@ -100,7 +100,7 @@ function bind() {
     const preset = e.target.closest('[data-preset]');
     if (preset) {
       shown = PAGE;
-      store.set({ w: applyPreset(store.state.w, preset.dataset.preset), sort: 'score' });
+      store.set({ w: applyPreset(store.state.w, preset.dataset.preset), sort: 'score', compass: {} });
       mount($('s-presets'), presetChips(store.state.w, hasFares()));
       return;
     }
@@ -123,6 +123,7 @@ function bind() {
       onSimpleShow();
     }
     if (e.target.id === 's-more') { shown += PAGE; renderSimple(lastItems); }
+    if (e.target.id === 's-clear-compass') store.set({ compass: {} });
   };
 }
 
@@ -138,6 +139,7 @@ export function renderSimple(items) {
       <p class="tally">${tallyText(ships.length, items.length)}</p>
       ${sortSelect('s-sort', s.sort)}
     </div>
+    ${Object.keys(s.compass).length ? html`<p class="notice">Best match uses your compass from Help me choose. <button type="button" class="link" id="s-clear-compass">Clear</button></p>` : ''}
     ${hidden ? html`<p class="notice">+${hidden} more setting${hidden === 1 ? '' : 's'} from other modes. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
     ${items.length
       ? html`<div class="cards">${ships.slice(0, shown).map(cardHtml)}</div>

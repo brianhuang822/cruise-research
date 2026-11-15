@@ -12,6 +12,7 @@
   --sea-soft: #d9ebea;
   --accent: #d24a14;
   --accent-soft: #fbe3d6;
+  --viz-top: #2a78d6; --viz-you: #eb6834; --viz-other: #1baf7a; /* validated for scatter, all pairs */
   --unknown: #8a9ca1;
   --good: #2c7a4b;
   --font-display: "Barlow Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
@@ -28,12 +29,14 @@
   :root:not([data-theme="light"]) {
     --paper: #0b171b; --surface: #11222a; --surface-2: #0e1d23; --ink: #e2edef; --ink-2: #95acb3;
     --rule: #223a41; --sea: #66b8c0; --sea-soft: #16353b; --accent: #ff7b45; --accent-soft: #3a1f14; --unknown: #6f8489; --good: #6cc391;
+    --viz-top: #3987e5; --viz-you: #d95926; --viz-other: #199e70;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0b171b; --surface: #11222a; --surface-2: #0e1d23; --ink: #e2edef; --ink-2: #95acb3;
   --rule: #223a41; --sea: #66b8c0; --sea-soft: #16353b; --accent: #ff7b45; --accent-soft: #3a1f14; --unknown: #6f8489; --good: #6cc391;
+  --viz-top: #3987e5; --viz-you: #d95926; --viz-other: #199e70;
   color-scheme: dark;
 }
 
@@ -353,3 +356,40 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 
 /* Wizard re-ranking: priority chips and sort on one line */
 .rerank { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; margin: 4px 0 14px; }
+
+/* Cruise compass (D59) */
+.axes { display: grid; gap: 14px; margin-top: 18px; }
+.axis-ends { display: flex; justify-content: space-between; gap: 12px; font-size: var(--step--1); font-weight: 600; color: var(--ink-2); }
+.axis-input { display: flex; align-items: center; gap: 10px; }
+.axis-input input[type="range"] { flex: 1; min-width: 0; accent-color: var(--sea); }
+.axis-row:has([data-any][aria-pressed="true"]) input[type="range"] { opacity: 0.35; }
+.compass-panel { display: grid; gap: 12px; padding: 14px; margin: 0 0 16px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); }
+.compass-lines { margin: 0; font-size: var(--step--1); color: var(--ink-2); }
+.compass-lines strong { color: var(--ink); }
+.axis-bars { display: grid; gap: 10px; }
+.track { position: relative; height: 8px; border-radius: 4px; background: var(--rule); margin-top: 6px; }
+.mk { position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--surface); }
+.mk.you { background: var(--viz-you); }
+.mk.match { background: var(--viz-top); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: var(--step--1); color: var(--ink-2); align-items: center; }
+.legend .key { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.key.top { background: var(--viz-top); } .key.you { background: var(--viz-you); } .key.other { background: var(--viz-other); }
+.compass-map { position: relative; margin: 0; display: grid; gap: 8px; }
+.compass-map svg { width: 100%; max-width: 420px; height: auto; display: block; overflow: visible; }
+.compass-map .grid { stroke: var(--rule); stroke-width: 1; }
+.compass-map .frame { fill: none; stroke: var(--rule); stroke-width: 1; }
+.compass-map .pt { cursor: pointer; outline: none; }
+.compass-map .pt * { pointer-events: none; }
+.compass-map .mark { stroke: var(--surface); stroke-width: 2; }
+.compass-map .other .mark { fill: var(--viz-other); }
+.compass-map .top .mark { fill: var(--viz-top); }
+.compass-map .you .mark { fill: var(--viz-you); }
+.compass-map .pt.active .mark, .compass-map .pt:focus-visible .mark { stroke: var(--ink); }
+.compass-map .lbl { font: 600 11px/1 var(--font-body); fill: var(--ink); }
+.compass-map .axis-lbl { font: 500 11px/1 var(--font-body); fill: var(--ink-2); }
+.compass-map .axis-lbl.end { text-anchor: end; }
+.viz-tip { position: absolute; transform: translate(-50%, calc(-100% - 10px)); max-width: 240px; padding: 6px 8px; border-radius: var(--radius);
+  background: var(--ink); color: var(--paper); font-size: 0.75rem; line-height: 1.35; pointer-events: none; z-index: 2; }
+.map-table { width: 100%; border-collapse: collapse; font-size: var(--step--1); margin-top: 8px; }
+.map-table th, .map-table td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--rule); }
+.map-table th { color: var(--ink-2); font-weight: 600; }

@@ -59,7 +59,8 @@ function bindShell() {
   document.addEventListener('change', (e) => {
     const k = e.target.dataset?.weight;
     if (!k) return;
-    store.set({ w: { ...store.state.w, [k]: Number(e.target.value) } });
+    // Moving a weight means the visitor wants weights, so it clears a compass from the quiz (D59).
+    store.set({ w: { ...store.state.w, [k]: Number(e.target.value) }, compass: {} });
   });
   // Fill a result's detail panel the first time it opens.
   document.addEventListener('toggle', (e) => {
@@ -68,7 +69,7 @@ function bindShell() {
     const it = items.find((x) => x.row.row_id === el.dataset.id);
     if (!it) return;
     const isCabin = el.classList.contains('cabin');
-    append(el, detailHtml(it, engine, store.state.w, !isCabin));
+    append(el, detailHtml(it, engine, store.state, !isCabin));
     // A ship's card also lists that ship's other matching cabins.
     const others = el.classList.contains('card') ? items.filter((x) => x.ship.ship_id === it.ship.ship_id && x !== it) : [];
     if (others.length) append(el, otherCabinsHtml(others));

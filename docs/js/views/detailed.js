@@ -105,7 +105,9 @@ export function renderDetailed(items) {
   const s = store.state;
   const total = engine.data.rows.length;
   mount($('tally'), html`${items.length.toLocaleString('en-US')} cabin options<span>of ${total.toLocaleString('en-US')}</span>`);
-  $('d-rank-summary').textContent = s.sort === 'score' ? rankSummary(s.w) : '';
+  const byCompass = Object.keys(s.compass).length > 0;
+  if (byCompass) mount($('d-rank-summary'), html`Ranked by your compass from Help me choose. <button type="button" class="link" id="d-clear-compass">Clear</button>`);
+  else $('d-rank-summary').textContent = s.sort === 'score' ? rankSummary(s.w, s.nice.length > 0) : '';
   const fares = fareState(engine.data);
   const priced = fares !== 'none';
   mount($('d-presets'), presetChips(s.w, priced));
@@ -157,10 +159,11 @@ export function initDetailed(eng, rerender) {
   $('f-guests').onchange = (e) => store.set({ guests: num(e) });
   for (const id of ['u-include', 'u-exclude']) $(id).onchange = (e) => store.set({ unknowns: e.target.value });
   $('sort').onchange = (e) => store.set({ sort: e.target.value });
+  $('d-rank-summary').onclick = (e) => { if (e.target.id === 'd-clear-compass') store.set({ compass: {} }); };
   $('d-presets').onclick = (e) => {
     const b = e.target.closest('[data-preset]');
     if (!b) return;
-    store.set({ w: applyPreset(store.state.w, b.dataset.preset), sort: 'score' });
+    store.set({ w: applyPreset(store.state.w, b.dataset.preset), sort: 'score', compass: {} });
     $('sort').value = 'score';
     mount($('weights'), weightSliders(store.state.w, 'd', store.state.nice.length > 0));
   };

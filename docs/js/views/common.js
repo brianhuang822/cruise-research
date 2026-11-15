@@ -1,4 +1,5 @@
 // Rendering pieces shared by all modes. Everything goes through html``, which escapes values.
+import { AXES } from '../axes.js';
 import { html } from '../dom.js';
 import { METRICS, TIER_TYPES } from '../state.js';
 
@@ -31,13 +32,7 @@ export function perkChips(row, ship) {
   return chips.filter(([on]) => on === true).map(([, label]) => label);
 }
 
-// Priority chips: one tap raises a measure's weight to 4, another drops it back to 1.
-export const PRIORITIES = [['price', 'Low price'], ['gt', 'Big ship'], ['newness', 'New ship'], ['sqft', 'Big cabin'],
-  ['dining', 'Restaurants'], ['cdc', 'Cleanliness'], ['space', 'Space per guest']];
 export const QUICK_SORTS = [['score', 'Best match'], ['price', 'Lowest price'], ['gt', 'Biggest ship'], ['newness', 'Newest ship'], ['sqft', 'Biggest cabin']];
-export const priorityOn = (w, k) => w[k] >= 3;
-export const togglePriority = (w, k) => ({ ...w, [k]: priorityOn(w, k) ? 1 : 4 });
-
 // One-tap weight presets (D28, D46). A preset sets every weight; the active one is read back from the weights,
 // so links and the sliders stay the source of truth. "Spa & wellness" and "Active" wait on amenity coverage (M3).
 const BASE_METRICS = METRICS.filter(([k]) => k !== 'nice');
@@ -59,11 +54,6 @@ export function presetChips(w, priced) {
     ${PRESETS.filter(([k]) => priced || k !== 'value').map(([k, l]) => html`<button type="button" class="chip" data-preset="${k}" aria-pressed="${String(on === k)}">${l}</button>`)}`;
 }
 
-export function priorityChips(w) {
-  return html`<span class="rank-label">Prioritize</span>
-    ${PRIORITIES.map(([k, l]) => html`<button type="button" class="chip" data-rank="${k}" aria-pressed="${String(priorityOn(w, k))}">${l}</button>`)}`;
-}
-
 export function sortSelect(id, current) {
   const options = QUICK_SORTS.some(([v]) => v === current) ? QUICK_SORTS : [...QUICK_SORTS, [current, 'Custom (from Detailed)']];
   return html`<label class="sortbox" for="${id}">Sort
@@ -79,8 +69,8 @@ export function weightSliders(w, prefix, showNice = false) {
 }
 
 const SHORT = { price: 'price', gt: 'ship size', newness: 'newness', space: 'space per guest', sqft: 'cabin size', dining: 'restaurants', cdc: 'cleanliness', nice: 'nice-to-haves' };
-export function rankSummary(w) {
-  const on = METRICS.filter(([k]) => w[k] > 0).sort((a, b) => w[b[0]] - w[a[0]]);
+export function rankSummary(w, hasNice = false) {
+  const on = METRICS.filter(([k]) => w[k] > 0 && (k !== 'nice' || hasNice)).sort((a, b) => w[b[0]] - w[a[0]]);
   return on.length ? `Ranked by ${on.map(([k]) => `${SHORT[k]} ×${w[k]}`).join(', ')}` : 'No ranking weights set; results are in default order';
 }
 
@@ -193,12 +183,21 @@ function shipBlock(ship, line) {
   </div>`;
 }
 
-function aboutBlock(it, engine, weights) {
+// With a compass set (D59), the breakdown compares the visitor with this cabin on each axis they set.
+function compassBreakdown(it, compass) {
+  const set = AXES.filter(([k]) => compass[k] != null);
+  return html`<h3>Compass fit ${it.fit ?? '—'} (${it.used} of ${it.of} axes)</h3>
+    <dl>${set.map(([k, left, right]) => html`<dt>${left} ↔ ${right}</dt><dd>you ${compass[k]} · this ${it.ax[k] ?? unknown('no data')}</dd>`)}</dl>`;
+}
+
+function aboutBlock(it, engine, state) {
   const { row, ship, line } = it;
   const tier = engine.TIERS[row.tier_id];
-  const scored = METRICS.filter(([k]) => weights[k] > 0);
+  const weights = state.w;
+  const scored = Object.keys(state.compass).length ? [] : METRICS.filter(([k]) => weights[k] > 0);
   const urls = [...new Set([...row.sources, ...ship.sources, ...line.sources])].map((id) => engine.data.sources[id]).filter(Boolean).sort();
   return html`<div>
+    ${Object.keys(state.compass).length ? compassBreakdown(it, state.compass) : ''}
     ${scored.length ? html`<h3>Score breakdown (${it.used} of ${it.of} measures)</h3>
       <dl>${scored.map(([k, label]) => html`<dt>${label}</dt><dd>${it.parts[k] == null ? unknown('no data') : `${Math.round(it.parts[k])}th pct`}</dd>`)}</dl>` : ''}
     ${tier?.notes ? html`<h3 class="gap">Notes</h3><p>${tier.notes}</p>` : ''}
@@ -210,8 +209,8 @@ function aboutBlock(it, engine, weights) {
 }
 
 // withShip is false for the extra cabins listed inside a ship's card, which already shows the ship once.
-export function detailHtml(it, engine, weights, withShip = true) {
-  return html`<div class="detail">${priceBlock(it, engine.data)}${tierBlock(it.row)}${withShip ? shipBlock(it.ship, it.line) : ''}${aboutBlock(it, engine, weights)}</div>`;
+export function detailHtml(it, engine, state, withShip = true) {
+  return html`<div class="detail">${priceBlock(it, engine.data)}${tierBlock(it.row)}${withShip ? shipBlock(it.ship, it.line) : ''}${aboutBlock(it, engine, state)}</div>`;
 }
 
 // One card per ship (D48). Items arrive sorted, so the first cabin seen for a ship is its best match.
