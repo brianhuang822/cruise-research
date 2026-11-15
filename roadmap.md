@@ -85,7 +85,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 
 ## 3. Scope
 
-### 3.1 Lines (19)
+### 3.1 Lines (24)
 
 | Line | Segment | Parent | Shareholder ticker |
 |---|---|---|---|
@@ -108,6 +108,13 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | Explora Journeys | Luxury | MSC Group (private) | — |
 | Ritz-Carlton Yacht Collection | Luxury | Private | — |
 | Crystal | Luxury | A&K Travel Group (private) | — |
+| Windstar | Premium | Xanterra Travel Collection (private) | — (added D61) |
+| Margaritaville at Sea | Mainstream | Private | — (added D61) |
+| Paul Gauguin | Luxury | PONANT (private) | — (added D61) |
+| SeaDream Yacht Club | Luxury | Private | — (added D61) |
+| Four Seasons Yachts | Luxury | Four Seasons (private) | — (added D61) |
+
+Found in the D61 sweep but not added yet: Celestyal (Greek islands; guest capacities not confirmed), Star Clippers (tall ships), Emerald yachts, Orient Express Corinthian (status not confirmed). Out of scope: Scenic, Ponant, Atlas, Lindblad (expedition); American Cruise Lines (river/coastal); P&O Cruises, Costa, AIDA, Marella, TUI (not sold to the US market, D4).
 
 Ships: ocean ships in service as of the data snapshot. Expedition ships (e.g. Silversea expedition fleet, Seabourn Venture/Pursuit, Viking Octantis/Polaris) are excluded.
 

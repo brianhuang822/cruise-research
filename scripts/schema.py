@@ -225,7 +225,7 @@ TABLES = {
 RANGES = {
     "gt": (1_000, 260_000),
     "pax_double": (50, 8_000),
-    "year_built": (1985, 2027),
+    "year_built": (1980, 2027),
     "last_refit": (1985, 2027),
     "min_age": (0, 21),
     "rank": (1, 20),

@@ -64,3 +64,9 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Official fleet lists found:** Celebrity's pickleball page (Apex, Ascent, Beyond, Xcel, Eclipse, Equinox and the four Millennium-class ships; "not available on Celebrity Edge, Reflection, Silhouette, Solstice"); MSC's sport pages (jogging track on all ships except World Europa; basketball court on all except Opera, Lirica and Preziosa); Carnival's help centre; planDisney answers for Disney's Deck 4 promenades.
 - **Correction:** Celebrity Edge and Celebrity Solstice had pickleball recorded as yes; Celebrity's own list says no.
 - **Why promenade stays low:** lines with walk-around decks advertise them (Holland America, Cunard, Princess Grand/Coral, Viking, Crystal, Disney Magic/Dream classes, NCL Prima's Ocean Boulevard), but mega-ship lines never state that they lack one, and D51 doesn't accept silence as "no". Confirmed-first ordering (D52) keeps the filter useful anyway.
+
+## Line sweep (2026-11-15, D61)
+
+- **Added:** Windstar (6 ships; Star Seeker pending capacity), Margaritaville at Sea (Paradise, Islander), Paul Gauguin (1), SeaDream (2), Four Seasons Yachts (Four Seasons I, sailing since 20 March 2026).
+- **Weak spots in the new data:** Margaritaville capacities are the published figures and may be maximums, not double occupancy; Windstar inclusions beyond the $16/day hotel service charge and the All-In package are unconfirmed; SeaDream Wi-Fi terms unconfirmed; Four Seasons inclusions vary by source (breakfast, soft drinks and gratuities included; lunch, dinner and alcohol paid). Fare estimates for Windstar and SeaDream rest on trade and aggregator figures.
+- **Deferred:** Celestyal (2 ships, Greece; capacity not found), Star Clippers (3 tall ships), Emerald yachts (Azzurra, Sakara), Orient Express Corinthian (service status not confirmed).
