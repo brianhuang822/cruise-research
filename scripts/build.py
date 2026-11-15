@@ -14,7 +14,7 @@ import sys
 import estimates
 from curated import ROOT, Errors, load_snapshot, load_table, parse_value
 from render import render
-from schema import AMENITY_COLUMNS, OVERRIDABLE_TIER_FIELDS, TABLES
+from schema import AMENITY_COLUMNS, OVERRIDABLE_TIER_FIELDS, REGIONS, TABLES
 
 SCHEMA_VERSION = 1
 TIER_ROW_FIELDS = [k for k in TABLES["tiers"]["columns"] if k not in ("ships", "source_urls", "last_verified", "notes")]
@@ -79,13 +79,23 @@ def check_import_tables(t, errors):
     for d in t["ship_deployments"]:
         if d["ship_id"] not in ships:
             errors.add(d["_where"], f"unknown ship_id {d['ship_id']}")
+    for r in t["ship_regions"]:
+        if r["ship_id"] not in ships:
+            errors.add(r["_where"], f"unknown ship_id {r['ship_id']}")
+        for name in (r["regions"] or "").split(";"):
+            if name and name not in REGIONS:
+                errors.add(r["_where"], f"unknown region {name!r}")
 
 
-def add_deployment(rec, dep):
+def add_deployment(rec, dep, curated, src):
+    """Regions and ports from the price export; until then, the curated tags (D58)."""
+    use = dep or curated
     for field in ("regions", "homeports", "months"):
-        value = dep.get(field)
+        value = use.get(field)
         rec[field] = value.split(";") if value else None
-    rec["deployment_as_of"] = dep.get("as_of")
+    rec["deployment_as_of"] = dep.get("as_of") or curated.get("last_verified")
+    rec["deployment_basis"] = "export" if dep else ("curated" if curated else None)
+    rec["deployment_sources"] = src.of(curated) if curated and not dep else []
     return rec
 
 
@@ -240,9 +250,14 @@ def build():
         return None, errors, warnings
 
     ships = sorted(t["ships"], key=lambda s: (s["line_id"], s["name"]))
-    deployments = by_key(t["ship_deployments"], "ship_id")
+    deployments, regions = by_key(t["ship_deployments"], "ship_id"), by_key(t["ship_regions"], "ship_id")
     out_ships = [
-        add_deployment(resolve_ship(s, classes.get(s["class_id"], {}), cdc, src), deployments.get(s["ship_id"], {}))
+        add_deployment(
+            resolve_ship(s, classes.get(s["class_id"], {}), cdc, src),
+            deployments.get(s["ship_id"], {}),
+            regions.get(s["ship_id"], {}),
+            src,
+        )
         for s in ships
     ]
     if wd:

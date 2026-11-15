@@ -216,7 +216,7 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 .detail p { margin: 0 0 6px; font-size: var(--step--1); }
 .detail ul { margin: 0; padding-left: 18px; font-size: var(--step--1); }
 .detail .sources a { overflow-wrap: anywhere; }
-.sailings { display: inline-block; margin-top: 8px; font-weight: 600; }
+.sailings { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 0; font-weight: 600; }
 .btn-more { display: block; margin: 14px auto 0; font: 600 var(--step--1)/1 var(--font-body); padding: 10px 18px; border-radius: var(--radius); border: 1px solid var(--sea); background: transparent; color: var(--sea); cursor: pointer; }
 .empty { padding: 28px 14px; text-align: center; color: var(--ink-2); background: var(--surface); border: 1px dashed var(--rule); border-radius: var(--radius); }
 

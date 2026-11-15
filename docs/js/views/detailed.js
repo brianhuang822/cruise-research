@@ -2,7 +2,9 @@
 import { $, html, mount } from '../dom.js';
 import { activeFilterCount } from '../engine.js';
 import { AMENITIES, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
-import { applyPreset, chipList, fareState, perkChips, presetChips, priceCell, rankSummary, scoreCell, staleBadge, typeLabel, weightSliders } from './common.js';
+import {
+  applyPreset, chipList, fareState, perkChips, presetChips, priceCell, rankSummary, regionOptions, scoreCell, staleBadge, typeLabel, weightSliders,
+} from './common.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -76,6 +78,7 @@ function syncControls() {
   chipGroup($('f-segments'), SEGMENTS.filter(([k]) => data.lines.some((l) => l.segment === k)), 'segments');
   chipGroup($('f-lines'), data.lines.map((l) => [l.line_id, l.name]), 'lines');
   chipGroup($('f-types'), TIER_TYPES.filter(([k]) => data.rows.some((r) => r.tier_type === k)), 'types');
+  chipGroup($('f-regions'), regionOptions(data), 'regions');
   pickList($('f-perks'), PERKS, 'perks');
   pickList($('f-amen'), AMENITIES, 'amen');
   mount($('weights'), weightSliders(s.w, 'd', s.nice.length > 0));

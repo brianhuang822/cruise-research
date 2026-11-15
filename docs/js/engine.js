@@ -34,6 +34,8 @@ export function evalFilters(state, row, line, ship, priced) {
   if (state.segments.length) checks.push(state.segments.includes(line.segment));
   if (state.lines.length) checks.push(state.lines.includes(row.line_id));
   if (state.types.length) checks.push(state.types.includes(row.tier_type));
+  // Region (D58): any picked region; untagged ships are unknown, so they follow confirmed matches.
+  if (state.regions.length) checks.push(known(ship.regions, (v) => v.some((r) => state.regions.includes(r))));
   if (state.maxPrice != null) checks.push(known(priced.all_in, (v) => v <= state.maxPrice));
   if (state.minGt > 0) checks.push(ship.gt >= state.minGt);
   if (state.dining !== 'any') checks.push(known(row.included_dining, (v) => DINING_RANK[v] >= DINING_RANK[state.dining]));
@@ -162,7 +164,7 @@ export function lineTypes(data) {
 }
 
 export function activeFilterCount(state) {
-  const lists = state.segments.length + state.lines.length + state.types.length + state.perks.length + state.amen.length + state.nice.length;
+  const lists = state.segments.length + state.lines.length + state.types.length + state.regions.length + state.perks.length + state.amen.length + state.nice.length;
   const flags = [state.maxPrice != null, state.minGt > 0, state.dining !== 'any', state.privRest, state.grat, state.wifiFree, state.adults, state.guests > 2];
   return lists + flags.filter(Boolean).length;
 }

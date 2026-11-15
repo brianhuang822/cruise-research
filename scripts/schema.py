@@ -22,6 +22,10 @@ TIER_TYPE = "enum:interior|oceanview|balcony|junior_suite|perk_class|suite|top_s
 SELF_LAUNDRY = "enum:none|paid|free"
 THERMAL = "enum:none|paid|included"
 
+# Region names shared by curated tags (ship_regions.csv, D58) and the price export.
+REGIONS = ("Caribbean", "Alaska", "Mexico & Pacific Coast", "Hawaii", "Bermuda & Canada", "Mediterranean",
+           "Northern Europe", "Asia", "Australia & Pacific", "South America")  # fmt: skip
+
 AMENITY_COLUMNS = {
     "specialty_restaurants": ("int", None),
     "pickleball": ("bool", None),
@@ -165,6 +169,15 @@ TABLES = {
             "pattern": ("text", REQUIRED),  # case-insensitive regex matched against the export's cabin category
             "tier_id": ("slug", REQUIRED),
             "notes": ("text", None),
+        },
+    },
+    "ship_regions": {
+        "key": "ship_id",
+        "columns": {
+            "ship_id": ("slug", REQUIRED),
+            "regions": ("text", None),  # ';'-separated, from REGIONS
+            "homeports": ("text", None),  # ';'-separated US departure ports
+            **SOURCE_COLUMNS,
         },
     },
     "ship_deployments": {

@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { applyPreset, byShip, cardHtml, fareState, presetChips, sortSelect, tallyText } from './common.js';
+import { applyPreset, byShip, cardHtml, fareState, presetChips, regionOptions, sortSelect, tallyText } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -28,7 +28,7 @@ function hiddenFilters(s, priced) {
   const budgetShown = !priced || s.maxPrice == null || BUDGETS.some(([v]) => Number(v) === s.maxPrice);
   return (
     // A line or segment list is one filter however many it names.
-    Math.sign(s.segments.length) + Math.sign(s.lines.length) + s.perks.length + s.amen.length + s.nice.length + strayTypes +
+    Math.sign(s.segments.length) + Math.sign(s.lines.length) + (s.regions.length > 1 ? 1 : 0) + s.perks.length + s.amen.length + s.nice.length + strayTypes +
     [s.privRest, !budgetShown, s.minGt > 0 && s.minGt !== CALM_GT, s.unknowns === 'exclude', s.dining === 'some_specialty'].filter(Boolean).length
   );
 }
@@ -61,6 +61,7 @@ function controls() {
         ${sel('s-nights', [['4', '3–5 nights'], ['6', '6 nights'], ['7', '7 nights'], ['10', '10 nights'], ['14', '14+ nights']], s.nights, 'Trip length')}
         ${sel('s-dining', [['any', 'Any dining'], ['all', 'Specialty dining included']], s.dining, 'Included dining')}
         ${sel('s-ticker', [['', 'No cruise shares'], ...tickers.map((t) => [t, `I own ${t} shares`])], s.tickers[0] ?? '', 'Shareholder of')}
+        ${sel('s-region', [['', 'Any region'], ...regionOptions(engine.data)], s.regions.length === 1 ? s.regions[0] : '', 'Region')}
       </div>
       <div class="toggles">
         ${toggle('s-drinks', 'Add a drinks package', s.drinks === 'alcohol')}
@@ -82,6 +83,7 @@ function bind() {
       's-budget': () => store.set({ maxPrice: t.value ? Number(t.value) : null }),
       's-dining': () => store.set({ dining: t.value }),
       's-ticker': () => store.set({ tickers: t.value ? [t.value] : [] }),
+      's-region': () => store.set({ regions: t.value ? [t.value] : [] }),
       's-grat': () => store.set({ grat: t.checked }),
       's-wififree': () => store.set({ wifiFree: t.checked }),
       's-adults': () => store.set({ adults: t.checked }),

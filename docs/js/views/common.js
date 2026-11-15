@@ -185,8 +185,11 @@ function shipBlock(ship, line) {
       <dt>Water slides · splash area</dt><dd>${yn(ship.water_slides)} · ${yn(ship.splash_area)}</dd>
       <dt>Mini golf</dt><dd>${yn(ship.mini_golf)}</dd>
       <dt>Promenade deck · covered pool</dt><dd>${yn(ship.promenade_deck)} · ${yn(ship.covered_pool)}</dd>
+      <dt>Sails ${ship.deployment_basis === 'curated' ? '(approx.)' : ''}</dt><dd>${ship.regions ? ship.regions.join(', ') : unknown()}</dd>
+      ${ship.homeports ? html`<dt>US home ports</dt><dd>${ship.homeports.join(', ')}</dd>` : ''}
     </dl>
-    <a class="sailings" href="${ship.official_url}" target="_blank" rel="noopener">Find sailings on ${line.name} →</a>
+    <p class="sailings"><a href="${ship.official_url}" target="_blank" rel="noopener">See sailings on ${line.name} →</a>
+      <a href="https://www.cruiseplum.com/search" target="_blank" rel="noopener">Compare sailing prices on CruisePlum →</a></p>
   </div>`;
 }
 
@@ -248,6 +251,14 @@ export function scoreCell(it) {
   if (it.score == null) return unknown('—');
   const s = Math.round(it.score);
   return html`${s}<span class="bar"><i style="width:${s}%"></i></span>`;
+}
+
+// Regions present in the data, in a fixed geographic order (D58).
+const REGION_ORDER = ['Caribbean', 'Bermuda & Canada', 'Alaska', 'Mexico & Pacific Coast', 'Hawaii', 'Mediterranean',
+  'Northern Europe', 'Asia', 'Australia & Pacific', 'South America'];
+export function regionOptions(data) {
+  const present = new Set(data.ships.flatMap((s) => s.regions || []));
+  return REGION_ORDER.filter((r) => present.has(r)).map((r) => [r, r]);
 }
 
 // Stale badge (D56): the oldest of the tier, ship and line check dates is more than six months old.
