@@ -187,7 +187,7 @@ function shipBlock(ship, line) {
 function compassBreakdown(it, compass) {
   const set = AXES.filter(([k]) => compass[k] != null);
   return html`<h3>Compass fit ${it.fit ?? '—'} (${it.used} of ${it.of} axes)</h3>
-    <dl>${set.map(([k, left, right]) => html`<dt>${left} ↔ ${right}</dt><dd>you ${compass[k]} · this ${it.ax[k] ?? unknown('no data')}</dd>`)}</dl>`;
+    <dl>${set.map(([k, left, right]) => html`<dt>${left} ↔ ${right}</dt><dd>you ${compass[k]} · this ${it.ax[k] ?? unknown('no data, counted as 50')}</dd>`)}</dl>`;
 }
 
 function aboutBlock(it, engine, state) {

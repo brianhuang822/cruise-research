@@ -4,6 +4,10 @@ Static site that compares cruise **ship × cabin tier** combinations by all-in p
 
 Spec, decisions and milestones: [`roadmap.md`](roadmap.md).
 
+**Live site:** https://brianhuang822.github.io/cruise-research/ — served by GitHub Pages straight from `docs/` on `main` (no build step or Actions, D60). Every push to `main` republishes it within a minute or two.
+
+To (re)enable publishing: repo **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main`, folder `/docs` → Save**. `docs/.nojekyll` tells Pages to serve the files as they are.
+
 ## Layout
 
 ```
