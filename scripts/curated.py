@@ -11,7 +11,7 @@ from schema import RANGES, REQUIRED, TABLES
 ROOT = Path(__file__).resolve().parent.parent
 CURATED = ROOT / "data" / "curated"
 SNAPSHOTS = ROOT / "data" / "snapshots"
-OPTIONAL_TABLES = {"tier_overrides", "bundles", "prices", "category_map", "ship_deployments"}
+OPTIONAL_TABLES = {"tier_overrides", "bundles", "prices", "category_map", "ship_deployments", "fare_estimates"}
 
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")

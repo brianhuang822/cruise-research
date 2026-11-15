@@ -88,8 +88,8 @@ export const chipList = (labels) => html`<div class="perks">${labels.map((p) => 
 
 export function priceCell(p) {
   if (p.all_in != null) {
-    const how = `${p.method !== 'a_la_carte' ? 'via bundle' : 'fare + extras'}${p.obc ? ' − shareholder credit' : ''}`;
-    return html`<span class="price">${fmt$(p.all_in)}</span><small>${how}</small>`;
+    const how = `${p.estimated ? 'estimate · ' : ''}${p.method !== 'a_la_carte' ? 'via bundle' : 'fare + extras'}${p.obc ? ' − credit' : ''}`;
+    return html`<span class="price">${p.estimated ? html`<abbr class="est" title="Estimated typical fare for this line and cabin type, plus your extras">~</abbr>` : ''}${fmt$(p.all_in)}</span><small>${how}</small>`;
   }
   if (p.extras != null) return html`<span class="pending">Fare pending</span><small>${p.extras ? `+${fmt$(p.extras)}/night extras` : 'No extras to add'}</small>`;
   const names = [...new Set(p.missing.filter((m) => m !== 'fare').map((m) => MISSING_LABELS[m] ?? m.replace(/_/g, ' ')))];
@@ -113,7 +113,7 @@ function priceBlock(it, data) {
   return html`<div>
     <h3>Price per person per night</h3>
     <dl>
-      <dt>Median fare</dt><dd>${p.fare == null ? unknown('pending') : fmt$2(p.fare)}</dd>
+      <dt>${p.estimated ? 'Estimated fare' : 'Median fare'}</dt><dd>${p.fare == null ? unknown('pending') : fmt$2(p.fare)}</dd>
       ${parts.map(([k, v]) => html`<dt>${PART_LABELS[k] || k}</dt><dd>${fmt$2(v)}</dd>`)}
       <dt>Extras subtotal</dt><dd>${p.extras == null ? unknown() : fmt$2(p.extras)}</dd>
       ${p.obc ? html`<dt>Shareholder credit</dt><dd>−${fmt$2(p.obc)}</dd>` : ''}
@@ -124,8 +124,23 @@ function priceBlock(it, data) {
     ${p.obc_note ? html`<p class="hint">${p.obc_note}</p>` : ''}
     ${p.obc_status === 'unknown' ? html`<p class="hint">We couldn't confirm the shareholder credit for this line.</p>` : ''}
     ${row.fare_as_of ? html`<p class="hint">Fare: median of ${row.fare_n_sailings} sailings, ${row.fare_source}, as of ${row.fare_as_of}.</p>` : ''}
+    ${p.estimated ? estimateNote(row, data) : ''}
   </div>`;
 }
+
+// Where an estimated fare came from (D57). Estimates are per line and cabin type, not per ship or sailing.
+function estimateNote(row, data) {
+  const e = data.fare_estimates?.lines.find((x) => x.line_id === row.line_id);
+  if (!e) return '';
+  const urls = e.sources.map((id) => data.sources[id]).filter(Boolean);
+  return html`<p class="hint">Estimated fare: a typical price for this line and cabin type, not this ship or a specific sailing.
+    Based on: ${e.samples}. ${e.notes || ''}
+    ${urls.map((u, i) => html`<a href="${u}" target="_blank" rel="noopener">source ${i + 1}</a> `)}</p>`;
+}
+
+// Fares on the site: real medians, estimates, or none yet.
+export const fareState = (data) =>
+  data.rows.some((r) => r.fare_pppn_median != null) ? 'real' : data.rows.some((r) => r.fare_est_pppn != null) ? 'estimate' : 'none';
 
 function tierBlock(row) {
   const meals = row.specialty_meals_included === 'unlimited' ? 'Unlimited' : row.specialty_meals_included;

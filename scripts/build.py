@@ -11,6 +11,7 @@ no wall-clock timestamps: last_updated = newest date found in the inputs).
 import re
 import sys
 
+import estimates
 from curated import ROOT, Errors, load_snapshot, load_table, parse_value
 from render import render
 from schema import AMENITY_COLUMNS, OVERRIDABLE_TIER_FIELDS, TABLES
@@ -185,7 +186,7 @@ def resolve_ship(s, cls, cdc, src):
     return rec
 
 
-def resolve_rows(t, overrides, prices, src, ship_names):
+def resolve_rows(t, overrides, prices, src, ship_names, est):
     tiers, ships = by_key(t["tiers"], "tier_id"), by_key(t["ships"], "ship_id")
     rows = []
     for tr in tiers.values():
@@ -202,6 +203,8 @@ def resolve_rows(t, overrides, prices, src, ship_names):
                 fare_pppn_median=p.get("fare_pppn_median"), fare_n_sailings=p.get("n_sailings"),
                 fare_basis=p.get("fare_basis"), fare_as_of=p.get("as_of"), fare_source=p.get("source"),
             )  # fmt: skip
+            # Estimated fare (D57) for this line and cabin type; the site uses it only while fare_pppn_median is blank.
+            row["fare_est_pppn"] = est.get((tr["line_id"], tr["tier_type"]))
             row["sources"] = src.of(tr, *used)
             row["last_verified"] = max([tr["last_verified"]] + [o["last_verified"] for o in used])
             rows.append(row)
@@ -227,6 +230,7 @@ def build():
     t = {name: load_table(name, errors) for name in TABLES}
     check_references(t, errors, warnings)
     check_import_tables(t, errors)
+    estimates.check(t["fare_estimates"], {r["line_id"] for r in t["lines"]}, errors)
     overrides = collect_overrides(t, errors)
     prices = collect_prices(t, errors)
     cdc, wd = load_snapshot("cdc_vsp"), load_snapshot("wikidata_ships")
@@ -243,7 +247,8 @@ def build():
     ]
     if wd:
         warnings += [w for s in ships if s["wikidata_qid"] for w in wikidata_warnings(s, wd)]
-    out_rows = resolve_rows(t, overrides, prices, src, {s["ship_id"]: s["name"] for s in ships})
+    est, ladder = estimates.estimates(t["fare_estimates"])
+    out_rows = resolve_rows(t, overrides, prices, src, {s["ship_id"]: s["name"] for s in ships}, est)
 
     def public(r):
         d = {k: v for k, v in r.items() if not k.startswith("_") and k != "source_urls"}
@@ -264,6 +269,10 @@ def build():
         "tiers": [public(r) for r in tiers_sorted],
         "ships": out_ships,
         "rows": out_rows,
+        "fare_estimates": {
+            "ladder": ladder,
+            "lines": sorted(map(public, t["fare_estimates"]), key=lambda r: r["line_id"]),
+        },
         "sources": src.table(),
         "coverage": coverage_report(lines, out_rows, out_ships),
         "warnings": sorted(warnings),

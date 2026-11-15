@@ -150,12 +150,17 @@ def all_in(row, line, bundles, benefits, inputs):
             best = {"method": b["bundle_id"], "total": t, "parts": {**p, "bundle": b["price_pppd"]}, "missing": []}
 
     obc = obc_for(line, inputs, benefits)
+    # Real median first; otherwise the line-and-cabin-type estimate (D57), flagged.
     fare = row.get("fare_pppn_median")
+    estimated = fare is None and row.get("fare_est_pppn") is not None
+    if estimated:
+        fare = row["fare_est_pppn"]
     extras = best["total"]
     result_all_in = _r2(fare + extras - obc["pppn"]) if (fare is not None and extras is not None) else None
     missing = list(best["missing"]) + (["fare"] if fare is None else [])
     return {
         "fare": fare,
+        "estimated": estimated,
         "extras": None if extras is None else _r2(extras),
         "method": best["method"],
         "parts": {k: _r2(v) for k, v in best["parts"].items()},

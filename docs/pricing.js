@@ -116,13 +116,16 @@ export function allIn(row, line, bundles, benefits, inputs) {
   }
 
   const obc = obcFor(line, inputs, benefits);
-  const fare = row.fare_pppn_median ?? null;
+  // Real median first; otherwise the line-and-cabin-type estimate (D57), flagged so the site can label it.
+  const fare = row.fare_pppn_median ?? row.fare_est_pppn ?? null;
+  const estimated = row.fare_pppn_median == null && fare != null;
   const extras = best.total;
   const all_in = fare != null && extras != null ? r2(fare + extras - obc.pppn) : null;
   const missing = [...best.missing];
   if (fare == null) missing.push('fare');
   return {
     fare,
+    estimated,
     extras: extras == null ? null : r2(extras),
     method: best.method,
     parts: Object.fromEntries(Object.entries(best.parts).map(([k, v]) => [k, r2(v)])),

@@ -76,6 +76,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D54 | Amenity research | Paused; strict sourcing kept; promenade and covered pool stay confirmed-first |
 | D55 | Must / Nice | Detailed perks and amenities: Must filters, Nice adds a nice-to-haves score measure |
 | D56 | Stale badge | "May be out of date" when the oldest check date is over 183 days old |
+| D57 | Fare estimates | Line × cabin-type estimates (tracker for 8 lines, lead-in fares for 11) until the export; shown with ~; budget and Value use them |
 
 ---
 

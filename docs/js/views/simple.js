@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { applyPreset, byShip, cardHtml, presetChips, sortSelect, tallyText } from './common.js';
+import { applyPreset, byShip, cardHtml, fareState, presetChips, sortSelect, tallyText } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -18,7 +18,7 @@ const BUDGETS = [['', 'Any budget'], ['200', 'Up to $200/night'], ['400', 'Up to
 const CALM_GT = 120000;
 
 const groupOn = (types, g) => g[2].every((t) => types.includes(t));
-const hasFares = () => engine.data.rows.some((r) => r.fare_pppn_median != null);
+const hasFares = () => fareState(engine.data) !== 'none';
 
 // Filters set in Detailed mode that this bar can't show.
 function hiddenFilters(s, priced) {

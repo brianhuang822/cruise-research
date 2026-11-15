@@ -71,6 +71,16 @@ def fixture():
         },
         {
             "line_id": "x",
+            "tier_id": "t1",
+            "fare_pppn_median": None,
+            "fare_est_pppn": 120,
+            "gratuity_pppd": 19.5,
+            "drinks_included": "none",
+            "wifi_included": False,
+            "specialty_meals_included": 0,
+        },
+        {
+            "line_id": "x",
             "tier_id": "t3",
             "fare_pppn_median": 210,
             "gratuity_pppd": 18,
@@ -120,6 +130,23 @@ class PricingTests(unittest.TestCase):
         r = pricing.all_in(rows[2], line, bundles, benefits, {"nights": 7})
         self.assertIsNone(r["all_in"])
         self.assertIn("fare", r["missing"])
+
+    def test_estimate_used_only_without_a_median(self):
+        line, benefits, bundles, rows, _ = fixture()
+        est = pricing.all_in(rows[3], line, bundles, benefits, {"nights": 7})
+        self.assertTrue(est["estimated"])
+        self.assertEqual(est["fare"], 120)
+        self.assertEqual(est["all_in"], 139.5)  # 120 fare + 19.50 gratuity
+        real = pricing.all_in({**rows[3], "fare_pppn_median": 150}, line, bundles, benefits, {"nights": 7})
+        self.assertFalse(real["estimated"])
+        self.assertEqual(real["fare"], 150)
+
+    def test_fare_estimates_built_for_every_row(self):
+        ds = json.loads((ROOT / "data" / "dataset.json").read_text())
+        self.assertTrue(all(r["fare_est_pppn"] for r in ds["rows"]))
+        lad = ds["fare_estimates"]["ladder"]
+        order = ["interior", "oceanview", "balcony", "suite", "top_suite"]
+        self.assertEqual([lad[k] for k in order], sorted(lad[k] for k in order))
 
     @unittest.skipUnless(shutil.which("node"), "node not installed")
     def test_js_python_parity(self):

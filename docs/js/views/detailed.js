@@ -2,7 +2,7 @@
 import { $, html, mount } from '../dom.js';
 import { activeFilterCount } from '../engine.js';
 import { AMENITIES, PERKS, SEGMENTS, TIER_TYPES, fresh, store, toggleIn } from '../state.js';
-import { applyPreset, chipList, perkChips, presetChips, priceCell, rankSummary, scoreCell, staleBadge, typeLabel, weightSliders } from './common.js';
+import { applyPreset, chipList, fareState, perkChips, presetChips, priceCell, rankSummary, scoreCell, staleBadge, typeLabel, weightSliders } from './common.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -103,11 +103,15 @@ export function renderDetailed(items) {
   const total = engine.data.rows.length;
   mount($('tally'), html`${items.length.toLocaleString('en-US')} cabin options<span>of ${total.toLocaleString('en-US')}</span>`);
   $('d-rank-summary').textContent = s.sort === 'score' ? rankSummary(s.w) : '';
-  const priced = engine.data.rows.some((r) => r.fare_pppn_median != null);
+  const fares = fareState(engine.data);
+  const priced = fares !== 'none';
   mount($('d-presets'), presetChips(s.w, priced));
   const fc = activeFilterCount(s);
   $('filter-count').textContent = fc ? `${fc} active` : '';
-  $('notice').hidden = priced;
+  $('notice').hidden = fares === 'real';
+  $('notice').textContent = fares === 'estimate'
+    ? 'Prices marked ~ are estimates: a typical fare for each line and cabin type, plus your extras. Real fares per ship replace them when loaded.'
+    : "Fares aren't loaded yet. Each cabin shows its extra cost per night until they are.";
   $('price-hint').textContent = priced ? 'All-in per person per night for your trip settings.' : 'Works once fares are added.';
   if (!items.length) {
     mount($('rows'), html`<p class="empty">No cabins match these filters. Turn one off, or choose Show under “Rows with unknown data”.</p>`);

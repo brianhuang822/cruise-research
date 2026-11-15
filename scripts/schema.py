@@ -179,6 +179,21 @@ TABLES = {
             "source": ("text", REQUIRED),
         },
     },
+    "fare_estimates": {
+        "key": "line_id",
+        "columns": {
+            "line_id": ("slug", REQUIRED),
+            "basis": ("enum:tracker|lead_in", REQUIRED),
+            "interior": ("num", None),
+            "oceanview": ("num", None),
+            "balcony": ("num", None),
+            "suite": ("num", None),
+            "lead_in_pppn": ("num", None),
+            "lead_in_tier_type": (TIER_TYPE, None),
+            "samples": ("text", REQUIRED),
+            **SOURCE_COLUMNS,
+        },
+    },
     "prices": {
         "key": None,
         "columns": {
