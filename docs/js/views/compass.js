@@ -21,13 +21,14 @@ export function compassSliders(compass, prefix) {
   })}</div>`;
 }
 
-// Closest and farthest lines by their best-fitting ship.
-function lineSummary(items) {
-  const best = new Map();
-  for (const it of items) if (it.fit != null && (best.get(it.line.name) ?? -1) < it.fit) best.set(it.line.name, it.fit);
-  const ranked = [...best].sort((a, b) => b[1] - a[1]);
-  const fmt = (list) => list.map(([n, f]) => `${n} (${f})`).join(', ');
-  return { closest: fmt(ranked.slice(0, 3)), farthest: ranked.length > 4 ? fmt(ranked.slice(-2).reverse()) : '' };
+// Closest and farthest lines, read off the same ranked ship list as the cards and the map, so they always agree
+// (confirmed matches rank first, D52). Each line shows the match of its first ship in that list.
+function lineSummary(leads) {
+  const firstSeen = new Map();
+  for (const it of leads) if (!firstSeen.has(it.line.name)) firstSeen.set(it.line.name, it.fit);
+  const lines = [...firstSeen];
+  const fmt = (list) => list.map(([n, f]) => `${n} (${f ?? '—'})`).join(', ');
+  return { closest: fmt(lines.slice(0, 3)), farthest: lines.length > 4 ? fmt(lines.slice(-2).reverse()) : '' };
 }
 
 // You vs the top match on each axis the visitor set.
@@ -50,9 +51,10 @@ const tip = (it, rank) => `${rank ? `#${rank} · ` : ''}${it.ship.name} (${it.li
 
 // Map: Budget–Splurge across, Relaxed–Action-packed up; one dot per ship (its best-fitting cabin).
 function compassMap(leads, compass) {
-  const plotted = leads.filter((it) => it.ax.budget != null && it.ax.action != null);
-  const top = plotted.slice(0, 5);
-  const rest = plotted.slice(5);
+  // Top 5 are the first five ships in the ranked list (same as the cards); ships missing a map position are skipped.
+  const has = (it) => it.ax.budget != null && it.ax.action != null;
+  const top = leads.slice(0, 5).map((it, i) => [it, i + 1]).filter(([it]) => has(it));
+  const rest = leads.slice(5).filter(has);
   const youOn = compass.budget != null && compass.action != null;
   // Only the best match is labelled on the map: ships of one class share a position, so more labels collide.
   // The legend, tooltip and table carry the rest.
@@ -71,7 +73,7 @@ function compassMap(leads, compass) {
         <line class="grid" x1="${px(0)}" x2="${px(100)}" y1="${py(g)}" y2="${py(g)}"></line>`)}
       <rect class="frame" x="${px(0)}" y="${py(100)}" width="${px(100) - px(0)}" height="${py(0) - py(100)}"></rect>
       ${rest.map((it) => dot(it, 'other', 4))}
-      ${top.slice().reverse().map((it, i) => dot(it, 'top', 6, top.length - i))}
+      ${top.slice().reverse().map(([it, rank]) => dot(it, 'top', 6, rank))}
       ${youOn ? html`<g class="pt you" tabindex="0" data-x="${px(compass.budget)}" data-y="${py(compass.action)}" data-tip="${`You · ${AXIS.budget.left}–${AXIS.budget.right} ${compass.budget} · ${AXIS.action.left}–${AXIS.action.right} ${compass.action}`}">
           <circle class="mark" cx="${px(compass.budget)}" cy="${py(compass.action)}" r="7"></circle>
           <text class="lbl" x="${px(compass.budget) - 10}" y="${py(compass.action) - 10}" text-anchor="end">You</text></g>` : ''}
@@ -99,7 +101,7 @@ function mapTable(leads) {
 
 export function compassPanel(items, compass) {
   const leads = byShip(items).map((g) => g.it);
-  const { closest, farthest } = lineSummary(items);
+  const { closest, farthest } = lineSummary(leads);
   return html`<section class="compass-panel" aria-label="Your cruise compass">
     <p class="compass-lines"><strong>Closest lines:</strong> ${closest || '—'}${farthest ? html` · <strong>Farthest:</strong> ${farthest}` : ''}</p>
     ${axisBars(compass, leads[0])}

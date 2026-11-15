@@ -1,7 +1,7 @@
 // Simple mode: the most-used filters in one bar, results as cards.
 import { $, html, mount } from '../dom.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { applyPreset, byShip, cardHtml, fareState, presetChips, regionOptions, sortSelect, tallyText } from './common.js';
+import { applyPreset, byShip, fareState, presetChips, regionOptions, shipCards, sortSelect, tallyText } from './common.js';
 
 const PAGE = 12;
 let shown = PAGE;
@@ -142,7 +142,7 @@ export function renderSimple(items) {
     ${Object.keys(s.compass).length ? html`<p class="notice">Best match uses your compass from Help me choose. <button type="button" class="link" id="s-clear-compass">Clear</button></p>` : ''}
     ${hidden ? html`<p class="notice">+${hidden} more setting${hidden === 1 ? '' : 's'} from other modes. <button type="button" class="link" id="s-clear-hidden">Clear</button></p>` : ''}
     ${items.length
-      ? html`<div class="cards">${ships.slice(0, shown).map(cardHtml)}</div>
+      ? html`${shipCards(ships.slice(0, shown))}
         ${ships.length > shown ? html`<button type="button" class="btn-more" id="s-more">Show ${Math.min(PAGE, ships.length - shown)} more ships</button>` : ''}`
       : html`<p class="empty">No cabins match. Try a bigger budget or fewer toggles.</p>`}`);
 }

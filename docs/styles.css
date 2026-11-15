@@ -393,3 +393,4 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 .map-table { width: 100%; border-collapse: collapse; font-size: var(--step--1); margin-top: 8px; }
 .map-table th, .map-table td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--rule); }
 .map-table th { color: var(--ink-2); font-weight: 600; }
+.cards-divider { grid-column: 1 / -1; margin: 6px 0 0; padding-top: 10px; border-top: 1px dashed var(--rule); font-size: var(--step--1); color: var(--ink-2); }

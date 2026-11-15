@@ -2,7 +2,7 @@
 import { $, html, mount } from '../dom.js';
 import { lineTypes } from '../engine.js';
 import { fresh, store, toggleIn } from '../state.js';
-import { byShip, cardHtml, sortSelect, tallyText } from './common.js';
+import { byShip, shipCards, sortSelect, tallyText } from './common.js';
 import { bindMapTooltip, compassPanel, compassSliders, isSet } from './compass.js';
 
 const ALL = 'all';
@@ -152,7 +152,7 @@ function resultsView(items) {
       ${sortSelect('q-sort', s.sort)}
     </div>
     ${isSet(s.compass) && items.length ? compassPanel(items, s.compass) : ''}
-    ${top.length ? html`<div class="cards">${top.map(cardHtml)}</div>
+    ${top.length ? html`${shipCards(top)}
         ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}`
       : html`<p class="empty">Nothing fits every answer. Try changing the budget or a suite perk.</p>`}
     <div class="quiz-actions">

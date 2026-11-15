@@ -217,6 +217,13 @@ export function detailHtml(it, engine, state, withShip = true) {
 export const tallyText = (ships, cabins) =>
   ships === cabins ? `${ships.toLocaleString('en-US')} ships` : `${ships.toLocaleString('en-US')} ships · ${cabins.toLocaleString('en-US')} cabins`;
 
+// Cards for a list of ship groups, with a divider where ships that pass only on unknown data begin (D52).
+export function shipCards(groups) {
+  const cut = groups.findIndex((g) => g.it.partial);
+  const card = (g, i) => html`${i === cut && cut > 0 ? html`<p class="cards-divider">These may also fit, but we can't confirm everything you picked (for example the region or an amenity).</p>` : ''}${cardHtml(g)}`;
+  return html`<div class="cards">${groups.map(card)}</div>`;
+}
+
 export function byShip(items) {
   const groups = new Map();
   for (const it of items) {
