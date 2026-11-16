@@ -47,10 +47,10 @@ export const QUESTIONS = [
       ['highlight', 'A highlight: great restaurants included in the fare'], ['good', 'Good food is enough; paying extra for a special dinner is fine']],
     apply: () => {},
     axes: (a) => (a === 'highlight' ? { inclusive: 85 } : {}) },
-  // D67 (amends D50): name types to avoid rather than pick them, so first-timers who don't know the types lose nothing.
-  // D77: avoided types score lower; nothing is hidden.
-  { id: 'line_type', title: "Any kind of cruise line you'd rather avoid?", multi: true,
-    help: "Skip if you're open to all. Kinds you pick score lower. Every line includes a buffet and a main dining room with waiters.",
+  // D78 (amends D67): pick the kinds that appeal, as a tick list reads; lines of other kinds score lower (D77), nothing
+  // is hidden, and skipping (or picking every kind) keeps them all even.
+  { id: 'line_type', title: 'Which kinds of cruise line appeal to you?', multi: true,
+    help: "Pick any; lines of other kinds score a little lower. Skip if you're open to all. Every line includes a buffet and a main dining room with waiters.",
     options: [
       // The lines in each kind are added from the data in initWizard, so the list is always complete.
       ['mainstream', 'Mainstream', 'Big ships with the most to do; specialty restaurants extra.'],
@@ -58,9 +58,8 @@ export const QUESTIONS = [
       ['specialty_included', 'Premium, every restaurant included', 'Specialty restaurants and Wi-Fi in the fare.'],
       ['luxury', 'Luxury, nearly everything included', 'Smaller ships; dining, drinks, tips and Wi-Fi included.']],
     apply: (a, s) => {
-      const out = new Set(a.flatMap((k) => LINE_TYPES[k] ?? []));
-      const keep = Object.values(LINE_TYPES).flat().filter((id) => !out.has(id));
-      if (out.size && keep.length) s.lines = keep;
+      const liked = a.flatMap((k) => LINE_TYPES[k] ?? []);
+      if (liked.length && liked.length < Object.values(LINE_TYPES).flat().length) s.lines = liked;
     } },
   { id: 'cabin', title: 'What kind of cabin?', options: [
       ['interior', 'Inside is fine'], ['oceanview', 'I want a window'], ['balcony', 'A balcony'],

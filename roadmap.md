@@ -97,6 +97,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D75 | Grown-up weight | Adults gap counts twice at Adults 70+ (amends D59) |
 | D76 | Every cruise line | Quiz results list all lines by % (best ship), ruled-out lines with reason; open a line for per-axis differences; tick two to compare |
 | D77 | Quiz scores, never filters | Each missed answer −15 (budget −5…−40 by how far over); unknown capped at −15; reasons on every card and line; Simple/Detailed keep filters |
+| D78 | Line kinds | "Which kinds of cruise line appeal to you?"; unpicked kinds −15; options list every line |
 
 ---
 
@@ -427,7 +428,7 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 5 | Is the ship the destination, or the places you visit? | always | ship → Size 85 + Action 80; places → Size 15 |
 | 6 | Where would you like to go? (multi, incl. Hawaii and South America) | always | regions (untagged ships lose 20, D72) |
 | 7 | How much does the food matter? (a highlight / good is enough) | always | a highlight → All-inclusive 85 |
-| 8 | Any kind of cruise line you'd rather avoid? (multi, D67, D77) | always | avoided types score −15 (nothing hidden) |
+| 8 | Which kinds of cruise line appeal to you? (multi, D78) | always | lines of kinds not picked score −15 (nothing hidden); skip = all even |
 | 9 | What kind of cabin? | always | cabin types; suite → Suite 90, inside → Suite 15 |
 | 10 | Which suite perks matter? (multi) | suite | perk filters |
 | 11 | What do you usually drink? | always | drinks input |

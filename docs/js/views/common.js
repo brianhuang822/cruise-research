@@ -308,7 +308,7 @@ function missText(name, state, line) {
   const [kind, key] = name.split(':');
   if (kind === 'perk' || kind === 'amen') return `no ${feature(key)}`;
   return {
-    segments: 'not a kind of line you picked', lines: `you'd rather avoid ${KIND[line.kind] ?? 'this kind of line'}`, types: `not ${withArticle(CABIN[state.types[0]] ?? 'chosen')} cabin`,
+    segments: 'not a kind of line you picked', lines: `not a kind you picked (${KIND[line.kind] ?? 'this kind of line'})`, types: `not ${withArticle(CABIN[state.types[0]] ?? 'chosen')} cabin`,
     regions: "doesn't sail where you picked", maxPrice: 'over your budget', minGt: 'ship too small', dining: 'restaurants not included',
     privRest: 'no suites-only restaurant', grat: 'tips not included', wifiFree: 'Wi-Fi not included', adults: 'not adults-only',
     guests: `cabins don't sleep ${state.guests}`,
