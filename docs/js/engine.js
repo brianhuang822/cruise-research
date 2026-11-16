@@ -120,6 +120,7 @@ const SORT_ASC = new Set(['price']);
 // picks which cabin leads a ship's card when every cabin on the ship scores the same (D48).
 function tieBreak(a, b) {
   if ((a.lean ?? 0) !== (b.lean ?? 0)) return (b.lean ?? 0) - (a.lean ?? 0);
+  if ((a.leanUp ?? 0) !== (b.leanUp ?? 0)) return (b.leanUp ?? 0) - (a.leanUp ?? 0);
   const pa = a.priced.all_in;
   const pb = b.priced.all_in;
   if (pa != null && pb != null && pa !== pb) return pa - pb;
@@ -167,7 +168,7 @@ function compute(data, LINES, SHIPS, state) {
     items.push(it);
   }
   score(items, state.w, state.nice.length > 0);
-  applyCompass(items, state.compass);
+  applyCompass(items, state.compass, { wifiPref: state.wifiPref });
   // Best match (D65, amends D52): a row that passes only because some data is missing loses points instead of
   // ranking below every confirmed row, so thinly researched ships can still win when they fit much better.
   for (const it of items) {

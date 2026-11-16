@@ -9,6 +9,7 @@ const DRINKS = { none: 0, soft: 0.5, alcohol: 1 };
 const DINING = { main_only: 0, some_specialty: 0.5, all: 1 };
 const ACTION = ['water_slides', 'sports_court', 'mini_golf', 'pickleball', 'splash_area'];
 const VIP = ['butler', 'concierge', 'private_restaurant', 'private_lounge', 'priority_boarding'];
+const SHIP_WIDE = new Set(['private_restaurant', 'private_lounge', 'priority_boarding']);
 
 const mean = (xs) => {
   const known = xs.filter((x) => x != null);
@@ -38,7 +39,10 @@ export const AXES = [
   }],
   ['action', 'Relaxed', 'Action-packed', ({ ship }) => shrunk(ACTION.map((k) => yes(ship[k])))],
   ['newness', 'Classic', 'Brand-new', ({ ship }) => ship.newest_year],
-  ['suite', 'Standard cabin', 'Suite life', ({ row }) => mean([TIER_LEVEL[row.tier_type] ?? null, mean(VIP.map((k) => yes(row[k])))])],
+  // On an all-suite luxury line every venue is open to every guest, so no suites-only lounge, restaurant or boarding
+  // lane is "not applicable", not a missing perk (D74). Butler and concierge still count.
+  ['suite', 'Standard cabin', 'Suite life', ({ row, line }) => mean([TIER_LEVEL[row.tier_type] ?? null,
+    mean(VIP.map((k) => (line.segment === 'luxury' && row[k] === false && SHIP_WIDE.has(k) ? null : yes(row[k]))))])],
 ];
 
 // Percentile position (0-100) of each item on each axis, among all items; ties share the midpoint.
@@ -77,23 +81,39 @@ export function gap(k, want, at) {
 // Axes measured per ship (every cabin on a ship sits at the same place on them).
 const SHIP_AXES = ['size', 'adults', 'action', 'newness'];
 
-// How far a ship goes past the visitor in the direction they lean, on the ship-level axes they set. Breaks exact
-// ties between ships (D73) so a saturated fit isn't settled by price alone; equal for every cabin of a ship, so ties
-// between a ship's own cabins still go to the cheaper one (D48).
-function beyond(compass, ax) {
-  const keys = SHIP_AXES.filter((k) => compass[k] != null && compass[k] !== 50);
+// Cabin-level axes where leaning up means "more is better" for a tie: pricier, more suite, more included.
+const UP_AXES = ['budget', 'suite', 'inclusive'];
+
+// How far past the visitor something sits in the direction they lean, averaged over the given axes they set.
+function beyond(compass, ax, axes, upOnly = false) {
+  const keys = axes.filter((k) => compass[k] != null && (upOnly ? compass[k] > 50 : compass[k] !== 50));
   if (!keys.length) return 0;
   return mean(keys.map((k) => (ax[k] == null ? 0 : Math.max(0, (ax[k] - compass[k]) * Math.sign(compass[k] - 50)))));
 }
 
-// Replace the weighted score with compass fit when the visitor has set at least one axis.
-export function applyCompass(items, compass) {
-  const keys = AXES.map(([k]) => k).filter((k) => compass[k] != null);
-  if (!keys.length) return false;
+// Tie-break keys (D73, D74), both the same for every cabin of a ship so ties between a ship's own cabins still go to
+// the cheaper one (D48): how far the ship goes past the visitor on the ship-level axes, then how far its best cabin
+// goes past an upward lean on price, suite or inclusions ("I want the best").
+function setLeans(items, compass) {
+  const up = new Map();
   for (const it of items) {
-    it.lean = beyond(compass, it.ax);
+    it.lean = beyond(compass, it.ax, SHIP_AXES);
+    up.set(it.ship, Math.max(up.get(it.ship) ?? 0, beyond(compass, it.ax, UP_AXES, true)));
+  }
+  for (const it of items) it.leanUp = up.get(it.ship);
+}
+
+// Wi-Fi preference (D74): its own term in the fit, beside the axes. Unknown is never a match (D64).
+const wifiGap = (row) => (row.wifi_included === true ? 0 : row.wifi_included === false ? 35 : UNKNOWN_GAP);
+
+// Replace the weighted score with compass fit when the visitor has set at least one axis or the Wi-Fi preference.
+export function applyCompass(items, compass, { wifiPref = false } = {}) {
+  const keys = AXES.map(([k]) => k).filter((k) => compass[k] != null);
+  if (!keys.length && !wifiPref) return false;
+  setLeans(items, compass);
+  for (const it of items) {
     // Rank on the exact fit and show it rounded, so rounding doesn't make ties that the cheaper cabin then wins.
-    it.score = 100 - mean(keys.map((k) => gap(k, compass[k], it.ax[k])));
+    it.score = 100 - mean([...keys.map((k) => gap(k, compass[k], it.ax[k])), ...(wifiPref ? [wifiGap(it.row)] : [])]);
     it.fit = Math.round(it.score);
     it.used = keys.filter((k) => it.ax[k] != null).length;
     it.of = keys.length;

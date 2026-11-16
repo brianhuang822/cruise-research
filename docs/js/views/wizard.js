@@ -40,7 +40,8 @@ export const QUESTIONS = [
     axes: (a) => ({ ship: { size: 85, action: 80 }, ports: { size: 15 } })[a] ?? {} },
   { id: 'regions', title: 'Where would you like to go?', help: 'Skip for anywhere. Ships confirmed to sail there rank higher.', multi: true,
     options: [['Caribbean', 'Caribbean & Bahamas'], ['Alaska', 'Alaska'], ['Mediterranean', 'Mediterranean'], ['Northern Europe', 'Northern Europe'],
-      ['Asia', 'Asia'], ['Australia & Pacific', 'Australia & South Pacific'], ['Mexico & Pacific Coast', 'Mexico & Pacific Coast'], ['Bermuda & Canada', 'Bermuda & Canada'], ['Hawaii', 'Hawaii']],
+      ['Asia', 'Asia'], ['Australia & Pacific', 'Australia & South Pacific'], ['Mexico & Pacific Coast', 'Mexico & Pacific Coast'], ['Bermuda & Canada', 'Bermuda & Canada'], ['Hawaii', 'Hawaii'],
+      ['South America', 'South America']],
     apply: (a, s) => { s.regions = [...a]; } },
   { id: 'food', title: 'How much does the food matter?', options: [
       ['highlight', 'A highlight: great restaurants included in the fare'], ['good', 'Good food is enough; paying extra for a special dinner is fine']],
@@ -82,10 +83,13 @@ export const QUESTIONS = [
     apply: (a, s) => { s.drinks = a; } },
   // D70 (amends D42 for the quiz): "rather it were included" is a preference, not the free-Wi-Fi filter. Wi-Fi is priced
   // into the all-in fare either way, and the filter emptied about a third of the quizzes that ended with nothing.
+  // D74: the preference is its own term in the fit (Wi-Fi included or not), not a vote on the whole All-inclusive axis.
   { id: 'wifi', title: 'Do you need Wi-Fi?', options: [
       ['free', "Yes, and I'd rather it were included"], ['pay', "Yes, I'll pay for it"], ['no', "I don't need it"]],
-    apply: (a, s) => { s.wifi = a !== 'no'; },
-    axes: (a) => (a === 'free' ? { inclusive: 70 } : {}) },
+    apply: (a, s) => {
+      s.wifi = a !== 'no';
+      s.wifiPref = a === 'free';
+    } },
   { id: 'budget', title: 'What can you spend per person, per night, all-in?',
     help: 'Fare plus tips and the drinks and Wi-Fi you picked. Fares are estimates for now, so each limit has some leeway.',
     options: [['200', 'Up to about $200'], ['400', 'About $200–400'], ['800', 'About $400–800'],

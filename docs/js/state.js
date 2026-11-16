@@ -34,7 +34,7 @@ export const DINING_RANK = { main_only: 0, some_specialty: 1, all: 2 };
 export const DEFAULTS = Object.freeze({
   nights: 7, tickers: [], drinks: 'none', wifi: false, dinners: 0,
   segments: [], lines: [], types: [], regions: [], maxPrice: null, minGt: 0, dining: 'any', privRest: false,
-  grat: false, wifiFree: false, adults: false, guests: 2, perks: [], amen: [], nice: [], unknowns: 'include', sort: 'score',
+  grat: false, wifiFree: false, wifiPref: false, adults: false, guests: 2, perks: [], amen: [], nice: [], unknowns: 'include', sort: 'score',
   compass: Object.freeze({}),  // D59: axis key -> 0-100, only for axes the visitor set
   w: Object.freeze(Object.fromEntries(METRICS.map(([k, , d]) => [k, d]))),
 });
@@ -67,7 +67,7 @@ export const store = {
 const LIST_KEYS = ['tickers', 'segments', 'lines', 'types', 'regions', 'perks', 'amen', 'nice'];
 const STRING_KEYS = ['drinks', 'dining', 'unknowns', 'sort'];
 const NUMBER_KEYS = ['nights', 'dinners', 'minGt', 'guests'];
-const BOOL_KEYS = ['wifi', 'privRest', 'grat', 'wifiFree', 'adults'];
+const BOOL_KEYS = ['wifi', 'privRest', 'grat', 'wifiFree', 'wifiPref', 'adults'];
 
 export function readUrl() {
   let q;

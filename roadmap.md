@@ -93,6 +93,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D71 | Luxury lever | Budget "More than $800: I want the best" → Budget 90, no cap |
 | D72 | Region penalty | Unconfirmed region −20, other unknowns −12 (Best match) |
 | D73 | Tie-break | Ties between ships: further along your ship-level leanings first, then cheaper (amends D48); cabin ties within a ship still cheaper |
+| D74 | Quiz round 3 | Wi-Fi preference is its own fit term; luxury suites not penalised for ship-wide venues; "best" ties go to the more luxurious ship; South America option |
 
 ---
 
@@ -421,13 +422,13 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 3 | How do you feel about kids on board? (adults only / a grown-up feel, a few are fine / doesn't matter) | no kids | adults-only filter → Adults 95; grown-up → Adults 80 |
 | 4 | What should the ship feel like? (lively and late / fun, not wild / calm and grown-up) | always | → Action 90 + Size 75 / Action 65 / Action 10 (+ Adults 80 without kids) |
 | 5 | Is the ship the destination, or the places you visit? | always | ship → Size 85 + Action 80; places → Size 15 |
-| 6 | Where would you like to go? (multi, incl. Hawaii) | always | regions (untagged ships lose 20, D72) |
+| 6 | Where would you like to go? (multi, incl. Hawaii and South America) | always | regions (untagged ships lose 20, D72) |
 | 7 | How much does the food matter? (a highlight / good is enough) | always | a highlight → All-inclusive 85 |
 | 8 | Any kind of cruise line you'd rule out? (multi, D67) | always | line filter = all lines minus the ruled-out types |
 | 9 | What kind of cabin? | always | cabin types; suite → Suite 90, inside → Suite 15 |
 | 10 | Which suite perks matter? (multi) | suite | perk filters |
 | 11 | What do you usually drink? | always | drinks input |
-| 12 | Do you need Wi-Fi? (rather included / will pay / no) | always | Wi-Fi input; rather included → All-inclusive 70, no filter (D70) |
+| 12 | Do you need Wi-Fi? (rather included / will pay / no) | always | Wi-Fi input; rather included → a Wi-Fi-included term in the fit, no filter (D70, D74) |
 | 13 | What can you spend per person, per night, all-in? | always | max price ×1.15 (D64) + price weight; ≤$200 → Budget 15, $400–800 → Budget 75, more than $800 → Budget 90, no cap (D71) |
 | 14 | Do you get seasick? (yes, easily / no, or only a little) | always | size weight; easily → Size 85 (no size filter) |
 | 15 | Anything you want on the ship? (multi) | always | amenity filters; a new or refitted ship → Brand-new 85 (D69) |
