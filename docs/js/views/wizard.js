@@ -52,10 +52,11 @@ export const QUESTIONS = [
   { id: 'line_type', title: "Any kind of cruise line you'd rather avoid?", multi: true,
     help: "Skip if you're open to all. Kinds you pick score lower. Every line includes a buffet and a main dining room with waiters.",
     options: [
-      ['mainstream', 'Mainstream', 'Carnival, Royal Caribbean, NCL, MSC, Disney. Big ships with the most to do; specialty restaurants extra.'],
-      ['premium', 'Premium', 'Celebrity, Princess, Holland America, Cunard, Azamara. A step up in food and service; specialty restaurants extra.'],
-      ['specialty_included', 'Premium, every restaurant included', 'Oceania, Viking, Virgin Voyages. Specialty restaurants and Wi-Fi in the fare.'],
-      ['luxury', 'Luxury, nearly everything included', 'Regent, Seabourn, Silversea, Crystal, Explora, Ritz-Carlton. Smaller ships; dining, drinks, tips and Wi-Fi included.']],
+      // The lines in each kind are added from the data in initWizard, so the list is always complete.
+      ['mainstream', 'Mainstream', 'Big ships with the most to do; specialty restaurants extra.'],
+      ['premium', 'Premium', 'A step up in food and service; specialty restaurants extra.'],
+      ['specialty_included', 'Premium, every restaurant included', 'Specialty restaurants and Wi-Fi in the fare.'],
+      ['luxury', 'Luxury, nearly everything included', 'Smaller ships; dining, drinks, tips and Wi-Fi included.']],
     apply: (a, s) => {
       const out = new Set(a.flatMap((k) => LINE_TYPES[k] ?? []));
       const keep = Object.values(LINE_TYPES).flat().filter((id) => !out.has(id));
@@ -251,12 +252,18 @@ function advance() {
   $('mode-wizard').scrollIntoView({ block: 'start' });
 }
 
+// "Celebrity Cruises" -> "Celebrity", for the lists of lines under each kind.
+const shortName = (name) => name.replace(/^The /, '').replace(/ \(ocean\)$/, '').replace(/ (Cruise Line|Cruises|Line|Journeys|Yacht Collection|Yacht Club|Yachts|Voyages|at Sea)$/, '');
+
 // The quiz's own name for a line's type (D50), e.g. "Premium, every restaurant included".
 const typeLabel = (lineId) => QUESTIONS.find((q) => q.id === 'line_type').options.find(([k]) => k === TYPE_OF[lineId])?.[1] ?? '';
 
 export function initWizard(goTo, data) {
   LINE_TYPES = lineTypes(data);
   TYPE_OF = Object.fromEntries(Object.entries(LINE_TYPES).flatMap(([type, ids]) => ids.map((id) => [id, type])));
+  const names = Object.fromEntries(data.lines.map((l) => [l.line_id, shortName(l.name)]));
+  const lineType = QUESTIONS.find((q) => q.id === 'line_type');
+  lineType.options = lineType.options.map(([k, label, blurb]) => [k, label, `${(LINE_TYPES[k] ?? []).map((id) => names[id]).sort().join(', ')}. ${blurb}`]);
   $('mode-wizard').onclick = (e) => {
     if (onPersonaClick(e)) return;
     const qs = visible();

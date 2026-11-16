@@ -302,12 +302,13 @@ const FEATURE = Object.fromEntries([...PERKS, ...AMENITIES, ['teen_club', 'Teen 
 const feature = (key) => (FEATURE[key] ?? key.replace(/_/g, ' ')).toLowerCase();
 
 const withArticle = (word) => `${/^[aeiou]/.test(word) ? 'an' : 'a'} ${word}`;
+const KIND = { mainstream: 'mainstream lines', premium: 'premium lines', specialty_included: 'premium lines with every restaurant included', luxury: 'luxury lines' };
 
-function missText(name, state) {
+function missText(name, state, line) {
   const [kind, key] = name.split(':');
   if (kind === 'perk' || kind === 'amen') return `no ${feature(key)}`;
   return {
-    segments: 'a kind of line you\'d avoid', lines: 'a kind of line you\'d avoid', types: `not ${withArticle(CABIN[state.types[0]] ?? 'chosen')} cabin`,
+    segments: 'not a kind of line you picked', lines: `you'd rather avoid ${KIND[line.kind] ?? 'this kind of line'}`, types: `not ${withArticle(CABIN[state.types[0]] ?? 'chosen')} cabin`,
     regions: "doesn't sail where you picked", maxPrice: 'over your budget', minGt: 'ship too small', dining: 'restaurants not included',
     privRest: 'no suites-only restaurant', grat: 'tips not included', wifiFree: 'Wi-Fi not included', adults: 'not adults-only',
     guests: `cabins don't sleep ${state.guests}`,
@@ -321,7 +322,7 @@ function unknownText(name) {
 }
 
 export function costNote(it, state = store.state) {
-  const parts = (it.misses ?? []).map(([k, c]) => `${missText(k, state)} −${c}`);
+  const parts = (it.misses ?? []).map(([k, c]) => `${missText(k, state, it.line)} −${c}`);
   if (it.partial && it.unknowns?.length) parts.push(`no data on ${[...new Set(it.unknowns.map(unknownText))].join(', ')} −${it.unknownCost}`);
   const text = parts.join(' · ');
   return text && text[0].toUpperCase() + text.slice(1);

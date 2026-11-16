@@ -9,6 +9,8 @@ export function createEngine(data) {
   const LINES = Object.fromEntries(data.lines.map((l) => [l.line_id, l]));
   const SHIPS = Object.fromEntries(data.ships.map((s) => [s.ship_id, s]));
   const TIERS = Object.fromEntries(data.tiers.map((t) => [t.tier_id, t]));
+  // Each line's quiz kind (D50), so a card can name the kind a visitor said they'd rather avoid (D77).
+  for (const [kind, ids] of Object.entries(lineTypes(data))) for (const id of ids) LINES[id].kind = kind;
   return { data, LINES, SHIPS, TIERS, compute: (state, opts) => compute(data, LINES, SHIPS, state, opts) };
 }
 
