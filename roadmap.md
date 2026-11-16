@@ -92,6 +92,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D70 | Quiz Wi-Fi | "Rather it were included" is a preference (All-inclusive 70), not the free-Wi-Fi filter |
 | D71 | Luxury lever | Budget "More than $800: I want the best" → Budget 90, no cap |
 | D72 | Region penalty | Unconfirmed region −20, other unknowns −12 (Best match) |
+| D73 | Tie-break | Ties between ships: further along your ship-level leanings first, then cheaper (amends D48); cabin ties within a ship still cheaper |
 
 ---
 

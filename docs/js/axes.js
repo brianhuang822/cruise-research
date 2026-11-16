@@ -74,11 +74,24 @@ export function gap(k, want, at) {
   return Math.abs(want - at);
 }
 
+// Axes measured per ship (every cabin on a ship sits at the same place on them).
+const SHIP_AXES = ['size', 'adults', 'action', 'newness'];
+
+// How far a ship goes past the visitor in the direction they lean, on the ship-level axes they set. Breaks exact
+// ties between ships (D73) so a saturated fit isn't settled by price alone; equal for every cabin of a ship, so ties
+// between a ship's own cabins still go to the cheaper one (D48).
+function beyond(compass, ax) {
+  const keys = SHIP_AXES.filter((k) => compass[k] != null && compass[k] !== 50);
+  if (!keys.length) return 0;
+  return mean(keys.map((k) => (ax[k] == null ? 0 : Math.max(0, (ax[k] - compass[k]) * Math.sign(compass[k] - 50)))));
+}
+
 // Replace the weighted score with compass fit when the visitor has set at least one axis.
 export function applyCompass(items, compass) {
   const keys = AXES.map(([k]) => k).filter((k) => compass[k] != null);
   if (!keys.length) return false;
   for (const it of items) {
+    it.lean = beyond(compass, it.ax);
     // Rank on the exact fit and show it rounded, so rounding doesn't make ties that the cheaper cabin then wins.
     it.score = 100 - mean(keys.map((k) => gap(k, compass[k], it.ax[k])));
     it.fit = Math.round(it.score);

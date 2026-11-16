@@ -70,3 +70,20 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Added:** Windstar (6 ships; Star Seeker pending capacity), Margaritaville at Sea (Paradise, Islander), Paul Gauguin (1), SeaDream (2), Four Seasons Yachts (Four Seasons I, sailing since 20 March 2026).
 - **Weak spots in the new data:** Margaritaville capacities are the published figures and may be maximums, not double occupancy; Windstar inclusions beyond the $16/day hotel service charge and the All-In package are unconfirmed; SeaDream Wi-Fi terms unconfirmed; Four Seasons inclusions vary by source (breakfast, soft drinks and gratuities included; lunch, dinner and alcohol paid). Fare estimates for Windstar and SeaDream rest on trade and aggregator figures.
 - **Deferred:** Celestyal (2 ships, Greece; capacity not found), Star Clippers (3 tall ships), Emerald yachts (Azzurra, Sakara), Orient Express Corinthian (service status not confirmed).
+
+## 2026-11-16 · Data round for the quiz (D73)
+
+- **Regions:** 2026-27 (and announced 2027-28) deployments for 153 more ships, from line newsrooms, ship pages,
+  voyage sitemaps and brochures, with Cruise Industry News where no official page stated it. A region is tagged only
+  for a season or a run of several sailings, never a single repositioning or one world-cruise call. Carnival Luminosa
+  is the one untagged ship.
+- **Oceania is adults-only:** guests must be 18+ on reservations made from 7 Jan 2026; earlier bookings with children
+  are honoured ([Oceania release](https://experience.oceaniacruises.com/oceania-cruises-announces-transition-to-adults-only-experience),
+  [Cruise Industry News](https://cruiseindustrynews.com/cruise-news/2026/01/oceania-announces-transition-to-adults-only/)).
+- **Kids' programmes:** fleetwide on NCL (except Norwegian Spirit: "does not offer Youth Programs"), MSC, Holland
+  America, Cunard, Explora, Princess and Crystal; seasonal on Regent (Club Mariner) and Paul Gauguin (Moana
+  Explorers); none on SeaDream, Silversea or Oceania. Azamara, Windstar and Seabourn stay blank (official sites blocked
+  reading; third-party sources conflict).
+- **Gaps left blank on purpose:** slides, splash areas, mini golf and sports courts for most luxury and small ships.
+  Their official sites block automated reading or build pages with script, and third-party sources are travel agents
+  and forums. Blank means unknown (the quiz counts it as "no data", not a match).

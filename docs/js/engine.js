@@ -115,9 +115,11 @@ function score(items, weights, hasNice) {
 
 const SORT_ASC = new Set(['price']);
 
-// Ties go to the cheaper cabin: all-in price when both are known, else the line's tier order (rank 1 = cheapest).
-// This also picks which cabin leads a ship's card when every cabin on the ship scores the same.
+// Ties between ships go first to the one further along the visitor's ship-level leanings (D73), then to the cheaper
+// cabin: all-in price when both are known, else the line's tier order (rank 1 = cheapest). The cheaper rule also
+// picks which cabin leads a ship's card when every cabin on the ship scores the same (D48).
 function tieBreak(a, b) {
+  if ((a.lean ?? 0) !== (b.lean ?? 0)) return (b.lean ?? 0) - (a.lean ?? 0);
   const pa = a.priced.all_in;
   const pb = b.priced.all_in;
   if (pa != null && pb != null && pa !== pb) return pa - pb;
