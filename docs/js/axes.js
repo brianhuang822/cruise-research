@@ -83,6 +83,7 @@ const SHIP_AXES = ['size', 'adults', 'action', 'newness'];
 
 // Cabin-level axes where leaning up means "more is better" for a tie: pricier, more suite, more included.
 const UP_AXES = ['budget', 'suite', 'inclusive'];
+const GROWN_UP = 70;
 
 // How far past the visitor something sits in the direction they lean, averaged over the given axes they set.
 function beyond(compass, ax, axes, upOnly = false) {
@@ -111,9 +112,12 @@ export function applyCompass(items, compass, { wifiPref = false } = {}) {
   const keys = AXES.map(([k]) => k).filter((k) => compass[k] != null);
   if (!keys.length && !wifiPref) return false;
   setLeans(items, compass);
+  // A visitor who leans grown-up (70+) has said it plainly, so that gap counts twice and size and action alone can't
+  // outvote it (D75, amends D59's equal axes).
+  const counted = compass.adults >= GROWN_UP ? [...keys, 'adults'] : keys;
   for (const it of items) {
     // Rank on the exact fit and show it rounded, so rounding doesn't make ties that the cheaper cabin then wins.
-    it.score = 100 - mean([...keys.map((k) => gap(k, compass[k], it.ax[k])), ...(wifiPref ? [wifiGap(it.row)] : [])]);
+    it.score = 100 - mean([...counted.map((k) => gap(k, compass[k], it.ax[k])), ...(wifiPref ? [wifiGap(it.row)] : [])]);
     it.fit = Math.round(it.score);
     it.used = keys.filter((k) => it.ax[k] != null).length;
     it.of = keys.length;

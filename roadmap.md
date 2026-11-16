@@ -94,6 +94,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D72 | Region penalty | Unconfirmed region −20, other unknowns −12 (Best match) |
 | D73 | Tie-break | Ties between ships: further along your ship-level leanings first, then cheaper (amends D48); cabin ties within a ship still cheaper |
 | D74 | Quiz round 3 | Wi-Fi preference is its own fit term; luxury suites not penalised for ship-wide venues; "best" ties go to the more luxurious ship; South America option |
+| D75 | Grown-up weight | Adults gap counts twice at Adults 70+ (amends D59) |
 
 ---
 
