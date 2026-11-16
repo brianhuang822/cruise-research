@@ -61,7 +61,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D39 | Landing mode | **Help me choose** first and default (supersedes D22's Simple default) |
 | D40 | Quiz results | Live re-rank: priority chips, sort, fine-tune weights; "What matters most?" question |
 | D41 | Food question | Buffet + main dining room vs specialty included |
-| D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere |
+| D42 | Wi-Fi | Quiz asks if it must be free; "Wi-Fi included" filter everywhere (quiz: a preference since D70) |
 | D43 | Declutter | Simple: 3 controls + 3 toggles, rest under "More options"; budget hidden until fares; compact cards; quiz top 5, folded answers/weights |
 | D44 | Name | **Your Kind of Cruise** (was Cruise Cabin Finder): the name should say results follow your preferences |
 | D45 | Simpler Simple | No sliders in Simple (chips only); self-labelled menus; toggles drawn as chips |
@@ -88,6 +88,10 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D66 | Quiz questions | Plain vibe / ship-or-places / food questions replace the slider screen (amends D59); answers set compass positions; nights dropped; seasick ranks, doesn't filter |
 | D67 | Line type | "Any kind of line you'd rule out?" (amends D50) |
 | D68 | Quiz results | ≤2 ships per line lead the list; empty results offer to drop the most restrictive answer |
+| D69 | Quiz round 2 | Exact-fit ranking; card % = ranked match; type name from shared leanings; Hawaii; new-ship option; dead options merged; drop suggestion prefers confirmed ships |
+| D70 | Quiz Wi-Fi | "Rather it were included" is a preference (All-inclusive 70), not the free-Wi-Fi filter |
+| D71 | Luxury lever | Budget "More than $800: I want the best" → Budget 90, no cap |
+| D72 | Region penalty | Unconfirmed region −20, other unknowns −12 (Best match) |
 
 ---
 
@@ -416,16 +420,16 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 3 | How do you feel about kids on board? (adults only / a grown-up feel, a few are fine / doesn't matter) | no kids | adults-only filter → Adults 95; grown-up → Adults 80 |
 | 4 | What should the ship feel like? (lively and late / fun, not wild / calm and grown-up) | always | → Action 90 + Size 75 / Action 65 / Action 10 (+ Adults 80 without kids) |
 | 5 | Is the ship the destination, or the places you visit? | always | ship → Size 85 + Action 80; places → Size 15 |
-| 6 | Where would you like to go? (multi) | always | regions (untagged ships rank lower, D65) |
-| 7 | How much does the food matter? | always | a highlight → All-inclusive 85 |
+| 6 | Where would you like to go? (multi, incl. Hawaii) | always | regions (untagged ships lose 20, D72) |
+| 7 | How much does the food matter? (a highlight / good is enough) | always | a highlight → All-inclusive 85 |
 | 8 | Any kind of cruise line you'd rule out? (multi, D67) | always | line filter = all lines minus the ruled-out types |
 | 9 | What kind of cabin? | always | cabin types; suite → Suite 90, inside → Suite 15 |
 | 10 | Which suite perks matter? (multi) | suite | perk filters |
 | 11 | What do you usually drink? | always | drinks input |
-| 12 | Do you need Wi-Fi, and should it be free? | always | Wi-Fi input / free-Wi-Fi filter |
-| 13 | What can you spend per person, per night, all-in? | always | max price ×1.15 (D64) + price weight; ≤$200 → Budget 15, $400–800 → Budget 75 |
-| 14 | Do you get seasick? | always | size weight; easily → Size 85 (no size filter) |
-| 15 | Anything you want on the ship? (multi) | always | amenity filters |
+| 12 | Do you need Wi-Fi? (rather included / will pay / no) | always | Wi-Fi input; rather included → All-inclusive 70, no filter (D70) |
+| 13 | What can you spend per person, per night, all-in? | always | max price ×1.15 (D64) + price weight; ≤$200 → Budget 15, $400–800 → Budget 75, more than $800 → Budget 90, no cap (D71) |
+| 14 | Do you get seasick? (yes, easily / no, or only a little) | always | size weight; easily → Size 85 (no size filter) |
+| 15 | Anything you want on the ship? (multi) | always | amenity filters; a new or refitted ship → Brand-new 85 (D69) |
 | 16 | Anything for the kids? (multi) | kids coming | amenity filters |
 | 17 | Own 100+ shares of a cruise company? (multi) | always | tickers |
 

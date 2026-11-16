@@ -126,6 +126,8 @@ function tieBreak(a, b) {
 }
 
 export const PARTIAL_PENALTY = 12;
+// A picked region is the one answer a traveller can't bend, so a ship with no region tag loses more (D72, amends D65).
+export const REGION_PENALTY = 20;
 
 // Confirmed matches come first (D52) in every sort except Best match, where unconfirmed rows carry a score
 // penalty instead (D65): a row that passes every filter on known data ranks above one that passes only because
@@ -166,7 +168,10 @@ function compute(data, LINES, SHIPS, state) {
   applyCompass(items, state.compass);
   // Best match (D65, amends D52): a row that passes only because some data is missing loses points instead of
   // ranking below every confirmed row, so thinly researched ships can still win when they fit much better.
-  for (const it of items) if (it.partial && it.score != null) it.score = Math.max(0, it.score - PARTIAL_PENALTY);
+  for (const it of items) {
+    if (!it.partial || it.score == null) continue;
+    it.score = Math.max(0, it.score - (state.regions.length && it.ship.regions == null ? REGION_PENALTY : PARTIAL_PENALTY));
+  }
   return sortItems(items, state.sort);
 }
 

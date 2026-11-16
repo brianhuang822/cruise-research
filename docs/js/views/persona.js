@@ -1,6 +1,6 @@
 // Quiz result card (D63): your kind of cruise line, named like a personality type, with copy and share.
 import { html } from '../dom.js';
-import { AXES } from '../axes.js';
+import { AXES, gap } from '../axes.js';
 import { sortItems } from '../engine.js';
 import { byShip } from './common.js';
 
@@ -14,8 +14,10 @@ const POLES = {
   newness: [['Old-School', 'Traditionalist'], ['Trend-Chasing', 'Trendsetter']],
   suite: [['Practical', 'Pragmatist'], ['Suite-Life', 'Suite Seeker']],
 };
-// How far from the middle (50) a position must sit to count as a leaning.
+// How far from the middle (50) a position must sit to count as a leaning, and how close the best ship must be on
+// that axis for the leaning to name the type (so the name never contradicts the line on the card).
 const MIN_LEAN = 20;
+const SHARED = 20;
 const SITE = 'https://brianhuang822.github.io/cruise-research/';
 
 // The visitor's leanings, strongest first. The quiz answers set the compass (D66), so these are the same
@@ -37,17 +39,25 @@ export function personaName(leans) {
 const siteUrl = () => (location.protocol.startsWith('http') && location.origin !== 'null' ? location.origin + location.pathname : SITE);
 
 // Lines in the order of their best ship by match, whatever sort the list below uses (confirmed matches first, D52).
+// Each carries the match it is ranked by (after the unconfirmed penalty, D65), as the ship cards show it.
 function rankedLines(items) {
   const seen = new Map();
-  for (const { it } of byShip(sortItems([...items], 'score'))) if (!seen.has(it.line.line_id)) seen.set(it.line.line_id, it);
+  for (const { it } of byShip(sortItems([...items], 'score'))) {
+    if (!seen.has(it.line.line_id)) seen.set(it.line.line_id, { ...it, fit: it.fit != null ? Math.round(it.score) : null });
+  }
   return [...seen.values()];
+}
+
+// The card's content: the best line, the runner-ups, the leanings it shares with you and the type they name.
+export function personaFor(items, compass) {
+  const [best, ...rest] = rankedLines(items);
+  const leans = leanings(compass).filter((l) => best.ax[l.k] != null && gap(l.k, compass[l.k], best.ax[l.k]) <= SHARED);
+  return { best, rest, leans, name: personaName(leans) };
 }
 
 export function personaCard(items, compass, typeLabel) {
   if (!items.length) return '';
-  const [best, ...rest] = rankedLines(items);
-  const leans = leanings(compass);
-  const name = personaName(leans);
+  const { best, rest, leans, name } = personaFor(items, compass);
   const pct = (it) => (it.fit != null ? ` ${it.fit}%` : '');
   const text = `My kind of cruise is ${best.line.name}: ${name}${best.fit != null ? ` (${best.fit}% match)` : ''}. What's yours?`;
   const canShare = typeof navigator.share === 'function';
@@ -55,7 +65,7 @@ export function personaCard(items, compass, typeLabel) {
     <p class="persona-kicker">Your kind of cruise is</p>
     <h2 class="persona-line" id="persona-line">${best.line.name}</h2>
     <p class="persona-type">${name}</p>
-    ${leans.length ? html`<ul class="persona-traits" aria-label="Your leanings">${leans.slice(0, 3).map((l) => html`<li>${l.label}</li>`)}</ul>` : ''}
+    ${leans.length ? html`<ul class="persona-traits" aria-label="What you and this line share">${leans.slice(0, 3).map((l) => html`<li>${l.label}</li>`)}</ul>` : ''}
     <p class="persona-facts">${typeLabel(best.line.line_id)} · Best ship: ${best.ship.name}${best.fit != null ? ` · ${best.fit}% match` : ''}</p>
     ${rest.length ? html`<p class="persona-also">Also your kind: ${rest.slice(0, 2).map((it) => `${it.line.name}${pct(it)}`).join(' · ')}</p>` : ''}
     <div class="persona-actions" data-text="${text}" data-url="${siteUrl()}">

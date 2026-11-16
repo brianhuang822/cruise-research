@@ -40,11 +40,10 @@ export const QUESTIONS = [
     axes: (a) => ({ ship: { size: 85, action: 80 }, ports: { size: 15 } })[a] ?? {} },
   { id: 'regions', title: 'Where would you like to go?', help: 'Skip for anywhere. Ships confirmed to sail there rank higher.', multi: true,
     options: [['Caribbean', 'Caribbean & Bahamas'], ['Alaska', 'Alaska'], ['Mediterranean', 'Mediterranean'], ['Northern Europe', 'Northern Europe'],
-      ['Asia', 'Asia'], ['Australia & Pacific', 'Australia & South Pacific'], ['Mexico & Pacific Coast', 'Mexico & Pacific Coast'], ['Bermuda & Canada', 'Bermuda & Canada']],
+      ['Asia', 'Asia'], ['Australia & Pacific', 'Australia & South Pacific'], ['Mexico & Pacific Coast', 'Mexico & Pacific Coast'], ['Bermuda & Canada', 'Bermuda & Canada'], ['Hawaii', 'Hawaii']],
     apply: (a, s) => { s.regions = [...a]; } },
   { id: 'food', title: 'How much does the food matter?', options: [
-      ['highlight', 'A highlight: great restaurants included in the fare'], ['good', 'Good food; paying extra for a special dinner is fine'],
-      ['any', 'Not a big deal']],
+      ['highlight', 'A highlight: great restaurants included in the fare'], ['good', 'Good food is enough; paying extra for a special dinner is fine']],
     apply: () => {},
     axes: (a) => (a === 'highlight' ? { inclusive: 85 } : {}) },
   // D67 (amends D50): rule types out rather than pick them, so first-timers who don't know the types lose nothing.
@@ -81,30 +80,34 @@ export const QUESTIONS = [
   { id: 'drinks', title: 'What do you usually drink?', options: [
       ['none', 'Water, coffee, tea'], ['soft', 'Soda and juice'], ['alcohol', 'Cocktails, beer or wine']],
     apply: (a, s) => { s.drinks = a; } },
-  { id: 'wifi', title: 'Do you need Wi-Fi, and should it be free?', options: [
-      ['free', 'Yes, and it must be free'], ['pay', "Yes, I'll pay for it"], ['no', "I don't need it"]],
-    apply: (a, s) => {
-      s.wifi = a !== 'no';
-      s.wifiFree = a === 'free';
-    } },
+  // D70 (amends D42 for the quiz): "rather it were included" is a preference, not the free-Wi-Fi filter. Wi-Fi is priced
+  // into the all-in fare either way, and the filter emptied about a third of the quizzes that ended with nothing.
+  { id: 'wifi', title: 'Do you need Wi-Fi?', options: [
+      ['free', "Yes, and I'd rather it were included"], ['pay', "Yes, I'll pay for it"], ['no', "I don't need it"]],
+    apply: (a, s) => { s.wifi = a !== 'no'; },
+    axes: (a) => (a === 'free' ? { inclusive: 70 } : {}) },
   { id: 'budget', title: 'What can you spend per person, per night, all-in?',
     help: 'Fare plus tips and the drinks and Wi-Fi you picked. Fares are estimates for now, so each limit has some leeway.',
-    options: [['200', 'Up to about $200'], ['400', 'About $200–400'], ['800', 'About $400–800'], ['none', 'No set limit']],
+    options: [['200', 'Up to about $200'], ['400', 'About $200–400'], ['800', 'About $400–800'],
+      ['top', 'More than $800: I want the best'], ['none', 'No set limit']],
     apply: (a, s) => {
-      s.maxPrice = a === 'none' ? null : Math.round(Number(a) * BUDGET_LEEWAY);
-      s.w.price = { 200: 5, 400: 4, 800: 2, none: 1 }[a];
+      s.maxPrice = a === 'none' || a === 'top' ? null : Math.round(Number(a) * BUDGET_LEEWAY);
+      s.w.price = { 200: 5, 400: 4, 800: 2, top: 1, none: 1 }[a];
     },
-    axes: (a) => ({ 200: { budget: 15 }, 800: { budget: 75 } })[a] ?? {} },
+    // D71: "the best" is the quiz's luxury lever (price is the plainest signal of it); "No set limit" stays neutral.
+    axes: (a) => ({ 200: { budget: 15 }, 800: { budget: 75 }, top: { budget: 90 } })[a] ?? {} },
   // D66: seasickness ranks bigger ships higher instead of hiding every ship under 120,000 GT.
   { id: 'motion', title: 'Do you get seasick?', help: 'Bigger ships usually roll less. The route and a low, midship cabin matter too.',
-    options: [['easily', 'Yes, easily'], ['little', 'A little'], ['no', 'Not at all']],
-    apply: (a, s) => { s.w.gt = { easily: 4, little: 3, no: 1 }[a]; },
+    // D69: "A little" changed nothing once the compass was set, and a mild vote for size cost small ships too much.
+    options: [['easily', 'Yes, easily'], ['no', 'No, or only a little']],
+    apply: (a, s) => { s.w.gt = { easily: 4, no: 1 }[a]; },
     axes: (a) => (a === 'easily' ? { size: 85 } : {}) },
   { id: 'activities', title: 'Anything you want on the ship?', help: 'Ships confirmed to have them rank higher.', multi: true,
     options: [['adults_only_pool', 'Adults-only pool'], ['covered_pool', 'Covered or indoor pool'],
       ['promenade_deck', 'Walk-around promenade deck'], ['running_track', 'Running track'], ['pickleball', 'Pickleball'],
-      ['thermal_free', 'Free thermal spa'], ['self_laundry', 'Self-service laundry']],
-    apply: (a, s) => { s.amen = add(s.amen, a); } },
+      ['thermal_free', 'Free thermal spa'], ['self_laundry', 'Self-service laundry'], ['new_ship', 'A new or recently refitted ship']],
+    apply: (a, s) => { s.amen = add(s.amen, a.filter((x) => x !== 'new_ship')); },
+    axes: (a) => (a.includes('new_ship') ? { newness: 85 } : {}) },
   { id: 'kids', title: 'Anything for the kids?', multi: true, show: (ans) => ans.who === 'family',
     options: [['water_slides', 'Water slides'], ['splash_area', 'Splash area for little ones'], ['teen_club', 'Teen club']],
     apply: (a, s) => { s.amen = add(s.amen, a); } },
@@ -174,15 +177,18 @@ function spread(groups) {
   return [...first, ...later];
 }
 
-// Nothing fits: find the one answer whose removal lets the most ships through, so the visitor can drop it (D68).
+// Nothing fits: find the one answer whose removal lets the most confirmed ships through (then the most ships), so
+// the visitor can drop it without landing on a list of unconfirmed matches (D68).
 function blockingAnswer() {
   let best = null;
   for (const q of visible()) {
     if (answers[q.id] == null) continue;
     const rest = { ...answers };
     delete rest[q.id];
-    const n = byShip(engine.compute({ ...stateFromAnswers(rest), sort: 'score' })).length;
-    if (n && (!best || n > best.n)) best = { q, n };
+    const groups = byShip(engine.compute({ ...stateFromAnswers(rest), sort: 'score' }));
+    const n = groups.length;
+    const sure = groups.filter((g) => !g.it.partial).length;
+    if (n && (!best || sure > best.sure || (sure === best.sure && n > best.n))) best = { q, n, sure };
   }
   return best;
 }
@@ -191,7 +197,7 @@ function emptyView() {
   const block = blockingAnswer();
   return html`<div class="empty">
     <p>Nothing fits every answer.</p>
-    ${block ? html`<p>Your answer to “${block.q.title}” rules out the most. Without it, ${block.n} ${block.n === 1 ? 'ship fits' : 'ships fit'}.</p>
+    ${block ? html`<p>Your answer to “${block.q.title}” rules out the most. Without it, ${block.n} ${block.n === 1 ? 'ship fits' : 'ships fit'}${block.sure < block.n ? ` (${block.sure} confirmed)` : ''}.</p>
       <button type="button" class="btn-primary" data-drop="${block.q.id}">Drop that answer</button>` : ''}
   </div>`;
 }

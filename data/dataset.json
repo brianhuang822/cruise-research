@@ -78,7 +78,7 @@
    "notes": "15 drinks/day up to $15 each, 1-device Wi-Fi, crew appreciation, 4 casual meals. $75 on Sun and Star Princess; +$5 if bought onboard.",
    "price_pppd": 70,
    "sources": [
-    "s286"
+    "s287"
    ]
   },
   {
@@ -94,7 +94,7 @@
    "notes": "Unlimited drinks up to $20, 4-device Wi-Fi, unlimited specialty dining, crew appreciation, excursion credit, photos. $110 on Sun and Star Princess.",
    "price_pppd": 105,
    "sources": [
-    "s286"
+    "s287"
    ]
   },
   {
@@ -111,7 +111,7 @@
    "price_pppd": 99,
    "sources": [
     "s245",
-    "s336"
+    "s337"
    ]
   }
  ],
@@ -1152,7 +1152,7 @@
     "sources": [
      "s174",
      "s227",
-     "s335"
+     "s336"
     ],
     "suite": null
    },
@@ -1185,7 +1185,7 @@
     "samples": "Trade press: Ocean Terrace Suites roughly $450-900/night; lowest entry per-diem of Explora/Silversea/Seabourn",
     "sources": [
      "s131",
-     "s333"
+     "s334"
     ],
     "suite": null
    },
@@ -1202,7 +1202,7 @@
     "samples": "Per suite: about $1,900/night entry, just under $3,000 typical, about $3,350 peak; $2,970/2 = $1,485 per person, plus the line's suggested $250 per person per day for food and drink because lunch and dinner aren't in the fare",
     "sources": [
      "s97",
-     "s339"
+     "s340"
     ],
     "suite": null
    },
@@ -1285,7 +1285,7 @@
     "samples": "Veranda: trade range $310-420/night; 10-night Miami veranda $7,899 ($790, airfare included); median $420",
     "sources": [
      "s6",
-     "s275"
+     "s276"
     ],
     "suite": null
    },
@@ -1301,7 +1301,7 @@
     "oceanview": null,
     "samples": "7-night Tahiti & Society Islands, October 2026, from $6,630 per person ($947)",
     "sources": [
-     "s285"
+     "s286"
     ],
     "suite": null
    },
@@ -1335,7 +1335,7 @@
     "sources": [
      "s6",
      "s131",
-     "s318"
+     "s319"
     ],
     "suite": null
    },
@@ -1351,8 +1351,8 @@
     "oceanview": null,
     "samples": "7-night Terrace Suite fares $11,100-13,200 ($1,586-1,886); median $1,657",
     "sources": [
-     "s298",
-     "s299"
+     "s299",
+     "s300"
     ],
     "suite": null
    },
@@ -1402,7 +1402,7 @@
     "oceanview": null,
     "samples": "7-night voyages from about $3,699 per person ($528)",
     "sources": [
-     "s332"
+     "s333"
     ],
     "suite": null
    },
@@ -1436,7 +1436,7 @@
     "samples": "Iconic Western Mediterranean, 8 days (7 nights) from $2,499",
     "sources": [
      "s16",
-     "s343"
+     "s344"
     ],
     "suite": null
    },
@@ -1469,13 +1469,13 @@
     "samples": "Trade guides: fares about $250-500/night with sail ships at the low end; 7-night Caribbean from about $1,400 ($200); Mediterranean about $200/day",
     "sources": [
      "s213",
-     "s332"
+     "s333"
     ],
     "suite": null
    }
   ]
  },
- "last_updated": "2026-11-15",
+ "last_updated": "2026-11-16",
  "lines": [
   {
    "drink_pkg_pppd": null,
@@ -1494,7 +1494,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meal_price": 50,
    "ticker": null,
@@ -1562,7 +1562,7 @@
    "soft_pkg_pppd_est": 22.2,
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -1656,7 +1656,7 @@
     "s95",
     "s104",
     "s105",
-    "s339"
+    "s340"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -1745,7 +1745,7 @@
    "soft_pkg_pppd_est": 22.2,
    "sources": [
     "s199",
-    "s273"
+    "s274"
    ],
    "specialty_meal_price": null,
    "ticker": "NCLH",
@@ -1770,7 +1770,7 @@
     "s49",
     "s203",
     "s215",
-    "s273"
+    "s274"
    ],
    "specialty_meal_price": null,
    "ticker": "NCLH",
@@ -1793,8 +1793,8 @@
    "soft_pkg_pppd_est": 22.2,
    "sources": [
     "s64",
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -1817,7 +1817,7 @@
    "sources": [
     "s155",
     "s211",
-    "s286"
+    "s287"
    ],
    "specialty_meal_price": 66,
    "ticker": "CCL",
@@ -1840,7 +1840,7 @@
    "sources": [
     "s49",
     "s135",
-    "s273"
+    "s274"
    ],
    "specialty_meal_price": null,
    "ticker": "NCLH",
@@ -1863,7 +1863,7 @@
    "soft_pkg_pppd_est": 22.2,
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -1886,8 +1886,8 @@
    "sources": [
     "s84",
     "s106",
-    "s314",
-    "s317"
+    "s315",
+    "s318"
    ],
    "specialty_meal_price": 72,
    "ticker": "RCL",
@@ -1959,8 +1959,8 @@
    "sources": [
     "s46",
     "s106",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meal_price": null,
    "ticker": "RCL",
@@ -2007,7 +2007,7 @@
    "sources": [
     "s132",
     "s201",
-    "s349"
+    "s350"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -2030,9 +2030,9 @@
    "soft_pkg_pppd_est": 22.2,
    "sources": [
     "s76",
-    "s336",
-    "s354",
-    "s355"
+    "s337",
+    "s355",
+    "s356"
    ],
    "specialty_meal_price": null,
    "ticker": null,
@@ -2068,7 +2068,7 @@
    "ship_id": "azamara-journey",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2105,7 +2105,7 @@
    "ship_id": "azamara-journey",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2142,7 +2142,7 @@
    "ship_id": "azamara-journey",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2180,7 +2180,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -2254,7 +2254,7 @@
    "ship_id": "azamara-onward",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2291,7 +2291,7 @@
    "ship_id": "azamara-onward",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2328,7 +2328,7 @@
    "ship_id": "azamara-onward",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2366,7 +2366,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -2440,7 +2440,7 @@
    "ship_id": "azamara-pursuit",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2477,7 +2477,7 @@
    "ship_id": "azamara-pursuit",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2514,7 +2514,7 @@
    "ship_id": "azamara-pursuit",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2552,7 +2552,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -2626,7 +2626,7 @@
    "ship_id": "azamara-quest",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2663,7 +2663,7 @@
    "ship_id": "azamara-quest",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2700,7 +2700,7 @@
    "ship_id": "azamara-quest",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -2738,7 +2738,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -12646,7 +12646,7 @@
    "ship_id": "crystal-serenity",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -12683,7 +12683,7 @@
    "ship_id": "crystal-serenity",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -12720,7 +12720,7 @@
    "ship_id": "crystal-serenity",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -12757,7 +12757,7 @@
    "ship_id": "crystal-symphony",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -12794,7 +12794,7 @@
    "ship_id": "crystal-symphony",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -12831,7 +12831,7 @@
    "ship_id": "crystal-symphony",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -12870,7 +12870,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 243,
@@ -12909,7 +12909,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 201,
@@ -12948,7 +12948,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 269,
@@ -12988,7 +12988,7 @@
     "s121",
     "s205",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13029,7 +13029,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 513,
@@ -13070,7 +13070,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13109,7 +13109,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 243,
@@ -13148,7 +13148,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 201,
@@ -13187,7 +13187,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 269,
@@ -13227,7 +13227,7 @@
     "s121",
     "s205",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13268,7 +13268,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 513,
@@ -13309,7 +13309,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13348,7 +13348,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 243,
@@ -13387,7 +13387,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 201,
@@ -13426,7 +13426,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 269,
@@ -13466,7 +13466,7 @@
     "s121",
     "s205",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13507,7 +13507,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 513,
@@ -13548,7 +13548,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13587,7 +13587,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 243,
@@ -13626,7 +13626,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 201,
@@ -13665,7 +13665,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 269,
@@ -13705,7 +13705,7 @@
     "s121",
     "s205",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -13746,7 +13746,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 513,
@@ -13787,7 +13787,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -15600,7 +15600,7 @@
    "ship_id": "four-seasons-i",
    "sources": [
     "s95",
-    "s339"
+    "s340"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -15637,7 +15637,7 @@
    "ship_id": "four-seasons-i",
    "sources": [
     "s105",
-    "s339"
+    "s340"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -15677,7 +15677,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -15717,7 +15717,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -15794,7 +15794,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -15836,7 +15836,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -15876,7 +15876,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -15916,7 +15916,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -15993,7 +15993,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -16033,7 +16033,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -16073,7 +16073,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 1357,
@@ -16113,7 +16113,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -16153,7 +16153,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -16230,7 +16230,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -16272,7 +16272,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -16312,7 +16312,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -16352,7 +16352,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -16429,7 +16429,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -16469,7 +16469,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -16509,7 +16509,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 1357,
@@ -16549,7 +16549,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -16589,7 +16589,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -16666,7 +16666,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -16708,7 +16708,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -16748,7 +16748,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -16788,7 +16788,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -16865,7 +16865,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -16907,7 +16907,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -16947,7 +16947,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -16987,7 +16987,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -17064,7 +17064,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -17104,7 +17104,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -17144,7 +17144,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 1357,
@@ -17184,7 +17184,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -17224,7 +17224,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -17301,7 +17301,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -17343,7 +17343,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -17383,7 +17383,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -17423,7 +17423,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -17500,7 +17500,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -17542,7 +17542,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -17582,7 +17582,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -17622,7 +17622,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -17699,7 +17699,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -17741,7 +17741,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -17781,7 +17781,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -17821,7 +17821,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -17898,7 +17898,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -17940,7 +17940,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -21622,7 +21622,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -21662,7 +21662,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -21735,7 +21735,7 @@
    "ship_id": "norwegian-aqua",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -21775,7 +21775,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -21854,7 +21854,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -21894,7 +21894,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -21934,7 +21934,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -22007,7 +22007,7 @@
    "ship_id": "norwegian-bliss",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22047,7 +22047,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22126,7 +22126,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -22166,7 +22166,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -22206,7 +22206,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -22282,7 +22282,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22361,7 +22361,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -22401,7 +22401,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -22441,7 +22441,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -22517,7 +22517,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22557,7 +22557,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -22597,7 +22597,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -22670,7 +22670,7 @@
    "ship_id": "norwegian-encore",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22710,7 +22710,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -22789,7 +22789,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -22829,7 +22829,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -22869,7 +22869,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -22945,7 +22945,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -23024,7 +23024,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -23064,7 +23064,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -23104,7 +23104,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -23177,7 +23177,7 @@
    "ship_id": "norwegian-escape",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -23217,7 +23217,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -23296,7 +23296,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -23336,7 +23336,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -23376,7 +23376,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -23452,7 +23452,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -23535,7 +23535,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -23575,7 +23575,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -23615,7 +23615,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -23691,7 +23691,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -23770,7 +23770,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -23810,7 +23810,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -23850,7 +23850,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -23926,7 +23926,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24009,7 +24009,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -24049,7 +24049,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -24089,7 +24089,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -24165,7 +24165,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24248,7 +24248,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -24288,7 +24288,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -24328,7 +24328,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -24401,7 +24401,7 @@
    "ship_id": "norwegian-joy",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24441,7 +24441,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24520,7 +24520,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -24560,7 +24560,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -24600,7 +24600,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -24673,7 +24673,7 @@
    "ship_id": "norwegian-luna",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24713,7 +24713,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -24792,7 +24792,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -24832,7 +24832,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -24872,7 +24872,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -24948,7 +24948,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25031,7 +25031,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -25071,7 +25071,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -25111,7 +25111,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -25184,7 +25184,7 @@
    "ship_id": "norwegian-prima",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25224,7 +25224,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25303,7 +25303,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -25343,7 +25343,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -25383,7 +25383,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -25459,7 +25459,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25499,7 +25499,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -25539,7 +25539,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -25615,7 +25615,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25655,7 +25655,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -25695,7 +25695,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -25771,7 +25771,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25811,7 +25811,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -25851,7 +25851,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -25924,7 +25924,7 @@
    "ship_id": "norwegian-viva",
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -25964,7 +25964,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -26043,7 +26043,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -26083,7 +26083,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -26123,7 +26123,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -26199,7 +26199,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -26238,8 +26238,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -26278,8 +26278,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -26318,8 +26318,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -26359,8 +26359,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26400,8 +26400,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26440,8 +26440,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -26480,8 +26480,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -26520,8 +26520,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -26560,8 +26560,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -26601,8 +26601,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26642,8 +26642,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26682,8 +26682,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -26722,8 +26722,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -26762,8 +26762,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -26802,8 +26802,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -26843,8 +26843,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26884,8 +26884,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -26924,8 +26924,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -26964,8 +26964,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -27004,8 +27004,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -27044,8 +27044,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -27085,8 +27085,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27126,8 +27126,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27166,8 +27166,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -27206,8 +27206,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -27246,8 +27246,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -27286,8 +27286,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -27327,8 +27327,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27368,8 +27368,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27408,8 +27408,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -27448,8 +27448,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -27488,8 +27488,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -27528,8 +27528,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -27569,8 +27569,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27610,8 +27610,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27650,8 +27650,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -27690,8 +27690,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -27730,8 +27730,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -27770,8 +27770,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -27811,8 +27811,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27852,8 +27852,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -27892,8 +27892,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -27929,8 +27929,8 @@
    "row_id": "paul-gauguin__pg-oceanview",
    "ship_id": "paul-gauguin",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -27966,8 +27966,8 @@
    "row_id": "paul-gauguin__pg-balcony",
    "ship_id": "paul-gauguin",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -28003,8 +28003,8 @@
    "row_id": "paul-gauguin__pg-suites",
    "ship_id": "paul-gauguin",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": 588,
@@ -28044,7 +28044,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -28084,7 +28084,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -28124,7 +28124,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28164,7 +28164,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28204,7 +28204,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28244,7 +28244,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28284,7 +28284,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -28324,7 +28324,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -28364,7 +28364,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28404,7 +28404,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28444,7 +28444,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28484,7 +28484,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28524,7 +28524,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -28564,7 +28564,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -28604,7 +28604,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28644,7 +28644,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28684,7 +28684,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28724,7 +28724,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28764,7 +28764,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -28804,7 +28804,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -28844,7 +28844,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -28884,7 +28884,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28924,7 +28924,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -28964,7 +28964,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29004,7 +29004,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -29044,7 +29044,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -29084,7 +29084,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29124,7 +29124,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29164,7 +29164,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29204,7 +29204,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29244,7 +29244,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -29284,7 +29284,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -29324,7 +29324,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29364,7 +29364,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29404,7 +29404,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29444,7 +29444,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29484,7 +29484,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -29524,7 +29524,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -29564,7 +29564,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29604,7 +29604,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29644,7 +29644,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29684,7 +29684,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29724,7 +29724,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -29764,7 +29764,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -29804,7 +29804,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29844,7 +29844,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29884,7 +29884,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -29924,7 +29924,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -29964,7 +29964,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -30004,7 +30004,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -30044,7 +30044,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30084,7 +30084,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30124,7 +30124,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30164,7 +30164,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30204,7 +30204,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -30244,7 +30244,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -30284,7 +30284,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30324,7 +30324,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30364,7 +30364,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30404,7 +30404,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30444,7 +30444,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -30484,7 +30484,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -30524,7 +30524,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30564,7 +30564,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30601,9 +30601,9 @@
    "ship_id": "regal-princess",
    "sources": [
     "s206",
-    "s286",
-    "s297",
-    "s328"
+    "s287",
+    "s298",
+    "s329"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -30643,7 +30643,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -30683,7 +30683,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -30723,7 +30723,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30763,7 +30763,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -30800,9 +30800,9 @@
    "ship_id": "royal-princess",
    "sources": [
     "s206",
-    "s286",
-    "s297",
-    "s328"
+    "s287",
+    "s298",
+    "s329"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -30842,7 +30842,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -30882,7 +30882,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -30922,7 +30922,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -30962,7 +30962,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31002,7 +31002,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31042,7 +31042,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31082,7 +31082,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -31122,7 +31122,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -31162,7 +31162,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31202,7 +31202,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31242,7 +31242,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31282,7 +31282,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31322,7 +31322,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -31362,7 +31362,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -31402,7 +31402,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31442,7 +31442,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31482,7 +31482,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31522,7 +31522,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31562,7 +31562,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -31602,7 +31602,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -31642,7 +31642,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31682,7 +31682,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31719,9 +31719,9 @@
    "ship_id": "star-princess",
    "sources": [
     "s206",
-    "s286",
-    "s297",
-    "s328"
+    "s287",
+    "s298",
+    "s329"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -31761,7 +31761,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -31801,7 +31801,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -31841,7 +31841,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -31881,7 +31881,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -31918,9 +31918,9 @@
    "ship_id": "sun-princess",
    "sources": [
     "s206",
-    "s286",
-    "s297",
-    "s328"
+    "s287",
+    "s298",
+    "s329"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -31957,7 +31957,7 @@
    "ship_id": "seven-seas-explorer",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -31994,7 +31994,7 @@
    "ship_id": "seven-seas-explorer",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32031,9 +32031,9 @@
    "ship_id": "seven-seas-explorer",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32070,9 +32070,9 @@
    "ship_id": "seven-seas-explorer",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32109,7 +32109,7 @@
    "ship_id": "seven-seas-grandeur",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32146,7 +32146,7 @@
    "ship_id": "seven-seas-grandeur",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32183,9 +32183,9 @@
    "ship_id": "seven-seas-grandeur",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32222,9 +32222,9 @@
    "ship_id": "seven-seas-grandeur",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32261,7 +32261,7 @@
    "ship_id": "seven-seas-mariner",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32298,7 +32298,7 @@
    "ship_id": "seven-seas-mariner",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32335,9 +32335,9 @@
    "ship_id": "seven-seas-mariner",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32374,9 +32374,9 @@
    "ship_id": "seven-seas-mariner",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32413,7 +32413,7 @@
    "ship_id": "seven-seas-navigator",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32450,7 +32450,7 @@
    "ship_id": "seven-seas-navigator",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32487,9 +32487,9 @@
    "ship_id": "seven-seas-navigator",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32526,9 +32526,9 @@
    "ship_id": "seven-seas-navigator",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32565,7 +32565,7 @@
    "ship_id": "seven-seas-splendor",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32602,7 +32602,7 @@
    "ship_id": "seven-seas-splendor",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32639,9 +32639,9 @@
    "ship_id": "seven-seas-splendor",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32678,9 +32678,9 @@
    "ship_id": "seven-seas-splendor",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32717,7 +32717,7 @@
    "ship_id": "seven-seas-voyager",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32754,7 +32754,7 @@
    "ship_id": "seven-seas-voyager",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -32791,9 +32791,9 @@
    "ship_id": "seven-seas-voyager",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -32830,9 +32830,9 @@
    "ship_id": "seven-seas-voyager",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -32869,7 +32869,7 @@
    "ship_id": "ritz-carlton-evrima",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 312,
@@ -32906,7 +32906,7 @@
    "ship_id": "ritz-carlton-evrima",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 484,
@@ -32943,7 +32943,7 @@
    "ship_id": "ritz-carlton-evrima",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 732,
@@ -32980,7 +32980,7 @@
    "ship_id": "ritz-carlton-ilma",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 312,
@@ -33017,7 +33017,7 @@
    "ship_id": "ritz-carlton-ilma",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 484,
@@ -33054,7 +33054,7 @@
    "ship_id": "ritz-carlton-ilma",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 732,
@@ -33091,7 +33091,7 @@
    "ship_id": "ritz-carlton-luminara",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 312,
@@ -33128,7 +33128,7 @@
    "ship_id": "ritz-carlton-luminara",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 484,
@@ -33165,7 +33165,7 @@
    "ship_id": "ritz-carlton-luminara",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 732,
@@ -33202,7 +33202,7 @@
    "ship_id": "adventure-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33239,7 +33239,7 @@
    "ship_id": "adventure-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -33276,8 +33276,8 @@
    "ship_id": "adventure-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33319,8 +33319,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33363,8 +33363,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33409,8 +33409,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -33447,7 +33447,7 @@
    "ship_id": "allure-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33484,7 +33484,7 @@
    "ship_id": "allure-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -33521,8 +33521,8 @@
    "ship_id": "allure-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33559,8 +33559,8 @@
    "ship_id": "allure-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33597,8 +33597,8 @@
    "ship_id": "allure-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33637,8 +33637,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -33675,7 +33675,7 @@
    "ship_id": "anthem-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33712,7 +33712,7 @@
    "ship_id": "anthem-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -33749,8 +33749,8 @@
    "ship_id": "anthem-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33787,8 +33787,8 @@
    "ship_id": "anthem-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33825,8 +33825,8 @@
    "ship_id": "anthem-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33865,8 +33865,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -33903,7 +33903,7 @@
    "ship_id": "brilliance-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -33940,7 +33940,7 @@
    "ship_id": "brilliance-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -33977,8 +33977,8 @@
    "ship_id": "brilliance-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34020,8 +34020,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34064,8 +34064,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34110,8 +34110,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -34148,7 +34148,7 @@
    "ship_id": "enchantment-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34185,7 +34185,7 @@
    "ship_id": "enchantment-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -34222,8 +34222,8 @@
    "ship_id": "enchantment-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34265,8 +34265,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34309,8 +34309,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34355,8 +34355,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -34393,7 +34393,7 @@
    "ship_id": "explorer-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34430,7 +34430,7 @@
    "ship_id": "explorer-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -34467,8 +34467,8 @@
    "ship_id": "explorer-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34510,8 +34510,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34554,8 +34554,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34600,8 +34600,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -34638,7 +34638,7 @@
    "ship_id": "freedom-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34675,7 +34675,7 @@
    "ship_id": "freedom-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -34712,8 +34712,8 @@
    "ship_id": "freedom-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34755,8 +34755,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34799,8 +34799,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34845,8 +34845,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -34883,7 +34883,7 @@
    "ship_id": "grandeur-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -34920,7 +34920,7 @@
    "ship_id": "grandeur-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -34957,8 +34957,8 @@
    "ship_id": "grandeur-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35000,8 +35000,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35044,8 +35044,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35090,8 +35090,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -35128,7 +35128,7 @@
    "ship_id": "harmony-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35165,7 +35165,7 @@
    "ship_id": "harmony-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -35202,8 +35202,8 @@
    "ship_id": "harmony-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35240,8 +35240,8 @@
    "ship_id": "harmony-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35278,8 +35278,8 @@
    "ship_id": "harmony-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35318,8 +35318,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -35356,7 +35356,7 @@
    "ship_id": "icon-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35393,7 +35393,7 @@
    "ship_id": "icon-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -35430,8 +35430,8 @@
    "ship_id": "icon-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35468,8 +35468,8 @@
    "ship_id": "icon-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35506,8 +35506,8 @@
    "ship_id": "icon-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35546,8 +35546,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -35584,7 +35584,7 @@
    "ship_id": "independence-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35621,7 +35621,7 @@
    "ship_id": "independence-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -35658,8 +35658,8 @@
    "ship_id": "independence-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35701,8 +35701,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35745,8 +35745,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35791,8 +35791,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -35829,7 +35829,7 @@
    "ship_id": "jewel-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35866,7 +35866,7 @@
    "ship_id": "jewel-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -35903,8 +35903,8 @@
    "ship_id": "jewel-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35946,8 +35946,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -35990,8 +35990,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36036,8 +36036,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -36074,7 +36074,7 @@
    "ship_id": "legend-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36111,7 +36111,7 @@
    "ship_id": "legend-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -36148,8 +36148,8 @@
    "ship_id": "legend-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36186,8 +36186,8 @@
    "ship_id": "legend-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36224,8 +36224,8 @@
    "ship_id": "legend-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36264,8 +36264,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -36302,7 +36302,7 @@
    "ship_id": "liberty-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36339,7 +36339,7 @@
    "ship_id": "liberty-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -36376,8 +36376,8 @@
    "ship_id": "liberty-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36419,8 +36419,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36463,8 +36463,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36509,8 +36509,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -36547,7 +36547,7 @@
    "ship_id": "mariner-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36584,7 +36584,7 @@
    "ship_id": "mariner-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -36621,8 +36621,8 @@
    "ship_id": "mariner-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36664,8 +36664,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36708,8 +36708,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36754,8 +36754,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -36792,7 +36792,7 @@
    "ship_id": "navigator-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36829,7 +36829,7 @@
    "ship_id": "navigator-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -36866,8 +36866,8 @@
    "ship_id": "navigator-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36909,8 +36909,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36953,8 +36953,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -36999,8 +36999,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -37037,7 +37037,7 @@
    "ship_id": "oasis-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37074,7 +37074,7 @@
    "ship_id": "oasis-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -37111,8 +37111,8 @@
    "ship_id": "oasis-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37149,8 +37149,8 @@
    "ship_id": "oasis-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37187,8 +37187,8 @@
    "ship_id": "oasis-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37227,8 +37227,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -37265,7 +37265,7 @@
    "ship_id": "odyssey-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37302,7 +37302,7 @@
    "ship_id": "odyssey-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -37339,8 +37339,8 @@
    "ship_id": "odyssey-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37377,8 +37377,8 @@
    "ship_id": "odyssey-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37415,8 +37415,8 @@
    "ship_id": "odyssey-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37455,8 +37455,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -37493,7 +37493,7 @@
    "ship_id": "ovation-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37530,7 +37530,7 @@
    "ship_id": "ovation-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -37567,8 +37567,8 @@
    "ship_id": "ovation-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37605,8 +37605,8 @@
    "ship_id": "ovation-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37643,8 +37643,8 @@
    "ship_id": "ovation-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37683,8 +37683,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -37721,7 +37721,7 @@
    "ship_id": "quantum-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37758,7 +37758,7 @@
    "ship_id": "quantum-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -37795,8 +37795,8 @@
    "ship_id": "quantum-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37833,8 +37833,8 @@
    "ship_id": "quantum-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37871,8 +37871,8 @@
    "ship_id": "quantum-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37911,8 +37911,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -37949,7 +37949,7 @@
    "ship_id": "radiance-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -37986,7 +37986,7 @@
    "ship_id": "radiance-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -38023,8 +38023,8 @@
    "ship_id": "radiance-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38066,8 +38066,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38110,8 +38110,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38156,8 +38156,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -38194,7 +38194,7 @@
    "ship_id": "rhapsody-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38231,7 +38231,7 @@
    "ship_id": "rhapsody-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -38268,8 +38268,8 @@
    "ship_id": "rhapsody-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38311,8 +38311,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38355,8 +38355,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38401,8 +38401,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -38439,7 +38439,7 @@
    "ship_id": "serenade-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38476,7 +38476,7 @@
    "ship_id": "serenade-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -38513,8 +38513,8 @@
    "ship_id": "serenade-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38556,8 +38556,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38600,8 +38600,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38646,8 +38646,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -38684,7 +38684,7 @@
    "ship_id": "spectrum-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38721,7 +38721,7 @@
    "ship_id": "spectrum-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -38758,8 +38758,8 @@
    "ship_id": "spectrum-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38796,8 +38796,8 @@
    "ship_id": "spectrum-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38834,8 +38834,8 @@
    "ship_id": "spectrum-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38874,8 +38874,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -38912,7 +38912,7 @@
    "ship_id": "star-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -38949,7 +38949,7 @@
    "ship_id": "star-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -38986,8 +38986,8 @@
    "ship_id": "star-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39024,8 +39024,8 @@
    "ship_id": "star-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39062,8 +39062,8 @@
    "ship_id": "star-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39102,8 +39102,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -39140,7 +39140,7 @@
    "ship_id": "symphony-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39177,7 +39177,7 @@
    "ship_id": "symphony-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -39214,8 +39214,8 @@
    "ship_id": "symphony-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39252,8 +39252,8 @@
    "ship_id": "symphony-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39290,8 +39290,8 @@
    "ship_id": "symphony-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39330,8 +39330,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -39368,7 +39368,7 @@
    "ship_id": "utopia-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39405,7 +39405,7 @@
    "ship_id": "utopia-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -39442,8 +39442,8 @@
    "ship_id": "utopia-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39480,8 +39480,8 @@
    "ship_id": "utopia-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39518,8 +39518,8 @@
    "ship_id": "utopia-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39558,8 +39558,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -39596,7 +39596,7 @@
    "ship_id": "vision-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39633,7 +39633,7 @@
    "ship_id": "vision-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -39670,8 +39670,8 @@
    "ship_id": "vision-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39713,8 +39713,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39757,8 +39757,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39803,8 +39803,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -39841,7 +39841,7 @@
    "ship_id": "voyager-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39878,7 +39878,7 @@
    "ship_id": "voyager-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -39915,8 +39915,8 @@
    "ship_id": "voyager-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -39958,8 +39958,8 @@
     "s38",
     "s39",
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40002,8 +40002,8 @@
     "s38",
     "s39",
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40048,8 +40048,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -40086,7 +40086,7 @@
    "ship_id": "wonder-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40123,7 +40123,7 @@
    "ship_id": "wonder-of-the-seas",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -40160,8 +40160,8 @@
    "ship_id": "wonder-of-the-seas",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40198,8 +40198,8 @@
    "ship_id": "wonder-of-the-seas",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40236,8 +40236,8 @@
    "ship_id": "wonder-of-the-seas",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -40276,8 +40276,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -40941,8 +40941,8 @@
    "ship_id": "silver-dawn",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -40979,7 +40979,7 @@
    "ship_id": "silver-dawn",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41017,7 +41017,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41054,8 +41054,8 @@
    "ship_id": "silver-moon",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41092,7 +41092,7 @@
    "ship_id": "silver-moon",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41130,7 +41130,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41167,8 +41167,8 @@
    "ship_id": "silver-muse",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41205,7 +41205,7 @@
    "ship_id": "silver-muse",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41243,7 +41243,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41280,8 +41280,8 @@
    "ship_id": "silver-nova",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41318,7 +41318,7 @@
    "ship_id": "silver-nova",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41356,7 +41356,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41393,8 +41393,8 @@
    "ship_id": "silver-ray",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41431,7 +41431,7 @@
    "ship_id": "silver-ray",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41469,7 +41469,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41506,8 +41506,8 @@
    "ship_id": "silver-shadow",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41544,7 +41544,7 @@
    "ship_id": "silver-shadow",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41582,7 +41582,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41619,8 +41619,8 @@
    "ship_id": "silver-spirit",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41657,7 +41657,7 @@
    "ship_id": "silver-spirit",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41695,7 +41695,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41732,8 +41732,8 @@
    "ship_id": "silver-whisper",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41770,7 +41770,7 @@
    "ship_id": "silver-whisper",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41808,7 +41808,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -41848,7 +41848,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41888,7 +41888,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41928,7 +41928,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -41966,8 +41966,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42005,8 +42005,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42046,7 +42046,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42086,7 +42086,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42126,7 +42126,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42164,8 +42164,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42203,8 +42203,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42244,7 +42244,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42284,7 +42284,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42324,7 +42324,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42362,8 +42362,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42401,8 +42401,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42442,7 +42442,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42482,7 +42482,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42522,7 +42522,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42560,8 +42560,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42599,8 +42599,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42640,7 +42640,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42680,7 +42680,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42720,7 +42720,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42758,8 +42758,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42797,8 +42797,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42838,7 +42838,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42878,7 +42878,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42918,7 +42918,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -42956,8 +42956,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -42995,8 +42995,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43036,7 +43036,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43076,7 +43076,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43116,7 +43116,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43154,8 +43154,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -43193,8 +43193,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43234,7 +43234,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43274,7 +43274,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43314,7 +43314,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43352,8 +43352,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -43391,8 +43391,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43432,7 +43432,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43472,7 +43472,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43512,7 +43512,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43550,8 +43550,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -43589,8 +43589,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43630,7 +43630,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43670,7 +43670,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43710,7 +43710,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43748,8 +43748,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -43787,8 +43787,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43828,7 +43828,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43868,7 +43868,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43908,7 +43908,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -43946,8 +43946,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -43985,8 +43985,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -44026,7 +44026,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -44066,7 +44066,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -44106,7 +44106,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -44144,8 +44144,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -44183,8 +44183,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -45004,8 +45004,8 @@
    "row_id": "star-breeze__windstar-star-suite",
    "ship_id": "star-breeze",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45041,8 +45041,8 @@
    "row_id": "star-breeze__windstar-balcony",
    "ship_id": "star-breeze",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45078,8 +45078,8 @@
    "row_id": "star-breeze__windstar-suites",
    "ship_id": "star-breeze",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45115,8 +45115,8 @@
    "row_id": "star-legend__windstar-star-suite",
    "ship_id": "star-legend",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45152,8 +45152,8 @@
    "row_id": "star-legend__windstar-balcony",
    "ship_id": "star-legend",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45189,8 +45189,8 @@
    "row_id": "star-legend__windstar-suites",
    "ship_id": "star-legend",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45226,8 +45226,8 @@
    "row_id": "star-pride__windstar-star-suite",
    "ship_id": "star-pride",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45263,8 +45263,8 @@
    "row_id": "star-pride__windstar-balcony",
    "ship_id": "star-pride",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45300,8 +45300,8 @@
    "row_id": "star-pride__windstar-suites",
    "ship_id": "star-pride",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45337,8 +45337,8 @@
    "row_id": "wind-spirit__windstar-oceanview",
    "ship_id": "wind-spirit",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45374,8 +45374,8 @@
    "row_id": "wind-spirit__windstar-suites",
    "ship_id": "wind-spirit",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45411,8 +45411,8 @@
    "row_id": "wind-star__windstar-oceanview",
    "ship_id": "wind-star",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45448,8 +45448,8 @@
    "row_id": "wind-star__windstar-suites",
    "ship_id": "wind-star",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45485,8 +45485,8 @@
    "row_id": "wind-surf__windstar-oceanview",
    "ship_id": "wind-surf",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45522,8 +45522,8 @@
    "row_id": "wind-surf__windstar-suites",
    "ship_id": "wind-surf",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -45579,7 +45579,7 @@
    "notes": "Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items.",
    "obc_usd": 50,
    "sources": [
-    "s273"
+    "s274"
    ],
    "ticker": "NCLH",
    "valid_through": null
@@ -45591,7 +45591,7 @@
    "notes": "Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items.",
    "obc_usd": 100,
    "sources": [
-    "s273"
+    "s274"
    ],
    "ticker": "NCLH",
    "valid_through": null
@@ -45603,7 +45603,7 @@
    "notes": "Per stateroom, ≥100 shares held at sailing. Official tiers are in days; treated as nights. Not for service charges or pre-purchased items.",
    "obc_usd": 250,
    "sources": [
-    "s273"
+    "s274"
    ],
    "ticker": "NCLH",
    "valid_through": null
@@ -45755,7 +45755,7 @@
    "sources": [
     "s51",
     "s143",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.1,
    "specialty_restaurants": null,
@@ -45816,7 +45816,7 @@
    "sources": [
     "s51",
     "s143",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.1,
    "specialty_restaurants": null,
@@ -45877,7 +45877,7 @@
    "sources": [
     "s51",
     "s143",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.1,
    "specialty_restaurants": null,
@@ -45945,7 +45945,7 @@
     "s88",
     "s120",
     "s156",
-    "s326"
+    "s327"
    ],
    "space_ratio": 41.2,
    "specialty_restaurants": null,
@@ -46013,9 +46013,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.7,
    "specialty_restaurants": 3,
@@ -46083,9 +46083,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.2,
    "specialty_restaurants": 7,
@@ -46153,9 +46153,9 @@
     "s151",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": 2,
@@ -46223,9 +46223,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 35.1,
    "specialty_restaurants": 3,
@@ -46292,9 +46292,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 32.8,
    "specialty_restaurants": null,
@@ -46358,7 +46358,7 @@
     "s88",
     "s120",
     "s156",
-    "s326"
+    "s327"
    ],
    "space_ratio": 41.9,
    "specialty_restaurants": null,
@@ -46437,9 +46437,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 32.7,
    "specialty_restaurants": 5,
@@ -46507,9 +46507,9 @@
     "s151",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": 2,
@@ -46577,9 +46577,9 @@
     "s151",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 36.9,
    "specialty_restaurants": 2,
@@ -46647,9 +46647,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 33.7,
    "specialty_restaurants": 5,
@@ -46717,9 +46717,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.2,
    "specialty_restaurants": 7,
@@ -46794,9 +46794,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 40.3,
    "specialty_restaurants": 2,
@@ -46864,9 +46864,9 @@
     "s151",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 37.2,
    "specialty_restaurants": 2,
@@ -46937,9 +46937,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 41.0,
    "specialty_restaurants": 3,
@@ -47007,9 +47007,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.7,
    "specialty_restaurants": 3,
@@ -47084,9 +47084,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 40.3,
    "specialty_restaurants": 2,
@@ -47154,9 +47154,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 33.4,
    "specialty_restaurants": 5,
@@ -47223,9 +47223,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 33.9,
    "specialty_restaurants": null,
@@ -47300,9 +47300,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 40.4,
    "specialty_restaurants": 2,
@@ -47369,9 +47369,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.3,
    "specialty_restaurants": null,
@@ -47446,9 +47446,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 40.3,
    "specialty_restaurants": 2,
@@ -47521,8 +47521,8 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337"
+    "s327",
+    "s338"
    ],
    "space_ratio": 37.7,
    "specialty_restaurants": null,
@@ -47589,9 +47589,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.3,
    "specialty_restaurants": null,
@@ -47664,9 +47664,9 @@
     "s120",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.6,
    "specialty_restaurants": null,
@@ -47734,9 +47734,9 @@
     "s151",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": 2,
@@ -47810,9 +47810,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 33.1,
    "specialty_restaurants": 5,
@@ -47880,9 +47880,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.0,
    "specialty_restaurants": 5,
@@ -47950,9 +47950,9 @@
     "s154",
     "s156",
     "s183",
-    "s326",
-    "s337",
-    "s356"
+    "s327",
+    "s338",
+    "s357"
    ],
    "space_ratio": 34.5,
    "specialty_restaurants": 7,
@@ -48025,8 +48025,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 45.0,
    "specialty_restaurants": 8,
@@ -48099,7 +48099,7 @@
     "s168",
     "s169",
     "s170",
-    "s356"
+    "s357"
    ],
    "space_ratio": 43.4,
    "specialty_restaurants": 8,
@@ -48170,8 +48170,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 43.4,
    "specialty_restaurants": 8,
@@ -48244,8 +48244,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 41.9,
    "specialty_restaurants": 3,
@@ -48318,8 +48318,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 42.8,
    "specialty_restaurants": 4,
@@ -48390,7 +48390,7 @@
     "s168",
     "s169",
     "s170",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.8,
    "specialty_restaurants": 8,
@@ -48461,8 +48461,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 42.8,
    "specialty_restaurants": 4,
@@ -48533,7 +48533,7 @@
     "s168",
     "s169",
     "s170",
-    "s338"
+    "s339"
    ],
    "space_ratio": 41.9,
    "specialty_restaurants": 3,
@@ -48604,7 +48604,7 @@
     "s168",
     "s169",
     "s170",
-    "s338"
+    "s339"
    ],
    "space_ratio": 42.6,
    "specialty_restaurants": 3,
@@ -48675,7 +48675,7 @@
     "s168",
     "s169",
     "s170",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.2,
    "specialty_restaurants": 4,
@@ -48746,7 +48746,7 @@
     "s168",
     "s169",
     "s170",
-    "s356"
+    "s357"
    ],
    "space_ratio": 42.3,
    "specialty_restaurants": 4,
@@ -48820,8 +48820,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 42.8,
    "specialty_restaurants": 4,
@@ -48894,8 +48894,8 @@
     "s168",
     "s169",
     "s170",
-    "s338",
-    "s356"
+    "s339",
+    "s357"
    ],
    "space_ratio": 42.2,
    "specialty_restaurants": 3,
@@ -48970,7 +48970,7 @@
     "s168",
     "s169",
     "s170",
-    "s356"
+    "s357"
    ],
    "space_ratio": 43.4,
    "specialty_restaurants": 8,
@@ -49032,8 +49032,8 @@
     "s54",
     "s216",
     "s217",
-    "s329",
-    "s356"
+    "s330",
+    "s357"
    ],
    "space_ratio": 93.1,
    "specialty_restaurants": null,
@@ -49097,7 +49097,7 @@
     "s216",
     "s217",
     "s218",
-    "s356"
+    "s357"
    ],
    "space_ratio": 84.2,
    "specialty_restaurants": null,
@@ -49161,7 +49161,7 @@
     "s176",
     "s219",
     "s221",
-    "s356"
+    "s357"
    ],
    "space_ratio": 38.6,
    "specialty_restaurants": null,
@@ -49225,7 +49225,7 @@
     "s176",
     "s219",
     "s220",
-    "s356"
+    "s357"
    ],
    "space_ratio": 43.9,
    "specialty_restaurants": null,
@@ -49289,7 +49289,7 @@
     "s176",
     "s219",
     "s224",
-    "s356"
+    "s357"
    ],
    "space_ratio": 55.7,
    "specialty_restaurants": null,
@@ -49353,7 +49353,7 @@
     "s176",
     "s219",
     "s220",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.1,
    "specialty_restaurants": null,
@@ -49491,7 +49491,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 57.4,
    "specialty_restaurants": null,
@@ -49558,7 +49558,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 51.8,
    "specialty_restaurants": null,
@@ -49625,7 +49625,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 51.8,
    "specialty_restaurants": null,
@@ -49692,7 +49692,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 48.0,
    "specialty_restaurants": null,
@@ -49759,7 +49759,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 57.4,
    "specialty_restaurants": null,
@@ -49826,7 +49826,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 57.5,
    "specialty_restaurants": null,
@@ -49893,7 +49893,7 @@
     "s120",
     "s137",
     "s181",
-    "s356"
+    "s357"
    ],
    "space_ratio": 48.1,
    "specialty_restaurants": null,
@@ -49957,7 +49957,7 @@
     "s80",
     "s81",
     "s134",
-    "s356"
+    "s357"
    ],
    "space_ratio": 69.0,
    "specialty_restaurants": null,
@@ -50021,7 +50021,7 @@
     "s80",
     "s81",
     "s134",
-    "s356"
+    "s357"
    ],
    "space_ratio": 69.0,
    "specialty_restaurants": null,
@@ -50160,7 +50160,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 40.7,
    "specialty_restaurants": null,
@@ -50232,7 +50232,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": null,
@@ -50298,7 +50298,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 40.9,
    "specialty_restaurants": null,
@@ -50364,7 +50364,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": null,
@@ -50438,7 +50438,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.4,
    "specialty_restaurants": null,
@@ -50504,7 +50504,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.4,
    "specialty_restaurants": null,
@@ -50570,7 +50570,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": null,
@@ -50636,7 +50636,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 42.8,
    "specialty_restaurants": null,
@@ -50706,7 +50706,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.4,
    "specialty_restaurants": null,
@@ -50776,7 +50776,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 42.9,
    "specialty_restaurants": null,
@@ -50848,7 +50848,7 @@
     "s233",
     "s234",
     "s241",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.4,
    "specialty_restaurants": null,
@@ -50914,7 +50914,7 @@
    "ship_id": "margaritaville-islander",
    "sources": [
     "s61",
-    "s356"
+    "s357"
    ],
    "space_ratio": 31.9,
    "specialty_restaurants": null,
@@ -50980,7 +50980,7 @@
    "ship_id": "margaritaville-paradise",
    "sources": [
     "s61",
-    "s356"
+    "s357"
    ],
    "space_ratio": 31.5,
    "specialty_restaurants": null,
@@ -51174,7 +51174,7 @@
     "s249",
     "s250",
     "s252",
-    "s356"
+    "s357"
    ],
    "space_ratio": 42.6,
    "specialty_restaurants": null,
@@ -51370,7 +51370,7 @@
     "s249",
     "s253",
     "s255",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.5,
    "specialty_restaurants": null,
@@ -51564,7 +51564,7 @@
     "s249",
     "s253",
     "s255",
-    "s356"
+    "s357"
    ],
    "space_ratio": 38.2,
    "specialty_restaurants": null,
@@ -51823,7 +51823,7 @@
     "s249",
     "s254",
     "s256",
-    "s356"
+    "s357"
    ],
    "space_ratio": 36.3,
    "specialty_restaurants": null,
@@ -51952,7 +51952,7 @@
     "s120",
     "s122",
     "s249",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.5,
    "specialty_restaurants": null,
@@ -52016,7 +52016,7 @@
     "s120",
     "s122",
     "s249",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.5,
    "specialty_restaurants": null,
@@ -52081,7 +52081,7 @@
     "s122",
     "s249",
     "s257",
-    "s356"
+    "s357"
    ],
    "space_ratio": 37.2,
    "specialty_restaurants": null,
@@ -52409,7 +52409,7 @@
     "s122",
     "s249",
     "s258",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.3,
    "specialty_restaurants": null,
@@ -52535,8 +52535,8 @@
     "s62",
     "s120",
     "s263",
-    "s265",
-    "s356"
+    "s266",
+    "s357"
    ],
    "space_ratio": 43.7,
    "specialty_restaurants": null,
@@ -52601,7 +52601,7 @@
     "s89",
     "s120",
     "s261",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.9,
    "specialty_restaurants": 7,
@@ -52640,7 +52640,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s267"
+    "s268"
    ],
    "gt": 145655,
    "homeports": [
@@ -52669,8 +52669,8 @@
     "s31",
     "s62",
     "s120",
-    "s270",
-    "s356"
+    "s271",
+    "s357"
    ],
    "space_ratio": 37.3,
    "specialty_restaurants": 6,
@@ -52732,7 +52732,7 @@
     "s31",
     "s62",
     "s120",
-    "s356"
+    "s357"
    ],
    "space_ratio": 40.3,
    "specialty_restaurants": 8,
@@ -52797,7 +52797,7 @@
     "s89",
     "s120",
     "s261",
-    "s356"
+    "s357"
    ],
    "space_ratio": 42.7,
    "specialty_restaurants": 7,
@@ -52859,8 +52859,8 @@
     "s32",
     "s62",
     "s120",
-    "s269",
-    "s356"
+    "s270",
+    "s357"
    ],
    "space_ratio": 38.3,
    "specialty_restaurants": 6,
@@ -52925,7 +52925,7 @@
     "s89",
     "s120",
     "s261",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.1,
    "specialty_restaurants": 7,
@@ -52988,7 +52988,7 @@
     "s62",
     "s120",
     "s262",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 7,
@@ -53050,8 +53050,8 @@
     "s31",
     "s62",
     "s120",
-    "s270",
-    "s356"
+    "s271",
+    "s357"
    ],
    "space_ratio": 37.3,
    "specialty_restaurants": 6,
@@ -53090,7 +53090,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s268"
+    "s269"
    ],
    "gt": 93558,
    "homeports": null,
@@ -53118,7 +53118,7 @@
     "s62",
     "s120",
     "s262",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.8,
    "specialty_restaurants": 7,
@@ -53181,7 +53181,7 @@
     "s62",
     "s120",
     "s262",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.5,
    "specialty_restaurants": 7,
@@ -53246,7 +53246,7 @@
     "s89",
     "s120",
     "s261",
-    "s356"
+    "s357"
    ],
    "space_ratio": 44.4,
    "specialty_restaurants": 7,
@@ -53308,8 +53308,8 @@
     "s62",
     "s120",
     "s263",
-    "s265",
-    "s356"
+    "s266",
+    "s357"
    ],
    "space_ratio": 43.8,
    "specialty_restaurants": null,
@@ -53348,7 +53348,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s268"
+    "s269"
    ],
    "gt": 93530,
    "homeports": null,
@@ -53376,7 +53376,7 @@
     "s62",
     "s120",
     "s262",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 7,
@@ -53439,8 +53439,8 @@
     "s62",
     "s120",
     "s263",
-    "s265",
-    "s356"
+    "s266",
+    "s357"
    ],
    "space_ratio": 44.9,
    "specialty_restaurants": 8,
@@ -53479,7 +53479,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s268"
+    "s269"
    ],
    "gt": 75904,
    "homeports": [
@@ -53569,7 +53569,7 @@
     "s31",
     "s62",
     "s120",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 8,
@@ -53630,8 +53630,8 @@
    "sources": [
     "s62",
     "s120",
-    "s272",
-    "s356"
+    "s273",
+    "s357"
    ],
    "space_ratio": 41.7,
    "specialty_restaurants": null,
@@ -53670,7 +53670,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s268"
+    "s269"
    ],
    "gt": 142500,
    "homeports": null,
@@ -53698,8 +53698,8 @@
     "s62",
     "s120",
     "s263",
-    "s265",
-    "s356"
+    "s266",
+    "s357"
    ],
    "space_ratio": 44.6,
    "specialty_restaurants": 8,
@@ -53735,11 +53735,15 @@
    "class_id": "ncl-pride",
    "class_name": "Pride of America",
    "covered_pool": null,
-   "deployment_as_of": null,
-   "deployment_basis": null,
-   "deployment_sources": [],
+   "deployment_as_of": "2026-11-16",
+   "deployment_basis": "curated",
+   "deployment_sources": [
+    "s264"
+   ],
    "gt": 80439,
-   "homeports": null,
+   "homeports": [
+    "Honolulu"
+   ],
    "kids_club": null,
    "last_refit": null,
    "last_verified": "2026-11-14",
@@ -53753,14 +53757,16 @@
    "pickleball": null,
    "pools": null,
    "promenade_deck": null,
-   "regions": null,
+   "regions": [
+    "Hawaii"
+   ],
    "running_track": true,
    "self_laundry": "none",
    "ship_id": "pride-of-america",
    "sources": [
     "s62",
     "s120",
-    "s264"
+    "s265"
    ],
    "space_ratio": 36.9,
    "specialty_restaurants": null,
@@ -53821,8 +53827,8 @@
    "sources": [
     "s63",
     "s93",
-    "s276",
-    "s356"
+    "s277",
+    "s357"
    ],
    "space_ratio": 56.5,
    "specialty_restaurants": null,
@@ -53884,10 +53890,10 @@
     "s63",
     "s93",
     "s248",
-    "s276",
-    "s278",
-    "s280",
-    "s356"
+    "s277",
+    "s279",
+    "s281",
+    "s357"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": null,
@@ -53948,9 +53954,9 @@
    "sources": [
     "s63",
     "s93",
-    "s276",
-    "s279",
-    "s356"
+    "s277",
+    "s280",
+    "s357"
    ],
    "space_ratio": 52.9,
    "specialty_restaurants": null,
@@ -54012,10 +54018,10 @@
     "s63",
     "s93",
     "s248",
-    "s276",
-    "s278",
-    "s280",
-    "s356"
+    "s277",
+    "s279",
+    "s281",
+    "s357"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": null,
@@ -54076,9 +54082,9 @@
    "sources": [
     "s63",
     "s93",
-    "s276",
-    "s279",
-    "s356"
+    "s277",
+    "s280",
+    "s357"
    ],
    "space_ratio": 52.9,
    "specialty_restaurants": null,
@@ -54140,10 +54146,10 @@
     "s63",
     "s93",
     "s248",
-    "s276",
-    "s278",
-    "s280",
-    "s356"
+    "s277",
+    "s279",
+    "s281",
+    "s357"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": null,
@@ -54204,8 +54210,8 @@
    "sources": [
     "s63",
     "s93",
-    "s276",
-    "s356"
+    "s277",
+    "s357"
    ],
    "space_ratio": 56.5,
    "specialty_restaurants": null,
@@ -54244,7 +54250,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s283"
+    "s284"
    ],
    "gt": 19200,
    "homeports": null,
@@ -54269,7 +54275,7 @@
    "ship_id": "paul-gauguin",
    "sources": [
     "s64",
-    "s284"
+    "s285"
    ],
    "space_ratio": 58.2,
    "specialty_restaurants": null,
@@ -54308,7 +54314,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s295"
+    "s296"
    ],
    "gt": 112894,
    "homeports": null,
@@ -54342,7 +54348,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 36.0,
    "specialty_restaurants": 3,
@@ -54409,7 +54415,7 @@
     "s120",
     "s156",
     "s182",
-    "s356"
+    "s357"
    ],
    "space_ratio": 45.8,
    "specialty_restaurants": 2,
@@ -54478,7 +54484,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 36.8,
    "specialty_restaurants": 3,
@@ -54517,7 +54523,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s292"
+    "s293"
    ],
    "gt": 115875,
    "homeports": null,
@@ -54618,8 +54624,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 39.6,
    "specialty_restaurants": 3,
@@ -54688,7 +54694,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 36.8,
    "specialty_restaurants": 3,
@@ -54727,7 +54733,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s289"
+    "s290"
    ],
    "gt": 145281,
    "homeports": null,
@@ -54760,8 +54766,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 39.7,
    "specialty_restaurants": 3,
@@ -54800,7 +54806,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s287"
+    "s288"
    ],
    "gt": 107517,
    "homeports": null,
@@ -54836,7 +54842,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.2,
    "specialty_restaurants": 3,
@@ -54903,7 +54909,7 @@
     "s120",
     "s156",
     "s182",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.5,
    "specialty_restaurants": 2,
@@ -54942,8 +54948,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s289",
-    "s295"
+    "s290",
+    "s296"
    ],
    "gt": 142216,
    "homeports": null,
@@ -54976,8 +54982,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 3,
@@ -55016,7 +55022,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s295"
+    "s296"
    ],
    "gt": 142229,
    "homeports": null,
@@ -55049,8 +55055,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 40.0,
    "specialty_restaurants": 3,
@@ -55089,8 +55095,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s287",
-    "s293"
+    "s288",
+    "s294"
    ],
    "gt": 142229,
    "homeports": [
@@ -55126,8 +55132,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 40.0,
    "specialty_restaurants": 3,
@@ -55196,7 +55202,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 36.9,
    "specialty_restaurants": 3,
@@ -55235,8 +55241,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s287",
-    "s292"
+    "s288",
+    "s293"
    ],
    "gt": 115875,
    "homeports": null,
@@ -55271,7 +55277,7 @@
     "s156",
     "s182",
     "s210",
-    "s356"
+    "s357"
    ],
    "space_ratio": 43.2,
    "specialty_restaurants": 3,
@@ -55310,8 +55316,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s289",
-    "s295"
+    "s290",
+    "s296"
    ],
    "gt": 145281,
    "homeports": null,
@@ -55344,8 +55350,8 @@
     "s156",
     "s182",
     "s210",
-    "s290",
-    "s356"
+    "s291",
+    "s357"
    ],
    "space_ratio": 39.7,
    "specialty_restaurants": 3,
@@ -55384,8 +55390,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s293",
-    "s294"
+    "s294",
+    "s295"
    ],
    "gt": 175500,
    "homeports": [
@@ -55422,10 +55428,10 @@
     "s156",
     "s182",
     "s210",
-    "s288",
-    "s290",
+    "s289",
     "s291",
-    "s356"
+    "s292",
+    "s357"
    ],
    "space_ratio": 40.7,
    "specialty_restaurants": 7,
@@ -55464,8 +55470,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s289",
-    "s294"
+    "s290",
+    "s295"
    ],
    "gt": 175500,
    "homeports": null,
@@ -55499,10 +55505,10 @@
     "s156",
     "s182",
     "s210",
-    "s288",
-    "s290",
+    "s289",
     "s291",
-    "s356"
+    "s292",
+    "s357"
    ],
    "space_ratio": 40.7,
    "specialty_restaurants": 7,
@@ -55563,9 +55569,9 @@
    "sources": [
     "s66",
     "s93",
-    "s321",
     "s322",
-    "s356"
+    "s323",
+    "s357"
    ],
    "space_ratio": 73.7,
    "specialty_restaurants": null,
@@ -55626,10 +55632,10 @@
    "sources": [
     "s66",
     "s93",
-    "s319",
-    "s321",
+    "s320",
     "s322",
-    "s356"
+    "s323",
+    "s357"
    ],
    "space_ratio": 74.9,
    "specialty_restaurants": null,
@@ -55690,9 +55696,9 @@
    "sources": [
     "s66",
     "s93",
-    "s321",
-    "s323",
-    "s356"
+    "s322",
+    "s324",
+    "s357"
    ],
    "space_ratio": 68.7,
    "specialty_restaurants": null,
@@ -55753,8 +55759,8 @@
    "sources": [
     "s66",
     "s93",
-    "s321",
-    "s324"
+    "s322",
+    "s325"
    ],
    "space_ratio": 58.8,
    "specialty_restaurants": null,
@@ -55815,9 +55821,9 @@
    "sources": [
     "s66",
     "s93",
-    "s321",
     "s322",
-    "s356"
+    "s323",
+    "s357"
    ],
    "space_ratio": 74.9,
    "specialty_restaurants": null,
@@ -55878,8 +55884,8 @@
    "sources": [
     "s66",
     "s93",
-    "s321",
-    "s323"
+    "s322",
+    "s324"
    ],
    "space_ratio": 60.5,
    "specialty_restaurants": null,
@@ -55940,7 +55946,7 @@
    "sources": [
     "s96",
     "s207",
-    "s356"
+    "s357"
    ],
    "space_ratio": 85.2,
    "specialty_restaurants": null,
@@ -56000,8 +56006,8 @@
    "ship_id": "ritz-carlton-ilma",
    "sources": [
     "s96",
-    "s334",
-    "s356"
+    "s335",
+    "s357"
    ],
    "space_ratio": 104.4,
    "specialty_restaurants": null,
@@ -56061,8 +56067,8 @@
    "ship_id": "ritz-carlton-luminara",
    "sources": [
     "s96",
-    "s330",
-    "s356"
+    "s331",
+    "s357"
    ],
    "space_ratio": 103.4,
    "specialty_restaurants": null,
@@ -56127,11 +56133,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s310",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s311",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.4,
    "specialty_restaurants": 4,
@@ -56196,12 +56202,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.0,
    "specialty_restaurants": 7,
@@ -56267,10 +56273,10 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s317",
+    "s357"
    ],
    "space_ratio": 40.4,
    "specialty_restaurants": 5,
@@ -56309,7 +56315,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s306"
+    "s307"
    ],
    "gt": 90090,
    "homeports": null,
@@ -56339,9 +56345,9 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s311",
-    "s356"
+    "s303",
+    "s312",
+    "s357"
    ],
    "space_ratio": 42.1,
    "specialty_restaurants": 4,
@@ -56405,8 +56411,8 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s356"
+    "s303",
+    "s357"
    ],
    "space_ratio": 36.8,
    "specialty_restaurants": 4,
@@ -56471,11 +56477,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s310",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s311",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.4,
    "specialty_restaurants": 4,
@@ -56514,7 +56520,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s306"
+    "s307"
    ],
    "gt": 156271,
    "homeports": null,
@@ -56544,11 +56550,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s313",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s314",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.3,
    "specialty_restaurants": 5,
@@ -56612,8 +56618,8 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s356"
+    "s303",
+    "s357"
    ],
    "space_ratio": 37.1,
    "specialty_restaurants": 4,
@@ -56678,12 +56684,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.3,
    "specialty_restaurants": 7,
@@ -56722,8 +56728,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303",
-    "s315"
+    "s304",
+    "s316"
    ],
    "gt": 248663,
    "homeports": [
@@ -56755,10 +56761,10 @@
     "s107",
     "s120",
     "s200",
-    "s305",
-    "s312",
-    "s316",
-    "s356"
+    "s306",
+    "s313",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": 9,
@@ -56823,11 +56829,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s313",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s314",
+    "s317",
+    "s357"
    ],
    "space_ratio": 42.9,
    "specialty_restaurants": 5,
@@ -56892,9 +56898,9 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s311",
-    "s356"
+    "s303",
+    "s312",
+    "s357"
    ],
    "space_ratio": 42.7,
    "specialty_restaurants": 4,
@@ -56933,7 +56939,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 248663,
    "homeports": [
@@ -56966,9 +56972,9 @@
     "s107",
     "s120",
     "s200",
-    "s305",
-    "s312",
-    "s316"
+    "s306",
+    "s313",
+    "s317"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": 9,
@@ -57007,7 +57013,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s315"
+    "s316"
    ],
    "gt": 155889,
    "homeports": [
@@ -57039,11 +57045,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s313",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s314",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.0,
    "specialty_restaurants": 5,
@@ -57108,11 +57114,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s310",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s311",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.9,
    "specialty_restaurants": 4,
@@ -57151,7 +57157,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 139999,
    "homeports": null,
@@ -57181,11 +57187,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s310",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s311",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.5,
    "specialty_restaurants": 4,
@@ -57250,12 +57256,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 42.0,
    "specialty_restaurants": 7,
@@ -57321,10 +57327,10 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s317",
+    "s357"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 5,
@@ -57390,10 +57396,10 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s317",
+    "s357"
    ],
    "space_ratio": 40.4,
    "specialty_restaurants": 5,
@@ -57432,7 +57438,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 168666,
    "homeports": null,
@@ -57463,10 +57469,10 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s317",
+    "s357"
    ],
    "space_ratio": 40.4,
    "specialty_restaurants": 5,
@@ -57531,9 +57537,9 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s311",
-    "s356"
+    "s303",
+    "s312",
+    "s357"
    ],
    "space_ratio": 42.0,
    "specialty_restaurants": 4,
@@ -57597,8 +57603,8 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s356"
+    "s303",
+    "s357"
    ],
    "space_ratio": 39.5,
    "specialty_restaurants": 4,
@@ -57663,9 +57669,9 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s311",
-    "s356"
+    "s303",
+    "s312",
+    "s357"
    ],
    "space_ratio": 42.0,
    "specialty_restaurants": 4,
@@ -57731,9 +57737,9 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s316"
+    "s303",
+    "s306",
+    "s317"
    ],
    "space_ratio": 39.9,
    "specialty_restaurants": 5,
@@ -57772,7 +57778,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 248663,
    "homeports": [
@@ -57804,10 +57810,10 @@
     "s107",
     "s120",
     "s200",
-    "s305",
-    "s312",
-    "s316",
-    "s356"
+    "s306",
+    "s313",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.3,
    "specialty_restaurants": 9,
@@ -57846,7 +57852,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s315"
+    "s316"
    ],
    "gt": 228081,
    "homeports": [
@@ -57878,12 +57884,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.3,
    "specialty_restaurants": 7,
@@ -57922,7 +57928,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 236473,
    "homeports": [
@@ -57954,12 +57960,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.7,
    "specialty_restaurants": 7,
@@ -58023,8 +58029,8 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s356"
+    "s303",
+    "s357"
    ],
    "space_ratio": 38.4,
    "specialty_restaurants": 4,
@@ -58063,8 +58069,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s301",
-    "s303"
+    "s302",
+    "s304"
    ],
    "gt": 138194,
    "homeports": null,
@@ -58095,11 +58101,11 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s305",
-    "s310",
-    "s316",
-    "s356"
+    "s303",
+    "s306",
+    "s311",
+    "s317",
+    "s357"
    ],
    "space_ratio": 44.4,
    "specialty_restaurants": 4,
@@ -58138,7 +58144,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s303"
+    "s304"
    ],
    "gt": 235600,
    "homeports": [
@@ -58170,12 +58176,12 @@
     "s107",
     "s120",
     "s200",
-    "s302",
-    "s304",
+    "s303",
     "s305",
-    "s309",
-    "s316",
-    "s356"
+    "s306",
+    "s310",
+    "s317",
+    "s357"
    ],
    "space_ratio": 41.1,
    "specialty_restaurants": 7,
@@ -58236,8 +58242,8 @@
    "sources": [
     "s70",
     "s156",
-    "s325",
-    "s356"
+    "s326",
+    "s357"
    ],
    "space_ratio": 69.8,
    "specialty_restaurants": null,
@@ -58298,8 +58304,8 @@
    "sources": [
     "s70",
     "s156",
-    "s325",
-    "s356"
+    "s326",
+    "s357"
    ],
    "space_ratio": 69.8,
    "specialty_restaurants": null,
@@ -58360,8 +58366,8 @@
    "sources": [
     "s70",
     "s156",
-    "s325",
-    "s356"
+    "s326",
+    "s357"
    ],
    "space_ratio": 70.3,
    "specialty_restaurants": null,
@@ -58428,7 +58434,7 @@
    "sources": [
     "s68",
     "s69",
-    "s356"
+    "s357"
    ],
    "space_ratio": 38.0,
    "specialty_restaurants": null,
@@ -58496,7 +58502,7 @@
    "sources": [
     "s68",
     "s69",
-    "s356"
+    "s357"
    ],
    "space_ratio": 39.4,
    "specialty_restaurants": null,
@@ -58557,7 +58563,7 @@
    "sources": [
     "s47",
     "s71",
-    "s356"
+    "s357"
    ],
    "space_ratio": 68.5,
    "specialty_restaurants": null,
@@ -58618,7 +58624,7 @@
    "sources": [
     "s47",
     "s71",
-    "s356"
+    "s357"
    ],
    "space_ratio": 68.5,
    "specialty_restaurants": null,
@@ -58738,7 +58744,7 @@
    "ship_id": "silver-nova",
    "sources": [
     "s71",
-    "s356"
+    "s357"
    ],
    "space_ratio": 75.6,
    "specialty_restaurants": null,
@@ -58798,7 +58804,7 @@
    "ship_id": "silver-ray",
    "sources": [
     "s71",
-    "s356"
+    "s357"
    ],
    "space_ratio": 75.6,
    "specialty_restaurants": null,
@@ -58859,7 +58865,7 @@
    "sources": [
     "s71",
     "s116",
-    "s356"
+    "s357"
    ],
    "space_ratio": 72.1,
    "specialty_restaurants": null,
@@ -58919,7 +58925,7 @@
    "ship_id": "silver-spirit",
    "sources": [
     "s71",
-    "s356"
+    "s357"
    ],
    "space_ratio": 65.0,
    "specialty_restaurants": null,
@@ -58980,7 +58986,7 @@
    "sources": [
     "s71",
     "s116",
-    "s356"
+    "s357"
    ],
    "space_ratio": 72.1,
    "specialty_restaurants": null,
@@ -59042,8 +59048,8 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59105,9 +59111,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59170,8 +59176,8 @@
     "s17",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 54.4,
    "specialty_restaurants": 2,
@@ -59233,9 +59239,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59297,9 +59303,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.5,
    "specialty_restaurants": 2,
@@ -59361,8 +59367,8 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59424,9 +59430,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59488,9 +59494,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59552,8 +59558,8 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59616,8 +59622,8 @@
     "s14",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 53.9,
    "specialty_restaurants": 2,
@@ -59679,9 +59685,9 @@
     "s3",
     "s74",
     "s130",
-    "s344",
-    "s347",
-    "s356"
+    "s345",
+    "s348",
+    "s357"
    ],
    "space_ratio": 51.4,
    "specialty_restaurants": 2,
@@ -59744,8 +59750,8 @@
     "s15",
     "s74",
     "s130",
-    "s344",
-    "s347"
+    "s345",
+    "s348"
    ],
    "space_ratio": 54.4,
    "specialty_restaurants": 2,
@@ -59784,8 +59790,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s350",
-    "s353"
+    "s351",
+    "s354"
    ],
    "gt": 108232,
    "homeports": [
@@ -59816,9 +59822,9 @@
    "sources": [
     "s8",
     "s75",
-    "s349",
-    "s352",
-    "s356"
+    "s350",
+    "s353",
+    "s357"
    ],
    "space_ratio": 39.1,
    "specialty_restaurants": null,
@@ -59857,8 +59863,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s350",
-    "s351"
+    "s351",
+    "s352"
    ],
    "gt": 108232,
    "homeports": [
@@ -59887,9 +59893,9 @@
    "sources": [
     "s8",
     "s75",
-    "s349",
-    "s352",
-    "s356"
+    "s350",
+    "s353",
+    "s357"
    ],
    "space_ratio": 39.1,
    "specialty_restaurants": null,
@@ -59928,8 +59934,8 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s350",
-    "s351"
+    "s351",
+    "s352"
    ],
    "gt": 108192,
    "homeports": [
@@ -59958,9 +59964,9 @@
    "sources": [
     "s8",
     "s75",
-    "s349",
-    "s352",
-    "s356"
+    "s350",
+    "s353",
+    "s357"
    ],
    "space_ratio": 39.1,
    "specialty_restaurants": null,
@@ -59999,7 +60005,7 @@
    "deployment_as_of": "2026-11-15",
    "deployment_basis": "curated",
    "deployment_sources": [
-    "s350"
+    "s351"
    ],
    "gt": 108192,
    "homeports": [
@@ -60027,9 +60033,9 @@
    "sources": [
     "s8",
     "s75",
-    "s349",
-    "s352",
-    "s356"
+    "s350",
+    "s353",
+    "s357"
    ],
    "space_ratio": 39.1,
    "specialty_restaurants": null,
@@ -60209,7 +60215,7 @@
    "sources": [
     "s73",
     "s76",
-    "s356"
+    "s357"
    ],
    "space_ratio": 41.7,
    "specialty_restaurants": null,
@@ -60269,7 +60275,7 @@
    "ship_id": "wind-spirit",
    "sources": [
     "s76",
-    "s355"
+    "s356"
    ],
    "space_ratio": 35.9,
    "specialty_restaurants": null,
@@ -60329,7 +60335,7 @@
    "ship_id": "wind-star",
    "sources": [
     "s76",
-    "s355"
+    "s356"
    ],
    "space_ratio": 35.9,
    "specialty_restaurants": null,
@@ -60389,7 +60395,7 @@
    "ship_id": "wind-surf",
    "sources": [
     "s76",
-    "s355"
+    "s356"
    ],
    "space_ratio": 43.1,
    "specialty_restaurants": null,
@@ -60590,109 +60596,110 @@
   "s261": "https://www.ncl.com/cruise-ships/norwegian-escape",
   "s262": "https://www.ncl.com/cruise-ships/norwegian-jewel/deck-plans",
   "s263": "https://www.ncl.com/cruise-ships/norwegian-viva",
-  "s264": "https://www.ncl.com/fr/en/cruise-ship/pride-of-america",
-  "s265": "https://www.ncl.com/in/en/cruise/luna/experiences",
-  "s266": "https://www.ncl.com/in/en/travel-blog/pick-perfect-stateroom",
-  "s267": "https://www.ncl.com/newsroom/norwegian-cruise-line-launches-its-fall-winter-202627-season-during-its-black-friday-sale",
-  "s268": "https://www.ncl.com/newsroom/norwegian-cruise-line-unveils-over-500-voyages-worldwide-during-peak-2027-travel-season",
-  "s269": "https://www.ncl.com/sites/default/files/norwegian_epic_ship_map_guide_06_20_25.pdf",
+  "s264": "https://www.ncl.com/cruise-ships/pride-of-america",
+  "s265": "https://www.ncl.com/fr/en/cruise-ship/pride-of-america",
+  "s266": "https://www.ncl.com/in/en/cruise/luna/experiences",
+  "s267": "https://www.ncl.com/in/en/travel-blog/pick-perfect-stateroom",
+  "s268": "https://www.ncl.com/newsroom/norwegian-cruise-line-launches-its-fall-winter-202627-season-during-its-black-friday-sale",
+  "s269": "https://www.ncl.com/newsroom/norwegian-cruise-line-unveils-over-500-voyages-worldwide-during-peak-2027-travel-season",
   "s27": "https://cruisespotlight.com/compare/carnival-spirit-vs-carnival-sunshine/",
-  "s270": "https://www.ncl.com/sites/default/files/norwegian_getaway_ship_map_guide_06_21_25.pdf",
-  "s271": "https://www.ncl.com/staterooms/club-balcony-suite-and-balcony",
-  "s272": "https://www.ncl.com/travel-blog/ncl-cruise-ships-by-year-and-class",
-  "s273": "https://www.nclhltd.com/investors/shareholder-benefits",
-  "s274": "https://www.oceaniacruises.com/alaska-cruises/seattle-to-seattle-RVA250626",
-  "s275": "https://www.oceaniacruises.com/cruises/ALU261228/",
-  "s276": "https://www.oceaniacruises.com/ships/allura/life-on-board",
-  "s277": "https://www.oceaniacruises.com/ships/allura/suites-staterooms",
-  "s278": "https://www.oceaniacruises.com/ships/insignia/life-on-board",
-  "s279": "https://www.oceaniacruises.com/ships/marina/life-on-board",
+  "s270": "https://www.ncl.com/sites/default/files/norwegian_epic_ship_map_guide_06_20_25.pdf",
+  "s271": "https://www.ncl.com/sites/default/files/norwegian_getaway_ship_map_guide_06_21_25.pdf",
+  "s272": "https://www.ncl.com/staterooms/club-balcony-suite-and-balcony",
+  "s273": "https://www.ncl.com/travel-blog/ncl-cruise-ships-by-year-and-class",
+  "s274": "https://www.nclhltd.com/investors/shareholder-benefits",
+  "s275": "https://www.oceaniacruises.com/alaska-cruises/seattle-to-seattle-RVA250626",
+  "s276": "https://www.oceaniacruises.com/cruises/ALU261228/",
+  "s277": "https://www.oceaniacruises.com/ships/allura/life-on-board",
+  "s278": "https://www.oceaniacruises.com/ships/allura/suites-staterooms",
+  "s279": "https://www.oceaniacruises.com/ships/insignia/life-on-board",
   "s28": "https://cruisespotlight.com/compare/carnival-venezia-vs-carnival-luminosa/",
-  "s280": "https://www.oceaniacruises.com/ships/sirena/life-on-board?exp=sirena-bars-and-lounges",
-  "s281": "https://www.paramountcruises.com/blog/azamara-dining-review/",
-  "s282": "https://www.paramountcruises.com/cruise-lines/crystal-cruises/whats-included",
-  "s283": "https://www.pgcruises.com/faq",
-  "s284": "https://www.pgcruises.com/press/press-kit/m-s-paul-gauguin-fact-sheet",
-  "s285": "https://www.pgcruises.com/travel-in/2026/october",
-  "s286": "https://www.princess.com/cruise-deals-promotions/plus-premier-cruise-packages",
-  "s287": "https://www.princess.com/en-au/news/news-releases/2025/11/princess-cruises-unveils-2027-28-australia-summer-season-with-three-ships",
-  "s288": "https://www.princess.com/en-int/news/backgrounders-and-fact-sheets/star-princess-fact-sheet",
-  "s289": "https://www.princess.com/en-uk/news/news-releases/2025/06/princess-cruises-unveiling-2027-europe-season",
+  "s280": "https://www.oceaniacruises.com/ships/marina/life-on-board",
+  "s281": "https://www.oceaniacruises.com/ships/sirena/life-on-board?exp=sirena-bars-and-lounges",
+  "s282": "https://www.paramountcruises.com/blog/azamara-dining-review/",
+  "s283": "https://www.paramountcruises.com/cruise-lines/crystal-cruises/whats-included",
+  "s284": "https://www.pgcruises.com/faq",
+  "s285": "https://www.pgcruises.com/press/press-kit/m-s-paul-gauguin-fact-sheet",
+  "s286": "https://www.pgcruises.com/travel-in/2026/october",
+  "s287": "https://www.princess.com/cruise-deals-promotions/plus-premier-cruise-packages",
+  "s288": "https://www.princess.com/en-au/news/news-releases/2025/11/princess-cruises-unveils-2027-28-australia-summer-season-with-three-ships",
+  "s289": "https://www.princess.com/en-int/news/backgrounders-and-fact-sheets/star-princess-fact-sheet",
   "s29": "https://cruisespotlight.com/compare/celebrity-edge-vs-celebrity-millennium",
-  "s290": "https://www.princess.com/lotus-spa/",
-  "s291": "https://www.princess.com/news/backgrounders-and-fact-sheets/sun-princess-fact-sheet",
-  "s292": "https://www.princess.com/news/news-releases/2025/03/southeast-asian-program-2026-2027",
-  "s293": "https://www.princess.com/news/news-releases/2025/08/princess-cruises-unveils-2027-alaska-season-with-return-of-star-princess",
-  "s294": "https://www.princess.com/news/news-releases/2025/11/princess-cruises-deepens-connection-in-the-caribbean-and-panama-canal-with-2027-28-voyages",
-  "s295": "https://www.princess.com/news/news-releases/2026/01/princess-cruises-expands-northern-europe-portfolio-with-unprecedented-itineraries-and-shore-excursions",
-  "s296": "https://www.princess.com/staterooms",
-  "s297": "https://www.princess.com/staterooms/reserve-collection",
-  "s298": "https://www.ritzcarltonyachtcollection.com/luxury-baltic-cruises/copenhagen-to-stockholm-11270728",
-  "s299": "https://www.ritzcarltonyachtcollection.com/luxury-mediterranean-cruises/venice-to-venice-11270617",
+  "s290": "https://www.princess.com/en-uk/news/news-releases/2025/06/princess-cruises-unveiling-2027-europe-season",
+  "s291": "https://www.princess.com/lotus-spa/",
+  "s292": "https://www.princess.com/news/backgrounders-and-fact-sheets/sun-princess-fact-sheet",
+  "s293": "https://www.princess.com/news/news-releases/2025/03/southeast-asian-program-2026-2027",
+  "s294": "https://www.princess.com/news/news-releases/2025/08/princess-cruises-unveils-2027-alaska-season-with-return-of-star-princess",
+  "s295": "https://www.princess.com/news/news-releases/2025/11/princess-cruises-deepens-connection-in-the-caribbean-and-panama-canal-with-2027-28-voyages",
+  "s296": "https://www.princess.com/news/news-releases/2026/01/princess-cruises-expands-northern-europe-portfolio-with-unprecedented-itineraries-and-shore-excursions",
+  "s297": "https://www.princess.com/staterooms",
+  "s298": "https://www.princess.com/staterooms/reserve-collection",
+  "s299": "https://www.ritzcarltonyachtcollection.com/luxury-baltic-cruises/copenhagen-to-stockholm-11270728",
   "s3": "https://aem-prod-publish.viking.com/content/dam/vikingcruises/en/magnolia-images/ocean/ships/deck_plan/2024-OC-deckplans-webPDF-R1.pdf",
   "s30": "https://cruisespotlight.com/compare/celebrity-solstice-vs-celebrity-edge/",
-  "s300": "https://www.rolcruise.co.uk/cruise-lines/cunard/queen-mary-2/deck-plans/56",
-  "s301": "https://www.royalcaribbean.com/aus/en/cruise-ships/cruise-schedule",
-  "s302": "https://www.royalcaribbean.com/cruise-activities/solarium",
-  "s303": "https://www.royalcaribbean.com/cruise-ships/cruise-schedule",
-  "s304": "https://www.royalcaribbean.com/cruise-ships/wonder-of-the-seas",
-  "s305": "https://www.royalcaribbean.com/experience/adventure-vacations",
-  "s306": "https://www.royalcaribbean.com/gbr/en",
-  "s307": "https://www.royalcaribbean.com/gbr/en/cruise-rooms",
-  "s308": "https://www.royalcaribbean.com/gbr/en/faq/questions/what-are-the-benefits-of-royal-suite-class",
-  "s309": "https://www.royalcaribbean.com/guides/free-onboard-activities-oasis-of-the-seas",
+  "s300": "https://www.ritzcarltonyachtcollection.com/luxury-mediterranean-cruises/venice-to-venice-11270617",
+  "s301": "https://www.rolcruise.co.uk/cruise-lines/cunard/queen-mary-2/deck-plans/56",
+  "s302": "https://www.royalcaribbean.com/aus/en/cruise-ships/cruise-schedule",
+  "s303": "https://www.royalcaribbean.com/cruise-activities/solarium",
+  "s304": "https://www.royalcaribbean.com/cruise-ships/cruise-schedule",
+  "s305": "https://www.royalcaribbean.com/cruise-ships/wonder-of-the-seas",
+  "s306": "https://www.royalcaribbean.com/experience/adventure-vacations",
+  "s307": "https://www.royalcaribbean.com/gbr/en",
+  "s308": "https://www.royalcaribbean.com/gbr/en/cruise-rooms",
+  "s309": "https://www.royalcaribbean.com/gbr/en/faq/questions/what-are-the-benefits-of-royal-suite-class",
   "s31": "https://cruisespotlight.com/compare/norwegian-breakaway-vs-norwegian-dawn/",
-  "s310": "https://www.royalcaribbean.com/guides/free-things-to-do-mariner-of-the-seas",
-  "s311": "https://www.royalcaribbean.com/guides/free-things-to-do-serenade-of-the-seas",
-  "s312": "https://www.royalcaribbean.com/guides/icon-of-the-seas-sports-court-a-ship-for-sports-lovers",
-  "s313": "https://www.royalcaribbean.com/guides/what-is-free-onboard-liberty-of-the-seas",
-  "s314": "https://www.royalcaribbean.com/guides/what-is-included-on-a-cruise",
-  "s315": "https://www.royalcaribbean.com/texas-cruises",
-  "s316": "https://www.royalcaribbeanblog.com/2021/04/16/which-royal-caribbean-ships-have-water-slides",
-  "s317": "https://www.royalcaribbeanblog.com/2024/06/17/royal-caribbean-specialty-dining-cost",
-  "s318": "https://www.rssc.com/cruises/GRA271208/summary",
-  "s319": "https://www.rssc.com/discover-more/blog/30-Years-of-Perfecting-Luxury-Seven-Seas-Grandeur",
+  "s310": "https://www.royalcaribbean.com/guides/free-onboard-activities-oasis-of-the-seas",
+  "s311": "https://www.royalcaribbean.com/guides/free-things-to-do-mariner-of-the-seas",
+  "s312": "https://www.royalcaribbean.com/guides/free-things-to-do-serenade-of-the-seas",
+  "s313": "https://www.royalcaribbean.com/guides/icon-of-the-seas-sports-court-a-ship-for-sports-lovers",
+  "s314": "https://www.royalcaribbean.com/guides/what-is-free-onboard-liberty-of-the-seas",
+  "s315": "https://www.royalcaribbean.com/guides/what-is-included-on-a-cruise",
+  "s316": "https://www.royalcaribbean.com/texas-cruises",
+  "s317": "https://www.royalcaribbeanblog.com/2021/04/16/which-royal-caribbean-ships-have-water-slides",
+  "s318": "https://www.royalcaribbeanblog.com/2024/06/17/royal-caribbean-specialty-dining-cost",
+  "s319": "https://www.rssc.com/cruises/GRA271208/summary",
   "s32": "https://cruisespotlight.com/compare/norwegian-epic-vs-norwegian-jewel/",
-  "s320": "https://www.rssc.com/discover-more/blog/regents-penthouse-suite-a-sanctuary-at-sea",
-  "s321": "https://www.rssc.com/ebrochures/Unrivaled_Space_at_Sea_2/page_19.html",
-  "s322": "https://www.rssc.com/ships/seven_seas_explorer/cruise-onboard-activities/daytime-enrichment",
-  "s323": "https://www.rssc.com/ships/seven_seas_mariner/spa-fitness",
-  "s324": "https://www.rssc.com/ships/seven_seas_navigator/cruise-onboard-activities/spa-and-fitness",
-  "s325": "https://www.seabourn.com/en/us/faq/loyalty-program/how-does-a-guest-receive-the-day-pass-for-the-spa",
-  "s326": "https://www.seatrade-cruise.com/finance-legal-regulatory/camp-ocean-is-now-fleetwide-at-carnival-cruise-line",
-  "s327": "https://www.seatrade-cruise.com/hotel-operations-entertainment/koningsdam-has-hal-s-first-single-family-rooms-lots-of-verandas",
-  "s328": "https://www.seatrade-cruise.com/hotel-operations-entertainment/princess-expanding-sanctuary-collection-to-five-royal-class-ships",
-  "s329": "https://www.seatrade-cruise.com/refurb-design-interiors/crystal-serenity-in-line-for-more-penthouses-reduced-capacity-open-seating-dining",
+  "s320": "https://www.rssc.com/discover-more/blog/30-Years-of-Perfecting-Luxury-Seven-Seas-Grandeur",
+  "s321": "https://www.rssc.com/discover-more/blog/regents-penthouse-suite-a-sanctuary-at-sea",
+  "s322": "https://www.rssc.com/ebrochures/Unrivaled_Space_at_Sea_2/page_19.html",
+  "s323": "https://www.rssc.com/ships/seven_seas_explorer/cruise-onboard-activities/daytime-enrichment",
+  "s324": "https://www.rssc.com/ships/seven_seas_mariner/spa-fitness",
+  "s325": "https://www.rssc.com/ships/seven_seas_navigator/cruise-onboard-activities/spa-and-fitness",
+  "s326": "https://www.seabourn.com/en/us/faq/loyalty-program/how-does-a-guest-receive-the-day-pass-for-the-spa",
+  "s327": "https://www.seatrade-cruise.com/finance-legal-regulatory/camp-ocean-is-now-fleetwide-at-carnival-cruise-line",
+  "s328": "https://www.seatrade-cruise.com/hotel-operations-entertainment/koningsdam-has-hal-s-first-single-family-rooms-lots-of-verandas",
+  "s329": "https://www.seatrade-cruise.com/hotel-operations-entertainment/princess-expanding-sanctuary-collection-to-five-royal-class-ships",
   "s33": "https://cruisespotlight.com/compare/norwegian-prima-vs-norwegian-encore/",
-  "s330": "https://www.ship-technology.com/projects/superyacht-luminara-france/",
-  "s331": "https://www.silversea.com/best-luxury-cruise-deals/all-inclusive-fare.html",
-  "s332": "https://www.smallshiptravel.com/blog/seadream-vs-windstar",
-  "s333": "https://www.smallshiptravel.com/blog/silversea-vs-seabourn-vs-explora-journeys",
-  "s334": "https://www.streetinsider.com/PRNewswire/THE+RITZ-CARLTON+YACHT+COLLECTION+CELEBRATES+FLOAT+OUT+OF+MUCH-ANTICIPATED+SECOND+YACHT,+ILMA/22219216.html",
-  "s335": "https://www.taoticket.com/en_AU/co/cunard/catalogo/0/october",
-  "s336": "https://www.travelmarketreport.com/cruises/articles/windstar-cruises-offers-complimentary-all-inclusive-upgrade-on-select-cruises-through-june-2027",
-  "s337": "https://www.travelpulse.com/news/cruise/carnival-glory-gets-all-new-waterworks-aqua-park",
-  "s338": "https://www.travelpulse.com/news/cruise/celebrity-cruises-adds-pickleball-to-nine-cruise-ships",
-  "s339": "https://www.travelweekly.com/Cruise-Travel/Four-Seasons-Yachts-a-la-carte-pricing",
+  "s330": "https://www.seatrade-cruise.com/refurb-design-interiors/crystal-serenity-in-line-for-more-penthouses-reduced-capacity-open-seating-dining",
+  "s331": "https://www.ship-technology.com/projects/superyacht-luminara-france/",
+  "s332": "https://www.silversea.com/best-luxury-cruise-deals/all-inclusive-fare.html",
+  "s333": "https://www.smallshiptravel.com/blog/seadream-vs-windstar",
+  "s334": "https://www.smallshiptravel.com/blog/silversea-vs-seabourn-vs-explora-journeys",
+  "s335": "https://www.streetinsider.com/PRNewswire/THE+RITZ-CARLTON+YACHT+COLLECTION+CELEBRATES+FLOAT+OUT+OF+MUCH-ANTICIPATED+SECOND+YACHT,+ILMA/22219216.html",
+  "s336": "https://www.taoticket.com/en_AU/co/cunard/catalogo/0/october",
+  "s337": "https://www.travelmarketreport.com/cruises/articles/windstar-cruises-offers-complimentary-all-inclusive-upgrade-on-select-cruises-through-june-2027",
+  "s338": "https://www.travelpulse.com/news/cruise/carnival-glory-gets-all-new-waterworks-aqua-park",
+  "s339": "https://www.travelpulse.com/news/cruise/celebrity-cruises-adds-pickleball-to-nine-cruise-ships",
   "s34": "https://cruisespotlight.com/compare/princess-cruises-crown-princess-vs-princess-cruises-coral-princess/",
-  "s340": "https://www.tripsandships.com/regent-seven-seas-suites-guide",
-  "s341": "https://www.tripsandships.com/ritz-carlton-yacht-collection-included",
-  "s342": "https://www.tripsandships.com/what-is-included-on-silversea",
-  "s343": "https://www.vikingcruises.com/oceans/cruise-destinations/western-mediterranean/iconic-western-mediterranean/index.html",
-  "s344": "https://www.vikingcruises.com/oceans/frequently-asked-questions.html",
-  "s345": "https://www.vikingcruises.com/oceans/ships/viking-leda.html",
-  "s346": "https://www.vikingcruises.com/oceans/ships/viking-sea.html",
-  "s347": "https://www.vikingcruises.com/oceans/why-viking/viking-difference/serene-scandinavian-spaces.html",
-  "s348": "https://www.vincentvacations.com/cruise/regent-seven-seas-cruises-the-regent-suite-top-tier-accommodations",
-  "s349": "https://www.virginvoyages.com/Web-Marketing/ahoy/stories/whats-included-on-a-virgin-voyages-cruise",
+  "s340": "https://www.travelweekly.com/Cruise-Travel/Four-Seasons-Yachts-a-la-carte-pricing",
+  "s341": "https://www.tripsandships.com/regent-seven-seas-suites-guide",
+  "s342": "https://www.tripsandships.com/ritz-carlton-yacht-collection-included",
+  "s343": "https://www.tripsandships.com/what-is-included-on-silversea",
+  "s344": "https://www.vikingcruises.com/oceans/cruise-destinations/western-mediterranean/iconic-western-mediterranean/index.html",
+  "s345": "https://www.vikingcruises.com/oceans/frequently-asked-questions.html",
+  "s346": "https://www.vikingcruises.com/oceans/ships/viking-leda.html",
+  "s347": "https://www.vikingcruises.com/oceans/ships/viking-sea.html",
+  "s348": "https://www.vikingcruises.com/oceans/why-viking/viking-difference/serene-scandinavian-spaces.html",
+  "s349": "https://www.vincentvacations.com/cruise/regent-seven-seas-cruises-the-regent-suite-top-tier-accommodations",
   "s35": "https://cruisespotlight.com/compare/princess-cruises-sun-princess-vs-princess-cruises-royal-princess/",
-  "s350": "https://www.virginvoyages.com/ahoy/stories/virgin-voyages-sisters-at-sea-fleet-meetup",
-  "s351": "https://www.virginvoyages.com/dam/jcr:578731a2-935a-4372-b052-d37893cf6dee/8.13%20MNVV%20Destination%20Guide..pdf",
-  "s352": "https://www.virginvoyages.com/faq/the-days-at-sea/fitness-and-spa",
-  "s353": "https://www.virginvoyages.com/press/latest-releases/brilliant-lady-los-angeles-west-coast-launch",
-  "s354": "https://www.windstarcruises.com/voyage-plan/general-information",
-  "s355": "https://www.windstarcruises.com/why-windstar",
-  "s356": "https://wwwn.cdc.gov/inspectionquerytool/InspectionGreenSheetRpt.aspx",
+  "s350": "https://www.virginvoyages.com/Web-Marketing/ahoy/stories/whats-included-on-a-virgin-voyages-cruise",
+  "s351": "https://www.virginvoyages.com/ahoy/stories/virgin-voyages-sisters-at-sea-fleet-meetup",
+  "s352": "https://www.virginvoyages.com/dam/jcr:578731a2-935a-4372-b052-d37893cf6dee/8.13%20MNVV%20Destination%20Guide..pdf",
+  "s353": "https://www.virginvoyages.com/faq/the-days-at-sea/fitness-and-spa",
+  "s354": "https://www.virginvoyages.com/press/latest-releases/brilliant-lady-los-angeles-west-coast-launch",
+  "s355": "https://www.windstarcruises.com/voyage-plan/general-information",
+  "s356": "https://www.windstarcruises.com/why-windstar",
+  "s357": "https://wwwn.cdc.gov/inspectionquerytool/InspectionGreenSheetRpt.aspx",
   "s36": "https://cruisespotlight.com/compare/royal-caribbean-allure-of-the-seas-vs-royal-caribbean-star-of-the-seas/",
   "s37": "https://cruisespotlight.com/compare/royal-caribbean-brilliance-of-the-seas-vs-royal-caribbean-vision-of-the-seas/",
   "s38": "https://cruisespotlight.com/compare/royal-caribbean-ovation-of-the-seas-vs-royal-caribbean-voyager-of-the-seas/",
@@ -60785,7 +60792,7 @@
    "ships": "all",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -60815,7 +60822,7 @@
    "ships": "all",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -60845,7 +60852,7 @@
    "ships": "all",
    "sources": [
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -60876,7 +60883,7 @@
    "sources": [
     "s12",
     "s175",
-    "s281"
+    "s282"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -61469,7 +61476,7 @@
    "ships": "all",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -61499,7 +61506,7 @@
    "ships": "all",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": 2,
    "sqft_max": null,
@@ -61529,7 +61536,7 @@
    "ships": "all",
    "sources": [
     "s129",
-    "s282"
+    "s283"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -61561,7 +61568,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 243,
@@ -61593,7 +61600,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 201,
@@ -61625,7 +61632,7 @@
     "s44",
     "s121",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 269,
@@ -61658,7 +61665,7 @@
     "s121",
     "s205",
     "s222",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -61692,7 +61699,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 513,
@@ -61726,7 +61733,7 @@
     "s205",
     "s222",
     "s225",
-    "s300"
+    "s301"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -62006,7 +62013,7 @@
    "ships": "all",
    "sources": [
     "s95",
-    "s339"
+    "s340"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -62036,7 +62043,7 @@
    "ships": "all",
    "sources": [
     "s105",
-    "s339"
+    "s340"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -62069,7 +62076,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 225,
@@ -62102,7 +62109,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 282,
@@ -62165,7 +62172,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 400,
@@ -62198,7 +62205,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 855,
@@ -62235,7 +62242,7 @@
     "s226",
     "s228",
     "s231",
-    "s327"
+    "s328"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 1357,
@@ -62536,7 +62543,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -62569,7 +62576,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 170,
@@ -62637,7 +62644,7 @@
    ],
    "sources": [
     "s209",
-    "s271"
+    "s272"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -62670,7 +62677,7 @@
     "s192",
     "s193",
     "s209",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -62767,7 +62774,7 @@
     "s192",
     "s193",
     "s260",
-    "s266"
+    "s267"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 828,
@@ -62799,8 +62806,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 240,
@@ -62832,8 +62839,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 258,
@@ -62865,8 +62872,8 @@
     "s49",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 291,
@@ -62899,8 +62906,8 @@
     "s78",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -62933,8 +62940,8 @@
     "s94",
     "s194",
     "s203",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -62966,8 +62973,8 @@
     "s78",
     "s94",
     "s194",
-    "s274",
-    "s277"
+    "s275",
+    "s278"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 2000,
@@ -62996,8 +63003,8 @@
    "rank": 1,
    "ships": "all",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -63026,8 +63033,8 @@
    "rank": 2,
    "ships": "all",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -63056,8 +63063,8 @@
    "rank": 3,
    "ships": "all",
    "sources": [
-    "s283",
-    "s284"
+    "s284",
+    "s285"
    ],
    "specialty_meals_included": null,
    "sqft_max": 588,
@@ -63090,7 +63097,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 175,
@@ -63123,7 +63130,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 194,
@@ -63156,7 +63163,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63189,7 +63196,7 @@
     "s125",
     "s195",
     "s196",
-    "s296"
+    "s297"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -63236,7 +63243,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 323,
@@ -63283,7 +63290,7 @@
     "s125",
     "s195",
     "s196",
-    "s297"
+    "s298"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63318,9 +63325,9 @@
    ],
    "sources": [
     "s206",
-    "s286",
-    "s297",
-    "s328"
+    "s287",
+    "s298",
+    "s329"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -63350,7 +63357,7 @@
    "ships": "all",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -63380,7 +63387,7 @@
    "ships": "all",
    "sources": [
     "s135",
-    "s340"
+    "s341"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -63410,9 +63417,9 @@
    "ships": "all",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 644,
@@ -63442,9 +63449,9 @@
    "ships": "all",
    "sources": [
     "s135",
-    "s320",
-    "s340",
-    "s348"
+    "s321",
+    "s341",
+    "s349"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 4443,
@@ -63474,7 +63481,7 @@
    "ships": "all",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 312,
@@ -63504,7 +63511,7 @@
    "ships": "all",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 484,
@@ -63534,7 +63541,7 @@
    "ships": "all",
    "sources": [
     "s96",
-    "s341"
+    "s342"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 732,
@@ -63564,7 +63571,7 @@
    "ships": "all",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63594,7 +63601,7 @@
    "ships": "all",
    "sources": [
     "s123",
-    "s314"
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": 319,
@@ -63624,8 +63631,8 @@
    "ships": "all",
    "sources": [
     "s123",
-    "s307",
-    "s314"
+    "s308",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63655,8 +63662,8 @@
    "ships": "all",
    "sources": [
     "s123",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63686,8 +63693,8 @@
    "ships": "all",
    "sources": [
     "s108",
-    "s308",
-    "s314"
+    "s309",
+    "s315"
    ],
    "specialty_meals_included": 0,
    "sqft_max": null,
@@ -63719,8 +63726,8 @@
     "s108",
     "s123",
     "s242",
-    "s307",
-    "s308"
+    "s308",
+    "s309"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1800,
@@ -63941,8 +63948,8 @@
    "ships": "all",
    "sources": [
     "s46",
-    "s331",
-    "s342"
+    "s332",
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -63972,7 +63979,7 @@
    "ships": "all",
    "sources": [
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -64003,7 +64010,7 @@
    "sources": [
     "s18",
     "s46",
-    "s342"
+    "s343"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 1500,
@@ -64036,7 +64043,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -64069,7 +64076,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -64102,7 +64109,7 @@
     "s42",
     "s130",
     "s197",
-    "s345"
+    "s346"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -64133,8 +64140,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": 700,
@@ -64165,8 +64172,8 @@
    "sources": [
     "s130",
     "s197",
-    "s345",
-    "s346"
+    "s346",
+    "s347"
    ],
    "specialty_meals_included": "unlimited",
    "sqft_max": null,
@@ -64360,8 +64367,8 @@
     "wind-surf"
    ],
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -64394,8 +64401,8 @@
     "star-legend"
    ],
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -64428,8 +64435,8 @@
     "star-legend"
    ],
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,
@@ -64458,8 +64465,8 @@
    "rank": 4,
    "ships": "all",
    "sources": [
-    "s336",
-    "s354"
+    "s337",
+    "s355"
    ],
    "specialty_meals_included": null,
    "sqft_max": null,

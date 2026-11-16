@@ -66,7 +66,7 @@ const MORE_IS_FINE = new Set(['inclusive', 'newness']);
 const STRONG = 25;
 
 // Distance between the visitor and a cabin on one axis (0-100).
-function gap(k, want, at) {
+export function gap(k, want, at) {
   if (at == null) return Math.max(Math.abs(want - 50), UNKNOWN_GAP);
   const lean = Math.sign(want - 50);
   const beyond = Math.sign(at - want) === lean;
@@ -79,8 +79,9 @@ export function applyCompass(items, compass) {
   const keys = AXES.map(([k]) => k).filter((k) => compass[k] != null);
   if (!keys.length) return false;
   for (const it of items) {
-    it.fit = Math.round(100 - mean(keys.map((k) => gap(k, compass[k], it.ax[k]))));
-    it.score = it.fit;
+    // Rank on the exact fit and show it rounded, so rounding doesn't make ties that the cheaper cabin then wins.
+    it.score = 100 - mean(keys.map((k) => gap(k, compass[k], it.ax[k])));
+    it.fit = Math.round(it.score);
     it.used = keys.filter((k) => it.ax[k] != null).length;
     it.of = keys.length;
   }
