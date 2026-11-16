@@ -87,3 +87,8 @@ Findings that shaped decisions, with sources. Dates are when they were checked.
 - **Gaps left blank on purpose:** slides, splash areas, mini golf and sports courts for most luxury and small ships.
   Their official sites block automated reading or build pages with script, and third-party sources are travel agents
   and forums. Blank means unknown (the quiz counts it as "no data", not a match).
+- **Seven Seas Navigator (2026-11-16):** sold to Avora Residences (to become Avora Lumina). Regent ran "farewell"
+  sailings ending 2 Oct 2026, but later reports have it sailing for Regent until late 2027
+  ([Cruise Industry News, Aug 2026](https://cruiseindustrynews.com/cruise-news/2026/08/here-are-all-the-ships-leaving-the-nclh-fleet/),
+  [Cruise Hive](https://www.cruisehive.com/regents-oldest-ship-to-exit-fleet-in-2028-under-new-residential-cruise-agreement/200951)).
+  Kept in the fleet until an official date is found.
