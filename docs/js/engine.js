@@ -29,6 +29,14 @@ function amenityCheck(row, ship, a) {
   return tri(ship[a]);
 }
 
+// Unknown extras can only add to the price, so when the known part alone is over the limit that is a known "no" (D64).
+function withinBudget(priced, max) {
+  if (priced.all_in != null) return priced.all_in <= max;
+  if (priced.fare == null) return null;
+  const floor = priced.fare + Object.values(priced.parts).reduce((a, b) => a + b, 0) - priced.obc;
+  return floor > max ? false : null;
+}
+
 // Returns true, false, or 'unknown' (passes only because unknowns are kept).
 export function evalFilters(state, row, line, ship, priced) {
   const checks = [];
@@ -37,7 +45,7 @@ export function evalFilters(state, row, line, ship, priced) {
   if (state.types.length) checks.push(state.types.includes(row.tier_type));
   // Region (D58): any picked region; untagged ships are unknown, so they follow confirmed matches.
   if (state.regions.length) checks.push(known(ship.regions, (v) => v.some((r) => state.regions.includes(r))));
-  if (state.maxPrice != null) checks.push(known(priced.all_in, (v) => v <= state.maxPrice));
+  if (state.maxPrice != null) checks.push(withinBudget(priced, state.maxPrice));
   if (state.minGt > 0) checks.push(ship.gt >= state.minGt);
   if (state.dining !== 'any') checks.push(known(row.included_dining, (v) => DINING_RANK[v] >= DINING_RANK[state.dining]));
   if (state.privRest) checks.push(tri(row.private_restaurant));
@@ -117,13 +125,16 @@ function tieBreak(a, b) {
   return a.row.row_id < b.row.row_id ? -1 : 1;
 }
 
-// Confirmed matches come first (D52): a row that passes every filter on known data ranks above one that passes
-// only because a filtered amenity is unknown, whatever the sort.
+export const PARTIAL_PENALTY = 12;
+
+// Confirmed matches come first (D52) in every sort except Best match, where unconfirmed rows carry a score
+// penalty instead (D65): a row that passes every filter on known data ranks above one that passes only because
+// a filtered value is unknown.
 export function sortItems(items, key) {
   const val = (it) => (key === 'score' ? it.score : it.m[key]);
   const asc = SORT_ASC.has(key);
   return items.sort((a, b) => {
-    if (a.partial !== b.partial) return a.partial ? 1 : -1;
+    if (key !== 'score' && a.partial !== b.partial) return a.partial ? 1 : -1;
     const va = val(a);
     const vb = val(b);
     if (va == null || vb == null || va === vb) {
@@ -153,6 +164,9 @@ function compute(data, LINES, SHIPS, state) {
   }
   score(items, state.w, state.nice.length > 0);
   applyCompass(items, state.compass);
+  // Best match (D65, amends D52): a row that passes only because some data is missing loses points instead of
+  // ranking below every confirmed row, so thinly researched ships can still win when they fit much better.
+  for (const it of items) if (it.partial && it.score != null) it.score = Math.max(0, it.score - PARTIAL_PENALTY);
   return sortItems(items, state.sort);
 }
 

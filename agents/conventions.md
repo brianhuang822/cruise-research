@@ -16,6 +16,7 @@
   - Shareholder credit tiers stated in "days" are treated as nights.
   - `gratuity_pppd` = 0 only when the fare includes gratuities.
 - **Wikidata** is a cross-check only. It mixes double occupancy, maximum occupancy and crew counts under one property.
+- **Typical extras prices** (D64) are derived by the build (median of published `soft_pkg_pppd`, `drink_pkg_pppd`, `wifi_pppd` across lines) and attached as `<field>_est` only where a line publishes none. Never copy them into `lines.csv`; a real published price always wins.
 - **Fare estimates** (`fare_estimates.csv`, D57) may cite a price tracker, reseller listings or trade press because lines rarely publish comparable fares; say which in `notes`, and never present them as real fares.
 - **Prices** enter only through `prices.csv` (generated, with `source`, `fare_basis`, `as_of`). Raw exports go in gitignored `data/raw/`. Publish only medians.
 - **Snapshots** (`data/snapshots/*.json`) are written only by `scripts/fetch_*.py`. Review the diff before committing a refresh.

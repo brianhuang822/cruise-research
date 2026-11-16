@@ -20,10 +20,19 @@ function maxDrinks(a, b) {
   return DRINK_LEVEL[a] >= DRINK_LEVEL[b] ? a : b;
 }
 
-// Cost of the user's wants given what is covered. Returns {total, parts, missing}.
+// A line's published price for a paid extra, else the typical price across lines that publish one (D64).
+// Returns [price, estimated] or [null, false].
+function extraPrice(line, key) {
+  if (line[key] != null) return [line[key], false];
+  const est = line[`${key}_est`];
+  return est == null ? [null, false] : [est, true];
+}
+
+// Cost of the user's wants given what is covered. Returns {total, parts, missing, est}.
 function extrasCost(inputs, cover, line) {
   const parts = {};
   const missing = [];
+  const est = [];
 
   // gratuities
   if (cover.gratuities) parts.gratuity = 0;
@@ -36,17 +45,23 @@ function extrasCost(inputs, cover, line) {
   else if (cover.drinks == null) missing.push('drinks_included');
   else if (DRINK_LEVEL[cover.drinks] >= DRINK_LEVEL[want]) parts.drinks = 0;
   else {
-    const p = want === 'alcohol' ? line.drink_pkg_pppd : line.soft_pkg_pppd;
-    if (p == null) missing.push(want === 'alcohol' ? 'drink_pkg_pppd' : 'soft_pkg_pppd');
+    const key = want === 'alcohol' ? 'drink_pkg_pppd' : 'soft_pkg_pppd';
+    const [p, guessed] = extraPrice(line, key);
+    if (p == null) missing.push(key);
     else parts.drinks = p;
+    if (guessed) est.push('drinks');
   }
 
   // wifi
   if (!inputs.wifi) parts.wifi = 0;
   else if (cover.wifi == null) missing.push('wifi_included');
   else if (cover.wifi) parts.wifi = 0;
-  else if (line.wifi_pppd == null) missing.push('wifi_pppd');
-  else parts.wifi = line.wifi_pppd;
+  else {
+    const [p, guessed] = extraPrice(line, 'wifi_pppd');
+    if (p == null) missing.push('wifi_pppd');
+    else parts.wifi = p;
+    if (guessed) est.push('wifi');
+  }
 
   // specialty dinners (per cruise -> per night)
   const d = inputs.dinners || 0;
@@ -60,9 +75,9 @@ function extrasCost(inputs, cover, line) {
     else parts.specialty = (extra * line.specialty_meal_price) / inputs.nights;
   }
 
-  if (missing.length) return { total: null, parts, missing };
+  if (missing.length) return { total: null, parts, missing, est };
   const total = parts.gratuity + parts.drinks + parts.wifi + parts.specialty;
-  return { total, parts, missing };
+  return { total, parts, missing, est };
 }
 
 export function bundleApplies(bundle, tierId) {
@@ -110,8 +125,11 @@ export function allIn(row, line, bundles, benefits, inputs) {
     const c = extrasCost(inputs, cover, line);
     if (c.total == null) continue;
     const total = c.total + b.price_pppd;
-    if (best.total == null || total < best.total - 1e-9) {
-      best = { method: b.bundle_id, total, parts: { ...c.parts, bundle: b.price_pppd }, missing: [] };
+    // A fully published option beats one that leans on a typical price (D64); otherwise the cheaper wins.
+    const guessed = c.est.length > 0;
+    const bestGuessed = best.total != null && best.est.length > 0;
+    if (best.total == null || (bestGuessed && !guessed) || (bestGuessed === guessed && total < best.total - 1e-9)) {
+      best = { method: b.bundle_id, total, parts: { ...c.parts, bundle: b.price_pppd }, missing: [], est: c.est };
     }
   }
 
@@ -128,6 +146,7 @@ export function allIn(row, line, bundles, benefits, inputs) {
     estimated,
     extras: extras == null ? null : r2(extras),
     method: best.method,
+    extras_est: best.missing.length ? [] : best.est,
     parts: Object.fromEntries(Object.entries(best.parts).map(([k, v]) => [k, r2(v)])),
     obc: r2(obc.pppn),
     obc_status: obc.status,

@@ -235,6 +235,14 @@ def coverage_report(lines, rows, ships):
     return report
 
 
+def with_typical_extras(line, typical):
+    """Add `<extra>_est` (the typical price across lines) where the line publishes no price for that extra (D64)."""
+    for key, value in typical.items():
+        if line.get(key) is None:
+            line[f"{key}_est"] = value
+    return line
+
+
 def build():
     errors, warnings = Errors(), []
     t = {name: load_table(name, errors) for name in TABLES}
@@ -263,6 +271,7 @@ def build():
     if wd:
         warnings += [w for s in ships if s["wikidata_qid"] for w in wikidata_warnings(s, wd)]
     est, ladder = estimates.estimates(t["fare_estimates"])
+    typical = estimates.extras_typical(t["lines"])
     out_rows = resolve_rows(t, overrides, prices, src, {s["ship_id"]: s["name"] for s in ships}, est)
 
     def public(r):
@@ -278,7 +287,7 @@ def build():
         "schema_version": SCHEMA_VERSION,
         "last_updated": max(dates) if dates else None,
         "snapshots": {"cdc_vsp": cdc["fetched_on"] if cdc else None, "wikidata": wd["fetched_on"] if wd else None},
-        "lines": [public(lines[k]) for k in sorted(lines)],
+        "lines": [with_typical_extras(public(lines[k]), typical) for k in sorted(lines)],
         "shareholder_benefits": sorted(map(public, t["shareholder_benefits"]), key=lambda r: (r["ticker"], r["min_nights"])),
         "bundles": sorted(map(public, t["bundles"]), key=lambda r: r["bundle_id"]),
         "tiers": [public(r) for r in tiers_sorted],
@@ -287,6 +296,7 @@ def build():
         "fare_estimates": {
             "ladder": ladder,
             "lines": sorted(map(public, t["fare_estimates"]), key=lambda r: r["line_id"]),
+            "extras": typical,
         },
         "sources": src.table(),
         "coverage": coverage_report(lines, out_rows, out_ships),

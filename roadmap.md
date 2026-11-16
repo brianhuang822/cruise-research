@@ -83,6 +83,11 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D61 | Line sweep | 19 → 24 lines (Windstar, Margaritaville, Paul Gauguin, SeaDream, Four Seasons); expedition, river/coastal and non-US lines stay out |
 | D62 | Quiz pick cues | Round markers + "Pick one" vs tick boxes + "Pick all that apply"; river/coastal/expedition stay out |
 | D63 | Quiz result card | "Your kind of cruise": best line, playful type name from your leanings, chips, runner-ups; Copy and Share link to the quiz |
+| D64 | Quiz audit fixes | Budget leeway 15%; known-over-budget fails; typical drinks/Wi-Fi prices with ~; evidence-only Family↔Adults; unknown axis ≥25 away; strong leans are "at least" |
+| D65 | Unconfirmed in Best match | −12 points instead of ranking last (amends D52); per-card "Not confirmed" note |
+| D66 | Quiz questions | Plain vibe / ship-or-places / food questions replace the slider screen (amends D59); answers set compass positions; nights dropped; seasick ranks, doesn't filter |
+| D67 | Line type | "Any kind of line you'd rule out?" (amends D50) |
+| D68 | Quiz results | ≤2 ships per line lead the list; empty results offer to drop the most restrictive answer |
 
 ---
 
@@ -402,24 +407,29 @@ All three modes read and write the **same state** (inputs, filters, weights) and
 
 Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony = `balcony`, `junior_suite`, `perk_class`; Suite = `suite`, `top_suite`.
 
-**Wizard decision tree** (questions skip based on earlier answers):
+**Wizard decision tree** (D66; questions skip based on earlier answers; "→ axis" = compass position the answer votes for, averaged per axis):
 
 | # | Question | Shown when | Sets |
 |---|---|---|---|
-| 1 | Who's traveling? (adults / family with kids / solo or friends) | always | family → `kids_club` amenity |
-| 2 | Prefer a ship with no kids at all? | Q1 ≠ family | adults-only filter |
-| 3 | How many nights? | always | trip length |
-| 4 | Budget per person per night, all-in? | always | max price + price weight |
-| 5 | Do you get seasick? | always | min GT + size weight |
-| 6 | What kind of cabin? | always | cabin types |
-| 7 | Which suite perks matter? (multi) | Q6 = suite | perk filters |
-| 8 | What kind of cruise line? (pick any: Mainstream / Premium / Premium, every restaurant included / Luxury, D50) | always | line filter (union of the picked types) |
-| 9 | What do you drink? | always | drinks input |
-| 10 | Need Wi-Fi? | always | Wi-Fi input |
-| 11 | Activities you want on board? (multi) | always | amenity filters |
-| 12 | Own 100+ shares of a cruise company? (multi) | always | tickers |
+| 1 | Are any kids coming? (yes / no) | always | yes → `kids_club` amenity, Family 10 |
+| 2 | How many people will share one cabin? | kids coming | guests per cabin |
+| 3 | How do you feel about kids on board? (adults only / a grown-up feel, a few are fine / doesn't matter) | no kids | adults-only filter → Adults 95; grown-up → Adults 80 |
+| 4 | What should the ship feel like? (lively and late / fun, not wild / calm and grown-up) | always | → Action 90 + Size 75 / Action 65 / Action 10 (+ Adults 80 without kids) |
+| 5 | Is the ship the destination, or the places you visit? | always | ship → Size 85 + Action 80; places → Size 15 |
+| 6 | Where would you like to go? (multi) | always | regions (untagged ships rank lower, D65) |
+| 7 | How much does the food matter? | always | a highlight → All-inclusive 85 |
+| 8 | Any kind of cruise line you'd rule out? (multi, D67) | always | line filter = all lines minus the ruled-out types |
+| 9 | What kind of cabin? | always | cabin types; suite → Suite 90, inside → Suite 15 |
+| 10 | Which suite perks matter? (multi) | suite | perk filters |
+| 11 | What do you usually drink? | always | drinks input |
+| 12 | Do you need Wi-Fi, and should it be free? | always | Wi-Fi input / free-Wi-Fi filter |
+| 13 | What can you spend per person, per night, all-in? | always | max price ×1.15 (D64) + price weight; ≤$200 → Budget 15, $400–800 → Budget 75 |
+| 14 | Do you get seasick? | always | size weight; easily → Size 85 (no size filter) |
+| 15 | Anything you want on the ship? (multi) | always | amenity filters |
+| 16 | Anything for the kids? (multi) | kids coming | amenity filters |
+| 17 | Own 100+ shares of a cruise company? (multi) | always | tickers |
 
-Results: top 5 by score, with "why it matched" chips, an edit-answers link per question, and buttons to continue in Simple or Detailed.
+Results: the "Your kind of cruise" card (D63), then ships by compass fit with at most two per line leading (D68), the compass panel, "Your answers" with Change links, and "Adjust your compass" sliders. If nothing fits, the answer that rules out the most is named with an offer to drop it.
 
 ## 8. Architecture
 

@@ -37,8 +37,16 @@ def _max_drinks(a, b):
     return a if DRINK_LEVEL[a] >= DRINK_LEVEL[b] else b
 
 
+def _extra_price(line, key):
+    # Published price, else the typical price across lines that publish one (D64): (price, estimated).
+    if line.get(key) is not None:
+        return line[key], False
+    est = line.get(f"{key}_est")
+    return est, est is not None
+
+
 def _extras_cost(inputs, cover, line):
-    parts, missing = {}, []
+    parts, missing, est = {}, [], []
 
     if cover["gratuities"]:
         parts["gratuity"] = 0
@@ -56,10 +64,13 @@ def _extras_cost(inputs, cover, line):
         parts["drinks"] = 0
     else:
         key = "drink_pkg_pppd" if want == "alcohol" else "soft_pkg_pppd"
-        if line.get(key) is None:
+        price, guessed = _extra_price(line, key)
+        if price is None:
             missing.append(key)
         else:
-            parts["drinks"] = line[key]
+            parts["drinks"] = price
+        if guessed:
+            est.append("drinks")
 
     if not inputs.get("wifi"):
         parts["wifi"] = 0
@@ -67,10 +78,14 @@ def _extras_cost(inputs, cover, line):
         missing.append("wifi_included")
     elif cover["wifi"]:
         parts["wifi"] = 0
-    elif line.get("wifi_pppd") is None:
-        missing.append("wifi_pppd")
     else:
-        parts["wifi"] = line["wifi_pppd"]
+        price, guessed = _extra_price(line, "wifi_pppd")
+        if price is None:
+            missing.append("wifi_pppd")
+        else:
+            parts["wifi"] = price
+        if guessed:
+            est.append("wifi")
 
     d = inputs.get("dinners") or 0
     if d == 0:
@@ -89,8 +104,8 @@ def _extras_cost(inputs, cover, line):
             parts["specialty"] = extra * line["specialty_meal_price"] / inputs["nights"]
 
     if missing:
-        return None, parts, missing
-    return parts["gratuity"] + parts["drinks"] + parts["wifi"] + parts["specialty"], parts, missing
+        return None, parts, missing, est
+    return parts["gratuity"] + parts["drinks"] + parts["wifi"] + parts["specialty"], parts, missing, est
 
 
 def bundle_applies(bundle, tier_id):
@@ -129,8 +144,8 @@ def all_in(row, line, bundles, benefits, inputs):
         "wifi": row.get("wifi_included"),
         "meals": row.get("specialty_meals_included"),
     }
-    total, parts, missing = _extras_cost(inputs, base, line)
-    best = {"method": "a_la_carte", "total": total, "parts": parts, "missing": missing}
+    total, parts, missing, est = _extras_cost(inputs, base, line)
+    best = {"method": "a_la_carte", "total": total, "parts": parts, "missing": missing, "est": est}
 
     for b in bundles:
         if b["line_id"] != row["line_id"] or b.get("price_pppd") is None or not bundle_applies(b, row["tier_id"]):
@@ -142,12 +157,14 @@ def all_in(row, line, bundles, benefits, inputs):
             "wifi": True if (base["wifi"] is True or b.get("covers_wifi") is True) else base["wifi"],
             "meals": _meals_covered(base["meals"], b.get("covers_specialty_meals")),
         }
-        t, p, _missing = _extras_cost(inputs, cover, line)
+        t, p, _missing, e = _extras_cost(inputs, cover, line)
         if t is None:
             continue
         t += b["price_pppd"]
-        if best["total"] is None or t < best["total"] - 1e-9:
-            best = {"method": b["bundle_id"], "total": t, "parts": {**p, "bundle": b["price_pppd"]}, "missing": []}
+        # A fully published option beats one that leans on a typical price (D64); otherwise the cheaper wins.
+        guessed, best_guessed = bool(e), best["total"] is not None and bool(best["est"])
+        if best["total"] is None or (best_guessed and not guessed) or (best_guessed == guessed and t < best["total"] - 1e-9):
+            best = {"method": b["bundle_id"], "total": t, "parts": {**p, "bundle": b["price_pppd"]}, "missing": [], "est": e}
 
     obc = obc_for(line, inputs, benefits)
     # Real median first; otherwise the line-and-cabin-type estimate (D57), flagged.
@@ -163,6 +180,7 @@ def all_in(row, line, bundles, benefits, inputs):
         "estimated": estimated,
         "extras": None if extras is None else _r2(extras),
         "method": best["method"],
+        "extras_est": [] if best["missing"] else best["est"],
         "parts": {k: _r2(v) for k, v in best["parts"].items()},
         "obc": _r2(obc["pppn"]),
         "obc_status": obc["status"],

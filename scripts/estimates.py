@@ -65,3 +65,20 @@ def estimates(rows: list[dict]) -> tuple[dict, dict]:
             vals = {k: unit * f for k, f in lad.items()}
         out |= {(r["line_id"], k): _round5(v) for k, v in vals.items()}
     return out, {k: round(v, 3) for k, v in lad.items()}
+
+
+EXTRAS = ("soft_pkg_pppd", "drink_pkg_pppd", "wifi_pppd")
+
+
+def extras_typical(lines: list[dict]) -> dict:
+    """Median published price per person per day of each paid extra, across the lines that publish one (D64).
+
+    Used, marked as an estimate, for lines that sell the extra without publishing a price, so one missing
+    package price doesn't make the whole all-in price unknown.
+    """
+    out = {}
+    for key in EXTRAS:
+        vals = [r[key] for r in lines if r.get(key) is not None]
+        if vals:
+            out[key] = round(median(vals), 2)
+    return out

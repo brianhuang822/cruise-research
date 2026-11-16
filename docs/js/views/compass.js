@@ -2,7 +2,6 @@
 // a two-axis map of ships) and the tooltip for the map. Axis maths lives in ../axes.js.
 import { html } from '../dom.js';
 import { AXES } from '../axes.js';
-import { byShip } from './common.js';
 
 const AXIS = Object.fromEntries(AXES.map(([k, left, right]) => [k, { left, right }]));
 export const isSet = (compass) => Object.keys(compass).length > 0;
@@ -98,8 +97,9 @@ function mapTable(leads) {
   </details>`;
 }
 
-export function compassPanel(items, compass) {
-  const leads = byShip(items).map((g) => g.it);
+// groups: ship cards in the order the list shows them, so the map's top 5 are the first five cards.
+export function compassPanel(groups, compass) {
+  const leads = groups.map((g) => g.it);
   const farthest = farthestLines(leads);
   return html`<section class="compass-panel" aria-label="Your cruise compass">
     ${farthest ? html`<p class="compass-lines"><strong>Farthest from you:</strong> ${farthest}</p>` : ''}

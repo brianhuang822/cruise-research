@@ -141,6 +141,17 @@ class PricingTests(unittest.TestCase):
         self.assertFalse(real["estimated"])
         self.assertEqual(real["fare"], 150)
 
+    def test_typical_extras_used_only_without_a_published_price(self):
+        line, benefits, _bundles, rows, _ = fixture()
+        wants = {"nights": 7, "drinks": "soft", "wifi": True}
+        typical = {**line, "soft_pkg_pppd": None, "soft_pkg_pppd_est": 22.2, "wifi_pppd": None, "wifi_pppd_est": 20}
+        guessed = pricing.all_in(rows[3], typical, [], benefits, wants)
+        self.assertEqual(guessed["extras_est"], ["drinks", "wifi"])
+        self.assertEqual(guessed["parts"]["drinks"], 22.2)
+        published = pricing.all_in(rows[3], line, [], benefits, wants)
+        self.assertEqual(published["extras_est"], [])
+        self.assertIsNotNone(published["all_in"])
+
     def test_fare_estimates_built_for_every_row(self):
         ds = json.loads((ROOT / "data" / "dataset.json").read_text())
         self.assertTrue(all(r["fare_est_pppn"] for r in ds["rows"]))
@@ -151,24 +162,26 @@ class PricingTests(unittest.TestCase):
     @unittest.skipUnless(shutil.which("node"), "node not installed")
     def test_js_python_parity(self):
         line, benefits, bundles, rows, grid = fixture()
-        cases = [{"row": r, "inputs": g} for r in rows for g in grid]
+        # The same cases against a line that publishes no soft-drink or Wi-Fi price, so typical prices apply (D64).
+        typical = {**line, "soft_pkg_pppd": None, "soft_pkg_pppd_est": 22.2, "wifi_pppd": None, "wifi_pppd_est": 20}
+        cases = [{"row": r, "inputs": g, "line": ln} for ln in (line, typical) for r in rows for g in grid]
         js = (
             "import { allIn } from './docs/pricing.js';"
             "import fs from 'fs';"
             "const c = JSON.parse(fs.readFileSync(0, 'utf8'));"
-            "process.stdout.write(JSON.stringify(c.cases.map(k => allIn(k.row, c.line, c.bundles, c.benefits, k.inputs))));"
+            "process.stdout.write(JSON.stringify(c.cases.map(k => allIn(k.row, k.line, c.bundles, c.benefits, k.inputs))));"
         )
         out = subprocess.run(
             ["node", "--input-type=module", "-e", js],
             cwd=ROOT,
             check=True,
             capture_output=True,
-            input=json.dumps({"cases": cases, "line": line, "bundles": bundles, "benefits": benefits}),
+            input=json.dumps({"cases": cases, "bundles": bundles, "benefits": benefits}),
             text=True,
         ).stdout
         js_results = json.loads(out)
         for case, jr in zip(cases, js_results, strict=True):
-            pr = pricing.all_in(case["row"], line, bundles, benefits, case["inputs"])
+            pr = pricing.all_in(case["row"], case["line"], bundles, benefits, case["inputs"])
             jr.pop("obc_usd", None)
             self.assertEqual(json.loads(json.dumps(pr)), jr, msg=json.dumps(case))
 

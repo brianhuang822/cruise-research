@@ -76,10 +76,18 @@ export function rankSummary(w, hasNice = false) {
 
 export const chipList = (labels) => html`<div class="perks">${labels.map((p) => html`<span class="perk">${p}</span>`)}</div>`;
 
+// Why a price carries "~": an estimated fare (D57), a typical drinks or Wi-Fi price (D64), or both.
+function estTitle(p) {
+  const extras = p.extras_est?.length ? `a typical ${p.extras_est.join(' and ').replace('wifi', 'Wi-Fi')} price (this line doesn't publish one)` : '';
+  if (p.estimated) return `Estimated typical fare for this line and cabin type, plus your extras${extras ? `, including ${extras}` : ''}`;
+  return `Includes ${extras}`;
+}
+
 export function priceCell(p) {
   if (p.all_in != null) {
-    const how = `${p.estimated ? 'estimate · ' : ''}${p.method !== 'a_la_carte' ? 'via bundle' : 'fare + extras'}${p.obc ? ' − credit' : ''}`;
-    return html`<span class="price">${p.estimated ? html`<abbr class="est" title="Estimated typical fare for this line and cabin type, plus your extras">~</abbr>` : ''}${fmt$(p.all_in)}</span><small>${how}</small>`;
+    const guess = p.estimated || p.extras_est?.length > 0;
+    const how = `${guess ? 'estimate · ' : ''}${p.method !== 'a_la_carte' ? 'via bundle' : 'fare + extras'}${p.obc ? ' − credit' : ''}`;
+    return html`<span class="price">${guess ? html`<abbr class="est" title="${estTitle(p)}">~</abbr>` : ''}${fmt$(p.all_in)}</span><small>${how}</small>`;
   }
   if (p.extras != null) return html`<span class="pending">Fare pending</span><small>${p.extras ? `+${fmt$(p.extras)}/night extras` : 'No extras to add'}</small>`;
   const names = [...new Set(p.missing.filter((m) => m !== 'fare').map((m) => MISSING_LABELS[m] ?? m.replace(/_/g, ' ')))];
@@ -104,7 +112,7 @@ function priceBlock(it, data) {
     <h3>Price per person per night</h3>
     <dl>
       <dt>${p.estimated ? 'Estimated fare' : 'Median fare'}</dt><dd>${p.fare == null ? unknown('pending') : fmt$2(p.fare)}</dd>
-      ${parts.map(([k, v]) => html`<dt>${PART_LABELS[k] || k}</dt><dd>${fmt$2(v)}</dd>`)}
+      ${parts.map(([k, v]) => html`<dt>${PART_LABELS[k] || k}${p.extras_est?.includes(k) ? ' (typical price)' : ''}</dt><dd>${fmt$2(v)}</dd>`)}
       <dt>Extras subtotal</dt><dd>${p.extras == null ? unknown() : fmt$2(p.extras)}</dd>
       ${p.obc ? html`<dt>Shareholder credit</dt><dd>−${fmt$2(p.obc)}</dd>` : ''}
       <span class="sep"></span>
@@ -115,6 +123,7 @@ function priceBlock(it, data) {
     ${p.obc_status === 'unknown' ? html`<p class="hint">We couldn't confirm the shareholder credit for this line.</p>` : ''}
     ${row.fare_as_of ? html`<p class="hint">Fare: median of ${row.fare_n_sailings} sailings, ${row.fare_source}, as of ${row.fare_as_of}.</p>` : ''}
     ${p.estimated ? estimateNote(row, data) : ''}
+    ${p.extras_est?.length ? html`<p class="hint">This line doesn't publish a ${p.extras_est.join(' or ').replace('wifi', 'Wi-Fi')} package price, so we use the typical price across lines that do. Check the line's own price before you book.</p>` : ''}
   </div>`;
 }
 
@@ -187,7 +196,7 @@ function shipBlock(ship, line) {
 function compassBreakdown(it, compass) {
   const set = AXES.filter(([k]) => compass[k] != null);
   return html`<h3>Compass fit ${it.fit ?? '—'} (${it.used} of ${it.of} axes)</h3>
-    <dl>${set.map(([k, left, right]) => html`<dt>${left} ↔ ${right}</dt><dd>you ${compass[k]} · this ${it.ax[k] ?? unknown('no data, counted as 50')}</dd>`)}</dl>`;
+    <dl>${set.map(([k, left, right]) => html`<dt>${left} ↔ ${right}</dt><dd>you ${compass[k]} · this ${it.ax[k] ?? unknown('no data, not counted as a match')}</dd>`)}</dl>`;
 }
 
 function aboutBlock(it, engine, state) {
@@ -218,9 +227,12 @@ export const tallyText = (ships, cabins) =>
   ships === cabins ? `${ships.toLocaleString('en-US')} ships` : `${ships.toLocaleString('en-US')} ships · ${cabins.toLocaleString('en-US')} cabins`;
 
 // Cards for a list of ship groups, with a divider where ships that pass only on unknown data begin (D52).
+// When unconfirmed ships all follow the confirmed ones (every sort but Best match, D52), one divider marks the
+// change; in Best match they can mix (D65), so each unconfirmed card carries its own note instead.
 export function shipCards(groups) {
   const cut = groups.findIndex((g) => g.it.partial);
-  const card = (g, i) => html`${i === cut && cut > 0 ? html`<p class="cards-divider">These may also fit, but we can't confirm everything you picked (for example the region or an amenity).</p>` : ''}${cardHtml(g)}`;
+  const split = cut > 0 && groups.slice(cut).every((g) => g.it.partial);
+  const card = (g, i) => html`${split && i === cut ? html`<p class="cards-divider">These may also fit, but we can't confirm everything you picked (for example the region or an amenity).</p>` : ''}${cardHtml(g, !split)}`;
   return html`<div class="cards">${groups.map(card)}</div>`;
 }
 
@@ -284,7 +296,7 @@ export const staleBadge = (it) => {
 const PLAIN_TYPES = { interior: 'Inside', oceanview: 'Ocean view', balcony: 'Balcony' };
 const cardTitle = (row) => PLAIN_TYPES[row.tier_type] ?? row.name.replace(/\s*\(.*\)\s*$/, '');
 
-export function cardHtml({ it, more }) {
+export function cardHtml({ it, more }, flagUnconfirmed = false) {
   const { row, ship, line, priced } = it;
   const chips = perkChips(row, ship).slice(0, 3);
   return html`<details class="card" data-id="${row.row_id}">
@@ -293,6 +305,7 @@ export function cardHtml({ it, more }) {
         <div class="card-head">
           <h3 class="card-title">${cardTitle(row)}</h3>
           <p class="ship-name">${ship.name} · ${line.name}</p>
+          ${flagUnconfirmed && it.partial ? html`<p class="unconfirmed">Not confirmed for everything you picked</p>` : ''}
           ${staleBadge(it)}
         </div>
         <div class="card-price">${priceCell(priced)}</div>

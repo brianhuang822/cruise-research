@@ -16,22 +16,11 @@ const POLES = {
 };
 // How far from the middle (50) a position must sit to count as a leaning.
 const MIN_LEAN = 20;
-// Answers that imply a leaning on an axis the compass left on "Any". A compass setting always wins.
-const IMPLIED = [
-  ['budget', (a) => ({ 200: 15, 800: 75 })[a.budget]],
-  ['adults', (a) => ({ family: 10 })[a.who] ?? ({ yes: 90 })[a.adults_only]],
-  ['suite', (a) => ({ suite: 90, interior: 15 })[a.cabin]],
-  ['size', (a) => ({ easily: 85 })[a.motion]],
-];
 const SITE = 'https://brianhuang822.github.io/cruise-research/';
 
-export function leanings(compass, answers) {
-  const pos = {};
-  for (const [k, f] of IMPLIED) {
-    const v = f(answers);
-    if (v != null) pos[k] = v;
-  }
-  Object.assign(pos, compass);
+// The visitor's leanings, strongest first. The quiz answers set the compass (D66), so these are the same
+// positions the ranking uses.
+export function leanings(pos) {
   return AXES.filter(([k]) => pos[k] != null && Math.abs(pos[k] - 50) >= MIN_LEAN)
     .map(([k, left, right]) => ({ k, side: pos[k] > 50 ? 1 : 0, label: pos[k] > 50 ? right : left, strength: Math.abs(pos[k] - 50) }))
     .sort((a, b) => b.strength - a.strength);
@@ -54,10 +43,10 @@ function rankedLines(items) {
   return [...seen.values()];
 }
 
-export function personaCard(items, compass, answers, typeLabel) {
+export function personaCard(items, compass, typeLabel) {
   if (!items.length) return '';
   const [best, ...rest] = rankedLines(items);
-  const leans = leanings(compass, answers);
+  const leans = leanings(compass);
   const name = personaName(leans);
   const pct = (it) => (it.fit != null ? ` ${it.fit}%` : '');
   const text = `My kind of cruise is ${best.line.name}: ${name}${best.fit != null ? ` (${best.fit}% match)` : ''}. What's yours?`;
