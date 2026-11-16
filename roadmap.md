@@ -95,6 +95,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D73 | Tie-break | Ties between ships: further along your ship-level leanings first, then cheaper (amends D48); cabin ties within a ship still cheaper |
 | D74 | Quiz round 3 | Wi-Fi preference is its own fit term; luxury suites not penalised for ship-wide venues; "best" ties go to the more luxurious ship; South America option |
 | D75 | Grown-up weight | Adults gap counts twice at Adults 70+ (amends D59) |
+| D76 | Every cruise line | Quiz results list all lines by % (best ship), ruled-out lines with reason; open a line for per-axis differences; tick two to compare |
 
 ---
 
@@ -436,7 +437,7 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 16 | Anything for the kids? (multi) | kids coming | amenity filters |
 | 17 | Own 100+ shares of a cruise company? (multi) | always | tickers |
 
-Results: the "Your kind of cruise" card (D63), then ships by compass fit with at most two per line leading (D68), the compass panel, "Your answers" with Change links, and "Adjust your compass" sliders. If nothing fits, the answer that rules out the most is named with an offer to drop it.
+Results: the "Your kind of cruise" card (D63), then ships by compass fit with at most two per line leading (D68), the compass panel, "Every cruise line" with each line's % and compare-two (D76), "Your answers" with Change links, and "Adjust your compass" sliders. If nothing fits, the answer that rules out the most is named with an offer to drop it.
 
 ## 8. Architecture
 

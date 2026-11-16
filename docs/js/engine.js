@@ -9,7 +9,7 @@ export function createEngine(data) {
   const LINES = Object.fromEntries(data.lines.map((l) => [l.line_id, l]));
   const SHIPS = Object.fromEntries(data.ships.map((s) => [s.ship_id, s]));
   const TIERS = Object.fromEntries(data.tiers.map((t) => [t.tier_id, t]));
-  return { data, LINES, SHIPS, TIERS, compute: (state) => compute(data, LINES, SHIPS, state) };
+  return { data, LINES, SHIPS, TIERS, compute: (state) => compute(data, LINES, SHIPS, state), lineFits: (state) => lineFits(data, LINES, SHIPS, state) };
 }
 
 const tri = (v) => (v == null ? null : !!v);
@@ -37,26 +37,32 @@ function withinBudget(priced, max) {
   return floor > max ? false : null;
 }
 
+// Each active filter as [name, true | false | null (unknown)] for one row.
+function filterChecks(state, row, line, ship, priced) {
+  const checks = [];
+  if (state.segments.length) checks.push(['segments', state.segments.includes(line.segment)]);
+  if (state.lines.length) checks.push(['lines', state.lines.includes(row.line_id)]);
+  if (state.types.length) checks.push(['types', state.types.includes(row.tier_type)]);
+  // Region (D58): any picked region; untagged ships are unknown, so they follow confirmed matches.
+  if (state.regions.length) checks.push(['regions', known(ship.regions, (v) => v.some((r) => state.regions.includes(r)))]);
+  if (state.maxPrice != null) checks.push(['maxPrice', withinBudget(priced, state.maxPrice)]);
+  if (state.minGt > 0) checks.push(['minGt', ship.gt >= state.minGt]);
+  if (state.dining !== 'any') checks.push(['dining', known(row.included_dining, (v) => DINING_RANK[v] >= DINING_RANK[state.dining])]);
+  if (state.privRest) checks.push(['privRest', tri(row.private_restaurant)]);
+  if (state.grat) checks.push(['grat', known(row.gratuity_pppd, (v) => v === 0)]);
+  if (state.wifiFree) checks.push(['wifiFree', tri(row.wifi_included)]);
+  if (state.adults) checks.push(['adults', known(line.min_age, (v) => v >= 18)]);
+  if (state.guests > 2) checks.push(['guests', known(row.max_guests, (v) => v >= state.guests)]);
+  for (const p of state.perks) checks.push([`perk:${p}`, perkCheck(row, p)]);
+  for (const a of state.amen) checks.push([`amen:${a}`, amenityCheck(row, ship, a)]);
+  return checks;
+}
+
 // Returns true, false, or 'unknown' (passes only because unknowns are kept).
 export function evalFilters(state, row, line, ship, priced) {
-  const checks = [];
-  if (state.segments.length) checks.push(state.segments.includes(line.segment));
-  if (state.lines.length) checks.push(state.lines.includes(row.line_id));
-  if (state.types.length) checks.push(state.types.includes(row.tier_type));
-  // Region (D58): any picked region; untagged ships are unknown, so they follow confirmed matches.
-  if (state.regions.length) checks.push(known(ship.regions, (v) => v.some((r) => state.regions.includes(r))));
-  if (state.maxPrice != null) checks.push(withinBudget(priced, state.maxPrice));
-  if (state.minGt > 0) checks.push(ship.gt >= state.minGt);
-  if (state.dining !== 'any') checks.push(known(row.included_dining, (v) => DINING_RANK[v] >= DINING_RANK[state.dining]));
-  if (state.privRest) checks.push(tri(row.private_restaurant));
-  if (state.grat) checks.push(known(row.gratuity_pppd, (v) => v === 0));
-  if (state.wifiFree) checks.push(tri(row.wifi_included));
-  if (state.adults) checks.push(known(line.min_age, (v) => v >= 18));
-  if (state.guests > 2) checks.push(known(row.max_guests, (v) => v >= state.guests));
-  for (const p of state.perks) checks.push(perkCheck(row, p));
-  for (const a of state.amen) checks.push(amenityCheck(row, ship, a));
-  if (checks.includes(false)) return false;
-  if (checks.includes(null)) return state.unknowns === 'include' ? 'unknown' : false;
+  const results = filterChecks(state, row, line, ship, priced).map(([, v]) => v);
+  if (results.includes(false)) return false;
+  if (results.includes(null)) return state.unknowns === 'include' ? 'unknown' : false;
   return true;
 }
 
@@ -151,14 +157,28 @@ export function sortItems(items, key) {
   });
 }
 
-function compute(data, LINES, SHIPS, state) {
+// Price and place every cabin, so compass positions don't depend on the filters.
+function prepare(data, LINES, SHIPS, state) {
   const inputs = { nights: state.nights, tickers: state.tickers, drinks: state.drinks, wifi: state.wifi, dinners: state.dinners };
-  // Price and place every cabin first, so compass positions don't depend on the filters.
   const all = data.rows.map((row) => {
     const line = LINES[row.line_id];
     return { row, line, ship: SHIPS[row.ship_id], priced: allIn(row, line, data.bundles, data.shareholder_benefits, inputs) };
   });
   placeOnAxes(all);
+  return all;
+}
+
+// Every cabin, filtered or not, with its compass fit and the filters it fails by name (D76: the quiz's
+// "Every cruise line" list shows lines your answers rule out, with their match and the reason).
+function lineFits(data, LINES, SHIPS, state) {
+  const all = prepare(data, LINES, SHIPS, state);
+  for (const it of all) it.failed = filterChecks(state, it.row, it.line, it.ship, it.priced).filter(([, v]) => v === false).map(([k]) => k);
+  applyCompass(all, state.compass, { wifiPref: state.wifiPref });
+  return all;
+}
+
+function compute(data, LINES, SHIPS, state) {
+  const all = prepare(data, LINES, SHIPS, state);
   const items = [];
   for (const it of all) {
     const pass = evalFilters(state, it.row, it.line, it.ship, it.priced);

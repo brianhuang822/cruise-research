@@ -1,5 +1,5 @@
-// Cruise compass views (D59): the slider screen, the results panel (closest/farthest lines, per-axis bars,
-// a two-axis map of ships) and the tooltip for the map. Axis maths lives in ../axes.js.
+// Cruise compass views (D59): the slider screen, the results panel (per-axis bars, a two-axis map of ships) and
+// the tooltip for the map. Every line's match is in lines.js (D76). Axis maths lives in ../axes.js.
 import { html } from '../dom.js';
 import { AXES } from '../axes.js';
 
@@ -18,15 +18,6 @@ export function compassSliders(compass, prefix) {
       </div>
     </div>`;
   })}</div>`;
-}
-
-// Farthest lines, read off the same ranked ship list as the cards and the map, so they always agree
-// (confirmed matches rank first, D52). The closest lines are on the result card (D63).
-function farthestLines(leads) {
-  const firstSeen = new Map();
-  for (const it of leads) if (!firstSeen.has(it.line.name)) firstSeen.set(it.line.name, it.fit);
-  const lines = [...firstSeen];
-  return lines.length > 4 ? lines.slice(-2).reverse().map(([n, f]) => `${n} (${f ?? '—'})`).join(', ') : '';
 }
 
 // You vs the top match on each axis the visitor set.
@@ -100,9 +91,7 @@ function mapTable(leads) {
 // groups: ship cards in the order the list shows them, so the map's top 5 are the first five cards.
 export function compassPanel(groups, compass) {
   const leads = groups.map((g) => g.it);
-  const farthest = farthestLines(leads);
   return html`<section class="compass-panel" aria-label="Your cruise compass">
-    ${farthest ? html`<p class="compass-lines"><strong>Farthest from you:</strong> ${farthest}</p>` : ''}
     ${axisBars(compass, leads[0])}
     <p class="legend"><span><i class="key you"></i>You</span><span><i class="key top"></i>Top match</span></p>
     ${compassMap(leads, compass)}

@@ -5,6 +5,7 @@ import { lineTypes } from '../engine.js';
 import { fresh, store, toggleIn } from '../state.js';
 import { byShip, shipCards, sortSelect, tallyText } from './common.js';
 import { bindMapTooltip, compassPanel, compassSliders, isSet } from './compass.js';
+import { lineList } from './lines.js';
 import { onPersonaClick, personaCard } from './persona.js';
 
 // Filled from the data in initWizard: line ids for each line type (see lineTypes), and the reverse.
@@ -226,6 +227,7 @@ function resultsView(items) {
     ${top.length ? html`${shipCards(top)}
         ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}`
       : emptyView()}
+    ${isSet(s.compass) ? lineList({ items, all: engine.lineFits(s), state: s, typeLabel, compare, open: openLines }) : ''}
     <div class="quiz-actions">
       <button type="button" class="btn-primary" data-goto="simple">See all ${ships.length} ships</button>
       <button type="button" class="link" id="q-restart">Start over</button>
@@ -245,12 +247,21 @@ function resultsView(items) {
 
 let lastItems = [];
 const open = { answers: false, weights: false };
+// "Every cruise line" (D76): lines ticked to compare (at most two) and rows the visitor opened.
+let compare = [];
+const openLines = new Set();
+const MAX_COMPARE = 2;
 
 export function renderWizard(items) {
   lastItems = items;
   // Keep the folded panels as the user left them across re-renders.
   if ($('q-answers')) open.answers = $('q-answers').open;
   if ($('q-finetune')) open.weights = $('q-finetune').open;
+  const rows = document.querySelectorAll('#mode-wizard details[data-line]');
+  if (rows.length) {
+    openLines.clear();
+    for (const d of rows) if (d.open) openLines.add(d.dataset.line);
+  }
   const qs = visible();
   mount($('mode-wizard'), step < qs.length ? questionView(qs[step], step, qs.length) : resultsView(items));
 }
@@ -294,7 +305,7 @@ export function initWizard(goTo, data, eng) {
     if (id === 'q-next') { answers[q.id] = answers[q.id] || []; advance(); }
     else if (id === 'q-skip') { delete answers[q.id]; advance(); }
     else if (id === 'q-back') { step = Math.max(0, step - 1); renderWizard(lastItems); }
-    else if (id === 'q-restart') { answers = {}; step = 0; commit(); }
+    else if (id === 'q-restart') { answers = {}; step = 0; compare = []; openLines.clear(); commit(); }
     else if (id === 'q-more') { shown += TOP; renderWizard(lastItems); }
     else if (e.target.dataset.drop) { delete answers[e.target.dataset.drop]; commit(); }
     else if (e.target.dataset.edit) { step = Number(e.target.dataset.edit); renderWizard(lastItems); }
@@ -302,6 +313,12 @@ export function initWizard(goTo, data, eng) {
   };
   $('mode-wizard').onchange = (e) => {
     if (e.target.id === 'q-sort') store.set({ sort: e.target.value });
+    const cmp = e.target.dataset.cmp;
+    if (cmp) {
+      compare = e.target.checked ? [...compare, cmp].slice(-MAX_COMPARE) : compare.filter((x) => x !== cmp);
+      renderWizard(lastItems);
+      return;
+    }
     // Results page: commit a compass slider on release and re-rank.
     const k = e.target.dataset.axis;
     if (k) store.set({ compass: { ...store.state.compass, [k]: Number(e.target.value) }, sort: 'score' });
