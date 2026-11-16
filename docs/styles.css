@@ -397,7 +397,7 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 .line-row .cmp { display: flex; justify-content: center; padding-top: 13px; cursor: pointer; }
 .line-row .cmp input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); cursor: pointer; }
 .line-row .cmp input:disabled { cursor: not-allowed; }
-.line-row summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "ln pct" "meter meter" "sub sub"; gap: 4px 12px; padding: 10px 4px 10px 0; cursor: pointer; list-style: none; }
+.line-row summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "ln pct" "meter meter" "sub sub" "miss miss"; gap: 4px 12px; padding: 10px 4px 10px 0; cursor: pointer; list-style: none; }
 .line-row summary::-webkit-details-marker { display: none; }
 .line-row .ln { grid-area: ln; font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
 .line-row .ln::after { content: "▸"; display: inline-block; margin-left: 6px; color: var(--ink-2); font-size: 0.75em; transition: transform 0.15s; }
@@ -406,8 +406,8 @@ abbr.est { text-decoration: none; cursor: help; margin-right: 1px; color: var(--
 .line-row .meter { grid-area: meter; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
 .line-row .meter i { display: block; height: 100%; background: var(--viz-top); }
 .line-row .sub { grid-area: sub; font-size: var(--step--1); color: var(--ink-2); }
-.line-row.out .ln, .line-row.out .pct { color: var(--ink-2); }
-.line-row.out .meter i { background: var(--unknown); }
+.line-row .sub.miss { grid-area: miss; color: var(--accent); }
+.score-sum { margin: 0; font-size: var(--step--1); color: var(--ink); }
 .line-row details > .axis-bars { padding: 4px 4px 14px 0; }
 .axis-say { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 4px 0 0; font-size: var(--step--1); color: var(--ink-2); }
 .axis-say .key { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 0; }

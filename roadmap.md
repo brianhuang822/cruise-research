@@ -87,7 +87,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D65 | Unconfirmed in Best match | −12 points instead of ranking last (amends D52); per-card "Not confirmed" note |
 | D66 | Quiz questions | Plain vibe / ship-or-places / food questions replace the slider screen (amends D59); answers set compass positions; nights dropped; seasick ranks, doesn't filter |
 | D67 | Line type | "Any kind of line you'd rule out?" (amends D50) |
-| D68 | Quiz results | ≤2 ships per line lead the list; empty results offer to drop the most restrictive answer |
+| D68 | Quiz results | ≤2 ships per line lead the list; empty results offer to drop the most restrictive answer (empty state gone since D77) |
 | D69 | Quiz round 2 | Exact-fit ranking; card % = ranked match; type name from shared leanings; Hawaii; new-ship option; dead options merged; drop suggestion prefers confirmed ships |
 | D70 | Quiz Wi-Fi | "Rather it were included" is a preference (All-inclusive 70), not the free-Wi-Fi filter |
 | D71 | Luxury lever | Budget "More than $800: I want the best" → Budget 90, no cap |
@@ -96,6 +96,7 @@ A public static site that compares **ship × cabin tier** combinations by hard, 
 | D74 | Quiz round 3 | Wi-Fi preference is its own fit term; luxury suites not penalised for ship-wide venues; "best" ties go to the more luxurious ship; South America option |
 | D75 | Grown-up weight | Adults gap counts twice at Adults 70+ (amends D59) |
 | D76 | Every cruise line | Quiz results list all lines by % (best ship), ruled-out lines with reason; open a line for per-axis differences; tick two to compare |
+| D77 | Quiz scores, never filters | Each missed answer −15 (budget −5…−40 by how far over); unknown capped at −15; reasons on every card and line; Simple/Detailed keep filters |
 
 ---
 
@@ -415,7 +416,7 @@ All three modes read and write the **same state** (inputs, filters, weights) and
 
 Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony = `balcony`, `junior_suite`, `perk_class`; Suite = `suite`, `top_suite`.
 
-**Wizard decision tree** (D66; questions skip based on earlier answers; "→ axis" = compass position the answer votes for, averaged per axis):
+**Wizard decision tree** (D66; in the quiz every "filter" below is scored, never applied: a missed answer costs 15, budget 5–40, D77; questions skip based on earlier answers; "→ axis" = compass position the answer votes for, averaged per axis):
 
 | # | Question | Shown when | Sets |
 |---|---|---|---|
@@ -426,7 +427,7 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 5 | Is the ship the destination, or the places you visit? | always | ship → Size 85 + Action 80; places → Size 15 |
 | 6 | Where would you like to go? (multi, incl. Hawaii and South America) | always | regions (untagged ships lose 20, D72) |
 | 7 | How much does the food matter? (a highlight / good is enough) | always | a highlight → All-inclusive 85 |
-| 8 | Any kind of cruise line you'd rule out? (multi, D67) | always | line filter = all lines minus the ruled-out types |
+| 8 | Any kind of cruise line you'd rather avoid? (multi, D67, D77) | always | avoided types score −15 (nothing hidden) |
 | 9 | What kind of cabin? | always | cabin types; suite → Suite 90, inside → Suite 15 |
 | 10 | Which suite perks matter? (multi) | suite | perk filters |
 | 11 | What do you usually drink? | always | drinks input |
@@ -437,7 +438,7 @@ Cabin mapping in Simple: Inside = `interior`; Ocean view = `oceanview`; Balcony 
 | 16 | Anything for the kids? (multi) | kids coming | amenity filters |
 | 17 | Own 100+ shares of a cruise company? (multi) | always | tickers |
 
-Results: the "Your kind of cruise" card (D63), then ships by compass fit with at most two per line leading (D68), the compass panel, "Every cruise line" with each line's % and compare-two (D76), "Your answers" with Change links, and "Adjust your compass" sliders. If nothing fits, the answer that rules out the most is named with an offer to drop it.
+Results: the "Your kind of cruise" card (D63), "Every cruise line" with each line's %, what it misses and compare-two (D76, D77), then ships by match with at most two per line leading (D68), the compass panel, "Your answers" with Change links, and "Adjust your compass" sliders. Nothing is ever empty: every ship is scored (D77).
 
 ## 8. Architecture
 

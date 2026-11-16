@@ -9,7 +9,7 @@ export function createEngine(data) {
   const LINES = Object.fromEntries(data.lines.map((l) => [l.line_id, l]));
   const SHIPS = Object.fromEntries(data.ships.map((s) => [s.ship_id, s]));
   const TIERS = Object.fromEntries(data.tiers.map((t) => [t.tier_id, t]));
-  return { data, LINES, SHIPS, TIERS, compute: (state) => compute(data, LINES, SHIPS, state), lineFits: (state) => lineFits(data, LINES, SHIPS, state) };
+  return { data, LINES, SHIPS, TIERS, compute: (state, opts) => compute(data, LINES, SHIPS, state, opts) };
 }
 
 const tri = (v) => (v == null ? null : !!v);
@@ -56,14 +56,6 @@ function filterChecks(state, row, line, ship, priced) {
   for (const p of state.perks) checks.push([`perk:${p}`, perkCheck(row, p)]);
   for (const a of state.amen) checks.push([`amen:${a}`, amenityCheck(row, ship, a)]);
   return checks;
-}
-
-// Returns true, false, or 'unknown' (passes only because unknowns are kept).
-export function evalFilters(state, row, line, ship, priced) {
-  const results = filterChecks(state, row, line, ship, priced).map(([, v]) => v);
-  if (results.includes(false)) return false;
-  if (results.includes(null)) return state.unknowns === 'include' ? 'unknown' : false;
-  return true;
 }
 
 // Nice to have (D55): how many of the picked perks and amenities this row is confirmed to have.
@@ -145,6 +137,7 @@ export function sortItems(items, key) {
   const val = (it) => (key === 'score' ? it.score : it.m[key]);
   const asc = SORT_ASC.has(key);
   return items.sort((a, b) => {
+    if (key !== 'score' && !!a.misses?.length !== !!b.misses?.length) return a.misses?.length ? 1 : -1;
     if (key !== 'score' && a.partial !== b.partial) return a.partial ? 1 : -1;
     const va = val(a);
     const vb = val(b);
@@ -168,22 +161,27 @@ function prepare(data, LINES, SHIPS, state) {
   return all;
 }
 
-// Every cabin, filtered or not, with its compass fit and the filters it fails by name (D76: the quiz's
-// "Every cruise line" list shows lines your answers rule out, with their match and the reason).
-function lineFits(data, LINES, SHIPS, state) {
-  const all = prepare(data, LINES, SHIPS, state);
-  for (const it of all) it.failed = filterChecks(state, it.row, it.line, it.ship, it.priced).filter(([, v]) => v === false).map(([k]) => k);
-  applyCompass(all, state.compass, { wifiPref: state.wifiPref });
-  return all;
+// The quiz scores answers instead of filtering (D77): a cabin that misses an answer loses MISS_COST points, a budget
+// miss scales with how far over it is (5 just over, 15 at half as much again, 25 at double, at most 40), and missing
+// data costs no more than a miss. Simple and Detailed keep their filters.
+export const MISS_COST = 15;
+function missCost(name, it, state) {
+  if (name !== 'maxPrice') return MISS_COST;
+  const p = it.priced;
+  const price = p.all_in ?? p.fare + Object.values(p.parts).reduce((a, b) => a + b, 0) - p.obc;
+  return Math.min(40, Math.round(5 + 20 * (price / state.maxPrice - 1)));
 }
 
-function compute(data, LINES, SHIPS, state) {
+function compute(data, LINES, SHIPS, state, { soft = false } = {}) {
   const all = prepare(data, LINES, SHIPS, state);
   const items = [];
   for (const it of all) {
-    const pass = evalFilters(state, it.row, it.line, it.ship, it.priced);
-    if (!pass) continue;
-    it.partial = pass === 'unknown';
+    const checks = filterChecks(state, it.row, it.line, it.ship, it.priced);
+    const failed = checks.filter(([, v]) => v === false).map(([k]) => k);
+    it.unknowns = checks.filter(([, v]) => v === null).map(([k]) => k);
+    if (!soft && (failed.length || (it.unknowns.length && state.unknowns !== 'include'))) continue;
+    it.partial = it.unknowns.length > 0;
+    it.misses = soft ? failed.map((k) => [k, missCost(k, it, state)]) : [];
     it.m = Object.fromEntries(METRICS.map(([k]) => [k, k === 'nice' ? niceCount(state, it.row, it.ship) : metricValue(k, it.row, it.ship, it.priced)]));
     items.push(it);
   }
@@ -192,8 +190,11 @@ function compute(data, LINES, SHIPS, state) {
   // Best match (D65, amends D52): a row that passes only because some data is missing loses points instead of
   // ranking below every confirmed row, so thinly researched ships can still win when they fit much better.
   for (const it of items) {
-    if (!it.partial || it.score == null) continue;
-    it.score = Math.max(0, it.score - (state.regions.length && it.ship.regions == null ? REGION_PENALTY : PARTIAL_PENALTY));
+    if (it.score == null) continue;
+    const region = state.regions.length && it.ship.regions == null ? REGION_PENALTY : PARTIAL_PENALTY;
+    it.unknownCost = it.partial ? (soft ? Math.min(region, MISS_COST) : region) : 0;
+    it.penalty = it.misses.reduce((sum, [, c]) => sum + c, 0) + it.unknownCost;
+    it.score = Math.max(0, it.score - it.penalty);
   }
   return sortItems(items, state.sort);
 }

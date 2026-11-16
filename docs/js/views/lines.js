@@ -1,8 +1,8 @@
-// "Every cruise line" on the quiz results (D76): each line's match with its best-fitting ship, lines your answers
-// rule out (with their match and the reason), where you differ from a line, and two lines side by side.
+// "Every cruise line" on the quiz results (D76, D77): each line's match with its best-fitting ship, why a line scores
+// lower (answers it misses, data it lacks), where you differ from a line, and two lines side by side.
 import { html } from '../dom.js';
 import { AXES, gap } from '../axes.js';
-import { AMENITIES, PERKS } from '../state.js';
+import { costNote } from './common.js';
 import { personaFor } from './persona.js';
 
 // Plain words for a ship sitting below / above the visitor on each axis.
@@ -13,41 +13,12 @@ const WORDS = {
 };
 const CLOSE = 8;
 const MAX_COMPARE = 2;
-const CABIN = { interior: 'inside', oceanview: 'ocean-view', balcony: 'balcony', suite: 'suite' };
-const LABEL = Object.fromEntries([...PERKS, ...AMENITIES]);
 
-// Why a filter rules a cabin out, in the visitor's terms.
-function reason(name, state) {
-  const [kind, key] = name.split(':');
-  if (kind === 'perk' || kind === 'amen') return `no ${(LABEL[key] ?? key.replace(/_/g, ' ')).toLowerCase()}`;
-  const text = {
-    segments: 'a kind of line you ruled out', lines: 'a kind of line you ruled out',
-    types: `no ${CABIN[state.types[0]] ?? 'such'} cabins`, regions: "doesn't sail where you picked",
-    maxPrice: 'over your budget', minGt: 'ships too small', dining: 'restaurants not included',
-    privRest: 'no suites-only restaurant', grat: 'tips not included', wifiFree: 'Wi-Fi not included',
-    adults: 'not adults-only', guests: `cabins don't sleep ${state.guests}`,
-  };
-  return text[kind] ?? kind;
-}
-
-// One entry per line: lines with a ship that fits, in the same order and with the same % as the result card,
-// then lines every cabin of which fails an answer, by match. A ruled-out line stands for its cabin that fails the
-// fewest answers (then fits best), so the reason shown is the smallest change that would bring the line back.
-export function lineEntries(items, all, compass, state) {
-  const fits = items.length ? (({ best, rest }) => [best, ...rest])(personaFor(items, compass)) : [];
-  const seen = new Set(fits.map((it) => it.line.line_id));
-  const best = new Map();
-  for (const it of all) {
-    const id = it.line.line_id;
-    if (seen.has(id)) continue;
-    const cur = best.get(id);
-    if (!cur || it.failed.length < cur.failed.length || (it.failed.length === cur.failed.length && it.score > cur.score)) best.set(id, it);
-  }
-  const out = [...best.values()].sort((a, b) => b.score - a.score);
-  return [
-    ...fits.map((it) => ({ it, pct: it.fit, out: null })),
-    ...out.map((it) => ({ it, pct: it.fit, out: [...new Set(it.failed.map((f) => reason(f, state)))].join(' · ') })),
-  ];
+// One entry per line, in the same order and with the same % as the result card (nothing is ruled out, D77).
+function lineEntries(items, compass, state) {
+  if (!items.length) return [];
+  const { best, rest } = personaFor(items, compass);
+  return [best, ...rest].map((it) => ({ it, pct: it.fit, note: costNote(it, state) }));
 }
 
 // How a ship sits against the visitor on one axis, in words.
@@ -74,11 +45,19 @@ function axisRow([k, left, right], compass, marks) {
   </div>`;
 }
 
+// For one line: its fit with your leanings, what it loses and why, as a sum that ends at its %.
+function scoreLine(e) {
+  const { it } = e;
+  if (!it.penalty) return '';
+  return html`<p class="score-sum">${it.fit + it.penalty}% fit with your leanings · ${e.note[0].toLowerCase()}${e.note.slice(1)} → <strong>${it.fit}%</strong></p>`;
+}
+
 function diffView(entries, compass, state) {
   const [a, b] = entries;
   const marks = (k) => [{ cls: 'you', at: compass[k], name: 'You' },
     ...entries.map((e, i) => ({ cls: i ? 'other' : 'top', at: e.it.ax[k], name: e.it.line.name, short: b ? e.it.line.name : 'This line' }))];
   return html`<div class="axis-bars">
+    ${b ? '' : scoreLine(a)}
     ${setAxes(compass).map((ax) => axisRow(ax, compass, marks(ax[0])))}
     ${state.wifiPref ? html`<p class="axis-say"><strong>Wi-Fi in the fare:</strong> ${a.it.line.name} ${wifiText(a.it.row)}${b ? `, ${b.it.line.name} ${wifiText(b.it.row)}` : ''}</p>` : ''}
   </div>`;
@@ -96,28 +75,29 @@ function comparePanel(entries, compass, state) {
   </section>`;
 }
 
-// items: the filtered results; all: engine.lineFits(state); compare: line ids ticked (at most two); open: line ids
-// whose rows are expanded.
-export function lineList({ items, all, state, typeLabel, compare, open }) {
+// items: the quiz results (every cabin, scored); compare: line ids ticked (at most two); open: line ids whose rows
+// are expanded.
+export function lineList({ items, state, typeLabel, compare, open }) {
   const { compass } = state;
-  const entries = lineEntries(items, all, compass, state);
+  const entries = lineEntries(items, compass, state);
   const picked = compare.map((id) => entries.find((e) => e.it.line.line_id === id)).filter(Boolean);
   const full = picked.length >= MAX_COMPARE;
   return html`<section class="lines" aria-labelledby="lines-h">
     <h2 class="quiz-title" id="lines-h">Every cruise line</h2>
-    <p class="hint">Your match with each line's best-fitting ship. Open a line to see where you differ, or tick two to compare them.</p>
+    <p class="hint">Your match with each line's best-fitting ship. Nothing is ruled out: a line that misses an answer scores lower, and the row says why. Open a line to see where you differ, or tick two to compare.</p>
     ${comparePanel(picked, compass, state)}
     <ol class="line-list">${entries.map((e) => {
       const id = e.it.line.line_id;
       const on = compare.includes(id);
-      return html`<li class="line-row${e.out ? ' out' : ''}">
+      return html`<li class="line-row">
         <label class="cmp"><input type="checkbox" data-cmp="${id}" ${on ? html`checked` : ''} ${full && !on ? html`disabled` : ''}><span class="sr-only">Compare ${e.it.line.name}</span></label>
         <details data-line="${id}" ${open.has(id) ? html`open` : ''}>
           <summary>
             <span class="ln">${e.it.line.name}</span>
             <span class="pct">${e.pct ?? '—'}%</span>
             <span class="meter" aria-hidden="true"><i style="width:${e.pct ?? 0}%"></i></span>
-            <span class="sub">${e.out ? `Ruled out: ${e.out}` : `${typeLabel(id)} · best: ${e.it.ship.name}`}</span>
+            <span class="sub">${typeLabel(id)} · best: ${e.it.ship.name}</span>
+            ${e.note ? html`<span class="sub miss">${e.note}</span>` : ''}
           </summary>
           ${diffView([e], compass, state)}
         </details>

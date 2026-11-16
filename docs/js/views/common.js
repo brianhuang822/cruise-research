@@ -1,7 +1,7 @@
 // Rendering pieces shared by all modes. Everything goes through html``, which escapes values.
 import { AXES } from '../axes.js';
 import { html } from '../dom.js';
-import { METRICS, TIER_TYPES } from '../state.js';
+import { AMENITIES, METRICS, PERKS, store, TIER_TYPES } from '../state.js';
 
 export const fmt$ = (v) => (v == null ? '—' : '$' + Math.round(v).toLocaleString('en-US'));
 export const fmt$2 = (v) => (v == null ? '—' : '$' + v.toFixed(2));
@@ -296,6 +296,37 @@ export const staleBadge = (it) => {
 const PLAIN_TYPES = { interior: 'Inside', oceanview: 'Ocean view', balcony: 'Balcony' };
 const cardTitle = (row) => PLAIN_TYPES[row.tier_type] ?? row.name.replace(/\s*\(.*\)\s*$/, '');
 
+// Why a card scores lower (D77): each answer it misses with its cost, then answers it has no data for.
+const CABIN = { interior: 'inside', oceanview: 'ocean-view', balcony: 'balcony', suite: 'suite' };
+const FEATURE = Object.fromEntries([...PERKS, ...AMENITIES, ['teen_club', 'Teen club']]);
+const feature = (key) => (FEATURE[key] ?? key.replace(/_/g, ' ')).toLowerCase();
+
+const withArticle = (word) => `${/^[aeiou]/.test(word) ? 'an' : 'a'} ${word}`;
+
+function missText(name, state) {
+  const [kind, key] = name.split(':');
+  if (kind === 'perk' || kind === 'amen') return `no ${feature(key)}`;
+  return {
+    segments: 'a kind of line you\'d avoid', lines: 'a kind of line you\'d avoid', types: `not ${withArticle(CABIN[state.types[0]] ?? 'chosen')} cabin`,
+    regions: "doesn't sail where you picked", maxPrice: 'over your budget', minGt: 'ship too small', dining: 'restaurants not included',
+    privRest: 'no suites-only restaurant', grat: 'tips not included', wifiFree: 'Wi-Fi not included', adults: 'not adults-only',
+    guests: `cabins don't sleep ${state.guests}`,
+  }[kind] ?? kind;
+}
+
+function unknownText(name) {
+  const [kind, key] = name.split(':');
+  if (kind === 'perk' || kind === 'amen') return feature(key);
+  return { regions: 'where it sails', maxPrice: 'the full price', guests: 'cabin size', adults: 'minimum age', privRest: 'a suites-only restaurant', dining: 'included dining', grat: 'tips', wifiFree: 'Wi-Fi' }[kind] ?? kind;
+}
+
+export function costNote(it, state = store.state) {
+  const parts = (it.misses ?? []).map(([k, c]) => `${missText(k, state)} −${c}`);
+  if (it.partial && it.unknowns?.length) parts.push(`no data on ${[...new Set(it.unknowns.map(unknownText))].join(', ')} −${it.unknownCost}`);
+  const text = parts.join(' · ');
+  return text && text[0].toUpperCase() + text.slice(1);
+}
+
 export function cardHtml({ it, more }, flagUnconfirmed = false) {
   const { row, ship, line, priced } = it;
   const chips = perkChips(row, ship).slice(0, 3);
@@ -305,7 +336,7 @@ export function cardHtml({ it, more }, flagUnconfirmed = false) {
         <div class="card-head">
           <h3 class="card-title">${cardTitle(row)}</h3>
           <p class="ship-name">${ship.name} · ${line.name}</p>
-          ${flagUnconfirmed && it.partial ? html`<p class="unconfirmed">Not confirmed for everything you picked</p>` : ''}
+          ${(flagUnconfirmed && it.partial) || it.misses?.length ? html`<p class="unconfirmed">${costNote(it)}</p>` : ''}
           ${staleBadge(it)}
         </div>
         <div class="card-price">${priceCell(priced)}</div>

@@ -11,7 +11,6 @@ import { onPersonaClick, personaCard } from './persona.js';
 // Filled from the data in initWizard: line ids for each line type (see lineTypes), and the reverse.
 let LINE_TYPES = {};
 let TYPE_OF = {};
-let engine = null;
 const add = (list, values) => values.reduce((acc, v) => toggleIn(acc, v, true), list);
 // Fares are estimates (D57), so a budget limit has leeway rather than cutting off a line for a few dollars (D64).
 const BUDGET_LEEWAY = 1.15;
@@ -48,9 +47,10 @@ export const QUESTIONS = [
       ['highlight', 'A highlight: great restaurants included in the fare'], ['good', 'Good food is enough; paying extra for a special dinner is fine']],
     apply: () => {},
     axes: (a) => (a === 'highlight' ? { inclusive: 85 } : {}) },
-  // D67 (amends D50): rule types out rather than pick them, so first-timers who don't know the types lose nothing.
-  { id: 'line_type', title: "Any kind of cruise line you'd rule out?", multi: true,
-    help: 'Skip to keep them all. Every line includes a buffet and a main dining room with waiters.',
+  // D67 (amends D50): name types to avoid rather than pick them, so first-timers who don't know the types lose nothing.
+  // D77: avoided types score lower; nothing is hidden.
+  { id: 'line_type', title: "Any kind of cruise line you'd rather avoid?", multi: true,
+    help: "Skip if you're open to all. Kinds you pick score lower. Every line includes a buffet and a main dining room with waiters.",
     options: [
       ['mainstream', 'Mainstream', 'Carnival, Royal Caribbean, NCL, MSC, Disney. Big ships with the most to do; specialty restaurants extra.'],
       ['premium', 'Premium', 'Celebrity, Princess, Holland America, Cunard, Azamara. A step up in food and service; specialty restaurants extra.'],
@@ -182,31 +182,6 @@ function spread(groups) {
   return [...first, ...later];
 }
 
-// Nothing fits: find the one answer whose removal lets the most confirmed ships through (then the most ships), so
-// the visitor can drop it without landing on a list of unconfirmed matches (D68).
-function blockingAnswer() {
-  let best = null;
-  for (const q of visible()) {
-    if (answers[q.id] == null) continue;
-    const rest = { ...answers };
-    delete rest[q.id];
-    const groups = byShip(engine.compute({ ...stateFromAnswers(rest), sort: 'score' }));
-    const n = groups.length;
-    const sure = groups.filter((g) => !g.it.partial).length;
-    if (n && (!best || sure > best.sure || (sure === best.sure && n > best.n))) best = { q, n, sure };
-  }
-  return best;
-}
-
-function emptyView() {
-  const block = blockingAnswer();
-  return html`<div class="empty">
-    <p>Nothing fits every answer.</p>
-    ${block ? html`<p>Your answer to “${block.q.title}” rules out the most. Without it, ${block.n} ${block.n === 1 ? 'ship fits' : 'ships fit'}${block.sure < block.n ? ` (${block.sure} confirmed)` : ''}.</p>
-      <button type="button" class="btn-primary" data-drop="${block.q.id}">Drop that answer</button>` : ''}
-  </div>`;
-}
-
 function resultsView(items) {
   const qs = visible();
   const s = store.state;
@@ -215,21 +190,20 @@ function resultsView(items) {
   const top = ships.slice(0, shown);
   return html`<div class="quiz-results">
     ${personaCard(items, s.compass, typeLabel)}
+    ${isSet(s.compass) ? lineList({ items, state: s, typeLabel, compare, open: openLines }) : ''}
     <div class="results-head">
       <h2 class="quiz-title">Your matches</h2>
       <p class="tally">${tallyText(ships.length, items.length)}</p>
     </div>
     <div class="rerank">
-      <p class="rank-summary">${isSet(s.compass) ? 'Ranked by how closely each ship fits your answers.' : 'Ranked by price and ship size. Answer more questions, or set your compass below, to rank by fit.'}</p>
+      <p class="rank-summary">${isSet(s.compass) ? 'Ranked by how closely each ship fits your answers. Nothing is hidden: a ship that misses an answer scores lower, and its card says why.' : 'Ranked by price and ship size. Answer more questions, or set your compass below, to rank by fit.'}</p>
       ${sortSelect('q-sort', s.sort)}
     </div>
     ${isSet(s.compass) && items.length ? compassPanel(ships, s.compass) : ''}
-    ${top.length ? html`${shipCards(top)}
-        ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}`
-      : emptyView()}
-    ${isSet(s.compass) ? lineList({ items, all: engine.lineFits(s), state: s, typeLabel, compare, open: openLines }) : ''}
+    ${shipCards(top)}
+    ${ships.length > shown ? html`<button type="button" class="btn-more" id="q-more">Show 5 more ships</button>` : ''}
     <div class="quiz-actions">
-      <button type="button" class="btn-primary" data-goto="simple">See all ${ships.length} ships</button>
+      <button type="button" class="btn-primary" data-goto="simple">Browse and filter all ships</button>
       <button type="button" class="link" id="q-restart">Start over</button>
     </div>
     <details class="fold" id="q-answers" ${open.answers ? html`open` : ''}>
@@ -280,8 +254,7 @@ function advance() {
 // The quiz's own name for a line's type (D50), e.g. "Premium, every restaurant included".
 const typeLabel = (lineId) => QUESTIONS.find((q) => q.id === 'line_type').options.find(([k]) => k === TYPE_OF[lineId])?.[1] ?? '';
 
-export function initWizard(goTo, data, eng) {
-  engine = eng;
+export function initWizard(goTo, data) {
   LINE_TYPES = lineTypes(data);
   TYPE_OF = Object.fromEntries(Object.entries(LINE_TYPES).flatMap(([type, ids]) => ids.map((id) => [id, type])));
   $('mode-wizard').onclick = (e) => {
@@ -307,7 +280,6 @@ export function initWizard(goTo, data, eng) {
     else if (id === 'q-back') { step = Math.max(0, step - 1); renderWizard(lastItems); }
     else if (id === 'q-restart') { answers = {}; step = 0; compare = []; openLines.clear(); commit(); }
     else if (id === 'q-more') { shown += TOP; renderWizard(lastItems); }
-    else if (e.target.dataset.drop) { delete answers[e.target.dataset.drop]; commit(); }
     else if (e.target.dataset.edit) { step = Number(e.target.dataset.edit); renderWizard(lastItems); }
     else if (e.target.dataset.goto) goTo(e.target.dataset.goto);
   };

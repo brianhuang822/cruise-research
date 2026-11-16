@@ -29,7 +29,8 @@ function render() {
     shownMode = mode;
     VIEWS[mode].show();
   }
-  items = engine.compute(store.state);
+  // The quiz scores every answer instead of filtering (D77); Simple and Detailed filter.
+  items = engine.compute(store.state, { soft: mode === 'wizard' });
   VIEWS[mode].render(items);
 }
 
@@ -94,7 +95,7 @@ async function main() {
   $('foot-updated').textContent = `Updated ${data.last_updated} · ${n} lines · ${data.ships.length} ships · ${data.rows.length.toLocaleString('en-US')} cabin options · CDC scores fetched ${data.snapshots.cdc_vsp ?? 'n/a'}`;
   initSimple(engine);
   initDetailed(engine, render);
-  initWizard(goTo, data, engine);
+  initWizard(goTo, data);
   bindShell();
   store.listeners.add(render);
   render();
